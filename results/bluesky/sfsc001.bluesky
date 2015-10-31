@@ -1,0 +1,802 @@
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 1120  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -F 20000 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Tue Mar 30 08:31:16 2010
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Tue Mar 30 08:31:16 2010 Mounting 4 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Tue Mar 30 08:31:32 2010 Completed.
+Tue Mar 30 08:31:32 2010 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:31:32 2010 Completed.
+Tue Mar 30 08:31:32 2010 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:31:32 2010 Received.
+
+Tue Mar 30 08:31:32 2010 Initializing test directories.
+Tue Mar 30 08:31:32 2010 Child 3 will create 167 directories.
+Tue Mar 30 08:31:32 2010 Child 1 will create 167 directories.
+Tue Mar 30 08:31:32 2010 Child 0 will create 167 directories.
+Tue Mar 30 08:31:32 2010 Child 2 will create 167 directories.
+Tue Mar 30 08:31:32 2010 Child 0 finished creating 167 directories.
+Tue Mar 30 08:31:32 2010 Child 0 will create 5102 files.
+Tue Mar 30 08:31:32 2010 Child 1 finished creating 167 directories.
+Tue Mar 30 08:31:32 2010 Child 1 will create 5102 files.
+Tue Mar 30 08:31:32 2010 Child 2 finished creating 167 directories.
+Tue Mar 30 08:31:32 2010 Child 2 will create 5102 files.
+Tue Mar 30 08:31:32 2010 Child 3 finished creating 167 directories.
+Tue Mar 30 08:31:32 2010 Child 3 will create 5102 files.
+Tue Mar 30 08:35:27 2010 Child 3 verified 5102 files, created 5052
+Tue Mar 30 08:35:27 2010 Child 3 will create 6 symlinks.
+Tue Mar 30 08:35:27 2010 Child 3 finished creating 6 symlinks.
+Tue Mar 30 08:35:35 2010 Child 1 verified 5102 files, created 5052
+Tue Mar 30 08:35:35 2010 Child 1 will create 6 symlinks.
+Tue Mar 30 08:35:35 2010 Child 2 verified 5102 files, created 5052
+Tue Mar 30 08:35:35 2010 Child 2 will create 6 symlinks.
+Tue Mar 30 08:35:35 2010 Child 1 finished creating 6 symlinks.
+Tue Mar 30 08:35:35 2010 Child 2 finished creating 6 symlinks.
+Tue Mar 30 08:35:35 2010 Child 0 verified 5102 files, created 5052
+Tue Mar 30 08:35:35 2010 Child 0 will create 6 symlinks.
+Tue Mar 30 08:35:35 2010 Child 0 finished creating 6 symlinks.
+Tue Mar 30 08:35:36 2010 Completed.
+Tue Mar 30 08:35:36 2010 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:35:36 2010 Completed.
+Tue Mar 30 08:35:36 2010 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:35:37 2010 Received.
+Tue Mar 30 08:35:37 2010 Performing 300 seconds pretest warmup.
+Child 2 - 50 aborted ops
+Child 0 - 50 aborted ops
+Child 0 - 100 aborted ops
+Child 0 - 150 aborted ops
+Child 0 - 200 aborted ops
+Child 0 - 250 aborted ops
+Child 2 - 100 aborted ops
+Child 0 - 300 aborted ops
+Child 0 - 350 aborted ops
+Child 0 - 400 aborted ops
+Tue Mar 30 08:40:37 2010 Completed.
+Tue Mar 30 08:40:37 2010 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:40:37 2010 Completed.
+Tue Mar 30 08:40:37 2010 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Child 3 - 50 aborted ops
+Tue Mar 30 08:40:38 2010 Received.
+Tue Mar 30 08:40:38 2010 Starting 300 seconds test run.
+Child 2 - 150 aborted ops
+Child 3 - 100 aborted ops
+Child 1 - 50 aborted ops
+Child 0 - 450 aborted ops
+Child 3 - 150 aborted ops
+Child 1 - 100 aborted ops
+Child 2 - 200 aborted ops
+Child 0 - 500 aborted ops
+Child 2 - 250 aborted ops
+Child 3 - 200 aborted ops
+Child 0 - 550 aborted ops
+Child 1 - 150 aborted ops
+Child 2 - 300 aborted ops
+Child 3 - 250 aborted ops
+Child 0 - 600 aborted ops
+Child 2 - 350 aborted ops
+Child 1 - 200 aborted ops
+Child 3 - 300 aborted ops
+Child 0 - 650 aborted ops
+Child 1 - 250 aborted ops
+Child 2 - 400 aborted ops
+Child 0 - 700 aborted ops
+Child 3 - 350 aborted ops
+Child 1 - 300 aborted ops
+Child 2 - 450 aborted ops
+Child 1 - 350 aborted ops
+Child 3 - 400 aborted ops
+Child 0 - 750 aborted ops
+Child 1 - 400 aborted ops
+Child 2 - 500 aborted ops
+Child 0 - 800 aborted ops
+Child 2 - 550 aborted ops
+Child 1 - 450 aborted ops
+SFS Single Client (c09-44) Results, Tue Mar 30 08:45:48 2010
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    26.2%    89922    89922      0      0.21     1.43      0.01  5.2%
+setattr      4.0%     4.1%    13927    13927      0      0.21     0.17      0.01  0.8%
+lookup      24.0%    24.1%    82499    82499      0      0.22     1.50      0.01  5.0%
+readlink     1.0%     1.0%     3328     3328      0      0.21     0.20      0.02  0.2%
+read        18.0%    18.1%    62082    76576      0      1.92    10.71      0.03 32.6%
+write       10.0%    10.0%    34266    41400      0      4.98    16.14      0.04 46.7%
+create       1.0%     1.0%     3397     3397      0      5.32    28.43      0.18  5.0%
+remove       1.0%     0.5%     1726     1726      0      0.35     0.22      0.02  0.2%
+readdir      1.0%     1.0%     3411     3411      0      0.41     0.20      0.02  0.4%
+fsstat       1.0%     1.0%     3477     3477      0      0.20     0.12      0.01  0.2%
+access      11.0%    11.1%    37916    37916      0      0.23     2.49      0.02  2.4%
+readdirplus  2.0%     2.0%     6943     6943      0      0.74     0.99      0.02  1.4%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT: 1142.98 Ops/Sec   AVG. RESPONSE TIME:    1.06 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 1120 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  342894         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 364522   
+PHYSICAL NFS V3 THROUGHPUT: 1215.07 Ops/Sec
+FILE SET SIZE CREATED: 10622124.0 KB
+FILE SET SIZE ACCESSED: 3188124.0 - 3512990.0 KB  (100.00% to 110.19% of Base)
+
+------------------------------------------------------------------------
+
+Tue Mar 30 08:45:48 2010 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (NFS V3 operations/second) = 1120
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 20004 Files created for I/O operations
+		   6000 Files accessed for I/O operations
+		    404 Files for non-I/O operations
+		     24 Symlinks
+		    664 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Tue Mar 30 08:45:48 2010 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:45:48 2010 Completed.
+Tue Mar 30 08:45:48 2010 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Tue Mar 30 08:45:49 2010 Received.
+Tue Mar 30 08:45:49 2010 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Tue Mar 30 08:45:49 2010 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 1160  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -F 20000 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Tue Mar 30 08:45:51 2010
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Tue Mar 30 08:45:51 2010 Mounting 4 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Tue Mar 30 08:46:02 2010 Completed.
+Tue Mar 30 08:46:02 2010 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:46:02 2010 Completed.
+Tue Mar 30 08:46:02 2010 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:46:07 2010 Received.
+
+Tue Mar 30 08:46:07 2010 Initializing test directories.
+Tue Mar 30 08:46:07 2010 Child 3 will create 167 directories.
+Tue Mar 30 08:46:07 2010 Child 2 will create 167 directories.
+Tue Mar 30 08:46:07 2010 Child 1 will create 167 directories.
+Tue Mar 30 08:46:07 2010 Child 0 will create 167 directories.
+Tue Mar 30 08:46:10 2010 Child 2 finished creating 167 directories.
+Tue Mar 30 08:46:10 2010 Child 2 will create 5102 files.
+Tue Mar 30 08:46:10 2010 Child 0 finished creating 167 directories.
+Tue Mar 30 08:46:10 2010 Child 0 will create 5102 files.
+Tue Mar 30 08:46:12 2010 Child 2 verified 5102 files, created 51
+Tue Mar 30 08:46:12 2010 Child 2 will create 6 symlinks.
+Tue Mar 30 08:46:12 2010 Child 2 finished creating 6 symlinks.
+Tue Mar 30 08:46:12 2010 Child 3 finished creating 167 directories.
+Tue Mar 30 08:46:12 2010 Child 3 will create 5102 files.
+Tue Mar 30 08:46:13 2010 Child 0 verified 5102 files, created 51
+Tue Mar 30 08:46:13 2010 Child 0 will create 6 symlinks.
+Tue Mar 30 08:46:13 2010 Child 0 finished creating 6 symlinks.
+Tue Mar 30 08:46:15 2010 Child 3 verified 5102 files, created 48
+Tue Mar 30 08:46:15 2010 Child 3 will create 6 symlinks.
+Tue Mar 30 08:46:15 2010 Child 3 finished creating 6 symlinks.
+Tue Mar 30 08:46:23 2010 Child 1 finished creating 167 directories.
+Tue Mar 30 08:46:23 2010 Child 1 will create 5102 files.
+Tue Mar 30 08:46:26 2010 Child 1 verified 5102 files, created 50
+Tue Mar 30 08:46:26 2010 Child 1 will create 6 symlinks.
+Tue Mar 30 08:46:26 2010 Child 1 finished creating 6 symlinks.
+Tue Mar 30 08:46:27 2010 Completed.
+Tue Mar 30 08:46:27 2010 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:46:27 2010 Completed.
+Tue Mar 30 08:46:27 2010 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:46:28 2010 Received.
+Tue Mar 30 08:46:28 2010 Performing 300 seconds pretest warmup.
+Child 3 - 50 aborted ops
+Child 1 - 50 aborted ops
+Child 1 - 100 aborted ops
+Child 0 - 50 aborted ops
+Child 0 - 100 aborted ops
+Tue Mar 30 08:51:28 2010 Completed.
+Tue Mar 30 08:51:28 2010 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:51:28 2010 Completed.
+Tue Mar 30 08:51:28 2010 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:51:29 2010 Received.
+Tue Mar 30 08:51:29 2010 Starting 300 seconds test run.
+Child 2 - 50 aborted ops
+Child 0 - 150 aborted ops
+Child 2 - 100 aborted ops
+Child 3 - 100 aborted ops
+Child 1 - 150 aborted ops
+Child 0 - 200 aborted ops
+Child 3 - 150 aborted ops
+Child 2 - 150 aborted ops
+Child 0 - 250 aborted ops
+Child 1 - 200 aborted ops
+Child 2 - 200 aborted ops
+Child 3 - 200 aborted ops
+Child 1 - 250 aborted ops
+Child 0 - 300 aborted ops
+Child 3 - 250 aborted ops
+Child 0 - 350 aborted ops
+Child 1 - 300 aborted ops
+Child 2 - 250 aborted ops
+Child 3 - 300 aborted ops
+Child 0 - 400 aborted ops
+Child 2 - 300 aborted ops
+Child 1 - 350 aborted ops
+Child 2 - 350 aborted ops
+Child 0 - 450 aborted ops
+Child 3 - 350 aborted ops
+Child 1 - 400 aborted ops
+Child 1 - 450 aborted ops
+Child 0 - 500 aborted ops
+Child 3 - 400 aborted ops
+Child 2 - 400 aborted ops
+Child 0 - 550 aborted ops
+Child 3 - 450 aborted ops
+Child 1 - 500 aborted ops
+Child 0 - 600 aborted ops
+SFS Single Client (c09-44) Results, Tue Mar 30 08:56:39 2010
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    26.2%    93713    93713      0      0.27     2.75      0.01  5.1%
+setattr      4.0%     4.0%    14480    14480      0      0.24     0.39      0.01  0.7%
+lookup      24.0%    24.1%    86404    86404      0      0.27     2.43      0.01  4.8%
+readlink     1.0%     1.0%     3565     3565      0      0.23     0.27      0.02  0.2%
+read        18.0%    18.1%    64879    79766      0      2.72    20.35      0.03 36.3%
+write       10.0%    10.0%    35960    43551      0      5.90    24.92      0.05 43.7%
+create       1.0%     1.0%     3533     3533      0      6.85    44.01      0.22  5.0%
+remove       1.0%     0.5%     1756     1756      0      0.38     0.31      0.03  0.1%
+readdir      1.0%     1.0%     3641     3641      0      0.45     0.39      0.02  0.3%
+fsstat       1.0%     1.0%     3627     3627      0      0.24     0.33      0.02  0.2%
+access      11.0%    11.1%    39667    39667      0      0.26     2.52      0.02  2.1%
+readdirplus  2.0%     2.0%     7119     7119      0      0.98     2.05      0.03  1.4%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT: 1194.48 Ops/Sec   AVG. RESPONSE TIME:    1.35 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 1160 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  358344         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 380822   
+PHYSICAL NFS V3 THROUGHPUT: 1269.40 Ops/Sec
+FILE SET SIZE CREATED: 10622124.0 KB
+FILE SET SIZE ACCESSED: 3188124.0 - 3517570.0 KB  (100.00% to 110.33% of Base)
+
+------------------------------------------------------------------------
+
+Tue Mar 30 08:56:39 2010 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (NFS V3 operations/second) = 1160
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 20004 Files created for I/O operations
+		   6000 Files accessed for I/O operations
+		    404 Files for non-I/O operations
+		     24 Symlinks
+		    664 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Tue Mar 30 08:56:39 2010 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:56:39 2010 Completed.
+Tue Mar 30 08:56:39 2010 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Tue Mar 30 08:56:40 2010 Received.
+Tue Mar 30 08:56:40 2010 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Tue Mar 30 08:56:40 2010 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 1200  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -F 20000 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Tue Mar 30 08:56:42 2010
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Tue Mar 30 08:56:42 2010 Mounting 4 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Tue Mar 30 08:56:53 2010 Completed.
+Tue Mar 30 08:56:53 2010 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:56:53 2010 Completed.
+Tue Mar 30 08:56:53 2010 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:56:58 2010 Received.
+
+Tue Mar 30 08:56:58 2010 Initializing test directories.
+Tue Mar 30 08:56:58 2010 Child 0 will create 167 directories.
+Tue Mar 30 08:56:58 2010 Child 1 will create 167 directories.
+Tue Mar 30 08:56:58 2010 Child 3 will create 167 directories.
+Tue Mar 30 08:56:58 2010 Child 2 will create 167 directories.
+Tue Mar 30 08:57:02 2010 Child 1 finished creating 167 directories.
+Tue Mar 30 08:57:02 2010 Child 1 will create 5102 files.
+Tue Mar 30 08:57:04 2010 Child 2 finished creating 167 directories.
+Tue Mar 30 08:57:04 2010 Child 2 will create 5102 files.
+Tue Mar 30 08:57:06 2010 Child 1 verified 5102 files, created 51
+Tue Mar 30 08:57:06 2010 Child 1 will create 6 symlinks.
+Tue Mar 30 08:57:06 2010 Child 1 finished creating 6 symlinks.
+Tue Mar 30 08:57:07 2010 Child 3 finished creating 167 directories.
+Tue Mar 30 08:57:07 2010 Child 3 will create 5102 files.
+Tue Mar 30 08:57:09 2010 Child 0 finished creating 167 directories.
+Tue Mar 30 08:57:09 2010 Child 0 will create 5102 files.
+Tue Mar 30 08:57:11 2010 Child 2 verified 5102 files, created 43
+Tue Mar 30 08:57:11 2010 Child 2 will create 6 symlinks.
+Tue Mar 30 08:57:11 2010 Child 2 finished creating 6 symlinks.
+Tue Mar 30 08:57:16 2010 Child 3 verified 5102 files, created 51
+Tue Mar 30 08:57:16 2010 Child 3 will create 6 symlinks.
+Tue Mar 30 08:57:16 2010 Child 3 finished creating 6 symlinks.
+Tue Mar 30 08:57:18 2010 Child 0 verified 5102 files, created 51
+Tue Mar 30 08:57:18 2010 Child 0 will create 6 symlinks.
+Tue Mar 30 08:57:18 2010 Child 0 finished creating 6 symlinks.
+Tue Mar 30 08:57:18 2010 Completed.
+Tue Mar 30 08:57:18 2010 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:57:18 2010 Completed.
+Tue Mar 30 08:57:18 2010 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 08:57:19 2010 Received.
+Tue Mar 30 08:57:19 2010 Performing 300 seconds pretest warmup.
+Tue Mar 30 09:02:19 2010 Completed.
+Tue Mar 30 09:02:19 2010 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:02:19 2010 Completed.
+Tue Mar 30 09:02:19 2010 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:02:20 2010 Received.
+Tue Mar 30 09:02:20 2010 Starting 300 seconds test run.
+Child 2 - 50 aborted ops
+Child 3 - 50 aborted ops
+Child 2 - 100 aborted ops
+Child 1 - 50 aborted ops
+Child 0 - 50 aborted ops
+Child 2 - 150 aborted ops
+Child 3 - 100 aborted ops
+Child 1 - 100 aborted ops
+Child 0 - 100 aborted ops
+Child 3 - 150 aborted ops
+Child 2 - 200 aborted ops
+Child 0 - 150 aborted ops
+Child 2 - 250 aborted ops
+Child 3 - 200 aborted ops
+Child 1 - 150 aborted ops
+Child 0 - 200 aborted ops
+Child 0 - 250 aborted ops
+Child 3 - 250 aborted ops
+Child 2 - 300 aborted ops
+Child 1 - 200 aborted ops
+Child 0 - 300 aborted ops
+Child 3 - 300 aborted ops
+Child 2 - 350 aborted ops
+SFS Single Client (c09-44) Results, Tue Mar 30 09:07:32 2010
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    26.1%    89394    89394      0      0.35     3.77      0.01  2.3%
+setattr      4.0%     4.0%    13755    13755      0      0.37     4.15      0.03  0.4%
+lookup      24.0%    24.0%    82255    82255      0      0.36     3.66      0.01  2.2%
+readlink     1.0%     1.0%     3503     3503      0      0.36     4.86      0.07  0.1%
+read        18.0%    18.1%    61841    75603      0      9.64   130.30      0.09 44.8%
+write       10.0%     9.9%    34024    41146      0     12.15   126.00      0.12 31.1%
+create       1.0%     1.0%     3521     3521      0     64.38   464.63      0.71 17.0%
+remove       1.0%     0.6%     2217     2217      0      0.58     5.09      0.09  0.1%
+readdir      1.0%     1.0%     3449     3449      0      0.57     3.45      0.06  0.1%
+fsstat       1.0%     1.0%     3433     3433      0      0.37     3.58      0.06  0.1%
+access      11.0%    11.0%    37704    37704      0      0.34     3.66      0.02  1.0%
+readdirplus  2.0%     2.0%     6937     6937      0      1.31     4.74      0.05  0.7%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT: 1143.92 Ops/Sec   AVG. RESPONSE TIME:    3.88 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 1200 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  342033         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 362917   
+PHYSICAL NFS V3 THROUGHPUT: 1213.76 Ops/Sec
+FILE SET SIZE CREATED: 10622124.0 KB
+FILE SET SIZE ACCESSED: 3188124.0 - 3506936.0 KB  (100.00% to 110.00% of Base)
+
+------------------------------------------------------------------------
+
+Tue Mar 30 09:07:32 2010 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (NFS V3 operations/second) = 1200
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 20004 Files created for I/O operations
+		   6000 Files accessed for I/O operations
+		    404 Files for non-I/O operations
+		     24 Symlinks
+		    664 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Tue Mar 30 09:07:32 2010 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:07:32 2010 Completed.
+Tue Mar 30 09:07:32 2010 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Tue Mar 30 09:07:33 2010 Received.
+Tue Mar 30 09:07:33 2010 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Tue Mar 30 09:07:33 2010 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 1240  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -F 20000 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Tue Mar 30 09:07:35 2010
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Tue Mar 30 09:07:35 2010 Mounting 4 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Tue Mar 30 09:07:46 2010 Completed.
+Tue Mar 30 09:07:46 2010 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:07:46 2010 Completed.
+Tue Mar 30 09:07:46 2010 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:07:51 2010 Received.
+
+Tue Mar 30 09:07:51 2010 Initializing test directories.
+Tue Mar 30 09:07:51 2010 Child 3 will create 167 directories.
+Tue Mar 30 09:07:51 2010 Child 0 will create 167 directories.
+Tue Mar 30 09:07:51 2010 Child 1 will create 167 directories.
+Tue Mar 30 09:07:51 2010 Child 2 will create 167 directories.
+Tue Mar 30 09:07:53 2010 Child 0 finished creating 167 directories.
+Tue Mar 30 09:07:53 2010 Child 0 will create 5102 files.
+Tue Mar 30 09:07:56 2010 Child 0 verified 5102 files, created 51
+Tue Mar 30 09:07:56 2010 Child 0 will create 6 symlinks.
+Tue Mar 30 09:07:56 2010 Child 0 finished creating 6 symlinks.
+Tue Mar 30 09:07:58 2010 Child 1 finished creating 167 directories.
+Tue Mar 30 09:07:58 2010 Child 1 will create 5102 files.
+Tue Mar 30 09:08:01 2010 Child 2 finished creating 167 directories.
+Tue Mar 30 09:08:01 2010 Child 2 will create 5102 files.
+Tue Mar 30 09:08:01 2010 Child 1 verified 5102 files, created 50
+Tue Mar 30 09:08:01 2010 Child 1 will create 6 symlinks.
+Tue Mar 30 09:08:01 2010 Child 1 finished creating 6 symlinks.
+Tue Mar 30 09:08:04 2010 Child 2 verified 5102 files, created 51
+Tue Mar 30 09:08:04 2010 Child 2 will create 6 symlinks.
+Tue Mar 30 09:08:04 2010 Child 2 finished creating 6 symlinks.
+Tue Mar 30 09:08:04 2010 Child 3 finished creating 167 directories.
+Tue Mar 30 09:08:04 2010 Child 3 will create 5102 files.
+Tue Mar 30 09:08:08 2010 Child 3 verified 5102 files, created 51
+Tue Mar 30 09:08:08 2010 Child 3 will create 6 symlinks.
+Tue Mar 30 09:08:08 2010 Child 3 finished creating 6 symlinks.
+Tue Mar 30 09:08:08 2010 Completed.
+Tue Mar 30 09:08:08 2010 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:08:08 2010 Completed.
+Tue Mar 30 09:08:08 2010 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:08:09 2010 Received.
+Tue Mar 30 09:08:09 2010 Performing 300 seconds pretest warmup.
+Child 3 - 50 aborted ops
+Child 3 - 100 aborted ops
+Child 3 - 150 aborted ops
+Child 3 - 200 aborted ops
+Child 3 - 250 aborted ops
+Tue Mar 30 09:13:09 2010 Completed.
+Tue Mar 30 09:13:09 2010 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:13:09 2010 Completed.
+Tue Mar 30 09:13:09 2010 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:13:10 2010 Received.
+Tue Mar 30 09:13:10 2010 Starting 300 seconds test run.
+Child 0 - 50 aborted ops
+Child 2 - 50 aborted ops
+Child 2 - 100 aborted ops
+Child 0 - 100 aborted ops
+Child 1 - 50 aborted ops
+Child 3 - 300 aborted ops
+Child 1 - 100 aborted ops
+Child 0 - 150 aborted ops
+Child 2 - 150 aborted ops
+Child 3 - 350 aborted ops
+Child 0 - 200 aborted ops
+Child 1 - 150 aborted ops
+Child 2 - 200 aborted ops
+Child 3 - 400 aborted ops
+Child 0 - 250 aborted ops
+Child 1 - 200 aborted ops
+Child 2 - 250 aborted ops
+Child 3 - 450 aborted ops
+Child 0 - 300 aborted ops
+Child 2 - 300 aborted ops
+SFS Single Client (c09-44) Results, Tue Mar 30 09:18:22 2010
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    26.0%    72208    72208      0      0.38     4.01      0.01  2.0%
+setattr      4.0%     4.0%    11038    11038      0      0.41     4.23      0.04  0.3%
+lookup      24.0%    24.1%    66776    66776      0      0.45     5.05      0.02  2.2%
+readlink     1.0%     1.0%     2804     2804      0      0.54     7.51      0.10  0.1%
+read        18.0%    18.1%    50192    61819      0     13.93   178.22      0.12 50.2%
+write       10.0%    10.1%    27927    33607      0     14.86   151.62      0.14 29.8%
+create       1.0%     1.0%     2839     2839      0     66.52   460.37      0.79 13.6%
+remove       1.0%     0.6%     1619     1619      0      0.66     6.02      0.12  0.1%
+readdir      1.0%     1.0%     2811     2811      0      0.61     4.04      0.07  0.1%
+fsstat       1.0%     1.0%     2813     2813      0      0.43     5.51      0.09  0.1%
+access      11.0%    11.0%    30589    30589      0      0.43     5.10      0.03  0.9%
+readdirplus  2.0%     2.0%     5595     5595      0      1.46     4.62      0.06  0.6%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  927.12 Ops/Sec   AVG. RESPONSE TIME:    5.01 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 1240 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  277211         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 294518   
+PHYSICAL NFS V3 THROUGHPUT:  985.01 Ops/Sec
+FILE SET SIZE CREATED: 10622124.0 KB
+FILE SET SIZE ACCESSED: 3188124.0 - 3506936.0 KB  (100.00% to 110.00% of Base)
+
+------------------------------------------------------------------------
+
+Tue Mar 30 09:18:22 2010 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (NFS V3 operations/second) = 1240
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 20004 Files created for I/O operations
+		   6000 Files accessed for I/O operations
+		    404 Files for non-I/O operations
+		     24 Symlinks
+		    664 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Tue Mar 30 09:18:22 2010 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:18:22 2010 Completed.
+Tue Mar 30 09:18:22 2010 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Tue Mar 30 09:18:23 2010 Received.
+Tue Mar 30 09:18:23 2010 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Tue Mar 30 09:18:23 2010 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 1280  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -F 20000 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ c09-40.sysnet.ucsd.edu:/ 
+NFS V3 Protocol Version
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+************************************************************************
+
+SFS NFS V3 Benchmark Client Logfile, Tue Mar 30 09:18:25 2010
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Tue Mar 30 09:18:25 2010 Mounting 4 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Tue Mar 30 09:18:36 2010 Completed.
+Tue Mar 30 09:18:36 2010 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:18:36 2010 Completed.
+Tue Mar 30 09:18:36 2010 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:18:41 2010 Received.
+
+Tue Mar 30 09:18:41 2010 Initializing test directories.
+Tue Mar 30 09:18:41 2010 Child 3 will create 167 directories.
+Tue Mar 30 09:18:41 2010 Child 0 will create 167 directories.
+Tue Mar 30 09:18:41 2010 Child 1 will create 167 directories.
+Tue Mar 30 09:18:41 2010 Child 2 will create 167 directories.
+Tue Mar 30 09:18:41 2010 Child 3 finished creating 167 directories.
+Tue Mar 30 09:18:41 2010 Child 3 will create 5102 files.
+Tue Mar 30 09:18:44 2010 Child 3 verified 5102 files, created 48
+Tue Mar 30 09:18:44 2010 Child 3 will create 6 symlinks.
+Tue Mar 30 09:18:44 2010 Child 3 finished creating 6 symlinks.
+Tue Mar 30 09:18:52 2010 Child 1 finished creating 167 directories.
+Tue Mar 30 09:18:52 2010 Child 1 will create 5102 files.
+Tue Mar 30 09:18:55 2010 Child 2 finished creating 167 directories.
+Tue Mar 30 09:18:55 2010 Child 2 will create 5102 files.
+Tue Mar 30 09:18:56 2010 Child 0 finished creating 167 directories.
+Tue Mar 30 09:18:56 2010 Child 0 will create 5102 files.
+Tue Mar 30 09:18:56 2010 Child 1 verified 5102 files, created 51
+Tue Mar 30 09:18:56 2010 Child 1 will create 6 symlinks.
+Tue Mar 30 09:18:56 2010 Child 1 finished creating 6 symlinks.
+Tue Mar 30 09:18:58 2010 Child 2 verified 5102 files, created 50
+Tue Mar 30 09:18:58 2010 Child 2 will create 6 symlinks.
+Tue Mar 30 09:18:58 2010 Child 2 finished creating 6 symlinks.
+Tue Mar 30 09:18:59 2010 Child 0 verified 5102 files, created 51
+Tue Mar 30 09:18:59 2010 Child 0 will create 6 symlinks.
+Tue Mar 30 09:18:59 2010 Child 0 finished creating 6 symlinks.
+Tue Mar 30 09:18:59 2010 Completed.
+Tue Mar 30 09:18:59 2010 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:18:59 2010 Completed.
+Tue Mar 30 09:18:59 2010 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:19:00 2010 Received.
+Tue Mar 30 09:19:00 2010 Performing 300 seconds pretest warmup.
+Child 1 - 50 aborted ops
+Child 1 - 100 aborted ops
+Child 1 - 150 aborted ops
+Child 1 - 200 aborted ops
+Child 1 - 250 aborted ops
+Child 1 - 300 aborted ops
+Child 1 - 350 aborted ops
+Child 2 - 50 aborted ops
+Child 2 - 100 aborted ops
+Child 1 - 400 aborted ops
+Child 2 - 150 aborted ops
+Child 1 - 450 aborted ops
+Tue Mar 30 09:24:00 2010 Completed.
+Tue Mar 30 09:24:00 2010 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:24:00 2010 Completed.
+Tue Mar 30 09:24:00 2010 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:24:01 2010 Received.
+Tue Mar 30 09:24:01 2010 Starting 300 seconds test run.
+Child 2 - 200 aborted ops
+Child 2 - 250 aborted ops
+Child 2 - 300 aborted ops
+Child 3 - 50 aborted ops
+Child 1 - 500 aborted ops
+Child 2 - 350 aborted ops
+Child 0 - 50 aborted ops
+Child 1 - 550 aborted ops
+Child 3 - 100 aborted ops
+Child 2 - 400 aborted ops
+Child 0 - 100 aborted ops
+Child 1 - 600 aborted ops
+Child 3 - 150 aborted ops
+Child 0 - 150 aborted ops
+Child 2 - 450 aborted ops
+Child 1 - 650 aborted ops
+Child 0 - 200 aborted ops
+Child 2 - 500 aborted ops
+Child 3 - 200 aborted ops
+Child 0 - 250 aborted ops
+Child 1 - 700 aborted ops
+Child 2 - 550 aborted ops
+Child 3 - 250 aborted ops
+Child 0 - 300 aborted ops
+SFS Single Client (c09-44) Results, Tue Mar 30 09:29:11 2010
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    26.1%    72990    72990      0      0.38     3.68      0.01  2.0%
+setattr      4.0%     4.0%    11212    11212      0      0.42     4.23      0.04  0.3%
+lookup      24.0%    24.0%    67276    67276      0      0.43     4.26      0.02  2.1%
+readlink     1.0%     1.0%     2888     2888      0      0.40     3.76      0.07  0.1%
+read        18.0%    18.2%    50900    62517      0     12.26   167.79      0.11 45.2%
+write       10.0%    10.1%    28310    34437      0     15.64   161.50      0.15 32.1%
+create       1.0%     1.0%     2790     2790      0     81.24   578.89      0.89 16.4%
+remove       1.0%     0.6%     1750     1750      0      0.49     0.46      0.03  0.1%
+readdir      1.0%     1.0%     2736     2736      0      0.55     0.54      0.03  0.1%
+fsstat       1.0%     1.0%     2796     2796      0      0.32     0.52      0.03  0.1%
+access      11.0%    11.1%    30989    30989      0      0.39     3.98      0.02  0.9%
+readdirplus  2.0%     2.0%     5549     5549      0      1.59     5.39      0.06  0.6%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  940.22 Ops/Sec   AVG. RESPONSE TIME:    4.92 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 1280 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  280186         TEST TIME: 298 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 297930   
+PHYSICAL NFS V3 THROUGHPUT:  999.76 Ops/Sec
+FILE SET SIZE CREATED: 10622124.0 KB
+FILE SET SIZE ACCESSED: 3188124.0 - 3506936.0 KB  (100.00% to 110.00% of Base)
+
+------------------------------------------------------------------------
+
+Tue Mar 30 09:29:11 2010 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (NFS V3 operations/second) = 1280
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 20004 Files created for I/O operations
+		   6000 Files accessed for I/O operations
+		    404 Files for non-I/O operations
+		     24 Symlinks
+		    664 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Tue Mar 30 09:29:11 2010 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Tue Mar 30 09:29:11 2010 Completed.
+Tue Mar 30 09:29:11 2010 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Tue Mar 30 09:29:12 2010 Received.
+Tue Mar 30 09:29:12 2010 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Tue Mar 30 09:29:12 2010 Completed.

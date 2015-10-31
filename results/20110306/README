@@ -1,0 +1,16 @@
+20110306-s3-west-4GB
+
+Re-run with better code for handling in-place file overwrites (do not
+fetch old data if the block is entirely overwritten).
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4279165 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 35044 is clean
+Ending cache size: 4193312 kB
+
+Proxy statistics:
+Store[s3:mvrable-bluesky-west]: GETS: count=323115 sum=7166305751
+Store[s3:mvrable-bluesky-west]: PUTS: count=35043 sum=143408452159
+NFS RPC Messages In: count=10785069 sum=132280761996
+NFS RPC Messages Out: count=10785069 sum=12755713540
+

@@ -1,0 +1,26 @@
+Workload generator: c09-44
+File serve: c09-45
+
+Reads/writes are to the faster 1.5 TB drive
+
+smallcache: proxy has a 1 GB target cache size
+bigcache: proxy has a 64 GB target cache size
+native: Linux knsfd
+
+smallcache:
+    Store[s3]: GETS: count=201409 sum=4633100364
+    Store[s3]: PUTS: count=27664 sum=113225053840
+    NFS RPC Messages In: count=7009917 sum=105127478516
+    NFS RPC Messages Out: count=7009917 sum=6051721576
+
+azure (1 GB):
+    Store[azure]: GETS: count=87607 sum=2022483318
+    Store[azure]: PUTS: count=17373 sum=71413744775
+    NFS RPC Messages In: count=3855155 sum=68407631228
+    NFS RPC Messages Out: count=3855155 sum=2923294436
+
+S3-west (1 GB):
+    Store[s3:mvrable-bluesky-west]: GETS: count=393250 sum=8972516050
+    Store[s3:mvrable-bluesky-west]: PUTS: count=29294 sum=120092292949
+    NFS RPC Messages In: count=8768544 sum=107887382148
+    NFS RPC Messages Out: count=8768544 sum=12219475456

@@ -1,0 +1,71 @@
+#!/bin/sh
+#
+# @(#)sfs_suchown	2.1	97/10/23
+#
+#  Copyright (c) 1992-1997,2001 by Standard Performance Evaluation Corporation
+#	All rights reserved.
+#		Standard Performance Evaluation Corporation (SPEC)
+#		6585 Merchant Place, Suite 100
+#		Warrenton, VA 20187
+#	This product contains benchmarks acquired from several sources who
+#	understand and agree with SPEC's goal of creating fair and objective
+#	benchmarks to measure computer performance.
+#
+#	This copyright notice is placed here only to protect SPEC in the
+#	event the source is misused in any manner that is contrary to the
+#	spirit, the goals and the intent of SPEC.
+#
+#	The source code is provided to the user or company under the license
+#	agreement for the SPEC Benchmark Suite for this product.
+
+#
+SPEC=${SPEC-0}
+
+if [ "$SPEC" != 0 ] ; then
+	rm -f $BENCH/bin/sfs
+	rm -f $BENCH/bin/sfs3
+	rm -f $BENCH/bin/sfs_syncd
+	rm -f $BENCH/bin/sfs_prime
+	rm -f $BENCH/bin/sfs_mgr
+	rm -f $BENCH/bin/sfs_mcr
+	rm -f $BENCH/bin/sfs_ext_mon
+fi
+
+#
+# If first argument is clobber, just remove executeables
+#
+if [ "$1" = "clobber" ]
+then
+	exit 0
+fi
+
+#
+# if first argument == -DRESVPORT then we must make executeable
+# setuid to root.
+#
+if [ "$1" = "-DRESVPORT" ]
+then
+	shift
+	echo "Setting root ownership on sfs setuid executable in order to"
+	echo "perform binding to privileged port. You may be asked to enter"
+	echo "the root password."
+	#
+	su $ROOTUSER <<EOF
+	chown root $*
+	chmod 04755 $*
+EOF
+fi
+
+#
+# if the SPEC tools are configured then move binaries to RESULTSDIR
+#
+if [ "$SPEC" != 0 ] ; then
+	mv sfs $BENCH/bin
+	mv sfs3 $BENCH/bin
+	mv sfs_syncd $BENCH/bin
+	mv sfs_prime $BENCH/bin
+	cp sfs_mgr $BENCH/bin
+	cp sfs_mcr $BENCH/bin
+	cp sfs_ext_mon $BENCH/bin
+fi
+exit 0

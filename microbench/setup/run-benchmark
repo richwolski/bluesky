@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+# Start up the NFS server.
+
+
+# Defaults
+SERVER=vrable2.sysnet.ucsd.edu
+MNTDIR=/mnt/bluesky
+
+BENCH_FILESIZE=$((1 << 12))
+BENCH_BLOCKSIZE=0
+BENCH_FILECOUNT=$((8))
+BENCH_WRITERATIO=1.0
+BENCH_THREADS=8
+BENCH_DURATION=120
+BENCH_OPS=100
+BENCH_INTERVALS=4
+BENCH_DIRSIZE=256
+BENCH_LOCKEDMEM=$((4096 - 256))
+NFS_BLOCKSIZE=1048576
+
+lock_memory() {
+    MEM=$1
+    while [ $MEM -gt 512 ]; do
+        /scratch/bluesky.git/microbench/lockmem 512 &
+        MEM=$(($MEM - 512))
+    done
+    if [ $MEM -gt 0 ]; then
+        /scratch/bluesky.git/microbench/lockmem $MEM &
+    fi
+}
+
+# Export any environment variables specified on the command line
+for e in "$@"; do
+    echo "$e" 1>&2
+    if echo "$e" | grep = >/dev/null; then
+        eval "$e"
+        export ${e%=*}
+    fi
+done
+
+# Prepare to run the benchmark
+lock_memory $BENCH_LOCKEDMEM
+
+mount -t nfs -o vers=3,tcp,rw,soft,intr,rsize=$NFS_BLOCKSIZE,wsize=$NFS_BLOCKSIZE $SERVER:/export $MNTDIR
+
+pushd $MNTDIR >/dev/null
+
+/scratch/bluesky.git/microbench/mixedbench \
+    $BENCH_FILESIZE \
+    $BENCH_FILECOUNT \
+    $BENCH_WRITERATIO \
+    $BENCH_THREADS \
+    $BENCH_DURATION \
+    $BENCH_OPS \
+    $BENCH_INTERVALS \
+    $BENCH_DIRSIZE \
+    $BENCH_BLOCKSIZE
+
+pkill -TERM lockmem
+
+popd >/dev/null
+
+umount -f $MNTDIR

@@ -1,0 +1,1023 @@
+#ifndef lint
+static char sfs_c_bioSid[] = "@(#)sfs_c_bio.c	2.1	97/10/23";
+#endif
+
+/*
+ *   Copyright (c) 1992-1997,2001 by Standard Performance Evaluation Corporation
+ *	All rights reserved.
+ *		Standard Performance Evaluation Corporation (SPEC)
+ *		6585 Merchant Place, Suite 100
+ *		Warrenton, VA 20187
+ *
+ *	This product contains benchmarks acquired from several sources who
+ *	understand and agree with SPEC's goal of creating fair and objective
+ *	benchmarks to measure computer performance.
+ *
+ *	This copyright notice is placed here only to protect SPEC in the
+ *	event the source is misused in any manner that is contrary to the
+ *	spirit, the goals and the intent of SPEC.
+ *
+ *	The source code is provided to the user or company under the license
+ *	agreement for the SPEC Benchmark Suite for this product.
+ */
+
+/*
+ * ---------------------- sfs_c_bio.c ---------------------
+ *
+ *	Routines that attempt to simulate biod behavior
+ *
+ *	The routines contained here model biod behavior.  Simply call
+ *	biod_init() to replace regular calls to op_read() and op_write()
+ *	with calls to op_biod_read() and op_biod_write().  The variables
+ *	max_out_writes and max_out_reads control the maximum number of
+ *	outstanding writes and reads respectively.
+ *
+ *.Exported Routines
+ *	int	biod_init(int, int);
+ *	void	biod_turn_on(void);
+ *	void	op_biod_write(int, int, int);
+ *	void	op_biod_read(int);
+ *
+ *.Local Routines
+ *	uint32_t	biod_clnt_call(CLIENT *, uint32_t,
+ *						xdrproc_t, void *);
+ *	struct biod_req	*biod_get_reply(CLIENT *, xdrproc_t,
+ *						void *, struct timeval *);
+ *	int		biod_poll_wait(CLIENT *, uint32_t);
+ *
+ *.Revision_History
+ *	03-May-94	Robinson
+ *				History now kept in SCCS
+ *	03-Mar-92	0.1.0 Corbin
+ *					Added biod behavior
+ */
+
+/*
+ * -------------------------  Include Files  -------------------------
+ */
+
+/*
+ * ANSI C headers
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+
+#include <sys/types.h>
+#include <sys/stat.h> 
+ 
+#include <unistd.h>
+
+#include "sfs_c_def.h"
+#include "rfs_c_def.h"
+
+/*
+ * Information associated with outstanding read/write requests
+ */
+#ifndef RFS
+struct biod_req {
+    uint32_t		xid;		/* RPC transmission ID	*/
+    bool_t		in_use;			/* Indicates if the entry is in use */
+	int	dep_tab_index;			/* corresponding index in dep_tab */
+    unsigned int	count;		/* Count saved for Dump routines */
+    unsigned int	offset;		/* Offset saved for Dump routines */
+    struct ladtime	start;		/* Time RPC call was made */
+    struct ladtime	stop;		/* Time RPC reply was received */
+    struct ladtime	timeout;	/* Time RPC call will time out */
+};
+#endif
+
+/*
+ * ----------------------  Static Declarations  ----------------------
+ */
+
+static int	max_out_writes;
+static int	max_out_reads;
+int	max_biod_reqs = 0;
+struct biod_req *biod_reqp;
+
+/* forward definitions for local functions */
+extern uint32_t	biod_clnt_call(CLIENT *, uint32_t, xdrproc_t, void *);
+static struct biod_req *biod_get_reply(CLIENT *, xdrproc_t,
+						void *, struct timeval *);
+extern int	biod_poll_wait(CLIENT *, uint32_t);
+
+static int op_biod_write(int, int, int);
+static int op_biod_read(int);
+
+/*
+ * ----------------------  BIOD Support Routines  ----------------------
+ */
+
+/*
+ * biod_init()
+ *
+ * This function is called during the initialization phase. It performs
+ * the following tasks:
+ *	- Allocate memory to hold outstanding biod request information
+ *
+ * Returns 0 for OK, -1 for failure
+ */
+int
+biod_init(
+    int			out_writes,
+    int			out_reads)
+{
+    // RFS max_out_writes = MAXIMUM(1, out_writes);
+    // RFS max_out_reads = MAXIMUM(1, out_reads);
+    // RFS max_biod_reqs = MAXIMUM(out_writes, out_reads);
+	max_biod_reqs = MAX_OUTSTANDING_REQ;	// RFS
+
+    biod_reqp = (struct biod_req *) calloc(max_biod_reqs,
+					   sizeof (struct biod_req));
+    if (biod_reqp == (struct biod_req *)0) {
+	(void) fprintf(stderr, "%s: biod_init calloc failed.\n", sfs_Myname);
+	(void) fflush(stderr);
+	return (-1);
+    }
+
+    return (0);
+} /* biod_init */
+
+#ifndef RFS
+
+/*
+ *	- Change the operation functions for reads and writes to use the
+ *	  biod routines. This step should be done last to allow callers
+ *	  to still run with the old op functions if the biod initialization
+ *	  fails.
+ */
+void
+biod_turn_on(void)
+{
+    Ops[WRITE].funct = op_biod_write;
+    Ops[READ].funct = op_biod_read;
+}
+
+#endif
+
+/*
+ * biod_term()
+ *
+ * This function is called during the termination phase to free any resources
+ * allocated by the biod_init() routine. It performs the following tasks:
+ *	- Frees memory associated with outstanding biod request information
+ *	- Frees the biod client handle
+ */
+void
+biod_term(void)
+{
+    if (max_biod_reqs) {
+	free(biod_reqp);
+    }
+} /* biod_term */
+
+#ifndef RFS
+/*
+ * Perform and RPC biod style write operation of length 'xfer_size'.
+ * If 'append_flag' is true, then write the data to the end of the file.
+ */
+static int
+op_biod_write(
+    int			xfer_size,
+    int			append_flag,
+    int			stab_flag)
+{
+    sfs_op_type		*op_ptr;	/* per operation info */
+    static char		*buf = NULL;	/* the data buffer */
+    unsigned int	size;		/* size of data write */
+    int			max_cnt;
+    attrstat		reply2;		/* the reply */
+    writeargs		args2;
+    WRITE3res		reply3;		/* the reply */
+    WRITE3args		args3;
+    struct ladtime	curr_time;
+    struct ladtime	tmp_time;
+    struct ladtime	call_timeout;
+    struct biod_req	*reqp;
+    int			ret;		/* ret val == call success */
+    int			num_out_reqs;	/* # of outstanding writes */
+    int			i;
+    int			error;
+    int32_t		offset;
+    static int		calls = 0;
+
+    calls++;
+
+    if (nfs_version != NFS_VERSION && nfs_version != NFS_V3)
+	return (0);
+
+    /*
+     * Initialize write buffer to known value
+     */  
+    if (buf == NULL) {
+        buf = init_write_buffer();
+    }
+
+
+    /*
+     * For now we treat DATA_SYNC to be the same as FILE_SYNC.
+     * If it is not a V3 op then it must always be stable
+     */  
+    if (stab_flag == DATA_SYNC || nfs_version != NFS_V3)
+        stab_flag = FILE_SYNC;
+
+    op_ptr = &Ops[WRITE];
+    ret = 0;
+
+    /* set up the arguments */
+    (void) memmove((char *) &args2.file, (char *) &Cur_file_ptr->fh2,
+			NFS_FHSIZE);
+    (void) memmove((char *) &args3.file, (char *) &Cur_file_ptr->fh3,
+			sizeof (nfs_fh3));
+
+    args2.beginoffset = 0;	/* unused */
+
+    if (append_flag == 1) {
+	args2.offset = Cur_file_ptr->attributes2.size;
+	args3.offset = Cur_file_ptr->attributes3.size;
+    } else {
+	if (fh_size(Cur_file_ptr) > xfer_size) {
+	    offset = Bytes_per_block * (sfs_random() %
+			    (((fh_size(Cur_file_ptr) - xfer_size)
+			    / Bytes_per_block) + 1));
+	    args2.offset = offset;
+	    args3.offset._p._u = 0;
+	    args3.offset._p._l = offset;
+	} else {
+	    args2.offset = 0;
+	    args3.offset._p._u = args3.offset._p._l = 0;
+	}
+    }
+
+    size = Bytes_per_block;
+    args2.totalcount = size;	/* unused */
+    args2.data.data_len = size;
+    args2.data.data_val = buf;
+    args3.data.data_len = size;
+    args3.data.data_val = buf;
+    args3.count = size;
+    args3.stable = stab_flag;
+
+    /* Calculate the number of NFS writes required */
+    max_cnt = xfer_size / Bytes_per_block;
+    if ((xfer_size % Bytes_per_block) != 0) {
+	max_cnt++;
+    }
+
+    /* check our stats to see if this would overflow */
+    if (!Timed_run) {
+	if (op_ptr->target_calls > 0 &&
+	   (op_ptr->results.good_calls + max_cnt) > op_ptr->target_calls) {
+	    max_cnt = op_ptr->target_calls - op_ptr->results.good_calls;
+	}
+    }
+
+    if (DEBUG_CHILD_OPS) {
+	(void) fprintf(stderr, "write: %d buffers xfer_size %d\n",
+			  max_cnt, xfer_size);
+	(void) fflush(stderr);
+    }
+
+    /* Mark all request slots as not in use */
+    for (reqp = biod_reqp, i = 0; i < max_biod_reqs; i++, reqp++) {
+	reqp->in_use = FALSE;
+    }
+
+    if (Current_test_phase < Warmup_phase) {
+	call_timeout.sec = Nfs_timers[Init].tv_sec;
+	call_timeout.usec = Nfs_timers[Init].tv_usec;
+    } else {
+	call_timeout.sec = Nfs_timers[op_ptr->call_class].tv_sec;
+	call_timeout.usec = Nfs_timers[op_ptr->call_class].tv_usec;
+    }
+
+    /* capture length for possible dump */
+    Dump_length = fh_size(Cur_file_ptr);
+ 
+    /* make the call(s) now */
+    num_out_reqs = 0;
+    while (xfer_size > 0 || num_out_reqs > 0) {
+	/*
+	 * Send out calls async until either the maximum number of outstanding
+	 * requests has been reached or there are no more requests to make.
+	 */
+	while (num_out_reqs < max_out_writes && xfer_size > 0) {
+
+	    /* find an empty write request slot */
+	    for (reqp = biod_reqp, i = 0; i < max_out_writes; i++, reqp++) {
+		if (reqp->in_use == FALSE) {
+		    break;
+		}
+	    }
+
+	    if (xfer_size < size) {
+		size = xfer_size;
+		args2.data.data_len = xfer_size;
+		args2.totalcount = xfer_size;		/* unused */
+		args3.data.data_len = xfer_size;
+		args3.count = xfer_size;
+	    }
+	    xfer_size -= size;
+
+	    sfs_gettime(&reqp->start);
+	    if (nfs_version == NFS_V3) {
+		    reqp->xid = biod_clnt_call(NFS_client,
+					(uint32_t)NFSPROC3_WRITE,
+					xdr_WRITE3args, (char *) &args3);
+		    if (reqp->xid != 0) {
+			/* capture count and offset for possible dump */
+			reqp->count = args3.data.data_len;
+			reqp->offset = args3.offset._p._l;
+			reqp->timeout = reqp->start;
+			ADDTIME(reqp->timeout, call_timeout);
+			reqp->in_use = TRUE;
+			num_out_reqs++;
+	    	    }
+	    }
+	    if (nfs_version == NFS_VERSION) {
+		    reqp->xid = biod_clnt_call(NFS_client,
+					(uint32_t)NFSPROC_WRITE,
+					xdr_write, (char *) &args2);
+		    if (reqp->xid != 0) {
+			/* capture count and offset for possible dump */
+			reqp->count = args2.data.data_len;
+			reqp->offset = args2.offset;
+			reqp->timeout = reqp->start;
+			ADDTIME(reqp->timeout, call_timeout);
+			reqp->in_use = TRUE;
+			num_out_reqs++;
+	    	    }
+	    }
+	    if (DEBUG_CHILD_BIOD) {
+		(void) fprintf (stderr,
+"[%d]:Biod write started xid %x start (%d.%06d) timeo (%d.%06d)\n",
+				calls, reqp->xid,
+				reqp->start.sec, reqp->start.usec,
+				reqp->timeout.sec, reqp->timeout.usec);
+	    }
+
+	    args2.offset += size;
+	    args3.offset._p._l += size;
+	    if (biod_poll_wait(NFS_client, 0) > 0) {
+		break;
+	    }
+	} /* while can make an async call */
+
+	/*
+	 * Process replies while there is data on the socket buffer.
+	 * Just do polls on the select, no sleeping occurs in this loop.
+	 */
+	do {
+	    error = biod_poll_wait(NFS_client, 0);
+	    switch (error) {
+		case -1:
+		    if (errno == EINTR) {
+			error = 1;
+			continue;
+		    }
+		    if (DEBUG_CHILD_BIOD) {
+			(void) fprintf(stderr, "%s:[%d]: biod_poll_wait error\n",
+					   sfs_Myname, calls);
+			(void) fflush(stderr);
+		    }
+		    break;
+
+		case 0:
+		    break;
+
+
+		default:
+		    if (nfs_version == NFS_VERSION)
+			    reqp = biod_get_reply(NFS_client, xdr_write,
+					  (char *) &reply2,
+					  &Nfs_timers[op_ptr->call_class]);
+		    if (nfs_version == NFS_V3)
+			    reqp = biod_get_reply(NFS_client, xdr_WRITE3res,
+					  (char *) &reply3,
+					  &Nfs_timers[op_ptr->call_class]);
+
+		    /*
+		     * If biod_get_reply returns NULL then we got an RPC
+		     * level error, probably a dropped fragment or the
+		     * remains of a previous partial request.
+		     */
+		    if (reqp == (struct biod_req *)NULL) {
+			error = 0;
+			break;
+		    }
+
+		    /*
+		     * We have a valid response, check if procedure completed
+		     * correctly.
+		     */
+		    if ((nfs_version == NFS_VERSION &&
+			 reply2.status == NFS_OK) ||
+			 (nfs_version == NFS_V3 && reply3.status == NFS3_OK)) {
+			Cur_file_ptr->state = Exists;
+			/*
+			 * In updating attributes we may get replies out
+			 * of order.  We blindly update the attributes
+			 * which may cause old attributes to be stored.
+			 * XXX We should check for old attributes.
+			 */
+		        if (nfs_version == NFS_VERSION)
+			    Cur_file_ptr->attributes2 =
+					reply2.attrstat_u.attributes;
+		        if (nfs_version == NFS_V3)
+			    Cur_file_ptr->attributes3 =
+					reply3.res_u.ok.file_wcc.after.attr;
+			if (DEBUG_CHILD_RPC) {
+			    (void) fprintf(stderr,
+					"%s: WRITE %s %d bytes offset %d \n",
+					sfs_Myname, Cur_filename,
+					reqp->count, reqp->offset);
+			    (void) fflush(stderr);
+			}
+
+			/* capture count and offset for possible dump */
+			Dump_count = reqp->count;
+			Dump_offset = reqp->offset;
+			sfs_elapsedtime(op_ptr, &reqp->start, &reqp->stop);
+			op_ptr->results.good_calls++;
+			Ops[TOTAL].results.good_calls++;
+			ret++;
+			reqp->in_use = FALSE;
+			num_out_reqs--;
+		        if (DEBUG_CHILD_BIOD) {
+			    (void) fprintf (stderr,
+"[%d]:Biod write succeded xid %x start (%d.%06d) timeo (%d.%06d) stop (%d.%06d)\n",
+				calls, reqp->xid,
+				reqp->start.sec, reqp->start.usec,
+				reqp->timeout.sec, reqp->timeout.usec,
+				reqp->stop.sec, reqp->stop.usec);
+			}
+		    } else {
+			op_ptr->results.bad_calls++;
+			Ops[TOTAL].results.bad_calls++;
+			reqp->in_use = FALSE;
+			num_out_reqs--;
+		        if (DEBUG_CHILD_BIOD) {
+			    (void) fprintf (stderr,
+"[%d]:Biod write failed xid %x start (%d.%06d) timeo (%d.%06d)\n",
+				calls, reqp->xid,
+				reqp->start.sec, reqp->start.usec,
+				reqp->timeout.sec, reqp->timeout.usec);
+
+			    (void) fprintf(stderr,
+				    "[%d]:BIOD WRITE FAILED: xid %x",
+				    calls, reqp->xid);
+
+			    if (nfs_version == NFS_VERSION)
+			        (void) fprintf(stderr, "  status %d",
+								reply2.status);
+			    if (nfs_version == NFS_V3)
+			        (void) fprintf(stderr, "  status %d",
+								reply3.status);
+			    (void) fprintf(stderr, "\n");
+			}
+		    }
+		    break;
+	    }
+	} while (error > 0 && num_out_reqs > 0);
+
+	/* Scan for replies that have timed out */
+	if (num_out_reqs > 0) {
+	    sfs_gettime(&curr_time);
+	    for (reqp = biod_reqp, i = 0; i < max_out_writes; i++, reqp++) {
+		if (reqp->in_use == FALSE) {
+		    continue;
+		}
+		if (reqp->timeout.sec < curr_time.sec ||
+		    (reqp->timeout.sec == curr_time.sec &&
+		    reqp->timeout.usec < curr_time.usec)) {
+
+		    op_ptr->results.bad_calls++;
+		    Ops[TOTAL].results.bad_calls++;
+		    reqp->in_use = FALSE;
+		    num_out_reqs--;
+		    if (DEBUG_CHILD_BIOD) {
+			(void) fprintf (stderr,
+"[%d]:Biod write timed out %x start (%d.%06d) timeo (%d.%06d) now (%d.%06d)\n",
+				calls, reqp->xid,
+				reqp->start.sec, reqp->start.usec,
+				reqp->timeout.sec, reqp->timeout.usec,
+				curr_time.sec, curr_time.usec);
+			if (biod_poll_wait(NFS_client, 0) > 0) {
+			   (void) fprintf(stderr,
+				"[%d]:BIOD WRITE TIMEOUT - data on input queue!\n", calls);
+			}
+		    }
+		}
+	    }
+	}
+
+	/*
+	 * We go to sleep waiting for a reply if all the requests have
+	 * been sent and there are outstanding requests, or we cannot
+	 * send any more requests.
+	 */
+	if ((xfer_size <= 0 && num_out_reqs > 0) ||
+	    num_out_reqs == max_out_writes) {
+	    /*
+	     * Find the next outstanding request that will timeout
+	     * and take a time differential to use for the poll timeout.
+	     * If the differential is less than zero, then we go to the
+	     * top of the loop. Note that we are not picky on errors
+	     * returned by select, after the sleep we return to the top
+	     * of the loop so extensive error/status checking is not
+	     * needed.
+	     */
+	    tmp_time.sec = 0;
+	    tmp_time.usec = 0;
+	    for (reqp = biod_reqp, i = 0; i < max_out_writes; i++, reqp++) {
+		if (reqp->in_use == FALSE) {
+		    continue;
+		}
+		if (tmp_time.sec == 0 ||
+		    (reqp->timeout.sec < tmp_time.sec ||
+		     (reqp->timeout.sec == tmp_time.sec &&
+		      reqp->timeout.usec < tmp_time.usec))) {
+		    
+		     tmp_time = reqp->timeout;
+		}
+	    }
+	    if (tmp_time.sec == 0 && tmp_time.usec == 0)
+		continue;
+	    sfs_gettime(&curr_time);
+	    SUBTIME(tmp_time, curr_time);
+	    (void) biod_poll_wait(NFS_client,
+					tmp_time.sec * 1000000 + tmp_time.usec);
+	}
+    } /* while not done */
+
+ 
+    /*
+     * If we have not gotten an error and we were asked for an async write
+     * send a commit operation.
+     */  
+    if (ret && stab_flag != FILE_SYNC)
+	ret += (*Ops[COMMIT].funct)();
+
+    return (ret);
+
+} /* op_biod_write */
+
+
+/*
+ * perform an RPC read operation of length 'xfer_size'
+ */
+static int
+op_biod_read(
+    int 			xfer_size)
+{
+    sfs_op_type			*op_ptr;	/* per operation info */
+    int				max_cnt;	/* packet ctrs */
+    char			buf[DEFAULT_MAX_BUFSIZE];/* data buffer */
+    readargs			args2;
+    readres			reply2;		/* the reply */
+    READ3args			args3;
+    READ3res			reply3;		/* the reply */
+    int				size;
+    struct ladtime		curr_time;
+    struct ladtime		call_timeout;
+    struct ladtime		tmp_time;
+    struct biod_req		*reqp;
+    int				ret;		/* ret val == call success */
+    int				num_out_reqs;	/* # of outstanding writes */
+    int				i;
+    int				error;
+    int32_t			offset;
+    static int		calls = 0;
+
+    calls++;
+
+    if (nfs_version != NFS_VERSION && nfs_version != NFS_V3)
+	return (0);
+
+    op_ptr = &Ops[READ];
+    ret = 0;
+
+    /* set up the arguments */
+    (void) memmove((char *) &args2.file, (char *) &Cur_file_ptr->fh2,
+			NFS_FHSIZE);
+    (void) memmove((char *) &args3.file, (char *) &Cur_file_ptr->fh3,
+			sizeof (nfs_fh3));
+
+    /*
+     * Don't allow a read of less than one block size
+     */
+    if (xfer_size < Bytes_per_block)
+        xfer_size = Bytes_per_block;
+ 
+
+    /* Calculate the number of NFS reads required */
+    max_cnt = xfer_size / Bytes_per_block;
+    if ((xfer_size % Bytes_per_block) != 0) {
+	    max_cnt++;
+    }
+
+    /* check our stats to see if this would overflow */
+    if (!Timed_run) {
+	if (op_ptr->target_calls > 0 &&
+	    (op_ptr->results.good_calls + max_cnt) > op_ptr->target_calls) {
+	    max_cnt = op_ptr->target_calls - op_ptr->results.good_calls;
+	}
+    }
+
+    args2.offset = 0;
+    args3.offset._p._l = args3.offset._p._u = 0;
+
+    /*
+     * randomly choose an offset that is a multiple of the block size
+     * and constrained by making the transfer fit within the file
+     */
+    if (fh_size(Cur_file_ptr) > xfer_size) {
+	offset = Bytes_per_block * (sfs_random() %
+			    (((fh_size(Cur_file_ptr) - xfer_size)
+			    / Bytes_per_block) + 1));
+	args2.offset = offset;
+	args3.offset._p._u = 0;
+	args3.offset._p._l = offset;
+    }
+
+    size = Bytes_per_block;
+    args2.count = size;
+    args3.count = size;
+    args2.totalcount = size;	/* unused */
+
+    /* Have lower layers fill in the data directly.  */
+    reply2.readres_u.reply.data.data_val = buf;
+    reply3.res_u.ok.data.data_val = buf;
+
+    if (DEBUG_CHILD_OPS) {
+	(void) fprintf(stderr, "read: %d buffers xfer_size %d\n",
+			  max_cnt, xfer_size);
+	(void) fflush(stderr);
+    }
+
+    /* Mark all request slots as not in use */
+    for (reqp = biod_reqp, i = 0; i < max_biod_reqs; i++, reqp++) {
+	reqp->in_use = FALSE;
+    }
+
+    if (Current_test_phase < Warmup_phase) {
+	call_timeout.sec = Nfs_timers[Init].tv_sec;
+	call_timeout.usec = Nfs_timers[Init].tv_usec;
+    } else {
+	call_timeout.sec = Nfs_timers[op_ptr->call_class].tv_sec;
+	call_timeout.usec = Nfs_timers[op_ptr->call_class].tv_usec;
+    }
+
+    /* capture length for possible dump */
+    Dump_length = fh_size(Cur_file_ptr);
+
+    /* make the call(s) now */
+    num_out_reqs = 0;
+    while (xfer_size > 0 || num_out_reqs > 0) {
+	/*
+	 * Send out calls async until either the maximum number of outstanding
+	 * requests has been reached or there are no more requests to make.
+	 */
+	while (num_out_reqs < max_out_reads && xfer_size > 0) {
+
+	    /* find an empty read request slot */
+	    for (reqp = biod_reqp, i = 0; i < max_out_reads; i++, reqp++) {
+		if (reqp->in_use == FALSE) {
+		    break;
+		}
+	    }
+
+	    if (xfer_size < size) {
+		size = xfer_size;
+		args2.count = xfer_size;
+		args3.count = xfer_size;
+		args2.totalcount = xfer_size;		/* unused */
+	    }
+	    xfer_size -= size;
+
+	    sfs_gettime(&reqp->start);
+	    if (nfs_version == NFS_VERSION) {
+		reqp->xid = biod_clnt_call(NFS_client,
+					(uint32_t)NFSPROC_READ,
+					xdr_read, (char *) &args2);
+		if (reqp->xid != 0) {
+		    /* capture count and offset for possible dump */
+		    reqp->count = args2.count;
+		    reqp->offset = args2.offset;
+		    reqp->timeout = reqp->start;
+		    ADDTIME(reqp->timeout, call_timeout);
+		    reqp->in_use = TRUE;
+		    num_out_reqs++;
+		}
+	    } else if (nfs_version == NFS_V3) {
+		reqp->xid = biod_clnt_call(NFS_client,
+					(uint32_t)NFSPROC3_READ,
+					xdr_READ3args, (char *) &args3);
+		if (reqp->xid != 0) {
+		    /* capture count and offset for possible dump */
+		    reqp->count = args3.count;
+		    reqp->offset = args3.offset._p._l;
+		    reqp->timeout = reqp->start;
+		    ADDTIME(reqp->timeout, call_timeout);
+		    reqp->in_use = TRUE;
+		    num_out_reqs++;
+		}
+	    }
+
+	    args2.offset += size;
+	    args3.offset._p._l += size;
+	    if (biod_poll_wait(NFS_client, 0) > 0) {
+		break;
+	    }
+	} /* while can make an async call */
+
+	/*
+	 * Process replies while there is data on the socket buffer.
+	 * Just do polls on the select, no sleeping occurs in this loop.
+	 */
+	do {
+	    error = biod_poll_wait(NFS_client, 0);
+	    switch (error) {
+		case -1:
+		    if (errno == EINTR) {
+			error = 1;
+			continue;
+		    }
+		    if (DEBUG_CHILD_BIOD) {
+			(void) fprintf(stderr,
+					"%s:[%d]: biod_poll_wait error\n",
+					sfs_Myname, calls);
+			(void) fflush(stderr);
+		    }
+		    break;
+
+		case 0:
+		    break;
+
+
+		default:
+		    if (nfs_version == NFS_VERSION)
+		        reqp = biod_get_reply(NFS_client, xdr_read,
+					  (char *) &reply2,
+					  &Nfs_timers[op_ptr->call_class]);
+		    if (nfs_version == NFS_V3)
+		        reqp = biod_get_reply(NFS_client, xdr_READ3res,
+					  (char *) &reply3,
+					  &Nfs_timers[op_ptr->call_class]);
+
+		    /*
+		     * If biod_get_reply returns NULL then we got an RPC
+		     * level error, probably a dropped fragment or the
+		     * remains of a previous partial request.
+		     */
+		    if (reqp == (struct biod_req *)NULL) {
+			error = 0;
+			break;
+		    }
+
+		    /*
+		     * We have a valid response, check if procedure completed
+		     * correctly.
+		     */
+		    if ((nfs_version == NFS_VERSION &&
+						reply2.status == NFS_OK) ||
+			 (nfs_version == NFS_V3 &&
+						reply3.status == NFS3_OK)) {
+			Cur_file_ptr->state = Exists;
+			if (DEBUG_CHILD_RPC) {
+			    (void) fprintf(stderr, "%s: READ %s %d bytes offset %d\n",
+			    	   sfs_Myname, Cur_filename, reqp->count, reqp->offset);
+			    (void) fflush(stderr);
+			}
+			/*
+			 * In updating attributes we may get replies out
+			 * of order.  We blindly update the attributes
+			 * which may cause old attributes to be stored.
+			 * XXX We should check for old attributes.
+			 */
+			if (nfs_version == NFS_VERSION) {
+			    Cur_file_ptr->attributes2 =
+					reply2.readres_u.reply.attributes;
+			    /* capture count and offset for possible dump */
+			    Dump_count = reply2.readres_u.reply.data.data_len;
+			}
+			if (nfs_version == NFS_V3) {
+			    Cur_file_ptr->attributes3 =
+					reply3.res_u.ok.file_attributes.attr;
+			    /* capture count and offset for possible dump */
+			    Dump_count = reply3.res_u.ok.data.data_len;
+			}
+
+			Dump_offset = reqp->offset;
+			sfs_elapsedtime(op_ptr, &reqp->start, &reqp->stop);
+			op_ptr->results.good_calls++;
+			Ops[TOTAL].results.good_calls++;
+			ret++;
+			reqp->in_use = FALSE;
+			num_out_reqs--;
+		    } else {
+			op_ptr->results.bad_calls++;
+			Ops[TOTAL].results.bad_calls++;
+			reqp->in_use = FALSE;
+			num_out_reqs--;
+
+			if (DEBUG_CHILD_BIOD) {
+			    (void) fprintf(stderr,
+				    "[%d]:BIOD READ FAILED: xid %x",
+				    calls, reqp->xid);
+
+			    if (nfs_version == NFS_VERSION)
+			        (void) fprintf(stderr, "  status %d",
+								reply2.status);
+			    if (nfs_version == NFS_V3)
+			        (void) fprintf(stderr, "  status %d",
+								reply3.status);
+			    (void) fprintf(stderr, "\n");
+			}
+		    }
+		    break;
+	    } /* switch */
+	} while (error > 0 && num_out_reqs > 0);
+
+	/* Scan for replies that have timed out */
+	if (num_out_reqs > 0) {
+	    sfs_gettime(&curr_time);
+	    for (reqp = biod_reqp, i = 0; i < max_out_reads; i++, reqp++) {
+		if (reqp->in_use == FALSE) {
+		    continue;
+		}
+		if (reqp->timeout.sec < curr_time.sec ||
+		    (reqp->timeout.sec == curr_time.sec &&
+		     reqp->timeout.usec < curr_time.usec)) {
+
+		    op_ptr->results.bad_calls++;
+		    Ops[TOTAL].results.bad_calls++;
+		    reqp->in_use = FALSE;
+		    num_out_reqs--;
+		    if (DEBUG_CHILD_BIOD) {
+			(void) fprintf (stderr,
+"[%d]:Biod read timed out %x (%d.%06d) now (%d.%06d)\n",
+				calls, reqp->xid,
+				reqp->timeout.sec, reqp->timeout.usec,
+				curr_time.sec, curr_time.usec);
+			if (biod_poll_wait(NFS_client, 0) > 0) {
+			   (void) fprintf(stderr,
+				"[%d]:BIOD READ TIMEOUT - data on input queue!\n", calls);
+			}
+		    }
+		}
+	    }
+	}
+
+	/*
+	 * We go to sleep waiting for a reply if all the requests have
+	 * been sent and there are outstanding requests, or we cannot
+	 * send any more requests.
+	 */
+	if ((xfer_size <= 0 && num_out_reqs > 0) ||
+	    num_out_reqs == max_out_reads) {
+	    /*
+	     * Find the next outstanding request that will timeout
+	     * and take a time differential to use for the poll timeout.
+	     * If the differential is less than zero, then we go to the
+	     * top of the loop. Note that we are not picky on errors
+	     * returned by select, after the sleep we return to the top
+	     * of the loop so extensive error/status checking is not
+	     * needed.
+	     */
+	    tmp_time.sec = 0;
+	    tmp_time.usec = 0;
+	    for (reqp = biod_reqp, i = 0; i < max_out_reads; i++, reqp++) {
+		if (reqp->in_use == FALSE) {
+		    continue;
+		}
+		if (tmp_time.sec == 0 ||
+		    (reqp->timeout.sec < tmp_time.sec ||
+		     (reqp->timeout.sec == tmp_time.sec &&
+		      reqp->timeout.usec < tmp_time.usec))) {
+		    
+		     tmp_time = reqp->timeout;
+		}
+	    }
+	    if (tmp_time.sec == 0 && tmp_time.usec == 0)
+		continue;
+	    sfs_gettime(&curr_time);
+	    SUBTIME(tmp_time, curr_time);
+	    (void) biod_poll_wait(NFS_client,
+					tmp_time.sec * 1000000 + tmp_time.usec);
+	}
+    } /* while not done */
+
+    return(ret);
+
+} /* op_biod_read */
+
+#endif
+
+/*
+ * ----------------------  Async RPC Support Routines  ----------------------
+ */
+
+/*
+ * biod_clnt_call()
+ *
+ * Returns XID indicating success, 0 indicating failure.
+ */
+uint32_t
+biod_clnt_call(
+    CLIENT		*clnt_handlep,
+    uint32_t		proc,
+    xdrproc_t		xargs,
+    void		*argsp)
+{
+    struct timeval timeout;
+    uint32_t xid;
+
+    /*
+     * Set timeouts to be zero to force message passing semantics.
+     */
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 0;
+
+    if ((clnt_call(clnt_handlep, proc, xargs, argsp, NULL,
+					&xid, timeout)) != RPC_TIMEDOUT) {
+	clnt_perror(clnt_handlep, "biod_clnt_call failed");
+	return (0);
+    }
+
+    return (xid);
+} /* biod_clnt_call */
+
+
+/*
+ * biod_get_reply()
+ *
+ * Returns pointer to the biod_req struct entry that a reply was received
+ * for.  Returns NULL if an error was detected.
+ * NOTES:
+ * 1) This routine should only be called when it is known that there is
+ *    data waiting on the socket.
+ */
+static struct biod_req *
+biod_get_reply(
+    CLIENT		*clnt_handlep,
+    xdrproc_t		xresults,
+    void		*resultsp,
+    struct timeval	*tv)
+{
+    uint32_t		xid;
+    int			i;
+    int			cnt = 0;
+    bool_t		res;
+    uint32_t		xids[MAX_BIODS];
+
+    /*
+     * Load list of valid outstanding xids
+     */
+    for (i = 0; i < max_biod_reqs; i++) {
+        if (biod_reqp[i].in_use == TRUE)
+	    xids[cnt++] = biod_reqp[i].xid;
+    }
+
+    if (cnt == 0)
+	return (NULL);
+
+    if ((res = clnt_getreply(clnt_handlep, xresults,
+			resultsp, cnt, xids, &xid, tv)) != RPC_SUCCESS) {
+	if (DEBUG_CHILD_BIOD) {
+		if (res == RPC_CANTDECODERES) {
+			(void) fprintf(stderr, "No xid matched, found %x\n",
+				xid);
+		}
+	}
+	return (NULL);
+    }
+
+    /*
+     * Scan to find XID matched in the outstanding request queue.
+     */
+    for (i = 0; i < max_biod_reqs; i++) {
+        if (biod_reqp[i].in_use == TRUE && biod_reqp[i].xid == xid) {
+	    sfs_gettime(&(biod_reqp[i].stop));
+	    return (&biod_reqp[i]);
+        }
+    }
+
+    return ((struct biod_req *)0);
+} /* biod_get_reply */
+
+/*
+ * biod_poll_wait()
+ *
+ * Returns -1 on error, 0 for no data available, > 0 to indicate data available
+ */
+int
+biod_poll_wait(
+    CLIENT		*clnt_handlep,
+    uint32_t		usecs)
+{
+    return (clnt_poll(clnt_handlep, usecs));
+} /* biod_poll_wait */
+

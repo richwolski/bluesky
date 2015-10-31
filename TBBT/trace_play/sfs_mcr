@@ -1,0 +1,170 @@
+#! /bin/sh
+#	@(#)sfs_mcr	2.1	97/10/23
+#
+#
+#    Copyright (c) 1992-1997,2001 by Standard Performance Evaluation Corporation
+#	All rights reserved.
+#		Standard Performance Evaluation Corporation (SPEC)
+#		6585 Merchant Place, Suite 100
+#		Warrenton, VA 20187
+#	This product contains benchmarks acquired from several sources who
+#	understand and agree with SPEC's goal of creating fair and objective
+#	benchmarks to measure computer performance.
+#
+#	This copyright notice is placed here only to protect SPEC in the
+#	event the source is misused in any manner that is contrary to the
+#	spirit, the goals and the intent of SPEC.
+#
+#	The source code is provided to the user or company under the license
+#	agreement for the SPEC Benchmark Suite for this product.
+#
+# *****************************************************************
+# *                                                               *
+# *	Copyright 1991,1992  Legato Systems, Inc.                 *
+# *	Copyright 1991,1992  Auspex Systems, Inc.                 *
+# *	Copyright 1991,1992  Data General Corporation             *
+# *	Copyright 1991,1992  Digital Equipment Corporation        *
+# *	Copyright 1991,1992  Interphase Corporation               *
+# *	Copyright 1991,1992  Sun Microsystems, Inc.               *
+# *                                                               *
+# *****************************************************************
+#
+# Usage sfs_mcr <sfs parameter string>
+#
+# Teelucksingh - Creation (6/17/91)
+#
+# This script is remotely started from the Prime-client
+# by sfs_mgr .
+#
+
+#
+# Client pid files
+#
+SFS_PNT_PID="/tmp/sfs_pnt_pid"
+SFS_SYNCD_PID="/tmp/sfs_syncd_pid"
+
+# SFS client log files
+CLIENT_LOG_FILES="/tmp/sfs_CL$CLIENT_NUM \
+		/tmp/sfs_sig$CLIENT_NUM \
+		/tmp/sfs_x$CLIENT_NUM"
+
+if [ "$1" = "cleanup" ]; then
+    #
+    # do cleanup
+    #
+    rm -f $CLIENT_LOG_FILES
+
+    #
+    # clean up any 'old' sfs processes
+    #
+    if [ -f $SFS_PNT_PID ]; then
+        kill -2 `cat $SFS_PNT_PID` > /dev/null 2>&1
+        rm -f $SFS_PNT_PID
+    fi
+    if [ -f $SFS_SYNCD_PID ]; then
+        kill -2 `cat $SFS_SYNCD_PID` > /dev/null 2>&1
+        rm -f $SFS_SYNCD_PID
+    fi
+
+    exit
+fi
+
+# read command line arguments
+SFS_PROG=$1
+shift
+SFS_DIR=$1
+shift
+S_LOGFILE=$1
+shift
+C_LOGFILE=$1
+shift
+CLIENT_NUM=$1
+shift
+
+# print start message
+echo "========================================================================" >> $C_LOGFILE
+echo "" >> $C_LOGFILE
+
+#
+# decide whether to use BSD (which one) or SYSV variant of commands
+#
+# do test to see whether to use hostname or uname
+sh -c "hostname > /dev/null 2>&1" > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+	HOSTNAME_CMD="hostname"
+else
+	sh -c "uname -n  > /dev/null 2>&1" > /dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		HOSTNAME_CMD="uname -n"
+	else
+	 echo "sfs_mcr: can't use hostname(1) or uname(1), exiting." >> $C_LOGFILE
+		exit 1
+	fi
+fi
+
+#
+# trap for signals used by sfs
+#
+# Try to find cpp in the common places, if not there then let PATH find it
+if [ "$CPP" = "" ]
+then
+    if [ -f /lib/cpp ]
+    then
+        CPP=/lib/cpp
+    elif [ -f /usr/ccs/lib/cpp ]
+    then
+        CPP=/usr/ccs/lib/cpp
+    else
+        CPP=cpp
+    fi
+fi
+
+#
+# Allow trap numbers to be defined externally for broken systems
+#
+if [ "$TRAP_NUMS" = "" ]
+then
+    echo "#include <signal.h>" > /tmp/sfs_sig$CLIENT_NUM
+    echo "myprint SIGINT SIGALRM SIGTERM SIGUSR1 SIGUSR2" >> \
+         /tmp/sfs_sig$CLIENT_NUM
+    cat /tmp/sfs_sig$CLIENT_NUM | $CPP | grep myprint | \
+        awk '{print $2 " " $3 " " $4 " " $5 " " $6}'  > /tmp/sfs_x$CLIENT_NUM
+    TRAP_NUMS=`cat /tmp/sfs_x$CLIENT_NUM`
+fi
+trap "" $TRAP_NUMS
+
+#
+# start the sync daemon on the client
+#
+# Let's truncate the syncd log file at the start of each invocation
+# of sfs_mcr. Else it grows unbounded.
+#
+trap "" $TRAP_NUMS
+$SFS_DIR/sfs_syncd > $S_LOGFILE 2>&1 &
+echo "Started: sfs_syncd on client (`$HOSTNAME_CMD`). " >> $C_LOGFILE
+
+#
+# start SFS
+trap "" $TRAP_NUMS
+echo "Starting: $SFS_DIR/$SFS_PROG -N $CLIENT_NUM $*" >> $C_LOGFILE
+
+$SFS_DIR/$SFS_PROG -N $CLIENT_NUM $*  >> $C_LOGFILE 2>&1
+
+if [ $? -ne 0 ]; then     # error condition
+   # clean up
+   echo "sfs_mcr: sfs benchmark terminated with error status" >>$C_LOGFILE
+fi
+
+#
+# clean up any 'old' sfs processes
+#
+if [ -f $SFS_PNT_PID ]; then
+    kill -2 `cat $SFS_PNT_PID` > /dev/null 2>&1
+    rm -f $SFS_PNT_PID
+fi
+if [ -f $SFS_SYNCD_PID ]; then
+    kill -2 `cat $SFS_SYNCD_PID` > /dev/null 2>&1
+    rm -f $SFS_SYNCD_PID
+fi
+
+trap $TRAP_NUMS

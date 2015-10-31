@@ -1,0 +1,2211 @@
+Tue Mar 15 23:59:18 PDT 2011 Configuration parameters passed validation
+
+Tue Mar 15 23:59:18 PDT 2011 ========================================================================
+SFS Benchmark Prime Client Logfile.
+        Creation Date: Tue Mar 15 23:59:18 PDT 2011
+        Prime Client hostname: c09-44.sysnet.ucsd.edu
+Tue Mar 15 23:59:23 PDT 2011         Number of Clients: 1
+        Client hostname(s): vrable1.sysnet.ucsd.edu 
+
+Tue Mar 15 23:59:23 PDT 2011 SfsManager: Started sfs_syncd on vrable1.sysnet.ucsd.edu
+Tue Mar 15 23:59:33 PDT 2011 
+************************************************************************
+Tue Mar 15 23:59:33 PDT 2011 Test Run 1 of 25
+
+Tue Mar 15 23:59:33 PDT 2011 Tue Mar 15 23:59:33 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Tue Mar 15 23:59:33 PDT 2011         sfsnfs3 -N 1 -l 50  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Tue Mar 15 23:59:48 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Tue Mar 15 23:59:49 2011 Received.
+Tue Mar 15 23:59:49 2011 Sending DO-INIT message to 1 client(s).
+Tue Mar 15 23:59:49 2011 Completed.
+Tue Mar 15 23:59:49 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 00:03:05 2011 Received.
+Wed Mar 16 00:03:05 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 00:03:05 2011 Completed.
+Wed Mar 16 00:03:05 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 00:08:06 2011 Received.
+Wed Mar 16 00:08:06 2011 Sending START message to 1 client(s).
+Wed Mar 16 00:08:06 2011 Completed.
+Wed Mar 16 00:13:06 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 00:13:06 2011 Completed.
+Wed Mar 16 00:13:06 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 00:13:17 2011 Received.
+Wed Mar 16 00:13:17 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 00:13:17 2011 Completed.
+Wed Mar 16 00:13:17 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 00:13:18 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 50 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 50
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =   9876 Files created for I/O operations
+                 2960 Files accessed for I/O operations
+                  200 Files for non-I/O operations
+                   24 Symlinks
+                  328 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 00:13:18 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.7%     3851     3851      0     0.17     0.02      0.00   7.3%
+setattr       4.0%   3.8%      571      571      0     0.87     0.48      0.06   5.4%
+lookup       24.0%  24.5%     3670     3670      0     0.18     0.02      0.00   7.2%
+readlink      1.0%   0.9%      132      132      0     0.17     0.02      0.02   0.2%
+read         18.0%  17.6%     2639     3374      0     0.60      nan       nan  17.3%
+write        10.0%   9.8%     1469     1742      0     2.19     7.92      0.14  35.0%
+create        1.0%   1.1%      162      162      0     2.10     0.63      0.12   3.7%
+remove        1.0%   1.1%      169      169      0     1.45     0.56      0.11   2.7%
+readdir       1.0%   1.0%      145      145      0     0.35     0.01      0.02   0.6%
+fsstat        1.0%   1.0%      150      150      0     0.17     0.01      0.01   0.3%
+access       11.0%  11.4%     1707     1707      0     0.18     0.03      0.01   3.2%
+commit        0.0%   0.0%        0      672      0     0.00     0.00      0.00  15.1%
+readdirplus   2.0%   2.2%      333      333      0     0.58     0.02      0.02   2.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:      50 Ops/Sec   AVG. RESPONSE TIME:     0.6 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 50 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  14998          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 16678    
+PHYSICAL NFS IO THROUGHPUT: 55 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 5121.2 MB
+TOTAL FILE SET SIZE ACCESSED: 1537.0 - 1569.4 MB  (100.00% to 102.11% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 00:13:19 PDT 2011 
+************************************************************************
+Wed Mar 16 00:13:19 PDT 2011 
+************************************************************************
+Wed Mar 16 00:13:19 PDT 2011 Test Run 2 of 25
+
+Wed Mar 16 00:13:19 PDT 2011 Wed Mar 16 00:13:19 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 00:13:19 PDT 2011         sfsnfs3 -N 1 -l 100  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 00:13:34 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 00:13:35 2011 Received.
+Wed Mar 16 00:13:35 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 00:13:35 2011 Completed.
+Wed Mar 16 00:13:35 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 00:18:14 2011 Received.
+Wed Mar 16 00:18:14 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 00:18:14 2011 Completed.
+Wed Mar 16 00:18:14 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 00:23:15 2011 Received.
+Wed Mar 16 00:23:15 2011 Sending START message to 1 client(s).
+Wed Mar 16 00:23:15 2011 Completed.
+Wed Mar 16 00:28:15 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 00:28:15 2011 Completed.
+Wed Mar 16 00:28:15 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 00:28:26 2011 Received.
+Wed Mar 16 00:28:26 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 00:28:26 2011 Completed.
+Wed Mar 16 00:28:26 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 00:28:27 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 100 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 100
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  21728 Files created for I/O operations
+                 6516 Files accessed for I/O operations
+                  436 Files for non-I/O operations
+                   24 Symlinks
+                  724 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 00:28:27 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.7%     7709     7709      0     0.18     0.03      0.00   1.8%
+setattr       4.0%   4.0%     1195     1195      0     0.96     1.11      0.06   1.5%
+lookup       24.0%  24.3%     7293     7293      0     0.18     0.03      0.00   1.7%
+readlink      1.0%   1.0%      309      309      0     0.17     0.01      0.01   0.1%
+read         18.0%  18.2%     5459     6672      0     8.15    32.27      0.15  58.2%
+write        10.0%   9.8%     2951     3624      0     7.52    19.17      0.16  29.1%
+create        1.0%   1.0%      294      294      0     2.90     1.12      0.12   1.1%
+remove        1.0%   1.0%      295      295      0     2.46     5.68      0.27   0.9%
+readdir       1.0%   1.0%      293      293      0     0.37     0.02      0.02   0.1%
+fsstat        1.0%   1.0%      293      293      0     0.17     0.01      0.01   0.1%
+access       11.0%  11.1%     3330     3330      0     0.18     0.03      0.01   0.8%
+commit        0.0%   0.0%        0     1309      0     0.00     0.00      0.00   4.1%
+readdirplus   2.0%   2.1%      621      621      0     0.63     0.06      0.02   0.5%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     100 Ops/Sec   AVG. RESPONSE TIME:     2.5 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 100 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  30042          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 33237    
+PHYSICAL NFS IO THROUGHPUT: 110 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 11267.2 MB
+TOTAL FILE SET SIZE ACCESSED: 3381.0 - 3454.1 MB  (100.00% to 102.16% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 00:28:28 PDT 2011 
+************************************************************************
+Wed Mar 16 00:28:28 PDT 2011 
+************************************************************************
+Wed Mar 16 00:28:28 PDT 2011 Test Run 3 of 25
+
+Wed Mar 16 00:28:28 PDT 2011 Wed Mar 16 00:28:28 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 00:28:28 PDT 2011         sfsnfs3 -N 1 -l 150  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 00:28:43 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 00:28:44 2011 Received.
+Wed Mar 16 00:28:44 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 00:28:44 2011 Completed.
+Wed Mar 16 00:28:44 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 00:32:29 2011 Received.
+Wed Mar 16 00:32:29 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 00:32:29 2011 Completed.
+Wed Mar 16 00:32:29 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 00:37:30 2011 Received.
+Wed Mar 16 00:37:30 2011 Sending START message to 1 client(s).
+Wed Mar 16 00:37:30 2011 Completed.
+Wed Mar 16 00:42:30 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 00:42:30 2011 Completed.
+Wed Mar 16 00:42:30 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 00:42:41 2011 Received.
+Wed Mar 16 00:42:41 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 00:42:41 2011 Completed.
+Wed Mar 16 00:42:41 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 00:42:42 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 150 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 150
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  33576 Files created for I/O operations
+                10072 Files accessed for I/O operations
+                  672 Files for non-I/O operations
+                   24 Symlinks
+                 1116 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 00:42:42 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.3%    11878    11878      0     0.18     0.05      0.00   1.9%
+setattr       4.0%   4.0%     1814     1814      0     1.30     3.28      0.08   2.1%
+lookup       24.0%  23.9%    10771    10771      0     0.18     0.04      0.00   1.7%
+readlink      1.0%   1.0%      434      434      0     0.18     0.02      0.01   0.1%
+read         18.0%  18.1%     8161     9967      0     7.30    32.42      0.12  52.9%
+write        10.0%   9.9%     4454     5529      0     8.23    22.03      0.14  32.6%
+create        1.0%   1.0%      460      460      0     3.49     3.20      0.16   1.4%
+remove        1.0%   1.0%      452      452      0     2.44     1.31      0.11   1.0%
+readdir       1.0%   1.0%      432      432      0     0.37     0.05      0.02   0.1%
+fsstat        1.0%   1.0%      465      465      0     0.18     0.03      0.02   0.1%
+access       11.0%  10.8%     4885     4885      0     0.18     0.04      0.01   0.8%
+commit        0.0%   0.0%        0     1946      0     0.00     0.00      0.00   4.9%
+readdirplus   2.0%   2.0%      880      880      0     0.63     0.05      0.01   0.5%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     151 Ops/Sec   AVG. RESPONSE TIME:     2.5 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 150 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  45086          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 49913    
+PHYSICAL NFS IO THROUGHPUT: 166 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 17411.0 MB
+TOTAL FILE SET SIZE ACCESSED: 5225.0 - 5333.8 MB  (100.00% to 102.08% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 00:42:43 PDT 2011 
+************************************************************************
+Wed Mar 16 00:42:43 PDT 2011 
+************************************************************************
+Wed Mar 16 00:42:43 PDT 2011 Test Run 4 of 25
+
+Wed Mar 16 00:42:43 PDT 2011 Wed Mar 16 00:42:43 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 00:42:43 PDT 2011         sfsnfs3 -N 1 -l 200  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 00:42:58 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 00:42:59 2011 Received.
+Wed Mar 16 00:42:59 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 00:42:59 2011 Completed.
+Wed Mar 16 00:42:59 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 00:46:54 2011 Received.
+Wed Mar 16 00:46:54 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 00:46:54 2011 Completed.
+Wed Mar 16 00:46:54 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 00:51:55 2011 Received.
+Wed Mar 16 00:51:55 2011 Sending START message to 1 client(s).
+Wed Mar 16 00:51:55 2011 Completed.
+Wed Mar 16 00:56:55 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 00:56:55 2011 Completed.
+Wed Mar 16 00:56:55 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 00:57:06 2011 Received.
+Wed Mar 16 00:57:06 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 00:57:06 2011 Completed.
+Wed Mar 16 00:57:06 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 00:57:07 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 200 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 200
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  45428 Files created for I/O operations
+                13628 Files accessed for I/O operations
+                  912 Files for non-I/O operations
+                   24 Symlinks
+                 1512 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 00:57:07 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    15662    15662      0     0.18     0.06      0.00   1.5%
+setattr       4.0%   4.0%     2432     2432      0     2.34    42.63      0.26   3.0%
+lookup       24.0%  23.9%    14364    14364      0     0.19     0.22      0.01   1.4%
+readlink      1.0%   1.0%      607      607      0     0.18     0.10      0.03   0.1%
+read         18.0%  18.0%    10826    13321      0     9.56    45.55      0.13  54.7%
+write        10.0%  10.0%     6019     7240      0     9.09    22.82      0.12  28.9%
+create        1.0%   1.1%      643      643      0     4.14     6.73      0.20   1.4%
+remove        1.0%   1.0%      611      611      0     3.45     8.98      0.24   1.1%
+readdir       1.0%   1.0%      600      600      0     0.37     0.05      0.02   0.1%
+fsstat        1.0%   0.9%      571      571      0     0.18     0.04      0.02   0.1%
+access       11.0%  11.0%     6625     6625      0     0.18     0.29      0.01   0.6%
+commit        0.0%   0.0%        0     2666      0     0.00     0.00      0.00   6.6%
+readdirplus   2.0%   2.0%     1197     1197      0     0.65     0.10      0.02   0.4%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     201 Ops/Sec   AVG. RESPONSE TIME:     3.1 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 200 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  60157          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 66539    
+PHYSICAL NFS IO THROUGHPUT: 221 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 23556.9 MB
+TOTAL FILE SET SIZE ACCESSED: 7068.9 - 7205.0 MB  (100.00% to 101.92% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 00:57:08 PDT 2011 
+************************************************************************
+Wed Mar 16 00:57:08 PDT 2011 
+************************************************************************
+Wed Mar 16 00:57:08 PDT 2011 Test Run 5 of 25
+
+Wed Mar 16 00:57:08 PDT 2011 Wed Mar 16 00:57:08 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 00:57:08 PDT 2011         sfsnfs3 -N 1 -l 250  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 00:57:23 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 00:57:25 2011 Received.
+Wed Mar 16 00:57:25 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 00:57:25 2011 Completed.
+Wed Mar 16 00:57:25 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 01:02:05 2011 Received.
+Wed Mar 16 01:02:05 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 01:02:05 2011 Completed.
+Wed Mar 16 01:02:05 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 01:07:06 2011 Received.
+Wed Mar 16 01:07:06 2011 Sending START message to 1 client(s).
+Wed Mar 16 01:07:06 2011 Completed.
+Wed Mar 16 01:12:06 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 01:12:06 2011 Completed.
+Wed Mar 16 01:12:06 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 01:12:17 2011 Received.
+Wed Mar 16 01:12:17 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 01:12:17 2011 Completed.
+Wed Mar 16 01:12:17 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 01:12:18 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 250 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 250
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  57276 Files created for I/O operations
+                17180 Files accessed for I/O operations
+                 1148 Files for non-I/O operations
+                   24 Symlinks
+                 1908 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 01:12:18 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.2%    19693    19693      0     0.18     0.06      0.00   1.2%
+setattr       4.0%   4.0%     3037     3037      0     2.21    18.71      0.15   2.2%
+lookup       24.0%  24.0%    18057    18057      0     0.19     0.07      0.00   1.1%
+readlink      1.0%   1.0%      768      768      0     0.18     0.02      0.01   0.0%
+read         18.0%  17.9%    13461    16518      0    13.65    40.74      0.11  60.1%
+write        10.0%   9.8%     7377     8896      0    11.26    25.33      0.11  27.2%
+create        1.0%   1.0%      721      721      0     6.55    35.56      0.44   1.5%
+remove        1.0%   1.0%      762      762      0     3.62    11.08      0.24   0.9%
+readdir       1.0%   0.9%      711      711      0     0.38     0.06      0.02   0.1%
+fsstat        1.0%   1.0%      751      751      0     0.18     0.04      0.01   0.0%
+access       11.0%  11.0%     8253     8253      0     0.18     0.05      0.00   0.5%
+commit        0.0%   0.0%        0     3195      0     0.00     0.00      0.00   4.8%
+readdirplus   2.0%   2.0%     1511     1511      0     0.66     0.08      0.01   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     251 Ops/Sec   AVG. RESPONSE TIME:     4.1 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 250 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  75102          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 82873    
+PHYSICAL NFS IO THROUGHPUT: 277 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 29700.7 MB
+TOTAL FILE SET SIZE ACCESSED: 8910.8 - 9077.8 MB  (100.00% to 101.87% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 01:12:19 PDT 2011 
+************************************************************************
+Wed Mar 16 01:12:19 PDT 2011 
+************************************************************************
+Wed Mar 16 01:12:19 PDT 2011 Test Run 6 of 25
+
+Wed Mar 16 01:12:19 PDT 2011 Wed Mar 16 01:12:19 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 01:12:19 PDT 2011         sfsnfs3 -N 1 -l 300  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 01:12:34 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 01:12:35 2011 Received.
+Wed Mar 16 01:12:35 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 01:12:35 2011 Completed.
+Wed Mar 16 01:12:35 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 01:16:27 2011 Received.
+Wed Mar 16 01:16:27 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 01:16:27 2011 Completed.
+Wed Mar 16 01:16:27 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 01:21:28 2011 Received.
+Wed Mar 16 01:21:28 2011 Sending START message to 1 client(s).
+Wed Mar 16 01:21:28 2011 Completed.
+Wed Mar 16 01:26:28 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 01:26:28 2011 Completed.
+Wed Mar 16 01:26:28 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 01:26:39 2011 Received.
+Wed Mar 16 01:26:39 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 01:26:39 2011 Completed.
+Wed Mar 16 01:26:39 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 01:26:40 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 300 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 300
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  69128 Files created for I/O operations
+                20736 Files accessed for I/O operations
+                 1384 Files for non-I/O operations
+                   24 Symlinks
+                 2304 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 01:26:40 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    23434    23434      0     0.18     0.05      0.00   1.2%
+setattr       4.0%   4.0%     3641     3641      0     2.91    24.06      0.16   3.0%
+lookup       24.0%  24.0%    21619    21619      0     0.19     0.07      0.00   1.1%
+readlink      1.0%   1.0%      889      889      0     0.19     0.13      0.02   0.0%
+read         18.0%  18.1%    16328    20167      0    12.85    42.54      0.10  59.6%
+write        10.0%  10.1%     9077    10937      0    10.04    23.45      0.10  25.9%
+create        1.0%   1.0%      896      896      0     5.38    17.28      0.27   1.4%
+remove        1.0%   1.0%      859      859      0     5.78    28.36      0.36   1.4%
+readdir       1.0%   1.0%      916      916      0     0.39     0.10      0.02   0.1%
+fsstat        1.0%   1.0%      919      919      0     0.19     0.09      0.02   0.0%
+access       11.0%  11.0%     9877     9877      0     0.18     0.06      0.00   0.5%
+commit        0.0%   0.0%        0     4025      0     0.00     0.00      0.00   5.3%
+readdirplus   2.0%   1.9%     1741     1741      0     0.66     0.07      0.01   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     301 Ops/Sec   AVG. RESPONSE TIME:     3.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 300 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  90196          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 99920    
+PHYSICAL NFS IO THROUGHPUT: 333 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 35846.6 MB
+TOTAL FILE SET SIZE ACCESSED: 10754.8 - 10954.6 MB  (100.00% to 101.86% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 01:26:41 PDT 2011 
+************************************************************************
+Wed Mar 16 01:26:41 PDT 2011 
+************************************************************************
+Wed Mar 16 01:26:41 PDT 2011 Test Run 7 of 25
+
+Wed Mar 16 01:26:41 PDT 2011 Wed Mar 16 01:26:41 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 01:26:41 PDT 2011         sfsnfs3 -N 1 -l 350  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 01:26:56 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 01:26:58 2011 Received.
+Wed Mar 16 01:26:58 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 01:26:58 2011 Completed.
+Wed Mar 16 01:26:58 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 01:30:42 2011 Received.
+Wed Mar 16 01:30:42 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 01:30:42 2011 Completed.
+Wed Mar 16 01:30:42 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 01:35:43 2011 Received.
+Wed Mar 16 01:35:43 2011 Sending START message to 1 client(s).
+Wed Mar 16 01:35:43 2011 Completed.
+Wed Mar 16 01:40:43 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 01:40:43 2011 Completed.
+Wed Mar 16 01:40:43 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 01:40:54 2011 Received.
+Wed Mar 16 01:40:54 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 01:40:54 2011 Completed.
+Wed Mar 16 01:40:54 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 01:40:55 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 350 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 350
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  80976 Files created for I/O operations
+                24292 Files accessed for I/O operations
+                 1620 Files for non-I/O operations
+                   24 Symlinks
+                 2696 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 01:40:55 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    27493    27493      0     0.18     0.16      0.00   1.1%
+setattr       4.0%   4.0%     4203     4203      0     2.47    20.37      0.14   2.3%
+lookup       24.0%  24.0%    25298    25298      0     0.19     0.09      0.00   1.1%
+readlink      1.0%   1.0%     1075     1075      0     0.18     0.06      0.01   0.0%
+read         18.0%  18.2%    19246    23379      0    12.96    42.05      0.09  56.4%
+write        10.0%   9.8%    10383    12608      0    12.48    31.37      0.11  29.3%
+create        1.0%   1.0%     1049     1049      0     7.69    34.53      0.36   1.8%
+remove        1.0%   1.0%     1013     1013      0     6.94    37.14      0.38   1.6%
+readdir       1.0%   1.0%     1060     1060      0     0.39     0.09      0.02   0.1%
+fsstat        1.0%   1.0%     1092     1092      0     0.19     0.09      0.02   0.0%
+access       11.0%  11.0%    11578    11578      0     0.18     0.09      0.01   0.5%
+commit        0.0%   0.0%        0     4518      0     0.00     0.00      0.00   5.3%
+readdirplus   2.0%   2.0%     2115     2115      0     0.67     0.11      0.01   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     352 Ops/Sec   AVG. RESPONSE TIME:     4.2 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 350 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  105605         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 116481   
+PHYSICAL NFS IO THROUGHPUT: 388 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 41990.5 MB
+TOTAL FILE SET SIZE ACCESSED: 12598.8 - 12829.8 MB  (100.00% to 101.83% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 01:40:56 PDT 2011 
+************************************************************************
+Wed Mar 16 01:40:56 PDT 2011 
+************************************************************************
+Wed Mar 16 01:40:56 PDT 2011 Test Run 8 of 25
+
+Wed Mar 16 01:40:56 PDT 2011 Wed Mar 16 01:40:56 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 01:40:56 PDT 2011         sfsnfs3 -N 1 -l 400  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 01:41:11 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 01:41:13 2011 Received.
+Wed Mar 16 01:41:13 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 01:41:13 2011 Completed.
+Wed Mar 16 01:41:13 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 01:45:21 2011 Received.
+Wed Mar 16 01:45:21 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 01:45:21 2011 Completed.
+Wed Mar 16 01:45:21 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 01:50:22 2011 Received.
+Wed Mar 16 01:50:22 2011 Sending START message to 1 client(s).
+Wed Mar 16 01:50:22 2011 Completed.
+Wed Mar 16 01:55:22 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 01:55:22 2011 Completed.
+Wed Mar 16 01:55:22 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 01:55:33 2011 Received.
+Wed Mar 16 01:55:33 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 01:55:33 2011 Completed.
+Wed Mar 16 01:55:33 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 01:55:34 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 400 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 400
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  90852 Files created for I/O operations
+                27252 Files accessed for I/O operations
+                 1820 Files for non-I/O operations
+                   24 Symlinks
+                 3028 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 01:55:34 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    31336    31336      0     0.19     0.12      0.00   1.1%
+setattr       4.0%   4.0%     4837     4837      0     3.08    27.64      0.15   2.8%
+lookup       24.0%  24.0%    28915    28915      0     0.19     0.11      0.00   1.0%
+readlink      1.0%   1.0%     1182     1182      0     0.18     0.05      0.01   0.0%
+read         18.0%  17.9%    21582    26319      0    14.59    46.37      0.09  59.9%
+write        10.0%   9.9%    11874    14266      0    11.20    25.21      0.09  25.3%
+create        1.0%   1.0%     1193     1193      0    10.89    56.47      0.43   2.5%
+remove        1.0%   1.0%     1165     1165      0     5.84    25.15      0.29   1.3%
+readdir       1.0%   1.0%     1149     1149      0     0.39     0.10      0.02   0.1%
+fsstat        1.0%   1.0%     1223     1223      0     0.19     0.16      0.02   0.0%
+access       11.0%  11.2%    13498    13498      0     0.19     0.11      0.01   0.5%
+commit        0.0%   0.0%        0     5221      0     0.00     0.00      0.00   5.1%
+readdirplus   2.0%   2.1%     2484     2484      0     0.68     0.14      0.01   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     403 Ops/Sec   AVG. RESPONSE TIME:     4.4 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 400 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  120438         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 132788   
+PHYSICAL NFS IO THROUGHPUT: 444 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 47111.7 MB
+TOTAL FILE SET SIZE ACCESSED: 14133.7 - 14396.1 MB  (100.00% to 101.86% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 01:55:35 PDT 2011 
+************************************************************************
+Wed Mar 16 01:55:35 PDT 2011 
+************************************************************************
+Wed Mar 16 01:55:35 PDT 2011 Test Run 9 of 25
+
+Wed Mar 16 01:55:35 PDT 2011 Wed Mar 16 01:55:35 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 01:55:35 PDT 2011         sfsnfs3 -N 1 -l 450  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 01:55:50 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 01:55:51 2011 Received.
+Wed Mar 16 01:55:51 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 01:55:51 2011 Completed.
+Wed Mar 16 01:55:51 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 02:01:07 2011 Received.
+Wed Mar 16 02:01:07 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 02:01:07 2011 Completed.
+Wed Mar 16 02:01:07 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 02:06:08 2011 Received.
+Wed Mar 16 02:06:08 2011 Sending START message to 1 client(s).
+Wed Mar 16 02:06:08 2011 Completed.
+Wed Mar 16 02:11:08 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 02:11:08 2011 Completed.
+Wed Mar 16 02:11:08 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 02:11:19 2011 Received.
+Wed Mar 16 02:11:19 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 02:11:19 2011 Completed.
+Wed Mar 16 02:11:19 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 02:11:20 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 450 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 450
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 102704 Files created for I/O operations
+                30808 Files accessed for I/O operations
+                 2056 Files for non-I/O operations
+                   24 Symlinks
+                 3420 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 02:11:20 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.8%    35258    35258      0     0.19     0.15      0.00   1.0%
+setattr       4.0%   4.0%     5507     5507      0     3.93    47.20      0.18   3.3%
+lookup       24.0%  23.8%    32511    32511      0     0.19     0.15      0.00   1.0%
+readlink      1.0%   0.9%     1275     1275      0     0.18     0.08      0.02   0.0%
+read         18.0%  18.2%    24860    30528      0    15.93    45.42      0.08  60.3%
+write        10.0%  10.1%    13708    16608      0    11.74    26.49      0.09  24.5%
+create        1.0%   1.1%     1436     1436      0     8.45    43.75      0.34   1.8%
+remove        1.0%   1.0%     1363     1363      0     7.38    52.20      0.38   1.5%
+readdir       1.0%   1.0%     1400     1400      0     0.39     0.11      0.02   0.1%
+fsstat        1.0%   1.0%     1366     1366      0     0.19     0.10      0.02   0.0%
+access       11.0%  11.0%    14989    14989      0     0.19     0.12      0.01   0.4%
+commit        0.0%   0.0%        0     5977      0     0.00     0.00      0.00   5.7%
+readdirplus   2.0%   2.0%     2724     2724      0     0.69     0.15      0.01   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     456 Ops/Sec   AVG. RESPONSE TIME:     4.8 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 450 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  136397         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 150942   
+PHYSICAL NFS IO THROUGHPUT: 504 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 53257.6 MB
+TOTAL FILE SET SIZE ACCESSED: 15977.7 - 16281.8 MB  (100.00% to 101.90% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 02:11:21 PDT 2011 
+************************************************************************
+Wed Mar 16 02:11:21 PDT 2011 
+************************************************************************
+Wed Mar 16 02:11:21 PDT 2011 Test Run 10 of 25
+
+Wed Mar 16 02:11:21 PDT 2011 Wed Mar 16 02:11:21 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 02:11:21 PDT 2011         sfsnfs3 -N 1 -l 500  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 02:11:36 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 02:11:37 2011 Received.
+Wed Mar 16 02:11:37 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 02:11:37 2011 Completed.
+Wed Mar 16 02:11:37 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 02:16:55 2011 Received.
+Wed Mar 16 02:16:55 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 02:16:55 2011 Completed.
+Wed Mar 16 02:16:55 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 02:21:56 2011 Received.
+Wed Mar 16 02:21:56 2011 Sending START message to 1 client(s).
+Wed Mar 16 02:21:56 2011 Completed.
+Wed Mar 16 02:26:56 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 02:26:56 2011 Completed.
+Wed Mar 16 02:26:56 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 02:27:07 2011 Received.
+Wed Mar 16 02:27:07 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 02:27:07 2011 Completed.
+Wed Mar 16 02:27:07 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 02:27:08 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 500 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 500
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 114552 Files created for I/O operations
+                34364 Files accessed for I/O operations
+                 2292 Files for non-I/O operations
+                   24 Symlinks
+                 3816 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 02:27:08 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.1%    39330    39330      0     0.19     0.14      0.00   0.8%
+setattr       4.0%   4.0%     6039     6039      0     5.30    65.20      0.20   3.6%
+lookup       24.0%  23.9%    36055    36055      0     0.19     0.11      0.00   0.8%
+readlink      1.0%   1.0%     1545     1545      0     0.19     0.10      0.02   0.0%
+read         18.0%  18.2%    27393    33735      0    20.70    62.75      0.09  63.2%
+write        10.0%   9.9%    14983    18106      0    13.75    30.44      0.09  23.0%
+create        1.0%   1.0%     1513     1513      0     8.37    25.71      0.26   1.4%
+remove        1.0%   1.0%     1479     1479      0     7.21    29.13      0.28   1.2%
+readdir       1.0%   1.0%     1487     1487      0     0.40     0.17      0.02   0.1%
+fsstat        1.0%   1.0%     1560     1560      0     0.19     0.13      0.02   0.0%
+access       11.0%  10.9%    16419    16419      0     0.19     0.14      0.01   0.3%
+commit        0.0%   0.0%        0     6380      0     0.00     0.00      0.00   5.3%
+readdirplus   2.0%   1.9%     2879     2879      0     0.69     0.16      0.01   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     502 Ops/Sec   AVG. RESPONSE TIME:     5.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 500 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  150682         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 166527   
+PHYSICAL NFS IO THROUGHPUT: 555 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 59401.5 MB
+TOTAL FILE SET SIZE ACCESSED: 17821.7 - 18147.8 MB  (100.00% to 101.83% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 02:27:09 PDT 2011 
+************************************************************************
+Wed Mar 16 02:27:09 PDT 2011 
+************************************************************************
+Wed Mar 16 02:27:09 PDT 2011 Test Run 11 of 25
+
+Wed Mar 16 02:27:09 PDT 2011 Wed Mar 16 02:27:09 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 02:27:09 PDT 2011         sfsnfs3 -N 1 -l 550  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 02:27:24 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 02:27:25 2011 Received.
+Wed Mar 16 02:27:25 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 02:27:25 2011 Completed.
+Wed Mar 16 02:27:25 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 02:32:30 2011 Received.
+Wed Mar 16 02:32:30 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 02:32:30 2011 Completed.
+Wed Mar 16 02:32:30 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 02:37:31 2011 Received.
+Wed Mar 16 02:37:31 2011 Sending START message to 1 client(s).
+Wed Mar 16 02:37:31 2011 Completed.
+Wed Mar 16 02:42:31 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 02:42:31 2011 Completed.
+Wed Mar 16 02:42:31 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 02:42:42 2011 Received.
+Wed Mar 16 02:42:42 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 02:42:42 2011 Completed.
+Wed Mar 16 02:42:42 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 02:42:43 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 550 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 550
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 126404 Files created for I/O operations
+                37920 Files accessed for I/O operations
+                 2532 Files for non-I/O operations
+                   24 Symlinks
+                 4212 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 02:42:43 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    43238    43238      0     0.19     0.16      0.00   0.8%
+setattr       4.0%   4.0%     6673     6673      0     4.54    48.57      0.17   2.9%
+lookup       24.0%  24.0%    39930    39930      0     0.20     0.14      0.00   0.7%
+readlink      1.0%   1.0%     1682     1682      0     0.19     0.14      0.02   0.0%
+read         18.0%  18.0%    29929    36935      0    21.54    54.07      0.08  61.9%
+write        10.0%  10.0%    16679    20275      0    15.21    32.43      0.09  24.3%
+create        1.0%   1.0%     1682     1682      0    12.96    81.25      0.43   2.1%
+remove        1.0%   1.0%     1654     1654      0     7.62    31.68      0.27   1.2%
+readdir       1.0%   1.0%     1701     1701      0     0.41     0.20      0.02   0.1%
+fsstat        1.0%   1.0%     1598     1598      0     0.19     0.12      0.02   0.0%
+access       11.0%  11.0%    18311    18311      0     0.19     0.12      0.01   0.3%
+commit        0.0%   0.0%        0     6989      0     0.00     0.00      0.00   5.4%
+readdirplus   2.0%   2.0%     3302     3302      0     0.70     0.22      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     556 Ops/Sec   AVG. RESPONSE TIME:     6.3 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 550 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  166379         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 183970   
+PHYSICAL NFS IO THROUGHPUT: 615 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 65547.4 MB
+TOTAL FILE SET SIZE ACCESSED: 19665.7 - 19991.9 MB  (100.00% to 101.66% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 02:42:44 PDT 2011 
+************************************************************************
+Wed Mar 16 02:42:44 PDT 2011 
+************************************************************************
+Wed Mar 16 02:42:44 PDT 2011 Test Run 12 of 25
+
+Wed Mar 16 02:42:44 PDT 2011 Wed Mar 16 02:42:44 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 02:42:44 PDT 2011         sfsnfs3 -N 1 -l 600  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 02:42:59 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 02:43:00 2011 Received.
+Wed Mar 16 02:43:00 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 02:43:00 2011 Completed.
+Wed Mar 16 02:43:00 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 02:48:24 2011 Received.
+Wed Mar 16 02:48:24 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 02:48:24 2011 Completed.
+Wed Mar 16 02:48:24 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 02:53:24 2011 Received.
+Wed Mar 16 02:53:24 2011 Sending START message to 1 client(s).
+Wed Mar 16 02:53:24 2011 Completed.
+Wed Mar 16 02:58:24 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 02:58:24 2011 Completed.
+Wed Mar 16 02:58:24 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 02:58:36 2011 Received.
+Wed Mar 16 02:58:36 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 02:58:36 2011 Completed.
+Wed Mar 16 02:58:36 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 02:58:37 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 600 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 600
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 138252 Files created for I/O operations
+                41472 Files accessed for I/O operations
+                 2768 Files for non-I/O operations
+                   24 Symlinks
+                 4608 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 02:58:37 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    47427    47427      0     0.19     0.16      0.00   0.8%
+setattr       4.0%   4.1%     7419     7419      0     5.32    69.90      0.19   3.7%
+lookup       24.0%  24.1%    43877    43877      0     0.20     0.15      0.00   0.8%
+readlink      1.0%   1.0%     1820     1820      0     0.19     0.11      0.02   0.0%
+read         18.0%  17.9%    32671    40073      0    19.63    51.29      0.08  59.7%
+write        10.0%  10.0%    18197    21925      0    14.74    29.92      0.08  24.9%
+create        1.0%   1.1%     1931     1931      0    13.31    89.38      0.42   2.4%
+remove        1.0%   1.0%     1804     1804      0    12.07    88.57      0.43   2.0%
+readdir       1.0%   1.0%     1804     1804      0     0.41     0.20      0.02   0.1%
+fsstat        1.0%   1.0%     1796     1796      0     0.19     0.16      0.02   0.0%
+access       11.0%  11.0%    20004    20004      0     0.19     0.14      0.01   0.4%
+commit        0.0%   0.0%        0     7508      0     0.00     0.00      0.00   4.9%
+readdirplus   2.0%   2.0%     3637     3637      0     0.71     0.42      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     610 Ops/Sec   AVG. RESPONSE TIME:     5.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 600 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  182387         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 201025   
+PHYSICAL NFS IO THROUGHPUT: 672 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 71691.2 MB
+TOTAL FILE SET SIZE ACCESSED: 21507.6 - 21850.0 MB  (100.00% to 101.59% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 02:58:38 PDT 2011 
+************************************************************************
+Wed Mar 16 02:58:38 PDT 2011 
+************************************************************************
+Wed Mar 16 02:58:38 PDT 2011 Test Run 13 of 25
+
+Wed Mar 16 02:58:38 PDT 2011 Wed Mar 16 02:58:38 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 02:58:38 PDT 2011         sfsnfs3 -N 1 -l 650  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 02:58:53 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 02:58:54 2011 Received.
+Wed Mar 16 02:58:54 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 02:58:54 2011 Completed.
+Wed Mar 16 02:58:54 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 03:05:33 2011 Received.
+Wed Mar 16 03:05:33 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 03:05:33 2011 Completed.
+Wed Mar 16 03:05:33 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 03:10:34 2011 Received.
+Wed Mar 16 03:10:34 2011 Sending START message to 1 client(s).
+Wed Mar 16 03:10:34 2011 Completed.
+Wed Mar 16 03:15:34 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 03:15:34 2011 Completed.
+Wed Mar 16 03:15:34 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 03:15:45 2011 Received.
+Wed Mar 16 03:15:45 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 03:15:45 2011 Completed.
+Wed Mar 16 03:15:45 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 03:15:46 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 650 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 650
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 150104 Files created for I/O operations
+                45028 Files accessed for I/O operations
+                 3004 Files for non-I/O operations
+                   24 Symlinks
+                 5000 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 03:15:46 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.1%    51574    51574      0     0.18     0.14      0.00   0.7%
+setattr       4.0%   4.0%     7908     7908      0     5.87    68.33      0.18   3.4%
+lookup       24.0%  23.8%    47122    47122      0     0.19     0.13      0.00   0.7%
+readlink      1.0%   1.0%     1957     1957      0     0.19     0.11      0.01   0.0%
+read         18.0%  18.1%    35734    43838      0    22.53    49.94      0.07  59.6%
+write        10.0%  10.0%    19789    24064      0    17.59    30.38      0.08  25.8%
+create        1.0%   1.0%     1968     1968      0    13.54    89.84      0.42   2.0%
+remove        1.0%   1.0%     1958     1958      0    10.65    60.85      0.35   1.5%
+readdir       1.0%   1.0%     2018     2018      0     0.41     0.20      0.02   0.1%
+fsstat        1.0%   1.0%     1947     1947      0     0.18     0.10      0.01   0.0%
+access       11.0%  11.0%    21808    21808      0     0.20     1.71      0.02   0.3%
+commit        0.0%   0.0%        0     8041      0     0.00     0.00      0.00   5.7%
+readdirplus   2.0%   2.0%     4014     4014      0     0.71     0.21      0.01   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     659 Ops/Sec   AVG. RESPONSE TIME:     6.8 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 650 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  197797         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 218217   
+PHYSICAL NFS IO THROUGHPUT: 727 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 77837.1 MB
+TOTAL FILE SET SIZE ACCESSED: 23351.6 - 23693.4 MB  (100.00% to 101.46% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 03:15:47 PDT 2011 
+************************************************************************
+Wed Mar 16 03:15:47 PDT 2011 
+************************************************************************
+Wed Mar 16 03:15:47 PDT 2011 Test Run 14 of 25
+
+Wed Mar 16 03:15:47 PDT 2011 Wed Mar 16 03:15:47 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 03:15:47 PDT 2011         sfsnfs3 -N 1 -l 700  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 03:16:02 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 03:16:04 2011 Received.
+Wed Mar 16 03:16:04 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 03:16:04 2011 Completed.
+Wed Mar 16 03:16:04 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 03:21:56 2011 Received.
+Wed Mar 16 03:21:56 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 03:21:56 2011 Completed.
+Wed Mar 16 03:21:56 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 03:26:57 2011 Received.
+Wed Mar 16 03:26:57 2011 Sending START message to 1 client(s).
+Wed Mar 16 03:26:57 2011 Completed.
+Wed Mar 16 03:31:57 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 03:31:57 2011 Completed.
+Wed Mar 16 03:31:57 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 03:32:08 2011 Received.
+Wed Mar 16 03:32:08 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 03:32:08 2011 Completed.
+Wed Mar 16 03:32:08 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 03:32:09 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 700 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 700
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 161952 Files created for I/O operations
+                48584 Files accessed for I/O operations
+                 3240 Files for non-I/O operations
+                   24 Symlinks
+                 5396 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 03:32:09 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.1%    50479    50479      0     0.18     0.14      0.00   0.6%
+setattr       4.0%   4.0%     7799     7799      0     6.25    77.65      0.20   3.2%
+lookup       24.0%  23.9%    46236    46236      0     0.19     0.15      0.00   0.6%
+readlink      1.0%   1.0%     1916     1916      0     0.18     0.13      0.02   0.0%
+read         18.0%  18.0%    34804    42709      0    27.00    57.15      0.08  61.4%
+write        10.0%  10.0%    19280    23217      0    19.68    35.18      0.08  24.8%
+create        1.0%   1.0%     1951     1951      0    16.06    98.52      0.44   2.0%
+remove        1.0%   1.0%     1924     1924      0    11.88    56.97      0.34   1.5%
+readdir       1.0%   1.0%     1937     1937      0     0.41     0.18      0.02   0.1%
+fsstat        1.0%   1.0%     1972     1972      0     0.18     0.08      0.01   0.0%
+access       11.0%  11.1%    21491    21491      0     0.18     0.14      0.01   0.3%
+commit        0.0%   0.0%        0     7620      0     0.00     0.00      0.00   5.4%
+readdirplus   2.0%   2.0%     3886     3886      0     0.71     0.24      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     648 Ops/Sec   AVG. RESPONSE TIME:     7.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 700 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  193675         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 213137   
+PHYSICAL NFS IO THROUGHPUT: 712 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 83981.0 MB
+TOTAL FILE SET SIZE ACCESSED: 25195.5 - 25515.8 MB  (100.00% to 101.27% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 03:32:10 PDT 2011 
+************************************************************************
+Wed Mar 16 03:32:10 PDT 2011 
+************************************************************************
+Wed Mar 16 03:32:10 PDT 2011 Test Run 15 of 25
+
+Wed Mar 16 03:32:10 PDT 2011 Wed Mar 16 03:32:10 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 03:32:10 PDT 2011         sfsnfs3 -N 1 -l 750  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 03:32:25 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 03:32:26 2011 Received.
+Wed Mar 16 03:32:26 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 03:32:26 2011 Completed.
+Wed Mar 16 03:32:26 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 03:38:04 2011 Received.
+Wed Mar 16 03:38:04 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 03:38:04 2011 Completed.
+Wed Mar 16 03:38:04 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 03:43:05 2011 Received.
+Wed Mar 16 03:43:05 2011 Sending START message to 1 client(s).
+Wed Mar 16 03:43:05 2011 Completed.
+Wed Mar 16 03:48:05 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 03:48:05 2011 Completed.
+Wed Mar 16 03:48:05 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 03:48:16 2011 Received.
+Wed Mar 16 03:48:16 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 03:48:16 2011 Completed.
+Wed Mar 16 03:48:16 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 03:48:17 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 750 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 750
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 171828 Files created for I/O operations
+                51548 Files accessed for I/O operations
+                 3440 Files for non-I/O operations
+                   24 Symlinks
+                 5724 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 03:48:17 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    45269    45269      0     0.18     0.14      0.00   0.5%
+setattr       4.0%   4.0%     7032     7032      0     6.10    77.54      0.21   2.8%
+lookup       24.0%  24.0%    41872    41872      0     0.19     0.13      0.00   0.5%
+readlink      1.0%   1.0%     1735     1735      0     0.19     0.15      0.02   0.0%
+read         18.0%  18.1%    31476    38663      0    31.49    68.30      0.09  64.5%
+write        10.0%  10.0%    17357    21012      0    20.47    35.22      0.09  23.1%
+create        1.0%   1.0%     1749     1749      0    15.90    89.31      0.44   1.8%
+remove        1.0%   1.0%     1713     1713      0    13.39    59.46      0.37   1.5%
+readdir       1.0%   1.0%     1755     1755      0     0.41     0.20      0.02   0.0%
+fsstat        1.0%   1.0%     1812     1812      0     0.19     0.18      0.02   0.0%
+access       11.0%  10.9%    19078    19078      0     0.18     0.14      0.01   0.2%
+commit        0.0%   0.0%        0     6715      0     0.00     0.00      0.00   4.8%
+readdirplus   2.0%   2.0%     3482     3482      0     0.72     0.36      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     583 Ops/Sec   AVG. RESPONSE TIME:     8.8 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 750 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  174330         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 191887   
+PHYSICAL NFS IO THROUGHPUT: 641 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 89102.2 MB
+TOTAL FILE SET SIZE ACCESSED: 26732.5 - 27026.5 MB  (100.00% to 101.10% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 03:48:18 PDT 2011 
+************************************************************************
+Wed Mar 16 03:48:18 PDT 2011 
+************************************************************************
+Wed Mar 16 03:48:18 PDT 2011 Test Run 16 of 25
+
+Wed Mar 16 03:48:18 PDT 2011 Wed Mar 16 03:48:18 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 03:48:18 PDT 2011         sfsnfs3 -N 1 -l 800  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 03:48:33 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 03:48:35 2011 Received.
+Wed Mar 16 03:48:35 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 03:48:35 2011 Completed.
+Wed Mar 16 03:48:35 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 03:53:59 2011 Received.
+Wed Mar 16 03:53:59 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 03:53:59 2011 Completed.
+Wed Mar 16 03:53:59 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 03:59:00 2011 Received.
+Wed Mar 16 03:59:00 2011 Sending START message to 1 client(s).
+Wed Mar 16 03:59:00 2011 Completed.
+Wed Mar 16 04:04:00 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 04:04:00 2011 Completed.
+Wed Mar 16 04:04:00 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 04:04:11 2011 Received.
+Wed Mar 16 04:04:11 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 04:04:11 2011 Completed.
+Wed Mar 16 04:04:11 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 04:04:12 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 800 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 800
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 183676 Files created for I/O operations
+                55100 Files accessed for I/O operations
+                 3676 Files for non-I/O operations
+                   24 Symlinks
+                 6120 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 04:04:12 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.1%    44430    44430      0     0.18     0.15      0.00   0.5%
+setattr       4.0%   4.0%     6863     6863      0     6.52    78.33      0.21   2.9%
+lookup       24.0%  24.1%    41012    41012      0     0.19     0.18      0.00   0.5%
+readlink      1.0%   1.0%     1681     1681      0     0.19     0.19      0.02   0.0%
+read         18.0%  17.9%    30490    37569      0    31.85    68.70      0.09  63.8%
+write        10.0%  10.0%    17092    20537      0    20.43    39.26      0.09  22.9%
+create        1.0%   1.0%     1671     1671      0    19.33    96.65      0.47   2.1%
+remove        1.0%   1.0%     1749     1749      0    15.41    66.65      0.38   1.8%
+readdir       1.0%   1.0%     1693     1693      0     0.42     0.23      0.02   0.0%
+fsstat        1.0%   1.0%     1664     1664      0     0.19     0.10      0.02   0.0%
+access       11.0%  10.9%    18565    18565      0     0.19     0.16      0.01   0.2%
+commit        0.0%   0.0%        0     6535      0     0.00     0.00      0.00   4.9%
+readdirplus   2.0%   2.0%     3377     3377      0     0.72     0.21      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     570 Ops/Sec   AVG. RESPONSE TIME:     8.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 800 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  170287         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 187346   
+PHYSICAL NFS IO THROUGHPUT: 626 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 95246.0 MB
+TOTAL FILE SET SIZE ACCESSED: 28574.4 - 28857.7 MB  (100.00% to 100.99% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 04:04:13 PDT 2011 
+************************************************************************
+Wed Mar 16 04:04:13 PDT 2011 
+************************************************************************
+Wed Mar 16 04:04:13 PDT 2011 Test Run 17 of 25
+
+Wed Mar 16 04:04:13 PDT 2011 Wed Mar 16 04:04:13 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 04:04:13 PDT 2011         sfsnfs3 -N 1 -l 850  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 04:04:28 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 04:04:30 2011 Received.
+Wed Mar 16 04:04:30 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 04:04:30 2011 Completed.
+Wed Mar 16 04:04:30 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 04:09:55 2011 Received.
+Wed Mar 16 04:09:55 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 04:09:55 2011 Completed.
+Wed Mar 16 04:09:55 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 04:14:56 2011 Received.
+Wed Mar 16 04:14:56 2011 Sending START message to 1 client(s).
+Wed Mar 16 04:14:56 2011 Completed.
+Wed Mar 16 04:19:56 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 04:19:56 2011 Completed.
+Wed Mar 16 04:19:56 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 04:20:07 2011 Received.
+Wed Mar 16 04:20:07 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 04:20:07 2011 Completed.
+Wed Mar 16 04:20:07 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 04:20:08 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 850 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 850
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 195528 Files created for I/O operations
+                58656 Files accessed for I/O operations
+                 3912 Files for non-I/O operations
+                   24 Symlinks
+                 6516 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 04:20:08 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.9%    39710    39710      0     0.19     0.86      0.01   0.5%
+setattr       4.0%   4.1%     6225     6225      0     6.28    70.17      0.21   2.6%
+lookup       24.0%  24.0%    36852    36852      0     0.20     0.96      0.01   0.5%
+readlink      1.0%   1.0%     1546     1546      0     0.18     0.16      0.02   0.0%
+read         18.0%  18.0%    27617    33825      0    36.31    66.16      0.10  65.7%
+write        10.0%  10.0%    15407    18681      0    21.37    34.95      0.09  21.6%
+create        1.0%   1.0%     1558     1558      0    24.09   148.34      0.60   2.5%
+remove        1.0%   1.0%     1579     1579      0    18.88   103.55      0.50   2.0%
+readdir       1.0%   1.0%     1476     1476      0     0.42     0.21      0.02   0.0%
+fsstat        1.0%   1.0%     1574     1574      0     0.19     0.16      0.02   0.0%
+access       11.0%  11.0%    16869    16869      0     0.18     0.18      0.01   0.2%
+commit        0.0%   0.0%        0     5794      0     0.00     0.00      0.00   4.4%
+readdirplus   2.0%   2.0%     3096     3096      0     0.75     0.75      0.03   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     513 Ops/Sec   AVG. RESPONSE TIME:     9.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 850 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  153509         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 168785   
+PHYSICAL NFS IO THROUGHPUT: 564 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 101392.0 MB
+TOTAL FILE SET SIZE ACCESSED: 30418.4 - 30688.5 MB  (100.00% to 100.89% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 04:20:09 PDT 2011 
+************************************************************************
+Wed Mar 16 04:20:09 PDT 2011 
+************************************************************************
+Wed Mar 16 04:20:09 PDT 2011 Test Run 18 of 25
+
+Wed Mar 16 04:20:09 PDT 2011 Wed Mar 16 04:20:09 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 04:20:09 PDT 2011         sfsnfs3 -N 1 -l 900  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 04:20:24 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 04:20:25 2011 Received.
+Wed Mar 16 04:20:25 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 04:20:25 2011 Completed.
+Wed Mar 16 04:20:25 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 04:28:26 2011 Received.
+Wed Mar 16 04:28:26 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 04:28:26 2011 Completed.
+Wed Mar 16 04:28:26 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 04:33:27 2011 Received.
+Wed Mar 16 04:33:27 2011 Sending START message to 1 client(s).
+Wed Mar 16 04:33:27 2011 Completed.
+Wed Mar 16 04:38:27 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 04:38:27 2011 Completed.
+Wed Mar 16 04:38:27 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 04:38:38 2011 Received.
+Wed Mar 16 04:38:38 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 04:38:38 2011 Completed.
+Wed Mar 16 04:38:38 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 04:38:39 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 900 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 900
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 207376 Files created for I/O operations
+                62212 Files accessed for I/O operations
+                 4148 Files for non-I/O operations
+                   24 Symlinks
+                 6912 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 04:38:39 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.1%    39361    39361      0     0.19     1.36      0.01   0.5%
+setattr       4.0%   4.0%     5999     5999      0     7.30    88.76      0.24   2.9%
+lookup       24.0%  24.0%    36305    36305      0     0.23     2.51      0.02   0.5%
+readlink      1.0%   1.0%     1549     1549      0     0.19     0.16      0.02   0.0%
+read         18.0%  17.9%    27070    33417      0    34.45    61.51      0.09  62.3%
+write        10.0%   9.9%    15011    18110      0    23.06    34.84      0.09  23.1%
+create        1.0%   1.0%     1548     1548      0    23.68   150.63      0.61   2.5%
+remove        1.0%   1.0%     1482     1482      0    19.01   102.59      0.52   1.9%
+readdir       1.0%   1.0%     1568     1568      0     0.40     0.12      0.02   0.0%
+fsstat        1.0%   1.0%     1492     1492      0     0.19     0.19      0.02   0.0%
+access       11.0%  11.0%    16623    16623      0     0.19     0.91      0.01   0.2%
+commit        0.0%   0.0%        0     5566      0     0.00     0.00      0.00   5.8%
+readdirplus   2.0%   2.0%     2964     2964      0     0.79     3.85      0.07   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     503 Ops/Sec   AVG. RESPONSE TIME:     9.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 900 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  150972         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 165984   
+PHYSICAL NFS IO THROUGHPUT: 553 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 107535.8 MB
+TOTAL FILE SET SIZE ACCESSED: 32262.4 - 32519.4 MB  (100.00% to 100.80% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 04:38:40 PDT 2011 
+************************************************************************
+Wed Mar 16 04:38:40 PDT 2011 
+************************************************************************
+Wed Mar 16 04:38:40 PDT 2011 Test Run 19 of 25
+
+Wed Mar 16 04:38:40 PDT 2011 Wed Mar 16 04:38:40 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 04:38:40 PDT 2011         sfsnfs3 -N 1 -l 950  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 04:38:55 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 04:38:56 2011 Received.
+Wed Mar 16 04:38:56 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 04:38:56 2011 Completed.
+Wed Mar 16 04:38:56 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 04:45:48 2011 Received.
+Wed Mar 16 04:45:48 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 04:45:48 2011 Completed.
+Wed Mar 16 04:45:48 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 04:50:49 2011 Received.
+Wed Mar 16 04:50:49 2011 Sending START message to 1 client(s).
+Wed Mar 16 04:50:49 2011 Completed.
+Wed Mar 16 04:55:49 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 04:55:49 2011 Completed.
+Wed Mar 16 04:55:49 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 04:56:00 2011 Received.
+Wed Mar 16 04:56:00 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 04:56:00 2011 Completed.
+Wed Mar 16 04:56:00 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 04:56:01 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 950 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 950
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 219228 Files created for I/O operations
+                65768 Files accessed for I/O operations
+                 4388 Files for non-I/O operations
+                   24 Symlinks
+                 7304 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 04:56:01 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.2%    30757    30757      0     0.18     0.16      0.00   0.4%
+setattr       4.0%   4.0%     4703     4703      0     7.25    77.49      0.25   2.3%
+lookup       24.0%  23.9%    28023    28023      0     0.19     0.18      0.00   0.4%
+readlink      1.0%   1.0%     1153     1153      0     0.18     0.06      0.01   0.0%
+read         18.0%  18.0%    21134    26060      0    48.45    73.51      0.12  67.8%
+write        10.0%   9.9%    11569    13994      0    27.45    38.81      0.11  21.0%
+create        1.0%   1.0%     1193     1193      0    21.37   109.47      0.59   1.7%
+remove        1.0%   1.0%     1182     1182      0    21.07   117.73      0.62   1.6%
+readdir       1.0%   1.0%     1180     1180      0     0.41     0.14      0.02   0.0%
+fsstat        1.0%   1.0%     1160     1160      0     0.18     0.07      0.02   0.0%
+access       11.0%  10.9%    12769    12769      0     0.18     0.12      0.01   0.2%
+commit        0.0%   0.0%        0     4170      0     0.00     0.00      0.00   4.6%
+readdirplus   2.0%   2.0%     2394     2394      0     0.71     0.17      0.02   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     391 Ops/Sec   AVG. RESPONSE TIME:    12.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 950 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  117217         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 128738   
+PHYSICAL NFS IO THROUGHPUT: 429 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 113681.7 MB
+TOTAL FILE SET SIZE ACCESSED: 34106.4 - 34306.6 MB  (100.00% to 100.59% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 04:56:02 PDT 2011 
+************************************************************************
+Wed Mar 16 04:56:02 PDT 2011 
+************************************************************************
+Wed Mar 16 04:56:02 PDT 2011 Test Run 20 of 25
+
+Wed Mar 16 04:56:02 PDT 2011 Wed Mar 16 04:56:02 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 04:56:02 PDT 2011         sfsnfs3 -N 1 -l 1000  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 04:56:17 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 04:56:18 2011 Received.
+Wed Mar 16 04:56:18 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 04:56:18 2011 Completed.
+Wed Mar 16 04:56:18 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 05:02:07 2011 Received.
+Wed Mar 16 05:02:07 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 05:02:07 2011 Completed.
+Wed Mar 16 05:02:07 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 05:07:08 2011 Received.
+Wed Mar 16 05:07:08 2011 Sending START message to 1 client(s).
+Wed Mar 16 05:07:08 2011 Completed.
+Wed Mar 16 05:12:08 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 05:12:08 2011 Completed.
+Wed Mar 16 05:12:08 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 05:12:19 2011 Received.
+Wed Mar 16 05:12:19 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 05:12:19 2011 Completed.
+Wed Mar 16 05:12:19 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 05:12:20 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 1000 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 1000
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 231076 Files created for I/O operations
+                69320 Files accessed for I/O operations
+                 4624 Files for non-I/O operations
+                   24 Symlinks
+                 7700 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 05:12:20 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.8%    29777    29777      0     0.18     0.16      0.00   0.4%
+setattr       4.0%   4.0%     4632     4632      0     7.79    84.45      0.26   2.4%
+lookup       24.0%  24.0%    27715    27715      0     0.19     0.17      0.00   0.4%
+readlink      1.0%   1.0%     1128     1128      0     0.18     0.07      0.02   0.0%
+read         18.0%  18.2%    20932    25684      0    47.42    69.59      0.11  66.0%
+write        10.0%   9.9%    11419    13679      0    28.01    39.73      0.12  21.3%
+create        1.0%   1.1%     1214     1214      0    30.30   173.85      0.74   2.4%
+remove        1.0%   1.0%     1160     1160      0    23.73   125.79      0.65   1.8%
+readdir       1.0%   1.0%     1134     1134      0     0.42     0.34      0.03   0.0%
+fsstat        1.0%   1.0%     1186     1186      0     0.19     0.12      0.02   0.0%
+access       11.0%  11.0%    12661    12661      0     0.18     0.14      0.01   0.2%
+commit        0.0%   0.0%        0     4094      0     0.00     0.00      0.00   5.0%
+readdirplus   2.0%   2.0%     2344     2344      0     0.73     0.26      0.02   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     384 Ops/Sec   AVG. RESPONSE TIME:    13.0 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 1000 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  115302         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 126408   
+PHYSICAL NFS IO THROUGHPUT: 421 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 119825.5 MB
+TOTAL FILE SET SIZE ACCESSED: 35948.3 - 36146.4 MB  (100.00% to 100.55% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 05:12:21 PDT 2011 
+************************************************************************
+Wed Mar 16 05:12:21 PDT 2011 
+************************************************************************
+Wed Mar 16 05:12:21 PDT 2011 Test Run 21 of 25
+
+Wed Mar 16 05:12:21 PDT 2011 Wed Mar 16 05:12:21 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 05:12:21 PDT 2011         sfsnfs3 -N 1 -l 1050  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 05:12:36 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 05:12:38 2011 Received.
+Wed Mar 16 05:12:38 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 05:12:38 2011 Completed.
+Wed Mar 16 05:12:38 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 05:20:51 2011 Received.
+Wed Mar 16 05:20:51 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 05:20:51 2011 Completed.
+Wed Mar 16 05:20:51 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 05:25:52 2011 Received.
+Wed Mar 16 05:25:52 2011 Sending START message to 1 client(s).
+Wed Mar 16 05:25:52 2011 Completed.
+Wed Mar 16 05:30:52 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 05:30:52 2011 Completed.
+Wed Mar 16 05:30:52 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 05:31:03 2011 Received.
+Wed Mar 16 05:31:03 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 05:31:03 2011 Completed.
+Wed Mar 16 05:31:03 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 05:31:04 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 1050 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 1050
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 242928 Files created for I/O operations
+                72876 Files accessed for I/O operations
+                 4860 Files for non-I/O operations
+                   24 Symlinks
+                 8096 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 05:31:04 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.9%    29272    29272      0     0.18     0.17      0.00   0.4%
+setattr       4.0%   4.1%     4581     4581      0     8.01    84.95      0.27   2.5%
+lookup       24.0%  24.0%    27071    27071      0     0.19     0.16      0.00   0.3%
+readlink      1.0%   1.0%     1136     1136      0     0.19     0.20      0.03   0.0%
+read         18.0%  17.8%    20102    24734      0    48.15    69.69      0.12  64.8%
+write        10.0%  10.0%    11289    13673      0    30.91    41.54      0.12  23.4%
+create        1.0%   1.0%     1142     1142      0    23.64   106.38      0.60   1.8%
+remove        1.0%   1.0%     1121     1121      0    22.01    95.08      0.57   1.7%
+readdir       1.0%   1.0%     1147     1147      0     0.40     0.09      0.02   0.0%
+fsstat        1.0%   1.0%     1138     1138      0     0.19     0.24      0.03   0.0%
+access       11.0%  11.2%    12707    12707      0     0.18     0.14      0.01   0.2%
+commit        0.0%   0.0%        0     4050      0     0.00     0.00      0.00   4.8%
+readdirplus   2.0%   2.0%     2265     2265      0     0.73     0.20      0.02   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     378 Ops/Sec   AVG. RESPONSE TIME:    13.2 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 1050 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  112971         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 124037   
+PHYSICAL NFS IO THROUGHPUT: 414 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 125971.5 MB
+TOTAL FILE SET SIZE ACCESSED: 37792.3 - 38000.5 MB  (100.00% to 100.55% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 05:31:05 PDT 2011 
+************************************************************************
+Wed Mar 16 05:31:05 PDT 2011 
+************************************************************************
+Wed Mar 16 05:31:05 PDT 2011 Test Run 22 of 25
+
+Wed Mar 16 05:31:05 PDT 2011 Wed Mar 16 05:31:05 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 05:31:05 PDT 2011         sfsnfs3 -N 1 -l 1100  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 05:31:20 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 05:31:21 2011 Received.
+Wed Mar 16 05:31:21 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 05:31:21 2011 Completed.
+Wed Mar 16 05:31:21 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 05:36:57 2011 Received.
+Wed Mar 16 05:36:57 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 05:36:57 2011 Completed.
+Wed Mar 16 05:36:57 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 05:41:58 2011 Received.
+Wed Mar 16 05:41:58 2011 Sending START message to 1 client(s).
+Wed Mar 16 05:41:58 2011 Completed.
+Wed Mar 16 05:46:58 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 05:46:58 2011 Completed.
+Wed Mar 16 05:46:58 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 05:47:09 2011 Received.
+Wed Mar 16 05:47:09 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 05:47:09 2011 Completed.
+Wed Mar 16 05:47:09 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 05:47:10 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 1100 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 1100
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 252804 Files created for I/O operations
+                75840 Files accessed for I/O operations
+                 5060 Files for non-I/O operations
+                   24 Symlinks
+                 8424 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 05:47:10 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.2%    29077    29077      0     0.19     0.20      0.01   0.4%
+setattr       4.0%   3.9%     4333     4333      0    11.04   101.49      0.30   3.3%
+lookup       24.0%  24.1%    26730    26730      0     0.20     0.18      0.01   0.4%
+readlink      1.0%   1.0%     1098     1098      0     0.18     0.09      0.02   0.0%
+read         18.0%  18.0%    19936    24362      0    47.09    74.21      0.12  63.8%
+write        10.0%   9.8%    10891    13069      0    29.51    45.21      0.13  21.8%
+create        1.0%   1.0%     1095     1095      0    37.72   201.62      0.84   2.8%
+remove        1.0%   1.0%     1085     1085      0    32.58   139.67      0.70   2.4%
+readdir       1.0%   1.0%     1087     1087      0     0.42     0.22      0.03   0.0%
+fsstat        1.0%   1.1%     1169     1169      0     0.19     0.29      0.03   0.0%
+access       11.0%  11.0%    12175    12175      0     0.19     0.16      0.01   0.2%
+commit        0.0%   0.0%        0     3876      0     0.00     0.00      0.00   4.9%
+readdirplus   2.0%   2.0%     2266     2266      0     0.75     0.56      0.03   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     371 Ops/Sec   AVG. RESPONSE TIME:    13.3 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 1100 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  110942         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 121422   
+PHYSICAL NFS IO THROUGHPUT: 406 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 131092.7 MB
+TOTAL FILE SET SIZE ACCESSED: 39329.3 - 39523.5 MB  (100.00% to 100.49% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 05:47:11 PDT 2011 
+************************************************************************
+Wed Mar 16 05:47:11 PDT 2011 
+************************************************************************
+Wed Mar 16 05:47:11 PDT 2011 Test Run 23 of 25
+
+Wed Mar 16 05:47:11 PDT 2011 Wed Mar 16 05:47:11 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 05:47:11 PDT 2011         sfsnfs3 -N 1 -l 1150  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 05:47:26 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 05:47:28 2011 Received.
+Wed Mar 16 05:47:28 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 05:47:28 2011 Completed.
+Wed Mar 16 05:47:28 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 05:53:43 2011 Received.
+Wed Mar 16 05:53:43 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 05:53:43 2011 Completed.
+Wed Mar 16 05:53:43 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 05:58:44 2011 Received.
+Wed Mar 16 05:58:44 2011 Sending START message to 1 client(s).
+Wed Mar 16 05:58:44 2011 Completed.
+Wed Mar 16 06:03:44 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 06:03:44 2011 Completed.
+Wed Mar 16 06:03:44 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 06:03:55 2011 Received.
+Wed Mar 16 06:03:55 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 06:03:55 2011 Completed.
+Wed Mar 16 06:03:55 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 06:03:56 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 1150 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 1150
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 264652 Files created for I/O operations
+                79392 Files accessed for I/O operations
+                 5296 Files for non-I/O operations
+                   24 Symlinks
+                 8820 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 06:03:56 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.2%    28052    28052      0     0.19     0.20      0.01   0.4%
+setattr       4.0%   4.0%     4313     4313      0     9.91    96.57      0.29   2.9%
+lookup       24.0%  23.9%    25569    25569      0     0.20     0.24      0.01   0.3%
+readlink      1.0%   1.0%     1093     1093      0     0.26     2.30      0.09   0.0%
+read         18.0%  17.9%    19164    23502      0    50.80    70.28      0.12  65.6%
+write        10.0%  10.0%    10648    12981      0    29.80    40.98      0.12  21.4%
+create        1.0%   1.0%     1102     1102      0    31.73   149.51      0.72   2.4%
+remove        1.0%   1.0%     1123     1123      0    30.74   136.28      0.68   2.3%
+readdir       1.0%   1.0%     1101     1101      0     0.43     0.25      0.03   0.0%
+fsstat        1.0%   1.0%     1068     1068      0     0.19     0.28      0.03   0.0%
+access       11.0%  10.9%    11680    11680      0     0.19     0.16      0.01   0.1%
+commit        0.0%   0.0%        0     3773      0     0.00     0.00      0.00   4.5%
+readdirplus   2.0%   2.0%     2096     2096      0     0.73     0.28      0.02   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     358 Ops/Sec   AVG. RESPONSE TIME:    13.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 1150 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  107009         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 117453   
+PHYSICAL NFS IO THROUGHPUT: 392 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 137236.5 MB
+TOTAL FILE SET SIZE ACCESSED: 41171.2 - 41366.7 MB  (100.00% to 100.48% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 06:03:57 PDT 2011 
+************************************************************************
+Wed Mar 16 06:03:57 PDT 2011 
+************************************************************************
+Wed Mar 16 06:03:57 PDT 2011 Test Run 24 of 25
+
+Wed Mar 16 06:03:57 PDT 2011 Wed Mar 16 06:03:57 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 06:03:57 PDT 2011         sfsnfs3 -N 1 -l 1200  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 06:04:12 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 06:04:14 2011 Received.
+Wed Mar 16 06:04:14 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 06:04:14 2011 Completed.
+Wed Mar 16 06:04:14 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 06:12:41 2011 Received.
+Wed Mar 16 06:12:41 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 06:12:41 2011 Completed.
+Wed Mar 16 06:12:41 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 06:17:42 2011 Received.
+Wed Mar 16 06:17:42 2011 Sending START message to 1 client(s).
+Wed Mar 16 06:17:42 2011 Completed.
+Wed Mar 16 06:22:42 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 06:22:42 2011 Completed.
+Wed Mar 16 06:22:42 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 06:22:53 2011 Received.
+Wed Mar 16 06:22:53 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 06:22:53 2011 Completed.
+Wed Mar 16 06:22:53 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 06:22:54 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 1200 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 1200
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 276504 Files created for I/O operations
+                82948 Files accessed for I/O operations
+                 5532 Files for non-I/O operations
+                   24 Symlinks
+                 9216 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 06:22:54 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    26407    26407      0     0.19     0.20      0.01   0.3%
+setattr       4.0%   4.0%     4028     4028      0     9.29    98.87      0.31   2.5%
+lookup       24.0%  24.1%    24443    24443      0     0.20     0.25      0.01   0.3%
+readlink      1.0%   1.0%     1049     1049      0     0.19     0.25      0.03   0.0%
+read         18.0%  18.0%    18319    22544      0    52.82    67.14      0.12  65.2%
+write        10.0%  10.1%    10249    12313      0    32.56    43.70      0.13  22.5%
+create        1.0%   1.0%     1041     1041      0    34.01   183.92      0.82   2.4%
+remove        1.0%   1.0%     1017     1017      0    28.91   114.95      0.66   2.0%
+readdir       1.0%   1.0%     1027     1027      0     0.42     0.26      0.03   0.0%
+fsstat        1.0%   1.0%     1012     1012      0     0.19     0.14      0.02   0.0%
+access       11.0%  10.9%    11063    11063      0     0.19     0.19      0.01   0.1%
+commit        0.0%   0.0%        0     3634      0     0.00     0.00      0.00   4.4%
+readdirplus   2.0%   1.9%     1979     1979      0     0.74     0.45      0.03   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     339 Ops/Sec   AVG. RESPONSE TIME:    14.6 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 1200 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  101634         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 111557   
+PHYSICAL NFS IO THROUGHPUT: 371 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 143382.4 MB
+TOTAL FILE SET SIZE ACCESSED: 43015.1 - 43204.1 MB  (100.00% to 100.44% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 06:22:55 PDT 2011 
+************************************************************************
+Wed Mar 16 06:22:55 PDT 2011 
+************************************************************************
+Wed Mar 16 06:22:55 PDT 2011 Test Run 25 of 25
+
+Wed Mar 16 06:22:55 PDT 2011 Wed Mar 16 06:22:55 PDT 2011 vrable1.sysnet.ucsd.edu start:
+Wed Mar 16 06:22:55 PDT 2011         sfsnfs3 -N 1 -l 1250  -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Executing SFS Benchmark on 1 Client(s).
+Wed Mar 16 06:23:10 2011 Waiting on DONE-MOUNT message from 1 client(s).
+Wed Mar 16 06:23:11 2011 Received.
+Wed Mar 16 06:23:11 2011 Sending DO-INIT message to 1 client(s).
+Wed Mar 16 06:23:11 2011 Completed.
+Wed Mar 16 06:23:11 2011 Waiting on DONE-INIT message from 1 client(s) (timeout is 8000 seconds).
+Wed Mar 16 06:31:30 2011 Received.
+Wed Mar 16 06:31:30 2011 Sending DO-WARMUP message to 1 client(s).
+Wed Mar 16 06:31:30 2011 Completed.
+Wed Mar 16 06:31:30 2011 Waiting on READY message from 1 client(s).
+Wed Mar 16 06:36:31 2011 Received.
+Wed Mar 16 06:36:31 2011 Sending START message to 1 client(s).
+Wed Mar 16 06:36:31 2011 Completed.
+Wed Mar 16 06:41:31 2011 Sending STOP message to 1 client(s).
+Wed Mar 16 06:41:31 2011 Completed.
+Wed Mar 16 06:41:31 2011 Waiting on DONE-TEST message from 1 client(s).
+Wed Mar 16 06:41:42 2011 Received.
+Wed Mar 16 06:41:42 2011 Sending MOVE-DATA message to 1 client(s).
+Wed Mar 16 06:41:42 2011 Completed.
+Wed Mar 16 06:41:42 2011 Waiting on SEND-DATA message from 1 client(s).
+Wed Mar 16 06:41:43 2011 Received.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 1250 -C ../result/sfssum.20110315-s3-west-noagg -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 vrable1.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 1250
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 288352 Files created for I/O operations
+                86504 Files accessed for I/O operations
+                 5768 Files for non-I/O operations
+                   24 Symlinks
+                 9608 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Wed Mar 16 06:41:43 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.9%    24668    24668      0     0.19     0.25      0.01   0.3%
+setattr       4.0%   4.0%     3825     3825      0    11.64   115.85      0.34   3.0%
+lookup       24.0%  24.0%    22881    22881      0     0.20     0.24      0.01   0.3%
+readlink      1.0%   1.0%      941      941      0     0.18     0.07      0.02   0.0%
+read         18.0%  18.0%    17118    20941      0    58.04    73.78      0.13  67.3%
+write        10.0%   9.8%     9369    11331      0    33.74    45.63      0.14  21.4%
+create        1.0%   1.0%      915      915      0    27.43    78.80      0.58   1.7%
+remove        1.0%   1.0%      996      996      0    33.14   149.18      0.76   2.2%
+readdir       1.0%   1.0%      954      954      0     0.42     0.25      0.03   0.0%
+fsstat        1.0%   1.0%      979      979      0     0.20     0.22      0.03   0.0%
+access       11.0%  11.2%    10635    10635      0     0.18     0.13      0.01   0.1%
+commit        0.0%   0.0%        0     3298      0     0.00     0.00      0.00   3.5%
+readdirplus   2.0%   2.0%     1872     1872      0     0.72     0.21      0.02   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     317 Ops/Sec   AVG. RESPONSE TIME:    15.5 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 1250 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  95153          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 104236   
+PHYSICAL NFS IO THROUGHPUT: 347 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 149526.3 MB
+TOTAL FILE SET SIZE ACCESSED: 44859.1 - 45032.0 MB  (100.00% to 100.39% of Base)
+
+------------------------------------------------------------------------
+
+Wed Mar 16 06:41:44 PDT 2011 
+************************************************************************
+Wed Mar 16 06:41:44 PDT 2011 ========================================================================

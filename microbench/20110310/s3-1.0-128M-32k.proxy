@@ -1,0 +1,2707 @@
+EXECUTE(vrable2.sysnet.ucsd.edu): run-proxy
+BLUESKY_RUN_NAME=s3-1.0-128M-32k
+BLUESKY_CACHE_SIZE=1048576
+BLUESKY_TARGET=s3:mvrable-bluesky-west
+BENCH_DURATION=120
+BENCH_FILESIZE=1048576
+BENCH_FILECOUNT=128
+BENCH_WRITERATIO=1.0
+BENCH_THREADS=4
+BENCH_OPS=10
+BENCH_INTERVALS=10
+BENCH_DIRSIZE=128
+BENCH_BLOCKSIZE=32768
+NFS_BLOCKSIZE=32768
+Option BLUESKY_CACHE_SIZE set to 1048576
+Initializing S3 with bucket mvrable-bluesky-west, access key AKIAJ4RG3GWBMGEBRRXQ, encryption key j3FQWkiNQnDCm+JVhbQ69YfWfds7AB/sYkLy89MA
+Starting journal at sequence number 0
+Claiming cloud log directory: 0
+Last key: (null)
+Initializing new filesystem...
+Starting NFS main loop...
+
+Cloudlog cache: 0 dirty, 0 writeback, 1 journal, 0 cloud
+Creating inode map range, 1: start=0 end=18446744073709551615
+Creating inode map range, 2: start=0 end=18446744073709551615
+Creating inode map range, 3: start=0 end=4095
+Serializing 447 bytes of data to cloud
+Write of log-00000000-00000000 to cloud complete, status = 0
+All segments have been flushed, journal < 0 is clean
+
+Scanning cache: (total size = 4 kB)
+
+Ending cache size: 4 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 2 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 0 is clean
+
+Scanning cache: (total size = 4 kB)
+
+Ending cache size: 4 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 4227 journal, 2 cloud
+Serializing 4209653 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4212591 bytes of data to cloud
+Serializing 6675 bytes of data to cloud
+Write of log-00000000-00000033 to cloud complete, status = 0
+Unexpected error or end of file on RPC stream 14!
+Write of log-00000000-00000002 to cloud complete, status = 0
+Write of log-00000000-00000003 to cloud complete, status = 0
+Write of log-00000000-00000001 to cloud complete, status = 0
+Write of log-00000000-00000009 to cloud complete, status = 0
+Write of log-00000000-00000010 to cloud complete, status = 0
+Write of log-00000000-00000024 to cloud complete, status = 0
+Write of log-00000000-00000026 to cloud complete, status = 0
+Write of log-00000000-00000032 to cloud complete, status = 0
+Write of log-00000000-00000008 to cloud complete, status = 0
+Write of log-00000000-00000004 to cloud complete, status = 0
+Write of log-00000000-00000007 to cloud complete, status = 0
+Write of log-00000000-00000022 to cloud complete, status = 0
+Write of log-00000000-00000018 to cloud complete, status = 0
+Write of log-00000000-00000006 to cloud complete, status = 0
+Write of log-00000000-00000014 to cloud complete, status = 0
+Write of log-00000000-00000030 to cloud complete, status = 0
+Write of log-00000000-00000028 to cloud complete, status = 0
+Write of log-00000000-00000011 to cloud complete, status = 0
+Write of log-00000000-00000005 to cloud complete, status = 0
+Write of log-00000000-00000015 to cloud complete, status = 0
+Write of log-00000000-00000029 to cloud complete, status = 0
+Write of log-00000000-00000021 to cloud complete, status = 0
+Write of log-00000000-00000019 to cloud complete, status = 0
+Write of log-00000000-00000017 to cloud complete, status = 0
+Write of log-00000000-00000020 to cloud complete, status = 0
+Write of log-00000000-00000016 to cloud complete, status = 0
+Write of log-00000000-00000027 to cloud complete, status = 0
+Write of log-00000000-00000031 to cloud complete, status = 0
+Write of log-00000000-00000025 to cloud complete, status = 0
+Write of log-00000000-00000012 to cloud complete, status = 0
+Write of log-00000000-00000023 to cloud complete, status = 0
+Write of log-00000000-00000013 to cloud complete, status = 0
+All segments have been flushed, journal < 32 is clean
+
+Scanning cache: (total size = 131784 kB)
+
+Ending cache size: 131784 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4228 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 32 is clean
+
+Scanning cache: (total size = 131784 kB)
+
+Ending cache size: 131784 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 44!
+Received new connection on fd 12!
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 1828 journal, 2528 cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4222454 bytes of data to cloud
+Serializing 1961996 bytes of data to cloud
+Write of log-00000000-00000047 to cloud complete, status = 0
+Write of log-00000000-00000036 to cloud complete, status = 0
+Write of log-00000000-00000037 to cloud complete, status = 0
+Write of log-00000000-00000045 to cloud complete, status = 0
+Write of log-00000000-00000038 to cloud complete, status = 0
+Write of log-00000000-00000034 to cloud complete, status = 0
+Write of log-00000000-00000044 to cloud complete, status = 0
+Write of log-00000000-00000041 to cloud complete, status = 0
+Write of log-00000000-00000035 to cloud complete, status = 0
+Write of log-00000000-00000042 to cloud complete, status = 0
+Write of log-00000000-00000039 to cloud complete, status = 0
+Write of log-00000000-00000040 to cloud complete, status = 0
+Write of log-00000000-00000046 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000043 to cloud complete, status = -1
+Write should be resubmitted...
+
+** (nfsd:21368): WARNING **: Error completing S3 put operation; client must retry!
+Write of log-00000000-00000043 to cloud complete, status = 0
+All segments have been flushed, journal < 49 is clean
+
+Scanning cache: (total size = 1154784 kB)
+
+Ending cache size: 1044604 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 4223 journal, 133 cloud
+Serializing 4209287 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4215272 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4215272 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4222454 bytes of data to cloud
+Serializing 3960947 bytes of data to cloud
+Write of log-00000000-00000049 to cloud complete, status = 0
+Write of log-00000000-00000053 to cloud complete, status = 0
+Write of log-00000000-00000048 to cloud complete, status = 0
+Write of log-00000000-00000051 to cloud complete, status = 0
+Write of log-00000000-00000056 to cloud complete, status = 0
+Write of log-00000000-00000050 to cloud complete, status = 0
+Write of log-00000000-00000060 to cloud complete, status = 0
+Write of log-00000000-00000061 to cloud complete, status = 0
+Write of log-00000000-00000052 to cloud complete, status = 0
+Write of log-00000000-00000063 to cloud complete, status = 0
+Write of log-00000000-00000059 to cloud complete, status = 0
+Write of log-00000000-00000075 to cloud complete, status = 0
+Write of log-00000000-00000074 to cloud complete, status = 0
+Write of log-00000000-00000079 to cloud complete, status = 0
+Write of log-00000000-00000068 to cloud complete, status = 0
+Write of log-00000000-00000057 to cloud complete, status = 0
+Write of log-00000000-00000065 to cloud complete, status = 0
+Write of log-00000000-00000078 to cloud complete, status = 0
+Write of log-00000000-00000054 to cloud complete, status = 0
+Write of log-00000000-00000067 to cloud complete, status = 0
+Write of log-00000000-00000071 to cloud complete, status = 0
+Write of log-00000000-00000069 to cloud complete, status = 0
+Write of log-00000000-00000073 to cloud complete, status = 0
+Write of log-00000000-00000080 to cloud complete, status = 0
+Write of log-00000000-00000072 to cloud complete, status = 0
+Write of log-00000000-00000064 to cloud complete, status = 0
+Write of log-00000000-00000070 to cloud complete, status = 0
+Write of log-00000000-00000066 to cloud complete, status = 0
+Write of log-00000000-00000077 to cloud complete, status = 0
+Write of log-00000000-00000055 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000062 to cloud complete, status = 0
+Write of log-00000000-00000076 to cloud complete, status = -1
+Write should be resubmitted...
+
+** (nfsd:21368): WARNING **: Error completing S3 put operation; client must retry!
+Write of log-00000000-00000076 to cloud complete, status = 0
+Write of log-00000000-00000058 to cloud complete, status = 0
+All segments have been flushed, journal < 292 is clean
+
+Scanning cache: (total size = 1602260 kB)
+
+Ending cache size: 1046424 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 4143 journal, 213 cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 3237434 bytes of data to cloud
+Write of log-00000000-00000081 to cloud complete, status = 0
+Write of log-00000000-00000083 to cloud complete, status = 0
+Write of log-00000000-00000088 to cloud complete, status = 0
+Write of log-00000000-00000090 to cloud complete, status = 0
+Write of log-00000000-00000087 to cloud complete, status = 0
+Write of log-00000000-00000084 to cloud complete, status = 0
+Write of log-00000000-00000098 to cloud complete, status = 0
+Write of log-00000000-00000082 to cloud complete, status = 0
+Write of log-00000000-00000109 to cloud complete, status = 0
+Write of log-00000000-00000111 to cloud complete, status = 0
+Write of log-00000000-00000099 to cloud complete, status = 0
+Write of log-00000000-00000112 to cloud complete, status = 0
+Write of log-00000000-00000103 to cloud complete, status = 0
+Write of log-00000000-00000093 to cloud complete, status = 0
+Write of log-00000000-00000106 to cloud complete, status = 0
+Write of log-00000000-00000086 to cloud complete, status = 0
+Write of log-00000000-00000092 to cloud complete, status = 0
+Write of log-00000000-00000102 to cloud complete, status = 0
+Write of log-00000000-00000101 to cloud complete, status = 0
+Write of log-00000000-00000104 to cloud complete, status = 0
+Write of log-00000000-00000108 to cloud complete, status = 0
+Write of log-00000000-00000105 to cloud complete, status = 0
+Write of log-00000000-00000096 to cloud complete, status = 0
+Write of log-00000000-00000100 to cloud complete, status = 0
+Write of log-00000000-00000091 to cloud complete, status = 0
+Write of log-00000000-00000089 to cloud complete, status = 0
+Write of log-00000000-00000085 to cloud complete, status = 0
+Write of log-00000000-00000094 to cloud complete, status = 0
+Write of log-00000000-00000097 to cloud complete, status = 0
+Write of log-00000000-00000095 to cloud complete, status = 0
+Write of log-00000000-00000110 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000107 to cloud complete, status = 0
+All segments have been flushed, journal < 419 is clean
+
+Scanning cache: (total size = 1691068 kB)
+
+Ending cache size: 1045296 kB
+
+Cloudlog cache: 4 dirty, 0 writeback, 4206 journal, 146 cloud
+Serializing 4209287 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4215272 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 1903464 bytes of data to cloud
+Write of log-00000000-00000114 to cloud complete, status = 0
+Write of log-00000000-00000119 to cloud complete, status = 0
+Write of log-00000000-00000113 to cloud complete, status = 0
+Write of log-00000000-00000117 to cloud complete, status = 0
+Write of log-00000000-00000115 to cloud complete, status = 0
+Write of log-00000000-00000145 to cloud complete, status = 0
+Write of log-00000000-00000121 to cloud complete, status = 0
+Write of log-00000000-00000125 to cloud complete, status = 0
+Write of log-00000000-00000123 to cloud complete, status = 0
+Write of log-00000000-00000124 to cloud complete, status = 0
+Write of log-00000000-00000126 to cloud complete, status = 0
+Write of log-00000000-00000141 to cloud complete, status = 0
+Write of log-00000000-00000142 to cloud complete, status = 0
+Write of log-00000000-00000134 to cloud complete, status = 0
+Write of log-00000000-00000140 to cloud complete, status = 0
+Write of log-00000000-00000135 to cloud complete, status = 0
+Write of log-00000000-00000130 to cloud complete, status = 0
+Write of log-00000000-00000133 to cloud complete, status = 0
+Write of log-00000000-00000127 to cloud complete, status = 0
+Write of log-00000000-00000138 to cloud complete, status = 0
+Write of log-00000000-00000129 to cloud complete, status = 0
+Write of log-00000000-00000137 to cloud complete, status = 0
+Write of log-00000000-00000128 to cloud complete, status = 0
+Write of log-00000000-00000116 to cloud complete, status = 0
+Write of log-00000000-00000136 to cloud complete, status = 0
+Write of log-00000000-00000139 to cloud complete, status = 0
+Write of log-00000000-00000118 to cloud complete, status = 0
+Write of log-00000000-00000131 to cloud complete, status = 0
+Write of log-00000000-00000143 to cloud complete, status = 0
+Write of log-00000000-00000132 to cloud complete, status = 0
+Write of log-00000000-00000144 to cloud complete, status = 0
+Write of log-00000000-00000120 to cloud complete, status = 0
+Unexpected error or end of file on RPC stream 44!
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 44!
+Received new connection on fd 12!
+Write of log-00000000-00000122 to cloud complete, status = -1
+Write should be resubmitted...
+
+** (nfsd:21368): WARNING **: Error completing S3 put operation; client must retry!
+Write of log-00000000-00000122 to cloud complete, status = 0
+All segments have been flushed, journal < 601 is clean
+
+Scanning cache: (total size = 1366860 kB)
+
+Ending cache size: 1048000 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 3489 journal, 867 cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 3079134 bytes of data to cloud
+Write of log-00000000-00000147 to cloud complete, status = 0
+Write of log-00000000-00000148 to cloud complete, status = 0
+Write of log-00000000-00000149 to cloud complete, status = 0
+Write of log-00000000-00000151 to cloud complete, status = 0
+Write of log-00000000-00000150 to cloud complete, status = 0
+Write of log-00000000-00000154 to cloud complete, status = 0
+Write of log-00000000-00000146 to cloud complete, status = 0
+Write of log-00000000-00000159 to cloud complete, status = 0
+Write of log-00000000-00000168 to cloud complete, status = 0
+Write of log-00000000-00000172 to cloud complete, status = 0
+Write of log-00000000-00000169 to cloud complete, status = 0
+Write of log-00000000-00000163 to cloud complete, status = 0
+Write of log-00000000-00000157 to cloud complete, status = 0
+Write of log-00000000-00000164 to cloud complete, status = 0
+Write of log-00000000-00000162 to cloud complete, status = 0
+Write of log-00000000-00000156 to cloud complete, status = 0
+Write of log-00000000-00000167 to cloud complete, status = 0
+Write of log-00000000-00000171 to cloud complete, status = 0
+Write of log-00000000-00000155 to cloud complete, status = 0
+Write of log-00000000-00000153 to cloud complete, status = 0
+Write of log-00000000-00000158 to cloud complete, status = 0
+Write of log-00000000-00000152 to cloud complete, status = 0
+Write of log-00000000-00000166 to cloud complete, status = 0
+Write of log-00000000-00000160 to cloud complete, status = 0
+Write of log-00000000-00000161 to cloud complete, status = 0
+Write of log-00000000-00000170 to cloud complete, status = 0
+Write of log-00000000-00000165 to cloud complete, status = 0
+All segments have been flushed, journal < 660 is clean
+
+Scanning cache: (total size = 1115232 kB)
+
+Ending cache size: 1045736 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 1585 journal, 2771 cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 2994927 bytes of data to cloud
+Write of log-00000000-00000174 to cloud complete, status = 0
+Write of log-00000000-00000179 to cloud complete, status = 0
+Write of log-00000000-00000175 to cloud complete, status = 0
+Write of log-00000000-00000182 to cloud complete, status = 0
+Write of log-00000000-00000180 to cloud complete, status = 0
+Write of log-00000000-00000177 to cloud complete, status = 0
+Write of log-00000000-00000184 to cloud complete, status = 0
+Write of log-00000000-00000183 to cloud complete, status = 0
+Write of log-00000000-00000181 to cloud complete, status = 0
+Write of log-00000000-00000173 to cloud complete, status = 0
+Write of log-00000000-00000176 to cloud complete, status = 0
+Write of log-00000000-00000178 to cloud complete, status = 0
+All segments have been flushed, journal < 676 is clean
+
+Scanning cache: (total size = 1093628 kB)
+
+Ending cache size: 1044708 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 1911 journal, 2445 cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 967907 bytes of data to cloud
+Write of log-00000000-00000199 to cloud complete, status = 0
+Write of log-00000000-00000185 to cloud complete, status = 0
+Write of log-00000000-00000186 to cloud complete, status = 0
+Write of log-00000000-00000198 to cloud complete, status = 0
+Write of log-00000000-00000187 to cloud complete, status = 0
+Write of log-00000000-00000197 to cloud complete, status = 0
+Write of log-00000000-00000191 to cloud complete, status = 0
+Write of log-00000000-00000190 to cloud complete, status = 0
+Write of log-00000000-00000192 to cloud complete, status = 0
+Write of log-00000000-00000193 to cloud complete, status = 0
+Write of log-00000000-00000195 to cloud complete, status = 0
+Write of log-00000000-00000194 to cloud complete, status = 0
+Write of log-00000000-00000196 to cloud complete, status = 0
+Write of log-00000000-00000189 to cloud complete, status = 0
+Write of log-00000000-00000188 to cloud complete, status = 0
+All segments have been flushed, journal < 695 is clean
+
+Scanning cache: (total size = 1178908 kB)
+
+Ending cache size: 1048092 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 2915 journal, 1441 cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 4223651 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 2165123 bytes of data to cloud
+Write of log-00000000-00000202 to cloud complete, status = 0
+Write of log-00000000-00000204 to cloud complete, status = 0
+Write of log-00000000-00000222 to cloud complete, status = 0
+Write of log-00000000-00000201 to cloud complete, status = 0
+Write of log-00000000-00000203 to cloud complete, status = 0
+Write of log-00000000-00000200 to cloud complete, status = 0
+Write of log-00000000-00000208 to cloud complete, status = 0
+Write of log-00000000-00000205 to cloud complete, status = 0
+Write of log-00000000-00000215 to cloud complete, status = 0
+Write of log-00000000-00000220 to cloud complete, status = 0
+Write of log-00000000-00000216 to cloud complete, status = 0
+Write of log-00000000-00000212 to cloud complete, status = 0
+Write of log-00000000-00000217 to cloud complete, status = 0
+Write of log-00000000-00000221 to cloud complete, status = 0
+Write of log-00000000-00000219 to cloud complete, status = 0
+Write of log-00000000-00000210 to cloud complete, status = 0
+Write of log-00000000-00000211 to cloud complete, status = 0
+Write of log-00000000-00000213 to cloud complete, status = 0
+Write of log-00000000-00000218 to cloud complete, status = 0
+Write of log-00000000-00000214 to cloud complete, status = 0
+Write of log-00000000-00000207 to cloud complete, status = 0
+Write of log-00000000-00000209 to cloud complete, status = 0
+Write of log-00000000-00000206 to cloud complete, status = -1
+Write should be resubmitted...
+
+** (nfsd:21368): WARNING **: Error completing S3 put operation; client must retry!
+Write of log-00000000-00000206 to cloud complete, status = 0
+All segments have been flushed, journal < 732 is clean
+
+Scanning cache: (total size = 1476268 kB)
+
+Ending cache size: 1047028 kB
+
+Cloudlog cache: 1 dirty, 0 writeback, 3971 journal, 386 cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 2646667 bytes of data to cloud
+Write of log-00000000-00000224 to cloud complete, status = 0
+Write of log-00000000-00000223 to cloud complete, status = 0
+Write of log-00000000-00000227 to cloud complete, status = 0
+Write of log-00000000-00000233 to cloud complete, status = 0
+Write of log-00000000-00000231 to cloud complete, status = 0
+Write of log-00000000-00000239 to cloud complete, status = 0
+Write of log-00000000-00000235 to cloud complete, status = 0
+Write of log-00000000-00000248 to cloud complete, status = 0
+Write of log-00000000-00000245 to cloud complete, status = 0
+Write of log-00000000-00000230 to cloud complete, status = 0
+Write of log-00000000-00000250 to cloud complete, status = 0
+Write of log-00000000-00000236 to cloud complete, status = 0
+Write of log-00000000-00000252 to cloud complete, status = 0
+Write of log-00000000-00000226 to cloud complete, status = 0
+Write of log-00000000-00000228 to cloud complete, status = 0
+Write of log-00000000-00000253 to cloud complete, status = 0
+Write of log-00000000-00000246 to cloud complete, status = 0
+Write of log-00000000-00000244 to cloud complete, status = 0
+Write of log-00000000-00000238 to cloud complete, status = 0
+Write of log-00000000-00000247 to cloud complete, status = 0
+Write of log-00000000-00000242 to cloud complete, status = 0
+Write of log-00000000-00000251 to cloud complete, status = 0
+Write of log-00000000-00000229 to cloud complete, status = 0
+Write of log-00000000-00000241 to cloud complete, status = 0
+Write of log-00000000-00000249 to cloud complete, status = 0
+Write of log-00000000-00000232 to cloud complete, status = 0
+Write of log-00000000-00000225 to cloud complete, status = 0
+Write of log-00000000-00000243 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000237 to cloud complete, status = 0
+Write of log-00000000-00000240 to cloud complete, status = 0
+Write of log-00000000-00000234 to cloud complete, status = 0
+All segments have been flushed, journal < 827 is clean
+
+Scanning cache: (total size = 1299348 kB)
+
+Ending cache size: 1045888 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 3754 journal, 602 cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 4113262 bytes of data to cloud
+Write of log-00000000-00000254 to cloud complete, status = 0
+Write of log-00000000-00000260 to cloud complete, status = 0
+Write of log-00000000-00000262 to cloud complete, status = 0
+Write of log-00000000-00000255 to cloud complete, status = 0
+Write of log-00000000-00000261 to cloud complete, status = 0
+Write of log-00000000-00000256 to cloud complete, status = 0
+Write of log-00000000-00000272 to cloud complete, status = 0
+Write of log-00000000-00000270 to cloud complete, status = 0
+Write of log-00000000-00000271 to cloud complete, status = 0
+Write of log-00000000-00000264 to cloud complete, status = 0
+Write of log-00000000-00000280 to cloud complete, status = 0
+Write of log-00000000-00000266 to cloud complete, status = 0
+Write of log-00000000-00000265 to cloud complete, status = 0
+Write of log-00000000-00000273 to cloud complete, status = 0
+Write of log-00000000-00000274 to cloud complete, status = 0
+Write of log-00000000-00000268 to cloud complete, status = 0
+Write of log-00000000-00000259 to cloud complete, status = 0
+Write of log-00000000-00000279 to cloud complete, status = 0
+Write of log-00000000-00000281 to cloud complete, status = 0
+Write of log-00000000-00000269 to cloud complete, status = 0
+Write of log-00000000-00000258 to cloud complete, status = 0
+Write of log-00000000-00000257 to cloud complete, status = 0
+Write of log-00000000-00000275 to cloud complete, status = 0
+Write of log-00000000-00000282 to cloud complete, status = 0
+Write of log-00000000-00000267 to cloud complete, status = 0
+Write of log-00000000-00000276 to cloud complete, status = 0
+Write of log-00000000-00000278 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000277 to cloud complete, status = 0
+Write of log-00000000-00000263 to cloud complete, status = -1
+Write should be resubmitted...
+
+** (nfsd:21368): WARNING **: Error completing S3 put operation; client must retry!
+Write of log-00000000-00000263 to cloud complete, status = 0
+All segments have been flushed, journal < 901 is clean
+
+Scanning cache: (total size = 1472440 kB)
+
+Ending cache size: 1047292 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 3968 journal, 388 cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 3159212 bytes of data to cloud
+Write of log-00000000-00000284 to cloud complete, status = 0
+Write of log-00000000-00000283 to cloud complete, status = 0
+Write of log-00000000-00000289 to cloud complete, status = 0
+Write of log-00000000-00000286 to cloud complete, status = 0
+Write of log-00000000-00000288 to cloud complete, status = 0
+Write of log-00000000-00000287 to cloud complete, status = 0
+Write of log-00000000-00000285 to cloud complete, status = 0
+Write of log-00000000-00000301 to cloud complete, status = 0
+Write of log-00000000-00000298 to cloud complete, status = 0
+Write of log-00000000-00000313 to cloud complete, status = 0
+Write of log-00000000-00000295 to cloud complete, status = 0
+Write of log-00000000-00000297 to cloud complete, status = 0
+Write of log-00000000-00000296 to cloud complete, status = 0
+Write of log-00000000-00000312 to cloud complete, status = 0
+Write of log-00000000-00000293 to cloud complete, status = 0
+Write of log-00000000-00000307 to cloud complete, status = 0
+Write of log-00000000-00000305 to cloud complete, status = 0
+Write of log-00000000-00000306 to cloud complete, status = 0
+Write of log-00000000-00000299 to cloud complete, status = 0
+Write of log-00000000-00000309 to cloud complete, status = 0
+Write of log-00000000-00000294 to cloud complete, status = 0
+Write of log-00000000-00000311 to cloud complete, status = 0
+Write of log-00000000-00000310 to cloud complete, status = 0
+Write of log-00000000-00000290 to cloud complete, status = 0
+Write of log-00000000-00000308 to cloud complete, status = 0
+Write of log-00000000-00000304 to cloud complete, status = 0
+Write of log-00000000-00000303 to cloud complete, status = 0
+Write of log-00000000-00000292 to cloud complete, status = 0
+Write of log-00000000-00000300 to cloud complete, status = 0
+Write of log-00000000-00000291 to cloud complete, status = 0
+Write of log-00000000-00000302 to cloud complete, status = 0
+All segments have been flushed, journal < 993 is clean
+
+Scanning cache: (total size = 1243420 kB)
+
+Ending cache size: 1047204 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 3377 journal, 979 cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4211681 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4214075 bytes of data to cloud
+Serializing 4212878 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 3585156 bytes of data to cloud
+Write of log-00000000-00000316 to cloud complete, status = 0
+Write of log-00000000-00000314 to cloud complete, status = 0
+Write of log-00000000-00000317 to cloud complete, status = 0
+Write of log-00000000-00000322 to cloud complete, status = 0
+Write of log-00000000-00000315 to cloud complete, status = 0
+Write of log-00000000-00000319 to cloud complete, status = 0
+Write of log-00000000-00000321 to cloud complete, status = 0
+Write of log-00000000-00000323 to cloud complete, status = 0
+Write of log-00000000-00000333 to cloud complete, status = 0
+Write of log-00000000-00000335 to cloud complete, status = 0
+Write of log-00000000-00000324 to cloud complete, status = 0
+Write of log-00000000-00000330 to cloud complete, status = 0
+Write of log-00000000-00000318 to cloud complete, status = 0
+Write of log-00000000-00000332 to cloud complete, status = 0
+Write of log-00000000-00000336 to cloud complete, status = 0
+Write of log-00000000-00000329 to cloud complete, status = 0
+Write of log-00000000-00000320 to cloud complete, status = 0
+Write of log-00000000-00000337 to cloud complete, status = 0
+Write of log-00000000-00000327 to cloud complete, status = 0
+Write of log-00000000-00000328 to cloud complete, status = 0
+Write of log-00000000-00000325 to cloud complete, status = 0
+Write of log-00000000-00000331 to cloud complete, status = 0
+Write of log-00000000-00000326 to cloud complete, status = 0
+Write of log-00000000-00000334 to cloud complete, status = 0
+Write of log-00000000-00000338 to cloud complete, status = 0
+Write of log-00000000-00000339 to cloud complete, status = 0
+All segments have been flushed, journal < 1047 is clean
+
+Scanning cache: (total size = 1147012 kB)
+
+Ending cache size: 1044940 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 1570 journal, 2786 cloud
+Serializing 4222454 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 1999641 bytes of data to cloud
+Write of log-00000000-00000351 to cloud complete, status = 0
+Write of log-00000000-00000343 to cloud complete, status = 0
+Write of log-00000000-00000346 to cloud complete, status = 0
+Write of log-00000000-00000349 to cloud complete, status = 0
+Write of log-00000000-00000345 to cloud complete, status = 0
+Write of log-00000000-00000350 to cloud complete, status = 0
+Write of log-00000000-00000342 to cloud complete, status = 0
+Write of log-00000000-00000344 to cloud complete, status = 0
+Write of log-00000000-00000347 to cloud complete, status = 0
+Write of log-00000000-00000348 to cloud complete, status = 0
+Write of log-00000000-00000341 to cloud complete, status = 0
+Write of log-00000000-00000340 to cloud complete, status = 0
+All segments have been flushed, journal < 1063 is clean
+
+Scanning cache: (total size = 1091500 kB)
+
+Ending cache size: 1046532 kB
+
+Cloudlog cache: 5 dirty, 0 writeback, 1880 journal, 2471 cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4215272 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 650110 bytes of data to cloud
+Write of log-00000000-00000366 to cloud complete, status = 0
+Write of log-00000000-00000352 to cloud complete, status = 0
+Write of log-00000000-00000357 to cloud complete, status = 0
+Write of log-00000000-00000360 to cloud complete, status = 0
+Write of log-00000000-00000353 to cloud complete, status = 0
+Write of log-00000000-00000354 to cloud complete, status = 0
+Write of log-00000000-00000355 to cloud complete, status = 0
+Write of log-00000000-00000364 to cloud complete, status = 0
+Write of log-00000000-00000363 to cloud complete, status = 0
+Write of log-00000000-00000356 to cloud complete, status = 0
+Write of log-00000000-00000358 to cloud complete, status = 0
+Write of log-00000000-00000359 to cloud complete, status = 0
+Write of log-00000000-00000365 to cloud complete, status = 0
+Write of log-00000000-00000362 to cloud complete, status = 0
+Write of log-00000000-00000361 to cloud complete, status = 0
+All segments have been flushed, journal < 1081 is clean
+
+Scanning cache: (total size = 1135272 kB)
+
+Ending cache size: 1045336 kB
+Unexpected error or end of file on RPC stream 44!
+
+Cloudlog cache: 0 dirty, 0 writeback, 1230 journal, 3126 cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4222454 bytes of data to cloud
+Serializing 4222454 bytes of data to cloud
+Serializing 4223651 bytes of data to cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 2580294 bytes of data to cloud
+Write of log-00000000-00000374 to cloud complete, status = 0
+Write of log-00000000-00000369 to cloud complete, status = 0
+Write of log-00000000-00000372 to cloud complete, status = 0
+Write of log-00000000-00000375 to cloud complete, status = 0
+Write of log-00000000-00000370 to cloud complete, status = 0
+Write of log-00000000-00000373 to cloud complete, status = 0
+Write of log-00000000-00000368 to cloud complete, status = 0
+Write of log-00000000-00000371 to cloud complete, status = 0
+Write of log-00000000-00000367 to cloud complete, status = 0
+All segments have been flushed, journal < 1092 is clean
+
+Scanning cache: (total size = 1046268 kB)
+
+Ending cache size: 1046268 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4228 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 1092 is clean
+
+Scanning cache: (total size = 1046268 kB)
+
+Ending cache size: 1046268 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 44!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4228 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 1092 is clean
+
+Scanning cache: (total size = 1046268 kB)
+
+Ending cache size: 1046268 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 966 journal, 3390 cloud
+Serializing 4200370 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4202764 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4223651 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 2682456 bytes of data to cloud
+Write of log-00000000-00000382 to cloud complete, status = 0
+Write of log-00000000-00000379 to cloud complete, status = 0
+Write of log-00000000-00000380 to cloud complete, status = 0
+Write of log-00000000-00000378 to cloud complete, status = 0
+Write of log-00000000-00000376 to cloud complete, status = 0
+Write of log-00000000-00000377 to cloud complete, status = 0
+Write of log-00000000-00000381 to cloud complete, status = 0
+All segments have been flushed, journal < 1100 is clean
+
+Scanning cache: (total size = 1084228 kB)
+
+Ending cache size: 1047436 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 1005 journal, 3351 cloud
+Serializing 4197976 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4006312 bytes of data to cloud
+Write of log-00000000-00000389 to cloud complete, status = 0
+Write of log-00000000-00000387 to cloud complete, status = 0
+Write of log-00000000-00000388 to cloud complete, status = 0
+Write of log-00000000-00000383 to cloud complete, status = 0
+Write of log-00000000-00000386 to cloud complete, status = 0
+Write of log-00000000-00000385 to cloud complete, status = 0
+Write of log-00000000-00000384 to cloud complete, status = 0
+All segments have been flushed, journal < 1108 is clean
+
+Scanning cache: (total size = 1110280 kB)
+
+Ending cache size: 1044872 kB
+
+Cloudlog cache: 1 dirty, 0 writeback, 1648 journal, 2707 cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4221257 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4220060 bytes of data to cloud
+Serializing 4218863 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4216469 bytes of data to cloud
+Serializing 4217666 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 40729 bytes of data to cloud
+Write of log-00000000-00000402 to cloud complete, status = 0
+Write of log-00000000-00000392 to cloud complete, status = 0
+Write of log-00000000-00000390 to cloud complete, status = 0
+Write of log-00000000-00000400 to cloud complete, status = 0
+Write of log-00000000-00000398 to cloud complete, status = 0
+Write of log-00000000-00000399 to cloud complete, status = 0
+Write of log-00000000-00000394 to cloud complete, status = 0
+Write of log-00000000-00000397 to cloud complete, status = 0
+Write of log-00000000-00000391 to cloud complete, status = 0
+Write of log-00000000-00000401 to cloud complete, status = 0
+Write of log-00000000-00000393 to cloud complete, status = 0
+Write of log-00000000-00000396 to cloud complete, status = 0
+Write of log-00000000-00000395 to cloud complete, status = 0
+All segments have been flushed, journal < 1124 is clean
+
+Scanning cache: (total size = 1090304 kB)
+
+Ending cache size: 1045336 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 976 journal, 3380 cloud
+Serializing 4202764 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 3178902 bytes of data to cloud
+Write of log-00000000-00000409 to cloud complete, status = 0
+Write of log-00000000-00000408 to cloud complete, status = 0
+Write of log-00000000-00000406 to cloud complete, status = 0
+Write of log-00000000-00000405 to cloud complete, status = 0
+Write of log-00000000-00000404 to cloud complete, status = 0
+Write of log-00000000-00000403 to cloud complete, status = 0
+Write of log-00000000-00000407 to cloud complete, status = 0
+All segments have been flushed, journal < 1132 is clean
+
+Scanning cache: (total size = 1069800 kB)
+
+Ending cache size: 1045272 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 997 journal, 3359 cloud
+Serializing 4199173 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 3609634 bytes of data to cloud
+Write of log-00000000-00000411 to cloud complete, status = 0
+Write of log-00000000-00000413 to cloud complete, status = 0
+Write of log-00000000-00000416 to cloud complete, status = 0
+Write of log-00000000-00000415 to cloud complete, status = 0
+Write of log-00000000-00000412 to cloud complete, status = 0
+Write of log-00000000-00000414 to cloud complete, status = 0
+Write of log-00000000-00000410 to cloud complete, status = 0
+All segments have been flushed, journal < 1140 is clean
+
+Scanning cache: (total size = 1074916 kB)
+
+Ending cache size: 1046300 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 999 journal, 3357 cloud
+Serializing 4197976 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 3671757 bytes of data to cloud
+Write of log-00000000-00000417 to cloud complete, status = 0
+Write of log-00000000-00000422 to cloud complete, status = 0
+Write of log-00000000-00000423 to cloud complete, status = 0
+Write of log-00000000-00000419 to cloud complete, status = 0
+Write of log-00000000-00000420 to cloud complete, status = 0
+Write of log-00000000-00000421 to cloud complete, status = 0
+Write of log-00000000-00000418 to cloud complete, status = 0
+All segments have been flushed, journal < 1148 is clean
+
+Scanning cache: (total size = 1079540 kB)
+
+Ending cache size: 1046836 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 994 journal, 3362 cloud
+Serializing 4202764 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 3576777 bytes of data to cloud
+Write of log-00000000-00000430 to cloud complete, status = 0
+Write of log-00000000-00000429 to cloud complete, status = 0
+Write of log-00000000-00000426 to cloud complete, status = 0
+Write of log-00000000-00000428 to cloud complete, status = 0
+Write of log-00000000-00000425 to cloud complete, status = 0
+Write of log-00000000-00000424 to cloud complete, status = 0
+Write of log-00000000-00000427 to cloud complete, status = 0
+All segments have been flushed, journal < 1156 is clean
+
+Scanning cache: (total size = 1079004 kB)
+
+Ending cache size: 1046300 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 984 journal, 3372 cloud
+Serializing 4201567 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 3276276 bytes of data to cloud
+Write of log-00000000-00000437 to cloud complete, status = 0
+Write of log-00000000-00000436 to cloud complete, status = 0
+Write of log-00000000-00000435 to cloud complete, status = 0
+Write of log-00000000-00000431 to cloud complete, status = 0
+Write of log-00000000-00000433 to cloud complete, status = 0
+Write of log-00000000-00000434 to cloud complete, status = 0
+Write of log-00000000-00000432 to cloud complete, status = 0
+All segments have been flushed, journal < 1164 is clean
+
+Scanning cache: (total size = 1078468 kB)
+
+Ending cache size: 1045764 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 985 journal, 3371 cloud
+Serializing 4200370 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 3408901 bytes of data to cloud
+Write of log-00000000-00000441 to cloud complete, status = 0
+Write of log-00000000-00000442 to cloud complete, status = 0
+Write of log-00000000-00000440 to cloud complete, status = 0
+Write of log-00000000-00000444 to cloud complete, status = 0
+Write of log-00000000-00000438 to cloud complete, status = 0
+Write of log-00000000-00000439 to cloud complete, status = 0
+Write of log-00000000-00000443 to cloud complete, status = 0
+All segments have been flushed, journal < 1172 is clean
+
+Scanning cache: (total size = 1092824 kB)
+
+Ending cache size: 1047856 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 997 journal, 3359 cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 3739865 bytes of data to cloud
+Write of log-00000000-00000449 to cloud complete, status = 0
+Write of log-00000000-00000447 to cloud complete, status = 0
+Write of log-00000000-00000451 to cloud complete, status = 0
+Write of log-00000000-00000446 to cloud complete, status = 0
+Write of log-00000000-00000448 to cloud complete, status = 0
+Write of log-00000000-00000445 to cloud complete, status = 0
+Write of log-00000000-00000450 to cloud complete, status = 0
+All segments have been flushed, journal < 1180 is clean
+
+Scanning cache: (total size = 1074312 kB)
+
+Ending cache size: 1045696 kB
+
+Cloudlog cache: 1 dirty, 0 writeback, 998 journal, 3357 cloud
+Serializing 4201567 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 3773919 bytes of data to cloud
+Write of log-00000000-00000458 to cloud complete, status = 0
+Write of log-00000000-00000456 to cloud complete, status = 0
+Write of log-00000000-00000453 to cloud complete, status = 0
+Write of log-00000000-00000457 to cloud complete, status = 0
+Write of log-00000000-00000454 to cloud complete, status = 0
+Write of log-00000000-00000452 to cloud complete, status = 0
+Write of log-00000000-00000455 to cloud complete, status = 0
+All segments have been flushed, journal < 1188 is clean
+
+Scanning cache: (total size = 1072948 kB)
+
+Ending cache size: 1048420 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 1003 journal, 3353 cloud
+Serializing 4197976 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 3971061 bytes of data to cloud
+Write of log-00000000-00000459 to cloud complete, status = 0
+Write of log-00000000-00000463 to cloud complete, status = 0
+Write of log-00000000-00000465 to cloud complete, status = 0
+Write of log-00000000-00000460 to cloud complete, status = 0
+Write of log-00000000-00000464 to cloud complete, status = 0
+Write of log-00000000-00000462 to cloud complete, status = 0
+Write of log-00000000-00000461 to cloud complete, status = 0
+All segments have been flushed, journal < 1196 is clean
+
+Scanning cache: (total size = 1078732 kB)
+
+Ending cache size: 1046028 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 1012 journal, 3344 cloud
+Serializing 4199173 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 39532 bytes of data to cloud
+Write of log-00000000-00000473 to cloud complete, status = 0
+Write of log-00000000-00000469 to cloud complete, status = 0
+Write of log-00000000-00000470 to cloud complete, status = 0
+Write of log-00000000-00000471 to cloud complete, status = 0
+Write of log-00000000-00000466 to cloud complete, status = 0
+Write of log-00000000-00000472 to cloud complete, status = 0
+Write of log-00000000-00000467 to cloud complete, status = 0
+Write of log-00000000-00000468 to cloud complete, status = 0
+All segments have been flushed, journal < 1204 is clean
+
+Scanning cache: (total size = 1090928 kB)
+
+Ending cache size: 1045960 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 1009 journal, 3347 cloud
+Serializing 4199173 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4136543 bytes of data to cloud
+Write of log-00000000-00000480 to cloud complete, status = 0
+Write of log-00000000-00000479 to cloud complete, status = 0
+Write of log-00000000-00000474 to cloud complete, status = 0
+Write of log-00000000-00000475 to cloud complete, status = 0
+Write of log-00000000-00000476 to cloud complete, status = 0
+Write of log-00000000-00000477 to cloud complete, status = 0
+Write of log-00000000-00000478 to cloud complete, status = 0
+All segments have been flushed, journal < 1212 is clean
+
+Scanning cache: (total size = 1073880 kB)
+
+Ending cache size: 1045264 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 987 journal, 3369 cloud
+Serializing 4197976 bytes of data to cloud
+Serializing 4199173 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 3408901 bytes of data to cloud
+Write of log-00000000-00000483 to cloud complete, status = 0
+Write of log-00000000-00000486 to cloud complete, status = 0
+Write of log-00000000-00000484 to cloud complete, status = 0
+Write of log-00000000-00000482 to cloud complete, status = 0
+Write of log-00000000-00000481 to cloud complete, status = 0
+Write of log-00000000-00000487 to cloud complete, status = 0
+Write of log-00000000-00000485 to cloud complete, status = 0
+All segments have been flushed, journal < 1220 is clean
+
+Scanning cache: (total size = 1070588 kB)
+
+Ending cache size: 1046060 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 992 journal, 3363 cloud
+Serializing 4199173 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4199173 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 3542723 bytes of data to cloud
+Write of log-00000000-00000488 to cloud complete, status = 0
+Write of log-00000000-00000489 to cloud complete, status = 0
+Write of log-00000000-00000493 to cloud complete, status = 0
+Write of log-00000000-00000491 to cloud complete, status = 0
+Write of log-00000000-00000492 to cloud complete, status = 0
+Write of log-00000000-00000490 to cloud complete, status = 0
+Write of log-00000000-00000494 to cloud complete, status = 0
+All segments have been flushed, journal < 1228 is clean
+
+Scanning cache: (total size = 1085148 kB)
+
+Ending cache size: 1048356 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 1008 journal, 3348 cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4199173 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4072026 bytes of data to cloud
+Write of log-00000000-00000496 to cloud complete, status = 0
+Write of log-00000000-00000498 to cloud complete, status = 0
+Write of log-00000000-00000501 to cloud complete, status = 0
+Write of log-00000000-00000497 to cloud complete, status = 0
+Write of log-00000000-00000500 to cloud complete, status = 0
+Write of log-00000000-00000499 to cloud complete, status = 0
+Write of log-00000000-00000495 to cloud complete, status = 0
+All segments have been flushed, journal < 1236 is clean
+
+Scanning cache: (total size = 1075612 kB)
+
+Ending cache size: 1046996 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 999 journal, 3357 cloud
+Serializing 4200370 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 3839633 bytes of data to cloud
+Write of log-00000000-00000502 to cloud complete, status = 0
+Write of log-00000000-00000504 to cloud complete, status = 0
+Write of log-00000000-00000506 to cloud complete, status = 0
+Write of log-00000000-00000508 to cloud complete, status = 0
+Write of log-00000000-00000505 to cloud complete, status = 0
+Write of log-00000000-00000503 to cloud complete, status = 0
+Write of log-00000000-00000507 to cloud complete, status = 0
+All segments have been flushed, journal < 1244 is clean
+
+Scanning cache: (total size = 1078632 kB)
+
+Ending cache size: 1045928 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 998 journal, 3358 cloud
+Serializing 4201567 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 3773919 bytes of data to cloud
+Write of log-00000000-00000510 to cloud complete, status = 0
+Write of log-00000000-00000511 to cloud complete, status = 0
+Write of log-00000000-00000514 to cloud complete, status = 0
+Write of log-00000000-00000512 to cloud complete, status = 0
+Write of log-00000000-00000513 to cloud complete, status = 0
+Write of log-00000000-00000515 to cloud complete, status = 0
+Write of log-00000000-00000509 to cloud complete, status = 0
+All segments have been flushed, journal < 1252 is clean
+
+Scanning cache: (total size = 1087272 kB)
+
+Ending cache size: 1046392 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 967 journal, 3389 cloud
+Serializing 4201567 bytes of data to cloud
+Serializing 4197976 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4224848 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 2650796 bytes of data to cloud
+Write of log-00000000-00000518 to cloud complete, status = 0
+Write of log-00000000-00000520 to cloud complete, status = 0
+Write of log-00000000-00000516 to cloud complete, status = 0
+Write of log-00000000-00000521 to cloud complete, status = 0
+Write of log-00000000-00000522 to cloud complete, status = 0
+Write of log-00000000-00000517 to cloud complete, status = 0
+Write of log-00000000-00000519 to cloud complete, status = 0
+All segments have been flushed, journal < 1260 is clean
+
+Scanning cache: (total size = 1075612 kB)
+
+Ending cache size: 1046996 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 1001 journal, 3355 cloud
+Serializing 4201567 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4223651 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4223651 bytes of data to cloud
+Serializing 3874884 bytes of data to cloud
+Write of log-00000000-00000523 to cloud complete, status = 0
+Write of log-00000000-00000524 to cloud complete, status = 0
+Write of log-00000000-00000526 to cloud complete, status = 0
+Write of log-00000000-00000529 to cloud complete, status = 0
+Write of log-00000000-00000525 to cloud complete, status = 0
+Write of log-00000000-00000528 to cloud complete, status = 0
+Write of log-00000000-00000527 to cloud complete, status = 0
+All segments have been flushed, journal < 1268 is clean
+
+Scanning cache: (total size = 1074776 kB)
+
+Ending cache size: 1046160 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 1005 journal, 3351 cloud
+Serializing 4199173 bytes of data to cloud
+Serializing 4196779 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4223651 bytes of data to cloud
+Serializing 3905347 bytes of data to cloud
+Write of log-00000000-00000530 to cloud complete, status = 0
+Write of log-00000000-00000536 to cloud complete, status = 0
+Write of log-00000000-00000531 to cloud complete, status = 0
+Write of log-00000000-00000535 to cloud complete, status = 0
+Write of log-00000000-00000534 to cloud complete, status = 0
+Write of log-00000000-00000532 to cloud complete, status = 0
+Write of log-00000000-00000533 to cloud complete, status = 0
+All segments have been flushed, journal < 1276 is clean
+
+Scanning cache: (total size = 1078996 kB)
+
+Ending cache size: 1046292 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 1006 journal, 3350 cloud
+Serializing 4203961 bytes of data to cloud
+Serializing 4195582 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4194385 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 4226045 bytes of data to cloud
+Serializing 3767934 bytes of data to cloud
+Write of log-00000000-00000538 to cloud complete, status = 0
+Write of log-00000000-00000543 to cloud complete, status = 0
+Write of log-00000000-00000539 to cloud complete, status = 0
+Write of log-00000000-00000540 to cloud complete, status = 0
+Write of log-00000000-00000542 to cloud complete, status = 0
+Write of log-00000000-00000541 to cloud complete, status = 0
+Write of log-00000000-00000537 to cloud complete, status = 0
+All segments have been flushed, journal < 1284 is clean
+
+Scanning cache: (total size = 1072320 kB)
+
+Ending cache size: 1047788 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4227 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 1284 is clean
+
+Scanning cache: (total size = 1047788 kB)
+
+Ending cache size: 1047788 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4227 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 1284 is clean
+
+Scanning cache: (total size = 1047788 kB)
+
+Ending cache size: 1047788 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 45!
+
+Cloudlog cache: 0 dirty, 0 writeback, 445 journal, 3900 cloud
+Serializing 4202226 bytes of data to cloud
+Serializing 4220719 bytes of data to cloud
+Serializing 2634697 bytes of data to cloud
+Write of log-00000000-00000545 to cloud complete, status = 0
+Write of log-00000000-00000544 to cloud complete, status = 0
+Write of log-00000000-00000546 to cloud complete, status = 0
+All segments have been flushed, journal < 1287 is clean
+
+Scanning cache: (total size = 1063508 kB)
+
+Ending cache size: 1047156 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 581 journal, 3769 cloud
+Serializing 4218325 bytes of data to cloud
+Serializing 4212340 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 2660372 bytes of data to cloud
+Write of log-00000000-00000550 to cloud complete, status = 0
+Write of log-00000000-00000548 to cloud complete, status = 0
+Write of log-00000000-00000549 to cloud complete, status = 0
+Write of log-00000000-00000547 to cloud complete, status = 0
+All segments have been flushed, journal < 1291 is clean
+
+Scanning cache: (total size = 1062176 kB)
+
+Ending cache size: 1045824 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 600 journal, 3755 cloud
+Serializing 4223113 bytes of data to cloud
+Serializing 4211143 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 3055853 bytes of data to cloud
+Write of log-00000000-00000553 to cloud complete, status = 0
+Write of log-00000000-00000551 to cloud complete, status = 0
+Write of log-00000000-00000554 to cloud complete, status = 0
+Write of log-00000000-00000552 to cloud complete, status = 0
+All segments have been flushed, journal < 1295 is clean
+
+Scanning cache: (total size = 1061912 kB)
+
+Ending cache size: 1045560 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 593 journal, 3763 cloud
+Serializing 4195044 bytes of data to cloud
+Serializing 4211143 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 2822263 bytes of data to cloud
+Write of log-00000000-00000558 to cloud complete, status = 0
+Write of log-00000000-00000556 to cloud complete, status = 0
+Write of log-00000000-00000557 to cloud complete, status = 0
+Write of log-00000000-00000555 to cloud complete, status = 0
+All segments have been flushed, journal < 1299 is clean
+
+Scanning cache: (total size = 1062044 kB)
+
+Ending cache size: 1045692 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 585 journal, 3767 cloud
+Serializing 4226704 bytes of data to cloud
+Serializing 4211143 bytes of data to cloud
+Serializing 4205158 bytes of data to cloud
+Serializing 2791800 bytes of data to cloud
+Write of log-00000000-00000562 to cloud complete, status = 0
+Write of log-00000000-00000559 to cloud complete, status = 0
+Write of log-00000000-00000560 to cloud complete, status = 0
+Write of log-00000000-00000561 to cloud complete, status = 0
+All segments have been flushed, journal < 1303 is clean
+
+Scanning cache: (total size = 1062176 kB)
+
+Ending cache size: 1045824 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 1 dirty, 0 writeback, 590 journal, 3761 cloud
+Serializing 4225507 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 2855120 bytes of data to cloud
+Write of log-00000000-00000566 to cloud complete, status = 0
+Write of log-00000000-00000564 to cloud complete, status = 0
+Write of log-00000000-00000565 to cloud complete, status = 0
+Write of log-00000000-00000563 to cloud complete, status = 0
+All segments have been flushed, journal < 1307 is clean
+
+Scanning cache: (total size = 1062176 kB)
+
+Ending cache size: 1045824 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 596 journal, 3756 cloud
+Serializing 4225507 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 4206355 bytes of data to cloud
+Serializing 3021799 bytes of data to cloud
+Write of log-00000000-00000569 to cloud complete, status = 0
+Write of log-00000000-00000568 to cloud complete, status = 0
+Write of log-00000000-00000570 to cloud complete, status = 0
+Write of log-00000000-00000567 to cloud complete, status = 0
+All segments have been flushed, journal < 1311 is clean
+
+Scanning cache: (total size = 1062440 kB)
+
+Ending cache size: 1046088 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 594 journal, 3760 cloud
+Serializing 4195044 bytes of data to cloud
+Serializing 4209946 bytes of data to cloud
+Serializing 4206355 bytes of data to cloud
+Serializing 2922031 bytes of data to cloud
+Write of log-00000000-00000574 to cloud complete, status = 0
+Write of log-00000000-00000571 to cloud complete, status = 0
+Write of log-00000000-00000572 to cloud complete, status = 0
+Write of log-00000000-00000573 to cloud complete, status = 0
+All segments have been flushed, journal < 1315 is clean
+
+Scanning cache: (total size = 1062576 kB)
+
+Ending cache size: 1046224 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 584 journal, 3767 cloud
+Serializing 4225507 bytes of data to cloud
+Serializing 4211143 bytes of data to cloud
+Serializing 4206355 bytes of data to cloud
+Serializing 2789406 bytes of data to cloud
+Write of log-00000000-00000578 to cloud complete, status = 0
+Write of log-00000000-00000575 to cloud complete, status = 0
+Write of log-00000000-00000576 to cloud complete, status = 0
+Write of log-00000000-00000577 to cloud complete, status = 0
+All segments have been flushed, journal < 1319 is clean
+
+Scanning cache: (total size = 1062708 kB)
+
+Ending cache size: 1046356 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 592 journal, 3762 cloud
+Serializing 4223113 bytes of data to cloud
+Serializing 4215931 bytes of data to cloud
+Serializing 4203961 bytes of data to cloud
+Serializing 2956085 bytes of data to cloud
+Write of log-00000000-00000582 to cloud complete, status = 0
+Write of log-00000000-00000580 to cloud complete, status = 0
+Write of log-00000000-00000581 to cloud complete, status = 0
+Write of log-00000000-00000579 to cloud complete, status = 0
+All segments have been flushed, journal < 1323 is clean
+
+Scanning cache: (total size = 1062840 kB)
+
+Ending cache size: 1046488 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 597 journal, 3754 cloud
+Serializing 4221916 bytes of data to cloud
+Serializing 4212340 bytes of data to cloud
+Serializing 4202764 bytes of data to cloud
+Serializing 3089907 bytes of data to cloud
+Write of log-00000000-00000586 to cloud complete, status = 0
+Write of log-00000000-00000583 to cloud complete, status = 0
+Write of log-00000000-00000584 to cloud complete, status = 0
+Write of log-00000000-00000585 to cloud complete, status = 0
+All segments have been flushed, journal < 1327 is clean
+
+Scanning cache: (total size = 1062976 kB)
+
+Ending cache size: 1046624 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 586 journal, 3768 cloud
+Serializing 4223113 bytes of data to cloud
+Serializing 4214734 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 2726086 bytes of data to cloud
+Write of log-00000000-00000590 to cloud complete, status = 0
+Write of log-00000000-00000588 to cloud complete, status = 0
+Write of log-00000000-00000589 to cloud complete, status = 0
+Write of log-00000000-00000587 to cloud complete, status = 0
+All segments have been flushed, journal < 1331 is clean
+
+Scanning cache: (total size = 1063244 kB)
+
+Ending cache size: 1046892 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 585 journal, 3767 cloud
+Serializing 4225507 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 4212340 bytes of data to cloud
+Serializing 2789406 bytes of data to cloud
+Write of log-00000000-00000594 to cloud complete, status = 0
+Write of log-00000000-00000593 to cloud complete, status = 0
+Write of log-00000000-00000592 to cloud complete, status = 0
+Write of log-00000000-00000591 to cloud complete, status = 0
+All segments have been flushed, journal < 1335 is clean
+
+Scanning cache: (total size = 1063244 kB)
+
+Ending cache size: 1046892 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 591 journal, 3761 cloud
+Serializing 4224310 bytes of data to cloud
+Serializing 4213537 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 2851529 bytes of data to cloud
+Write of log-00000000-00000598 to cloud complete, status = 0
+Write of log-00000000-00000596 to cloud complete, status = 0
+Write of log-00000000-00000597 to cloud complete, status = 0
+Write of log-00000000-00000595 to cloud complete, status = 0
+All segments have been flushed, journal < 1339 is clean
+
+Scanning cache: (total size = 1063644 kB)
+
+Ending cache size: 1047292 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 584 journal, 3766 cloud
+Serializing 4223113 bytes of data to cloud
+Serializing 4212340 bytes of data to cloud
+Serializing 4206355 bytes of data to cloud
+Serializing 2689638 bytes of data to cloud
+Write of log-00000000-00000602 to cloud complete, status = 0
+Write of log-00000000-00000600 to cloud complete, status = 0
+Write of log-00000000-00000599 to cloud complete, status = 0
+Write of log-00000000-00000601 to cloud complete, status = 0
+All segments have been flushed, journal < 1343 is clean
+
+Scanning cache: (total size = 1063508 kB)
+
+Ending cache size: 1047156 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 600 journal, 3756 cloud
+Serializing 4221916 bytes of data to cloud
+Serializing 4214734 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 3021799 bytes of data to cloud
+Write of log-00000000-00000606 to cloud complete, status = 0
+Write of log-00000000-00000603 to cloud complete, status = 0
+Write of log-00000000-00000604 to cloud complete, status = 0
+Write of log-00000000-00000605 to cloud complete, status = 0
+All segments have been flushed, journal < 1347 is clean
+
+Scanning cache: (total size = 1064040 kB)
+
+Ending cache size: 1047688 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 595 journal, 3756 cloud
+Serializing 4221916 bytes of data to cloud
+Serializing 4214734 bytes of data to cloud
+Serializing 4206355 bytes of data to cloud
+Serializing 3150833 bytes of data to cloud
+Write of log-00000000-00000610 to cloud complete, status = 0
+Write of log-00000000-00000609 to cloud complete, status = 0
+Write of log-00000000-00000608 to cloud complete, status = 0
+Write of log-00000000-00000607 to cloud complete, status = 0
+All segments have been flushed, journal < 1351 is clean
+
+Scanning cache: (total size = 1064172 kB)
+
+Ending cache size: 1047820 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 5 dirty, 0 writeback, 594 journal, 3754 cloud
+Serializing 4195044 bytes of data to cloud
+Serializing 4211143 bytes of data to cloud
+Serializing 4206355 bytes of data to cloud
+Serializing 3116779 bytes of data to cloud
+Write of log-00000000-00000614 to cloud complete, status = 0
+Write of log-00000000-00000611 to cloud complete, status = 0
+Write of log-00000000-00000612 to cloud complete, status = 0
+Write of log-00000000-00000613 to cloud complete, status = 0
+All segments have been flushed, journal < 1355 is clean
+
+Scanning cache: (total size = 1064304 kB)
+
+Ending cache size: 1047952 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 590 journal, 3765 cloud
+Serializing 4226704 bytes of data to cloud
+Serializing 4214734 bytes of data to cloud
+Serializing 4207552 bytes of data to cloud
+Serializing 2721298 bytes of data to cloud
+Write of log-00000000-00000618 to cloud complete, status = 0
+Write of log-00000000-00000617 to cloud complete, status = 0
+Write of log-00000000-00000616 to cloud complete, status = 0
+Write of log-00000000-00000615 to cloud complete, status = 0
+All segments have been flushed, journal < 1359 is clean
+
+Scanning cache: (total size = 1064968 kB)
+
+Ending cache size: 1044528 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 593 journal, 3759 cloud
+Serializing 4219522 bytes of data to cloud
+Serializing 4211143 bytes of data to cloud
+Serializing 4211143 bytes of data to cloud
+Serializing 2922031 bytes of data to cloud
+Write of log-00000000-00000620 to cloud complete, status = 0
+Write of log-00000000-00000622 to cloud complete, status = 0
+Write of log-00000000-00000621 to cloud complete, status = 0
+Write of log-00000000-00000619 to cloud complete, status = 0
+All segments have been flushed, journal < 1363 is clean
+
+Scanning cache: (total size = 1060484 kB)
+
+Ending cache size: 1048220 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 594 journal, 3762 cloud
+Serializing 4225507 bytes of data to cloud
+Serializing 4211143 bytes of data to cloud
+Serializing 4208749 bytes of data to cloud
+Serializing 2958479 bytes of data to cloud
+Write of log-00000000-00000626 to cloud complete, status = 0
+Write of log-00000000-00000623 to cloud complete, status = 0
+Write of log-00000000-00000624 to cloud complete, status = 0
+Write of log-00000000-00000625 to cloud complete, status = 0
+All segments have been flushed, journal < 1367 is clean
+
+Scanning cache: (total size = 1064704 kB)
+
+Ending cache size: 1048352 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 592 journal, 3761 cloud
+Serializing 4223113 bytes of data to cloud
+Serializing 4207552 bytes of data to cloud
+Serializing 4212340 bytes of data to cloud
+Serializing 2954888 bytes of data to cloud
+Write of log-00000000-00000630 to cloud complete, status = 0
+Write of log-00000000-00000628 to cloud complete, status = 0
+Write of log-00000000-00000629 to cloud complete, status = 0
+Write of log-00000000-00000627 to cloud complete, status = 0
+All segments have been flushed, journal < 1371 is clean
+
+Scanning cache: (total size = 1064836 kB)
+
+Ending cache size: 1048484 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 585 journal, 3769 cloud
+Serializing 4226704 bytes of data to cloud
+Serializing 4214734 bytes of data to cloud
+Serializing 4205158 bytes of data to cloud
+Serializing 2591067 bytes of data to cloud
+Write of log-00000000-00000634 to cloud complete, status = 0
+Write of log-00000000-00000633 to cloud complete, status = 0
+Write of log-00000000-00000631 to cloud complete, status = 0
+Write of log-00000000-00000632 to cloud complete, status = 0
+All segments have been flushed, journal < 1375 is clean
+
+Scanning cache: (total size = 1064968 kB)
+
+Ending cache size: 1044528 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 590 journal, 3763 cloud
+Serializing 4195044 bytes of data to cloud
+Serializing 4209946 bytes of data to cloud
+Serializing 4207552 bytes of data to cloud
+Serializing 2821066 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000638 to cloud complete, status = 0
+Write of log-00000000-00000635 to cloud complete, status = 0
+Write of log-00000000-00000637 to cloud complete, status = 0
+Write of log-00000000-00000636 to cloud complete, status = 0
+All segments have been flushed, journal < 1380 is clean
+
+Scanning cache: (total size = 1061280 kB)
+
+Ending cache size: 1044928 kB
+Unexpected error or end of file on RPC stream 44!
+
+Cloudlog cache: 0 dirty, 0 writeback, 246 journal, 4071 cloud
+Serializing 4195703 bytes of data to cloud
+Serializing 1074857 bytes of data to cloud
+Write of log-00000000-00000640 to cloud complete, status = 0
+Write of log-00000000-00000639 to cloud complete, status = 0
+All segments have been flushed, journal < 1381 is clean
+
+Scanning cache: (total size = 1047852 kB)
+
+Ending cache size: 1047852 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4228 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 1381 is clean
+
+Scanning cache: (total size = 1047852 kB)
+
+Ending cache size: 1047852 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 44!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 144 journal, 4149 cloud
+Serializing 2678986 bytes of data to cloud
+Write of log-00000000-00000641 to cloud complete, status = 0
+All segments have been flushed, journal < 1381 is clean
+
+Scanning cache: (total size = 1051312 kB)
+
+Ending cache size: 1047224 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 347 journal, 3988 cloud
+Serializing 4217787 bytes of data to cloud
+Serializing 3867164 bytes of data to cloud
+Write of log-00000000-00000642 to cloud complete, status = 0
+Write of log-00000000-00000643 to cloud complete, status = 0
+All segments have been flushed, journal < 1383 is clean
+
+Scanning cache: (total size = 1056128 kB)
+
+Ending cache size: 1047952 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 353 journal, 3985 cloud
+Serializing 4222575 bytes of data to cloud
+Serializing 3898824 bytes of data to cloud
+Write of log-00000000-00000645 to cloud complete, status = 0
+Write of log-00000000-00000644 to cloud complete, status = 0
+All segments have been flushed, journal < 1386 is clean
+
+Scanning cache: (total size = 1056164 kB)
+
+Ending cache size: 1047988 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 353 journal, 3988 cloud
+Serializing 4218984 bytes of data to cloud
+Serializing 3807435 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000646 to cloud complete, status = 0
+Write of log-00000000-00000647 to cloud complete, status = 0
+All segments have been flushed, journal < 1388 is clean
+
+Scanning cache: (total size = 1056260 kB)
+
+Ending cache size: 1048084 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 354 journal, 3985 cloud
+Serializing 4220181 bytes of data to cloud
+Serializing 3902415 bytes of data to cloud
+Write of log-00000000-00000649 to cloud complete, status = 0
+Write of log-00000000-00000648 to cloud complete, status = 0
+All segments have been flushed, journal < 1390 is clean
+
+Scanning cache: (total size = 1056560 kB)
+
+Ending cache size: 1048384 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 350 journal, 3989 cloud
+Serializing 4215393 bytes of data to cloud
+Serializing 3775775 bytes of data to cloud
+Write of log-00000000-00000651 to cloud complete, status = 0
+Write of log-00000000-00000650 to cloud complete, status = 0
+All segments have been flushed, journal < 1392 is clean
+
+Scanning cache: (total size = 1056260 kB)
+
+Ending cache size: 1048084 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 357 journal, 3981 cloud
+Serializing 4222575 bytes of data to cloud
+Serializing 4030252 bytes of data to cloud
+Write of log-00000000-00000653 to cloud complete, status = 0
+Write of log-00000000-00000652 to cloud complete, status = 0
+All segments have been flushed, journal < 1394 is clean
+
+Scanning cache: (total size = 1056592 kB)
+
+Ending cache size: 1048416 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 344 journal, 3986 cloud
+Serializing 4214196 bytes of data to cloud
+Serializing 3864770 bytes of data to cloud
+Write of log-00000000-00000655 to cloud complete, status = 0
+Write of log-00000000-00000654 to cloud complete, status = 0
+All segments have been flushed, journal < 1396 is clean
+
+Scanning cache: (total size = 1056528 kB)
+
+Ending cache size: 1048352 kB
+
+Cloudlog cache: 1 dirty, 0 writeback, 349 journal, 3986 cloud
+Serializing 4217787 bytes of data to cloud
+Serializing 3934075 bytes of data to cloud
+Write of log-00000000-00000657 to cloud complete, status = 0
+Write of log-00000000-00000656 to cloud complete, status = 0
+All segments have been flushed, journal < 1398 is clean
+
+Scanning cache: (total size = 1056692 kB)
+
+Ending cache size: 1048516 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 355 journal, 3985 cloud
+Serializing 4222575 bytes of data to cloud
+Serializing 3935272 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000659 to cloud complete, status = 0
+Write of log-00000000-00000658 to cloud complete, status = 0
+All segments have been flushed, journal < 1400 is clean
+
+Scanning cache: (total size = 1057156 kB)
+
+Ending cache size: 1044892 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 341 journal, 3987 cloud
+Serializing 4212999 bytes of data to cloud
+Serializing 3930484 bytes of data to cloud
+Write of log-00000000-00000660 to cloud complete, status = 0
+Write of log-00000000-00000661 to cloud complete, status = 0
+All segments have been flushed, journal < 1402 is clean
+
+Scanning cache: (total size = 1053468 kB)
+
+Ending cache size: 1045292 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 348 journal, 3988 cloud
+Serializing 4215393 bytes of data to cloud
+Serializing 3805041 bytes of data to cloud
+Write of log-00000000-00000663 to cloud complete, status = 0
+Write of log-00000000-00000662 to cloud complete, status = 0
+All segments have been flushed, journal < 1404 is clean
+
+Scanning cache: (total size = 1053104 kB)
+
+Ending cache size: 1044928 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 352 journal, 3988 cloud
+Serializing 4220181 bytes of data to cloud
+Serializing 3805041 bytes of data to cloud
+Write of log-00000000-00000664 to cloud complete, status = 0
+Write of log-00000000-00000665 to cloud complete, status = 0
+All segments have been flushed, journal < 1406 is clean
+
+Scanning cache: (total size = 1053168 kB)
+
+Ending cache size: 1044992 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 353 journal, 3984 cloud
+Serializing 4215393 bytes of data to cloud
+Serializing 3937666 bytes of data to cloud
+Write of log-00000000-00000666 to cloud complete, status = 0
+Write of log-00000000-00000667 to cloud complete, status = 0
+All segments have been flushed, journal < 1408 is clean
+
+Scanning cache: (total size = 1053204 kB)
+
+Ending cache size: 1045028 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 358 journal, 3986 cloud
+Serializing 4220181 bytes of data to cloud
+Serializing 3875543 bytes of data to cloud
+Write of log-00000000-00000669 to cloud complete, status = 0
+Write of log-00000000-00000668 to cloud complete, status = 0
+All segments have been flushed, journal < 1410 is clean
+
+Scanning cache: (total size = 1053304 kB)
+
+Ending cache size: 1045128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 356 journal, 3985 cloud
+Serializing 4216590 bytes of data to cloud
+Serializing 3908400 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000671 to cloud complete, status = 0
+Write of log-00000000-00000670 to cloud complete, status = 0
+All segments have been flushed, journal < 1412 is clean
+
+Scanning cache: (total size = 1053900 kB)
+
+Ending cache size: 1045724 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 356 journal, 3985 cloud
+Serializing 4216590 bytes of data to cloud
+Serializing 3908400 bytes of data to cloud
+Write of log-00000000-00000673 to cloud complete, status = 0
+Write of log-00000000-00000672 to cloud complete, status = 0
+All segments have been flushed, journal < 1414 is clean
+
+Scanning cache: (total size = 1053436 kB)
+
+Ending cache size: 1045264 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 353 journal, 3987 cloud
+Serializing 4220181 bytes of data to cloud
+Serializing 3970523 bytes of data to cloud
+Write of log-00000000-00000675 to cloud complete, status = 0
+Write of log-00000000-00000674 to cloud complete, status = 0
+All segments have been flushed, journal < 1416 is clean
+
+Scanning cache: (total size = 1053772 kB)
+
+Ending cache size: 1045600 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 348 journal, 3988 cloud
+Serializing 4214196 bytes of data to cloud
+Serializing 3806238 bytes of data to cloud
+Write of log-00000000-00000677 to cloud complete, status = 0
+Write of log-00000000-00000676 to cloud complete, status = 0
+All segments have been flushed, journal < 1418 is clean
+
+Scanning cache: (total size = 1053808 kB)
+
+Ending cache size: 1045632 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 354 journal, 3988 cloud
+Serializing 4222575 bytes of data to cloud
+Serializing 3805041 bytes of data to cloud
+Write of log-00000000-00000679 to cloud complete, status = 0
+Write of log-00000000-00000678 to cloud complete, status = 0
+All segments have been flushed, journal < 1420 is clean
+
+Scanning cache: (total size = 1053908 kB)
+
+Ending cache size: 1045732 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 349 journal, 3985 cloud
+Serializing 4216590 bytes of data to cloud
+Serializing 3900021 bytes of data to cloud
+Write of log-00000000-00000681 to cloud complete, status = 0
+Write of log-00000000-00000680 to cloud complete, status = 0
+All segments have been flushed, journal < 1422 is clean
+
+Scanning cache: (total size = 1054108 kB)
+
+Ending cache size: 1045932 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 351 journal, 3984 cloud
+Serializing 4218984 bytes of data to cloud
+Serializing 3931681 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000683 to cloud complete, status = 0
+Write of log-00000000-00000682 to cloud complete, status = 0
+All segments have been flushed, journal < 1424 is clean
+
+Scanning cache: (total size = 1054172 kB)
+
+Ending cache size: 1045996 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 357 journal, 3984 cloud
+Serializing 4222575 bytes of data to cloud
+Serializing 3935272 bytes of data to cloud
+Write of log-00000000-00000685 to cloud complete, status = 0
+Write of log-00000000-00000684 to cloud complete, status = 0
+All segments have been flushed, journal < 1426 is clean
+
+Scanning cache: (total size = 1054372 kB)
+
+Ending cache size: 1046196 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 364 journal, 3983 cloud
+Serializing 4222575 bytes of data to cloud
+Serializing 3975311 bytes of data to cloud
+Write of log-00000000-00000686 to cloud complete, status = 0
+Write of log-00000000-00000687 to cloud complete, status = 0
+All segments have been flushed, journal < 1428 is clean
+
+Scanning cache: (total size = 1054540 kB)
+
+Ending cache size: 1046364 kB
+Unexpected error or end of file on RPC stream 44!
+
+Cloudlog cache: 0 dirty, 0 writeback, 258 journal, 4062 cloud
+Serializing 4196900 bytes of data to cloud
+Serializing 1372964 bytes of data to cloud
+Write of log-00000000-00000689 to cloud complete, status = 0
+Write of log-00000000-00000688 to cloud complete, status = 0
+All segments have been flushed, journal < 1430 is clean
+
+Scanning cache: (total size = 1050888 kB)
+
+Ending cache size: 1046800 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4228 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 1430 is clean
+
+Scanning cache: (total size = 1046800 kB)
+
+Ending cache size: 1046800 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 44!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4228 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 1430 is clean
+
+Scanning cache: (total size = 1046800 kB)
+
+Ending cache size: 1046800 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 167 journal, 4129 cloud
+Serializing 3339717 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000690 to cloud complete, status = 0
+All segments have been flushed, journal < 1430 is clean
+
+Scanning cache: (total size = 1050384 kB)
+
+Ending cache size: 1046296 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 168 journal, 4129 cloud
+Serializing 3340914 bytes of data to cloud
+Write of log-00000000-00000691 to cloud complete, status = 0
+All segments have been flushed, journal < 1431 is clean
+
+Scanning cache: (total size = 1049720 kB)
+
+Ending cache size: 1045636 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 168 journal, 4129 cloud
+Serializing 3340914 bytes of data to cloud
+Write of log-00000000-00000692 to cloud complete, status = 0
+All segments have been flushed, journal < 1432 is clean
+
+Scanning cache: (total size = 1048960 kB)
+
+Ending cache size: 1044868 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 164 journal, 4129 cloud
+Serializing 3336126 bytes of data to cloud
+Write of log-00000000-00000693 to cloud complete, status = 0
+All segments have been flushed, journal < 1433 is clean
+
+Scanning cache: (total size = 1048228 kB)
+
+Ending cache size: 1048228 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 164 journal, 4128 cloud
+Serializing 3367786 bytes of data to cloud
+Write of log-00000000-00000694 to cloud complete, status = 0
+All segments have been flushed, journal < 1434 is clean
+
+Scanning cache: (total size = 1051552 kB)
+
+Ending cache size: 1047464 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 161 journal, 4130 cloud
+Serializing 3300875 bytes of data to cloud
+Write of log-00000000-00000695 to cloud complete, status = 0
+All segments have been flushed, journal < 1434 is clean
+
+Scanning cache: (total size = 1050652 kB)
+
+Ending cache size: 1046564 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 165 journal, 4130 cloud
+Serializing 3305663 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000696 to cloud complete, status = 0
+All segments have been flushed, journal < 1435 is clean
+
+Scanning cache: (total size = 1049884 kB)
+
+Ending cache size: 1045796 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 168 journal, 4131 cloud
+Serializing 3277594 bytes of data to cloud
+Write of log-00000000-00000697 to cloud complete, status = 0
+All segments have been flushed, journal < 1436 is clean
+
+Scanning cache: (total size = 1049124 kB)
+
+Ending cache size: 1045036 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 172 journal, 4130 cloud
+Serializing 3346899 bytes of data to cloud
+Write of log-00000000-00000698 to cloud complete, status = 0
+All segments have been flushed, journal < 1437 is clean
+
+Scanning cache: (total size = 1048360 kB)
+
+Ending cache size: 1048360 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 163 journal, 4129 cloud
+Serializing 3368983 bytes of data to cloud
+Write of log-00000000-00000699 to cloud complete, status = 0
+All segments have been flushed, journal < 1438 is clean
+
+Scanning cache: (total size = 1051684 kB)
+
+Ending cache size: 1047596 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 168 journal, 4130 cloud
+Serializing 3309254 bytes of data to cloud
+Write of log-00000000-00000700 to cloud complete, status = 0
+All segments have been flushed, journal < 1438 is clean
+
+Scanning cache: (total size = 1051020 kB)
+
+Ending cache size: 1046932 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 167 journal, 4129 cloud
+Serializing 3339717 bytes of data to cloud
+Write of log-00000000-00000701 to cloud complete, status = 0
+All segments have been flushed, journal < 1439 is clean
+
+Scanning cache: (total size = 1050152 kB)
+
+Ending cache size: 1046064 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 170 journal, 4128 cloud
+Serializing 3374968 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000702 to cloud complete, status = 0
+All segments have been flushed, journal < 1440 is clean
+
+Scanning cache: (total size = 1049388 kB)
+
+Ending cache size: 1045300 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 168 journal, 4130 cloud
+Serializing 3309254 bytes of data to cloud
+Write of log-00000000-00000703 to cloud complete, status = 0
+All segments have been flushed, journal < 1441 is clean
+
+Scanning cache: (total size = 1048756 kB)
+
+Ending cache size: 1044668 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 169 journal, 4128 cloud
+Serializing 3373771 bytes of data to cloud
+Write of log-00000000-00000704 to cloud complete, status = 0
+All segments have been flushed, journal < 1442 is clean
+
+Scanning cache: (total size = 1047996 kB)
+
+Ending cache size: 1047996 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 173 journal, 4128 cloud
+Serializing 3346899 bytes of data to cloud
+Write of log-00000000-00000705 to cloud complete, status = 0
+All segments have been flushed, journal < 1443 is clean
+
+Scanning cache: (total size = 1051452 kB)
+
+Ending cache size: 1047364 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 172 journal, 4128 cloud
+Serializing 3377362 bytes of data to cloud
+Write of log-00000000-00000706 to cloud complete, status = 0
+All segments have been flushed, journal < 1443 is clean
+
+Scanning cache: (total size = 1050688 kB)
+
+Ending cache size: 1046600 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 171 journal, 4129 cloud
+Serializing 3344505 bytes of data to cloud
+Write of log-00000000-00000707 to cloud complete, status = 0
+All segments have been flushed, journal < 1444 is clean
+
+Scanning cache: (total size = 1049652 kB)
+
+Ending cache size: 1045564 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 171 journal, 4129 cloud
+Serializing 3344505 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000708 to cloud complete, status = 0
+All segments have been flushed, journal < 1445 is clean
+
+Scanning cache: (total size = 1049156 kB)
+
+Ending cache size: 1045068 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 169 journal, 4129 cloud
+Serializing 3342111 bytes of data to cloud
+Write of log-00000000-00000709 to cloud complete, status = 0
+All segments have been flushed, journal < 1446 is clean
+
+Scanning cache: (total size = 1048128 kB)
+
+Ending cache size: 1048128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 163 journal, 4130 cloud
+Serializing 3303269 bytes of data to cloud
+Write of log-00000000-00000710 to cloud complete, status = 0
+All segments have been flushed, journal < 1447 is clean
+
+Scanning cache: (total size = 1051452 kB)
+
+Ending cache size: 1047364 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 173 journal, 4131 cloud
+Serializing 3283579 bytes of data to cloud
+Write of log-00000000-00000711 to cloud complete, status = 0
+All segments have been flushed, journal < 1447 is clean
+
+Scanning cache: (total size = 1050688 kB)
+
+Ending cache size: 1046600 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 168 journal, 4130 cloud
+Serializing 3309254 bytes of data to cloud
+Write of log-00000000-00000712 to cloud complete, status = 0
+All segments have been flushed, journal < 1448 is clean
+
+Scanning cache: (total size = 1050020 kB)
+
+Ending cache size: 1045932 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 161 journal, 4132 cloud
+Serializing 3205895 bytes of data to cloud
+Write of log-00000000-00000713 to cloud complete, status = 0
+All segments have been flushed, journal < 1449 is clean
+
+Scanning cache: (total size = 1048892 kB)
+
+Ending cache size: 1044804 kB
+Unexpected error or end of file on RPC stream 44!
+
+Cloudlog cache: 0 dirty, 0 writeback, 2 journal, 4227 cloud
+Serializing 39532 bytes of data to cloud
+Write of log-00000000-00000714 to cloud complete, status = 0
+All segments have been flushed, journal < 1449 is clean
+
+Scanning cache: (total size = 1044804 kB)
+
+Ending cache size: 1044804 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 4228 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 1449 is clean
+
+Scanning cache: (total size = 1044804 kB)
+
+Ending cache size: 1044804 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 44!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 59 journal, 4197 cloud
+Serializing 1057561 bytes of data to cloud
+Write of log-00000000-00000715 to cloud complete, status = 0
+All segments have been flushed, journal < 1449 is clean
+
+Scanning cache: (total size = 1045996 kB)
+
+Ending cache size: 1045996 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 100 journal, 4176 cloud
+Serializing 1771498 bytes of data to cloud
+Write of log-00000000-00000716 to cloud complete, status = 0
+All segments have been flushed, journal < 1450 is clean
+
+Scanning cache: (total size = 1047728 kB)
+
+Ending cache size: 1047728 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 89 journal, 4180 cloud
+Serializing 1631691 bytes of data to cloud
+Write of log-00000000-00000717 to cloud complete, status = 0
+All segments have been flushed, journal < 1450 is clean
+
+Scanning cache: (total size = 1049320 kB)
+
+Ending cache size: 1045232 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 96 journal, 4176 cloud
+Serializing 1766710 bytes of data to cloud
+Write of log-00000000-00000718 to cloud complete, status = 0
+All segments have been flushed, journal < 1451 is clean
+
+Scanning cache: (total size = 1046964 kB)
+
+Ending cache size: 1046964 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 93 journal, 4180 cloud
+Serializing 1636479 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000719 to cloud complete, status = 0
+All segments have been flushed, journal < 1451 is clean
+
+Scanning cache: (total size = 1048560 kB)
+
+Ending cache size: 1048560 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 93 journal, 4176 cloud
+Serializing 1763119 bytes of data to cloud
+Write of log-00000000-00000720 to cloud complete, status = 0
+All segments have been flushed, journal < 1451 is clean
+
+Scanning cache: (total size = 1050284 kB)
+
+Ending cache size: 1046196 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 89 journal, 4180 cloud
+Serializing 1631691 bytes of data to cloud
+Write of log-00000000-00000721 to cloud complete, status = 0
+All segments have been flushed, journal < 1452 is clean
+
+Scanning cache: (total size = 1047796 kB)
+
+Ending cache size: 1047796 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 97 journal, 4176 cloud
+Serializing 1767907 bytes of data to cloud
+Write of log-00000000-00000722 to cloud complete, status = 0
+All segments have been flushed, journal < 1452 is clean
+
+Scanning cache: (total size = 1049520 kB)
+
+Ending cache size: 1045432 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 86 journal, 4180 cloud
+Serializing 1628100 bytes of data to cloud
+Write of log-00000000-00000723 to cloud complete, status = 0
+All segments have been flushed, journal < 1453 is clean
+
+Scanning cache: (total size = 1047032 kB)
+
+Ending cache size: 1047032 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 93 journal, 4176 cloud
+Serializing 1763119 bytes of data to cloud
+Write of log-00000000-00000724 to cloud complete, status = 0
+All segments have been flushed, journal < 1453 is clean
+
+Scanning cache: (total size = 1048756 kB)
+
+Ending cache size: 1044668 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 88 journal, 4180 cloud
+Serializing 1630494 bytes of data to cloud
+Write of log-00000000-00000725 to cloud complete, status = 0
+All segments have been flushed, journal < 1453 is clean
+
+Scanning cache: (total size = 1046264 kB)
+
+Ending cache size: 1046264 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 97 journal, 4176 cloud
+Serializing 1767907 bytes of data to cloud
+Write of log-00000000-00000726 to cloud complete, status = 0
+All segments have been flushed, journal < 1454 is clean
+
+Scanning cache: (total size = 1047996 kB)
+
+Ending cache size: 1047996 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 83 journal, 4182 cloud
+Serializing 1561189 bytes of data to cloud
+Write of log-00000000-00000727 to cloud complete, status = 0
+All segments have been flushed, journal < 1454 is clean
+
+Scanning cache: (total size = 1049588 kB)
+
+Ending cache size: 1045500 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 91 journal, 4177 cloud
+Serializing 1729065 bytes of data to cloud
+Write of log-00000000-00000728 to cloud complete, status = 0
+All segments have been flushed, journal < 1455 is clean
+
+Scanning cache: (total size = 1047232 kB)
+
+Ending cache size: 1047232 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 92 journal, 4180 cloud
+Serializing 1635282 bytes of data to cloud
+Write of log-00000000-00000729 to cloud complete, status = 0
+All segments have been flushed, journal < 1455 is clean
+
+Scanning cache: (total size = 1048824 kB)
+
+Ending cache size: 1044736 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 98 journal, 4176 cloud
+Serializing 1769104 bytes of data to cloud
+Write of log-00000000-00000730 to cloud complete, status = 0
+All segments have been flushed, journal < 1455 is clean
+
+Scanning cache: (total size = 1046460 kB)
+
+Ending cache size: 1046460 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 91 journal, 4180 cloud
+Serializing 1634085 bytes of data to cloud
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000731 to cloud complete, status = 0
+All segments have been flushed, journal < 1456 is clean
+
+Scanning cache: (total size = 1048060 kB)
+
+Ending cache size: 1048060 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 93 journal, 4176 cloud
+Serializing 1763119 bytes of data to cloud
+Write of log-00000000-00000732 to cloud complete, status = 0
+All segments have been flushed, journal < 1456 is clean
+
+Scanning cache: (total size = 1049788 kB)
+
+Ending cache size: 1045700 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 86 journal, 4181 cloud
+Serializing 1596440 bytes of data to cloud
+Write of log-00000000-00000733 to cloud complete, status = 0
+All segments have been flushed, journal < 1457 is clean
+
+Scanning cache: (total size = 1047296 kB)
+
+Ending cache size: 1047296 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 91 journal, 4176 cloud
+Serializing 1760725 bytes of data to cloud
+Write of log-00000000-00000734 to cloud complete, status = 0
+All segments have been flushed, journal < 1457 is clean
+
+Scanning cache: (total size = 1049024 kB)
+
+Ending cache size: 1044936 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 87 journal, 4180 cloud
+Serializing 1629297 bytes of data to cloud
+Write of log-00000000-00000735 to cloud complete, status = 0
+All segments have been flushed, journal < 1457 is clean
+
+Scanning cache: (total size = 1046528 kB)
+
+Ending cache size: 1046528 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 93 journal, 4177 cloud
+Serializing 1731459 bytes of data to cloud
+Write of log-00000000-00000736 to cloud complete, status = 0
+All segments have been flushed, journal < 1458 is clean
+
+Scanning cache: (total size = 1048260 kB)
+
+Ending cache size: 1048260 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 88 journal, 4181 cloud
+Serializing 1598834 bytes of data to cloud
+Write of log-00000000-00000737 to cloud complete, status = 0
+All segments have been flushed, journal < 1458 is clean
+
+Scanning cache: (total size = 1049852 kB)
+
+Ending cache size: 1045764 kB
+Last key: (null)
+
+** (nfsd:21368): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 92 journal, 4176 cloud
+Serializing 1761922 bytes of data to cloud
+Write of log-00000000-00000738 to cloud complete, status = 0
+All segments have been flushed, journal < 1459 is clean
+
+Scanning cache: (total size = 1047496 kB)
+
+Ending cache size: 1047496 kB
+Unexpected error or end of file on RPC stream 44!
+SIGINT caught, shutting down...
+Proxy statistics:
+Store[s3:mvrable-bluesky-west]: GETS: count=0 sum=0
+Store[s3:mvrable-bluesky-west]: PUTS: count=744 sum=2946271307
+Store[file]: GETS: count=0 sum=0
+Store[file]: PUTS: count=0 sum=0
+NFS RPC Messages In: count=534838 sum=5936629100
+NFS RPC Messages Out: count=534830 sum=62991712
+/scratch/bluesky.git/microbench/setup/run-proxy: line 30: 21365 Terminated              /usr/lib/atsar/atsadc 5 17280 /export2/$BLUESKY_RUN_NAME.sadc

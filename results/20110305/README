@@ -1,0 +1,81 @@
+Tests to evaluate the importance of various BlueSky features, so
+different features are turned off for the benchmark runs.
+
+20110305-west-fullsegments-4G
+Test to S3-US-West, 4 GB disk cache, but all fetches from S3 are full
+segments instead of byte ranges, and the complete segments are stored to
+the disk cache.  So there are multiple effects: first, for a random
+workload there is more garbage data taking up cache space; second,
+fetches from S3 take longer which increases read latencies.
+
+    --- a/bluesky/log.c
+    +++ b/bluesky/log.c
+    @@ -651,7 +651,7 @@
+         BlueSkyRCStr *str = NULL;
+         int location = 0;
+         size_t file_offset = 0, file_size = 0;
+    -    gboolean range_request = TRUE;
+    +    gboolean range_request = FALSE;
+
+         if (page_size == 0) {
+             page_size = getpagesize();
+
+    Sat Mar 05 17:20:01 PST 2011
+     Executing run 1 of 25 ...  done
+    Sat Mar 05 17:32:59 PST 2011
+     Executing run 2 of 25 ...  done
+    Sat Mar 05 17:47:27 PST 2011
+     Executing run 3 of 25 ...  done
+    Sat Mar 05 18:01:20 PST 2011
+     Executing run 4 of 25 ...  done
+    Sat Mar 05 18:14:38 PST 2011
+     Executing run 5 of 25 ...  done
+    Sat Mar 05 18:28:56 PST 2011
+     Executing run 6 of 25 ...  done
+    Sat Mar 05 18:43:20 PST 2011
+     Executing run 7 of 25 ...  done
+    Sat Mar 05 18:56:59 PST 2011
+     Executing run 8 of 25 ...  done
+    Sat Mar 05 19:11:18 PST 2011
+     Executing run 9 of 25 ...  done
+    Sat Mar 05 19:25:20 PST 2011
+     Executing run 10 of 25 ...  done
+    Sat Mar 05 19:39:26 PST 2011
+     SfsManager shutting down ...
+
+    Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 1734715 cloud
+    All segments have been flushed, journal < 12924 is clean
+    Ending cache size: 4191588 kB
+
+    Proxy statistics:
+    Store[s3:mvrable-bluesky-west]: GETS: count=21781 sum=88260767105
+    Store[s3:mvrable-bluesky-west]: PUTS: count=13788 sum=55866496509
+    NFS RPC Messages In: count=2741556 sum=52779236892
+    NFS RPC Messages Out: count=2741556 sum=1931572500
+
+20110305-west-nogrouping-4G
+All objects written out to separate log segments, to simulate storage
+that is not log-structured.
+
+  (runs of 10..50/10 ops)
+    Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 296986 cloud
+    All segments have been flushed, journal < 2254 is clean
+    Ending cache size: 4190572 kB
+
+    Proxy statistics:
+    Store[s3:mvrable-bluesky-west]: GETS: count=745 sum=17229569
+    Store[s3:mvrable-bluesky-west]: PUTS: count=343683 sum=9649158666
+    NFS RPC Messages In: count=492087 sum=9174696132
+    NFS RPC Messages Out: count=492087 sum=577322960
+
+
+Repeat run at 50 ops:
+    All segments have been flushed, journal < 1430 is clean
+    Ending cache size: 4190572 kB
+
+    Proxy statistics:
+    Store[s3:mvrable-bluesky-west]: GETS: count=1124 sum=24190660
+    Store[s3:mvrable-bluesky-west]: PUTS: count=205132 sum=6011691408
+    NFS RPC Messages In: count=253370 sum=5915763308
+    NFS RPC Messages Out: count=253370 sum=202442048
+

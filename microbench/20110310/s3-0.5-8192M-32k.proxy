@@ -1,0 +1,25 @@
+EXECUTE(vrable2.sysnet.ucsd.edu): run-proxy
+BLUESKY_RUN_NAME=s3-0.5-8192M-32k
+BLUESKY_CACHE_SIZE=1048576
+BLUESKY_TARGET=s3:mvrable-bluesky-west
+BENCH_DURATION=120
+BENCH_FILESIZE=1048576
+BENCH_FILECOUNT=8192
+BENCH_WRITERATIO=0.5
+BENCH_THREADS=4
+BENCH_OPS=10
+BENCH_INTERVALS=10
+BENCH_DIRSIZE=128
+BENCH_BLOCKSIZE=32768
+NFS_BLOCKSIZE=32768
+Option BLUESKY_CACHE_SIZE set to 1048576
+Initializing S3 with bucket mvrable-bluesky-west, access key AKIAJ4RG3GWBMGEBRRXQ, encryption key j3FQWkiNQnDCm+JVhbQ69YfWfds7AB/sYkLy89MA
+Starting journal at sequence number 0
+Claiming cloud log directory: 0
+Last key: log-00000000-00003902
+Last cloud log segment: log-00000000-00003902
+
+** ERROR **: Unable to locate checkpoint record!
+
+aborting...
+/scratch/bluesky.git/microbench/setup/run-proxy: line 30:  5046 Aborted                 /scratch/bluesky.git/nfs3/nfsproxy

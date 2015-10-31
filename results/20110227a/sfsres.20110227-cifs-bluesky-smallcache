@@ -1,0 +1,350 @@
+Mon Feb 28 05:35:12 PST 2011 ************************************************************************
+Mon Feb 28 05:37:23 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 50 -C ../result/sfssum.20110227-cifs-bluesky-smallcache -c -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (CIFS operations/second) = 50
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =   9876 Files created for I/O operations
+                 2960 Files accessed for I/O operations
+                  200 Files for non-I/O operations
+                   24 Symlinks
+                  328 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Mon Feb 28 05:57:01 2011
+CIFS Protocol
+
+---------------------------------------------------------------------------------------------------------
+CIFS                             Target Actual CIFS Op CIFS Op   CIFS   Mean     Std Dev  Std Error Pcnt 
+Op                               CIFS   CIFS   Logical Physical  Op     Response Response of Mean,  of   
+Type                             Mix    Mix    Success Success   Error  Time     Time     95% Conf  Total
+                                 Pcnt   Pcnt   Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%   0.5%       76       76      0      0.13     0.01      0.02  0.0%
+LOCKING_ANDX                      1.1%   0.9%      142      142      0      0.14     0.01      0.01  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%   1.5%      229      229      0      0.20     0.02      0.02  0.0%
+READ_ANDX                        20.5%  20.2%     3023     3256      0     32.38    85.76      0.33 79.3%
+TRANS2_QUERY_FS_INFORMATION       1.6%   1.7%      250      250      0      0.16     0.01      0.01  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%  11.9%     1785     1785      0      0.20     0.05      0.01  0.3%
+TRANS2_QUERY_PATH_INFORMATION    21.5%  22.4%     3358     3358      0      0.21     0.03      0.01  0.6%
+TRANS2_SET_FILE_INFORMATION       3.2%   3.2%      483      483      0      0.16     0.01      0.01  0.1%
+TRANS2_FIND_FIRST2                8.6%   9.0%     1351     1351      0      0.31     0.02      0.01  0.3%
+WRITE_ANDX                        8.6%   8.7%     1300     1410      0     17.73    62.65      0.43 18.7%
+NT_CREATE_ANDX                    9.7%   9.7%     1460     1460      0      0.21     0.02      0.01  0.2%
+CLOSE                             9.7%   9.7%     1460     1460      0      0.15     0.08      0.01  0.2%
+FLUSH                             0.5%   0.5%       74       74      0      3.04     1.94      0.32  0.2%
+---------------------------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS CIFS THROUGHPUT:      50 Ops/Sec   AVG. RESPONSE TIME:     8.2 Msec/Op
+TCP PROTOCOL (IPv4)
+CIFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 50 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  14991          TEST TIME: 300 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 15334    
+PHYSICAL CIFS IO THROUGHPUT: 51 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 5121.2 MB
+TOTAL FILE SET SIZE ACCESSED: 1537.0 - 1571.2 MB  (100.00% to 102.23% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 05:57:02 PST 2011 ************************************************************************
+Mon Feb 28 05:57:02 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 100 -C ../result/sfssum.20110227-cifs-bluesky-smallcache -c -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (CIFS operations/second) = 100
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  21728 Files created for I/O operations
+                 6516 Files accessed for I/O operations
+                  436 Files for non-I/O operations
+                   24 Symlinks
+                  724 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Mon Feb 28 06:19:32 2011
+CIFS Protocol
+
+---------------------------------------------------------------------------------------------------------
+CIFS                             Target Actual CIFS Op CIFS Op   CIFS   Mean     Std Dev  Std Error Pcnt 
+Op                               CIFS   CIFS   Logical Physical  Op     Response Response of Mean,  of   
+Type                             Mix    Mix    Success Success   Error  Time     Time     95% Conf  Total
+                                 Pcnt   Pcnt   Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%   0.4%      133      133      0      0.14     0.01      0.02  0.0%
+LOCKING_ANDX                      1.1%   1.0%      290      290      0      0.14     0.02      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%   1.6%      474      474      0      0.20     0.02      0.01  0.0%
+READ_ANDX                        20.5%  20.3%     6108     6587      0     40.42    88.13      0.24 84.2%
+TRANS2_QUERY_FS_INFORMATION       1.6%   1.7%      510      510      0      0.16     0.03      0.02  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%  12.6%     3777     3777      0      0.20     0.10      0.01  0.3%
+TRANS2_QUERY_PATH_INFORMATION    21.5%  22.3%     6701     6701      0      0.21     0.07      0.01  0.5%
+TRANS2_SET_FILE_INFORMATION       3.2%   3.2%      963      963      0      0.16     0.03      0.01  0.1%
+TRANS2_FIND_FIRST2                8.6%   8.6%     2573     2573      0      0.48     0.08      0.01  0.4%
+WRITE_ANDX                        8.6%   8.4%     2517     2692      0     16.25    53.45      0.29 14.0%
+NT_CREATE_ANDX                    9.7%   9.8%     2956     2956      0      0.21     0.15      0.01  0.2%
+CLOSE                             9.7%   9.8%     2956     2956      0      0.15     0.06      0.01  0.2%
+FLUSH                             0.5%   0.4%      132      132      0      3.45     3.45      0.32  0.2%
+---------------------------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS CIFS THROUGHPUT:     101 Ops/Sec   AVG. RESPONSE TIME:     9.7 Msec/Op
+TCP PROTOCOL (IPv4)
+CIFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 100 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  30090          TEST TIME: 299 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 30744    
+PHYSICAL CIFS IO THROUGHPUT: 102 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 11267.2 MB
+TOTAL FILE SET SIZE ACCESSED: 3381.0 - 3444.5 MB  (100.00% to 101.88% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 06:19:33 PST 2011 ************************************************************************
+Mon Feb 28 06:19:33 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 150 -C ../result/sfssum.20110227-cifs-bluesky-smallcache -c -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (CIFS operations/second) = 150
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  33576 Files created for I/O operations
+                10072 Files accessed for I/O operations
+                  672 Files for non-I/O operations
+                   24 Symlinks
+                 1116 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Mon Feb 28 06:39:54 2011
+CIFS Protocol
+
+---------------------------------------------------------------------------------------------------------
+CIFS                             Target Actual CIFS Op CIFS Op   CIFS   Mean     Std Dev  Std Error Pcnt 
+Op                               CIFS   CIFS   Logical Physical  Op     Response Response of Mean,  of   
+Type                             Mix    Mix    Success Success   Error  Time     Time     95% Conf  Total
+                                 Pcnt   Pcnt   Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%   0.5%      223      223      0      0.15     0.12      0.05  0.0%
+LOCKING_ANDX                      1.1%   1.3%      581      581      0      0.15     0.05      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%   1.7%      760      760      0      0.20     0.07      0.02  0.0%
+READ_ANDX                        20.5%  20.0%     9047     9783      0     41.30    90.84      0.20 82.2%
+TRANS2_QUERY_FS_INFORMATION       1.6%   1.6%      729      729      0      0.16     0.04      0.01  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%  13.6%     6139     6139      0      0.20     0.14      0.01  0.3%
+TRANS2_QUERY_PATH_INFORMATION    21.5%  21.4%     9666     9666      0      0.22     0.13      0.01  0.5%
+TRANS2_SET_FILE_INFORMATION       3.2%   3.3%     1487     1487      0      0.16     0.05      0.01  0.1%
+TRANS2_FIND_FIRST2                8.6%   8.5%     3817     3817      0      0.67     0.07      0.01  0.6%
+WRITE_ANDX                        8.6%   8.3%     3761     4015      0     19.07    60.88      0.25 15.8%
+NT_CREATE_ANDX                    9.7%   9.7%     4363     4363      0      0.22     0.12      0.01  0.2%
+CLOSE                             9.7%   9.7%     4361     4361      0      0.15     0.08      0.01  0.1%
+FLUSH                             0.5%   0.5%      208      208      0      4.50     4.26      0.28  0.2%
+---------------------------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS CIFS THROUGHPUT:     150 Ops/Sec   AVG. RESPONSE TIME:    10.1 Msec/Op
+TCP PROTOCOL (IPv4)
+CIFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 150 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  45142          TEST TIME: 300 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 46132    
+PHYSICAL CIFS IO THROUGHPUT: 153 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 17411.0 MB
+TOTAL FILE SET SIZE ACCESSED: 5225.0 - 5324.2 MB  (100.00% to 101.90% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 06:39:55 PST 2011 ************************************************************************
+Mon Feb 28 06:39:55 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 200 -C ../result/sfssum.20110227-cifs-bluesky-smallcache -c -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (CIFS operations/second) = 200
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  45428 Files created for I/O operations
+                13628 Files accessed for I/O operations
+                  912 Files for non-I/O operations
+                   24 Symlinks
+                 1512 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Mon Feb 28 07:01:33 2011
+CIFS Protocol
+
+---------------------------------------------------------------------------------------------------------
+CIFS                             Target Actual CIFS Op CIFS Op   CIFS   Mean     Std Dev  Std Error Pcnt 
+Op                               CIFS   CIFS   Logical Physical  Op     Response Response of Mean,  of   
+Type                             Mix    Mix    Success Success   Error  Time     Time     95% Conf  Total
+                                 Pcnt   Pcnt   Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%   0.5%      294      294      0      0.14     0.07      0.03  0.0%
+LOCKING_ANDX                      1.1%   1.2%      716      716      0      0.14     0.04      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%   1.6%      975      975      0      0.21     0.14      0.02  0.0%
+READ_ANDX                        20.5%  20.9%    12648    13640      0     45.56   100.52      0.17 81.7%
+TRANS2_QUERY_FS_INFORMATION       1.6%   1.5%      935      935      0      0.17     0.12      0.02  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%  13.2%     7958     7958      0      0.20     0.10      0.01  0.2%
+TRANS2_QUERY_PATH_INFORMATION    21.5%  21.5%    12972    12972      0      0.22     0.10      0.01  0.4%
+TRANS2_SET_FILE_INFORMATION       3.2%   3.1%     1860     1860      0      0.16     0.07      0.01  0.0%
+TRANS2_FIND_FIRST2                8.6%   8.4%     5048     5048      0      0.91     0.14      0.01  0.6%
+WRITE_ANDX                        8.6%   8.1%     4908     5267      0     23.37    76.69      0.24 16.3%
+NT_CREATE_ANDX                    9.7%   9.8%     5898     5898      0      0.22     0.10      0.01  0.2%
+CLOSE                             9.7%   9.8%     5899     5899      0      0.15     0.09      0.01  0.1%
+FLUSH                             0.5%   0.4%      270      270      0      7.91    20.63      0.54  0.3%
+---------------------------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS CIFS THROUGHPUT:     202 Ops/Sec   AVG. RESPONSE TIME:    11.7 Msec/Op
+TCP PROTOCOL (IPv4)
+CIFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 200 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  60381          TEST TIME: 299 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 61732    
+PHYSICAL CIFS IO THROUGHPUT: 206 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 23556.9 MB
+TOTAL FILE SET SIZE ACCESSED: 7068.9 - 7179.6 MB  (100.00% to 101.57% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 07:01:34 PST 2011 ************************************************************************
+Mon Feb 28 07:01:34 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 250 -C ../result/sfssum.20110227-cifs-bluesky-smallcache -c -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (CIFS operations/second) = 250
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  57276 Files created for I/O operations
+                17180 Files accessed for I/O operations
+                 1148 Files for non-I/O operations
+                   24 Symlinks
+                 1908 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Mon Feb 28 07:23:11 2011
+CIFS Protocol
+
+---------------------------------------------------------------------------------------------------------
+CIFS                             Target Actual CIFS Op CIFS Op   CIFS   Mean     Std Dev  Std Error Pcnt 
+Op                               CIFS   CIFS   Logical Physical  Op     Response Response of Mean,  of   
+Type                             Mix    Mix    Success Success   Error  Time     Time     95% Conf  Total
+                                 Pcnt   Pcnt   Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%   0.5%      400      400      0      0.17     0.31      0.05  0.0%
+LOCKING_ANDX                      1.1%   1.1%      864      864      0      0.15     0.09      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%   1.6%     1187     1187      0      0.21     0.20      0.03  0.0%
+READ_ANDX                        20.5%  20.1%    15124    16267      0     51.87   106.44      0.16 81.0%
+TRANS2_QUERY_FS_INFORMATION       1.6%   1.7%     1246     1246      0      0.15     0.09      0.02  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%  12.8%     9666     9666      0      0.20     0.14      0.01  0.2%
+TRANS2_QUERY_PATH_INFORMATION    21.5%  21.7%    16317    16317      0      0.22     0.17      0.01  0.4%
+TRANS2_SET_FILE_INFORMATION       3.2%   3.2%     2431     2431      0      0.16     0.10      0.01  0.0%
+TRANS2_FIND_FIRST2                8.6%   8.7%     6528     6528      0      1.18     0.19      0.01  0.8%
+WRITE_ANDX                        8.6%   8.9%     6687     7132      0     24.30    76.58      0.21 16.8%
+NT_CREATE_ANDX                    9.7%   9.6%     7229     7229      0      0.22     0.14      0.01  0.2%
+CLOSE                             9.7%   9.6%     7229     7229      0      0.16     0.11      0.01  0.1%
+FLUSH                             0.5%   0.5%      383      383      0     12.96    57.31      0.76  0.5%
+---------------------------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS CIFS THROUGHPUT:     252 Ops/Sec   AVG. RESPONSE TIME:    12.9 Msec/Op
+TCP PROTOCOL (IPv4)
+CIFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 250 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  75291          TEST TIME: 299 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 76879    
+PHYSICAL CIFS IO THROUGHPUT: 257 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 29700.7 MB
+TOTAL FILE SET SIZE ACCESSED: 8910.8 - 9044.1 MB  (100.00% to 101.50% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 07:23:12 PST 2011 ************************************************************************
+Mon Feb 28 07:23:12 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 300 -C ../result/sfssum.20110227-cifs-bluesky-smallcache -c -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (CIFS operations/second) = 300
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  69128 Files created for I/O operations
+                20736 Files accessed for I/O operations
+                 1384 Files for non-I/O operations
+                   24 Symlinks
+                 2304 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Mon Feb 28 07:43:32 2011
+CIFS Protocol
+
+---------------------------------------------------------------------------------------------------------
+CIFS                             Target Actual CIFS Op CIFS Op   CIFS   Mean     Std Dev  Std Error Pcnt 
+Op                               CIFS   CIFS   Logical Physical  Op     Response Response of Mean,  of   
+Type                             Mix    Mix    Success Success   Error  Time     Time     95% Conf  Total
+                                 Pcnt   Pcnt   Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%   0.5%      365      365      0      0.12     0.04      0.02  0.0%
+LOCKING_ANDX                      1.1%   1.2%      993      993      0      0.14     0.10      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%   1.7%     1353     1353      0      0.20     0.16      0.02  0.0%
+READ_ANDX                        20.5%  20.8%    16674    17984      0     61.25   112.81      0.16 85.1%
+TRANS2_QUERY_FS_INFORMATION       1.6%   1.6%     1295     1295      0      0.15     0.15      0.02  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%  13.2%    10598    10598      0      0.20     0.19      0.01  0.2%
+TRANS2_QUERY_PATH_INFORMATION    21.5%  21.5%    17257    17257      0      0.22     0.14      0.01  0.3%
+TRANS2_SET_FILE_INFORMATION       3.2%   3.1%     2498     2498      0      0.15     0.12      0.01  0.0%
+TRANS2_FIND_FIRST2                8.6%   8.7%     6972     6972      0      1.43     0.25      0.01  0.8%
+WRITE_ANDX                        8.6%   7.8%     6305     6733      0     24.35    73.26      0.21 12.8%
+NT_CREATE_ANDX                    9.7%   9.7%     7828     7828      0      0.22     0.13      0.01  0.1%
+CLOSE                             9.7%   9.7%     7828     7828      0      0.15     0.14      0.01  0.1%
+FLUSH                             0.5%   0.5%      387      387      0     13.35    61.91      0.78  0.4%
+---------------------------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS CIFS THROUGHPUT:     268 Ops/Sec   AVG. RESPONSE TIME:    14.9 Msec/Op
+TCP PROTOCOL (IPv4)
+CIFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 300 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  80353          TEST TIME: 300 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 82091    
+PHYSICAL CIFS IO THROUGHPUT: 273 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 35846.6 MB
+TOTAL FILE SET SIZE ACCESSED: 10754.8 - 10877.6 MB  (100.00% to 101.14% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 07:43:33 PST 2011 ************************************************************************
+Mon Feb 28 07:43:33 PST 2011 ************************************************************************

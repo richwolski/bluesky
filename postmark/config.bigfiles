@@ -1,0 +1,6 @@
+set number 100
+set transactions 500
+set size 1048576 2097152
+show
+run
+quit

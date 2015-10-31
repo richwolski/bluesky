@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Launch the synthetic write benchmark.
+
+# Defaults
+SERVER=vrable2.sysnet.ucsd.edu
+MNTDIR=/mnt/bluesky
+SYNWRITE_RATE=10
+
+# Export any environment variables specified on the command line
+for e in "$@"; do
+    echo "$e" 1>&2
+    if echo "$e" | grep = >/dev/null; then
+        eval "$e"
+        export ${e%=*}
+    fi
+done
+
+mount -t nfs -o vers=3,tcp,rw,soft,intr $SERVER:/export $MNTDIR || exit 1
+
+(echo -n "# "; date; cd $MNTDIR; /scratch/bluesky.git/microbench/writebench.py $SYNWRITE_RATE) >/scratch/synwrite/$BLUESKY_RUN_NAME-$SYNWRITE_RATE.times
+
+umount $MNTDIR

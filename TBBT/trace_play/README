@@ -1,0 +1,10 @@
+
+The trace player executable is sfs3. For trace player to run, the owner of the
+executable has to be root.
+
+To make the executable:
+	make sfs3
+
+The change owner:
+	su - 
+	chown root:root sfs3

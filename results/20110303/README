@@ -1,0 +1,3 @@
+Tests using cloudbench/readdelay to determine whether the response time
+to read an object depends on how long the TCP connection has been idle.
+It doesn't seem that there is much of a consistent effect.

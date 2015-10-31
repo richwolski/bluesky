@@ -1,0 +1,23 @@
+set size 500 10000
+set number 500
+set transactions 500
+show
+run
+
+set transactions 5000
+show
+run
+
+set number 10000
+set subdirectories 100
+set transactions 50000
+show
+run
+
+set number 100
+set transactions 500
+set size 1048576 2097152
+show
+run
+
+quit

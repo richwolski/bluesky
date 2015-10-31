@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Create a directory with a number of small files.  Space out the creation of
+# each file by several seconds so that for BlueSky, without running the
+# cleaner, the inodes should end up in separate log files in the cloud.
+mkdir small
+for i in {0..15}; do
+    sleep 5
+    dd if=/dev/urandom bs=4k count=1 of=small/file-$i
+done

@@ -1,0 +1,827 @@
+#ifndef lint
+static char sfs_3_opsSid[] = "@(#)sfs_3_ops.c	2.1	97/10/23";
+#endif
+
+/*
+ *   Copyright (c) 1992-1997,2001 by Standard Performance Evaluation Corporation
+ *	All rights reserved.
+ *		Standard Performance Evaluation Corporation (SPEC)
+ *		6585 Merchant Place, Suite 100
+ *		Warrenton, VA 20187
+ *
+ *	This product contains benchmarks acquired from several sources who
+ *	understand and agree with SPEC's goal of creating fair and objective
+ *	benchmarks to measure computer performance.
+ *
+ *	This copyright notice is placed here only to protect SPEC in the
+ *	event the source is misused in any manner that is contrary to the
+ *	spirit, the goals and the intent of SPEC.
+ *
+ *	The source code is provided to the user or company under the license
+ *	agreement for the SPEC Benchmark Suite for this product.
+ */
+
+/*****************************************************************
+ *                                                               *
+ *	Copyright 1991,1992  Legato Systems, Inc.                *
+ *	Copyright 1991,1992  Auspex Systems, Inc.                *
+ *	Copyright 1991,1992  Data General Corporation            *
+ *	Copyright 1991,1992  Digital Equipment Corporation       *
+ *	Copyright 1991,1992  Interphase Corporation              *
+ *	Copyright 1991,1992  Sun Microsystems, Inc.              *
+ *                                                               *
+ *****************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+#include <unistd.h>
+#include "sfs_c_def.h"
+#include "rfs_c_def.h"
+
+#define TRY_SETARG_FAST
+#define TRY_SETRES_FAST
+extern fh_map_t * lookup_fh (char * trace_fh);
+extern void print_result(void);
+
+char * lookup_fhandle(char * fhandle)
+{
+	fh_map_t * fh;
+	fh = lookup_fh(fhandle);
+	RFS_ASSERT (fh);
+	return ((char *)&fh->play_fh);
+}
+
+
+#define setarg_fhandle(fhp) \
+	fh_map_t * fh; \
+	t = strstr (line, "fh");	\
+	RFS_ASSERT (t);				\
+	t += 3;						\
+	fh = lookup_fh(t);			\
+	RFS_ASSERT (fh);			\
+	(void) memmove((char *)fhp, &(fh->play_fh),			\
+					                               sizeof (nfs_fh3));	\
+	t+=TRACE_FH_SIZE+1;
+	//t = strchr (t, ' '); t++; \
+
+void setarg_getattr (int index, char * line, GETATTR3args * args)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->object, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+#else
+	setarg_fhandle(&args->object);
+#endif
+}
+
+struct ladtime * adjust_time (struct timeval tm, int * sec, int * usec)
+{
+	struct ladtime trace_pkt_time;
+	static struct ladtime trace_arg_time;
+	struct timeval curtmp;
+	struct ladtime cur;
+
+	/* not sure whether sec ==0 means anything special, do not adjust the timestamp for this */
+	if (*sec ==0) {
+		RFS_ASSERT (0);
+		RFS_ASSERT (*usec == 0);
+		trace_arg_time.sec = 0;
+		trace_arg_time.usec = 0;
+		return (&trace_arg_time);
+	}
+	trace_pkt_time.sec = tm.tv_sec;
+	trace_pkt_time.usec = tm.tv_usec;
+
+	trace_arg_time.sec = *sec;
+	trace_arg_time.usec = *usec;
+
+	gettimeofday(&curtmp, NULL);
+	cur.sec = curtmp.tv_sec;
+	cur.usec = curtmp.tv_usec;
+
+	//fprintf (stderr, "trace_pkt_time %d.%d trace_arg_time %d.%d cur %d.%d\n", trace_pkt_time.sec, trace_pkt_time.usec, trace_arg_time.sec, trace_arg_time.usec, cur.sec, cur.usec);
+
+	ADDTIME (trace_arg_time, cur);
+	//fprintf(stderr, "after add, %d.%d\n", trace_arg_time.sec, trace_arg_time.usec);
+	RFS_ASSERT (LARGERTIME (trace_arg_time, trace_pkt_time));
+	SUBTIME (trace_arg_time, trace_pkt_time);
+	return (&trace_arg_time);
+}
+
+char * parse_create_mode(char * t, createmode3 * mode)
+{
+	*mode = UNCHECKED;
+	return (t+2);
+	/* anyway, we can not get concrete result from the trace, just chose this mode */
+	RFS_ASSERT (0);
+}
+
+char * parse_sattr3(char * t, sattr3 * args, sattrguard3 * guard, int index)
+{
+	int i,j;
+	struct ladtime * tm;
+
+	/* set the default value of SETATTR3args->*/
+    args->mode.set_it = FALSE;
+    args->uid.set_it = FALSE;
+    args->gid.set_it = FALSE;
+    args->size.set_it = FALSE;
+    args->atime.set_it = FALSE;
+    args->mtime.set_it = FALSE;
+
+	//fprintf(stderr, "parse_sattr: line %s\n", t);
+	while (1) {
+		if (!strncmp (t, "mode", 4)) {
+			t+=5;
+			sscanf(t, "%x", &i); 
+			args->mode.set_it = TRUE;
+			args->mode.mode = i;		// (uint32_t) 0666;
+		} else if (!strncmp (t, "ctime", 5)) {
+			RFS_ASSERT (guard);
+			t+=6;
+			RFS_ASSERT (strncmp(t, "SERVER", 6));
+			sscanf (t, "%d.%d", &i, &j);
+			tm = adjust_time (dep_tab[index].timestamp, &i, &j);
+#ifndef IGNORE_SETATTR_CTIME
+			guard->check = TRUE;
+#endif
+			guard->obj_ctime.seconds = tm->sec;
+			guard->obj_ctime.nseconds = tm->usec*1000;
+		} else if (!strncmp (t, "atime", 5)) {
+			t+=6;
+			if (!strncmp(t, "SERVER", 6)) {
+				args->atime.set_it = SET_TO_SERVER_TIME;
+			} else {
+				args->atime.set_it = SET_TO_CLIENT_TIME;
+				sscanf (t, "%d.%d", &i, &j);
+				if (i==0) {
+					RFS_ASSERT (j==0);
+					args->atime.atime.seconds = 0;
+					args->atime.atime.nseconds = 0;
+				} else {
+					tm = adjust_time (dep_tab[index].timestamp, &i, &j);
+					args->atime.atime.seconds = tm->sec;
+					args->atime.atime.nseconds = tm->usec * 1000;
+				}
+			}
+		} else if (!strncmp (t, "mtime", 5)) {
+			t+=6;
+			if (!strncmp(t, "SERVER", 6)) {
+				args->mtime.set_it = SET_TO_SERVER_TIME;
+			} else {
+				args->mtime.set_it = SET_TO_CLIENT_TIME;
+				sscanf (t, "%d.%d", &i, &j);
+				if (i==0) {
+					RFS_ASSERT (j==0);
+					args->mtime.mtime.seconds = 0;
+					args->mtime.mtime.nseconds = 0;
+				} else {
+					tm = adjust_time (dep_tab[index].timestamp, &i, &j);
+					args->mtime.set_it = TRUE;
+					args->mtime.mtime.seconds = tm->sec;
+					args->mtime.mtime.nseconds = tm->usec * 1000;
+				}
+			}
+		} else if (!strncmp (t, "size", 4)) {
+				t+=5;
+			sscanf(t, "%x", &i); 
+			args->size.set_it = TRUE;
+			args->size.size._p._u = (uint32_t) 0;
+			args->size.size._p._l = (uint32_t) i;
+		} else if (!strncmp (t, "gid", 3)) {
+			t+=4;
+			sscanf(t, "%x", &i); 
+			args->gid.set_it = TRUE;
+#ifdef TAKE_CARE_SETATTR_GID
+			args->gid.gid = i;
+#else
+			args->gid.gid = 513;
+#endif
+		} else if ( !strncmp (t, "uid", 3)) {
+			t+=4;
+			sscanf(t, "%x", &i); 
+			args->uid.set_it = TRUE;
+#ifdef TAKE_CARE_SETATTR_UID
+			args->uid.uid = i;
+#else
+			args->uid.uid = 513;
+#endif
+		} else if (!strncmp (t, "con", 3)) {
+			break;
+		} else if (!strncmp (t, "sdata", 5)) {
+			break;
+		} else {
+			fprintf(stderr, "parse_sattr t: %s\n", t);
+			RFS_ASSERT (0);
+		}
+
+		while (*t!=' ')
+			t++;
+		t++;
+	}
+	return t;
+}
+
+char * parse_name (char * t, char * buf)
+{
+	int i;
+	if (!strncmp(t, "fn2", 3))
+		t+=4;
+	else if (!strncmp(t, "fn", 2))
+		t+=3;
+	else if (!strncmp(t, "name2", 5))
+		t+=6;
+	else if (!strncmp(t, "name", 4))
+		t+=5;
+	else if (!strncmp(t, "sdata", 5))
+		t+=6;
+	else {
+		fprintf(stderr, "%s\n", t);
+		RFS_ASSERT (0);
+	}
+
+	RFS_ASSERT (*t=='"');
+	t++;
+	i = 0;
+	while (*t!='"')
+		buf[i++] = *t++; // ??? name buffer?	
+	RFS_ASSERT ((*t)=='"');
+	buf[i] = 0;
+	return (t+2);
+}
+
+char * parse_access_mode (char * line, int * mode)
+{
+	*mode = ACCESS3_READ;	
+	return line+2;
+	/* anyway the information in the trace is not enough, so we just make up something */
+}
+
+char * parse_stable_mode (char * line, stable_how * mode)
+{
+	switch (*line) {
+	case 'U': *mode = UNSTABLE;
+			  break;
+	case 'F': *mode = FILE_SYNC;
+			  break;
+	case 'D': *mode = DATA_SYNC;
+			  break;
+	default:
+		RFS_ASSERT (0);
+	}
+	return line +2;
+}
+
+
+void setarg_setattr (int index, char * line, SETATTR3args * args)
+{
+	char * t;
+	int i, j;
+	
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->object, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle(&args->object);
+#endif
+
+	args->guard.check = FALSE;
+	t = parse_sattr3 (t, &(args->new_attributes), &(args->guard), index);
+}
+
+void setarg_lookup (int index, char * line, LOOKUP3args * args, char * Cur_filename)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->what.dir, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle(&args->what.dir)
+#endif
+	t = parse_name (t, Cur_filename);
+	args->what.name = Cur_filename;
+}
+
+void setarg_access (int index, char * line, ACCESS3args * args)
+{
+	char * t;
+
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->object, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle(&args->object);
+#endif
+
+	parse_access_mode (t, &args->access);	//ACCESS3_MODIFY;	// ??? the actual parameter can be different
+}
+
+void setarg_readlink (int index, char * line, READLINK3args * args)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->symlink, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle (&args->symlink);
+#endif
+}
+
+void setarg_read (int index, char * line, READ3args * args, char * buf)
+{
+	char * t;
+	int i;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->file, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle (&args->file);
+#endif
+
+	if (line[TRACE_VERSION_POS]=='3') {
+		t = strstr (t, "off");
+		RFS_ASSERT (t);
+		t+=4;
+	} else {
+		t = strstr (t, "offset");
+		RFS_ASSERT (t);
+		t+=7;
+	}
+	sscanf (t, "%x", &i);
+
+	RFS_ASSERT (i>=0 && i<0x7FFFFFFF)
+	args->offset._p._u = 0;
+	args->offset._p._l = i;
+#ifdef SEQUEN_READ
+	if (index>=memory_trace_index.head)
+		args->offset._p._l = (index-memory_trace_index.head)*4096;
+#endif
+	t = strstr (t, "count");
+	RFS_ASSERT (t);
+	t+=6;
+	sscanf (t, "%x", &i);
+
+	RFS_ASSERT (i <= 32768);
+	if (i > NFS_MAXDATA) {
+		read_data_owe += (i-NFS_MAXDATA);
+		read_data_adjust_times ++;
+		if (read_data_owe > 1073741824) {
+			read_data_owe -= 1073741824;
+			read_data_owe_GB ++;
+		}
+		
+		//printf ("adjust read count from %d to %d\n", i, NFS_MAXDATA);
+		i = NFS_MAXDATA;
+	}
+	read_data_total += i;
+	if (read_data_total > 1073741824) {
+		read_data_total -= 1073741824;
+		read_data_total_GB ++;
+	}
+
+	args->count = i;
+}
+
+void setarg_write (int index, char * line, WRITE3args * args, char * buf)
+{
+	char * t;
+	int i;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->file, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle (&args->file);
+#endif
+
+	//fprintf (stderr, "process write: %s\n", line);
+	if (line[TRACE_VERSION_POS]=='3') {
+		t = strstr (t, "off");
+		RFS_ASSERT (t);
+		t+=4;
+	} else {
+		RFS_ASSERT (line[TRACE_VERSION_POS]=='2');
+		t = strstr (t, "offset");
+		RFS_ASSERT (t);
+		t+=7;
+	}
+
+	sscanf (t, "%x", &i);
+	RFS_ASSERT (i>=0 && i<0x7FFFFFFF)
+	args->offset._p._u = 0;
+	args->offset._p._l = i;
+
+	t = strstr (t, "count");
+	RFS_ASSERT (t);
+	t+=6;
+	sscanf (t, "%x", &i);
+	RFS_ASSERT (i <= 32768);
+	if (i > NFS_MAXDATA) {
+		write_data_owe += (i-NFS_MAXDATA);
+		if (write_data_owe > 1073741824) {
+			write_data_owe -= 1073741824;
+			write_data_owe_GB ++;
+		}
+		write_data_adjust_times ++;
+		//printf ("adjust write count from %d to %d\n", i, NFS_MAXDATA);
+		i = NFS_MAXDATA;
+	}
+	write_data_total += i;
+	if (write_data_total > 1073741824) {
+		write_data_total -= 1073741824;
+		write_data_total_GB ++;
+	}
+
+	RFS_ASSERT (i < MAX_BUF1_SIZE-128);	/* 128 is some random safe number to add */
+	args->count = i;
+
+	if (line[TRACE_VERSION_POS]==3) {
+		t = strstr (t, "stable");
+		RFS_ASSERT (t);
+		t+=7;
+		parse_stable_mode(t, &args->stable);	/* *t can be F, U, etc */ 
+	} else
+		args->stable = UNSTABLE;
+	args->data.data_len = args->count;
+	args->data.data_val = buf;
+}
+
+void setarg_create (int index, char * line, CREATE3args * args, char * Cur_filename)
+{
+	char * t;
+	//fprintf(stderr, "process create %s\n", line);
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->where.dir, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle (&args->where.dir);
+#endif
+	t = parse_name (t, Cur_filename);
+	args->where.name = Cur_filename;
+	if (line[TRACE_VERSION_POS]=='3') {
+		RFS_ASSERT (!strncmp(t, "how", 3));
+		t+=4;
+    	t = parse_create_mode (t, &args->how.mode);
+	} else
+		args->how.mode = UNCHECKED;
+	t = parse_sattr3 (t, &(args->how.createhow3_u.obj_attributes), NULL, index);
+}
+
+void setarg_mkdir (int index, char * line, MKDIR3args * args, char * Cur_filename)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->where.dir, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle (&args->where.dir);
+#endif
+	t = parse_name (t, Cur_filename);
+	args->where.name = Cur_filename;
+	t = parse_sattr3 (t, &(args->attributes), NULL, index);
+}
+
+void setarg_symlink(int index, char * line, SYMLINK3args * args, char * Cur_filename, char * sym_data)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->where.dir, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle (&args->where.dir);
+#endif
+	t = parse_name (t, Cur_filename);
+	args->where.name = Cur_filename;
+	if (line[TRACE_VERSION_POS]=='2') {
+		t = parse_name (t, sym_data);
+		t = parse_sattr3 (t, &(args->symlink.symlink_attributes), NULL, index);
+	} else {
+		t = parse_sattr3 (t, &(args->symlink.symlink_attributes), NULL, index);
+		t = parse_name (t, sym_data);
+	}
+    args->symlink.symlink_data = sym_data;
+}
+
+void setarg_mknod(int index, char * line, MKNOD3args * args, char * Cur_filename)
+{
+	RFS_ASSERT (0);
+
+#ifdef notdef
+	/* set up the arguments */
+    (void) memmove((char *) &args.where.dir, (char *) &Cur_file_ptr->dir->fh3,
+		sizeof (nfs_fh3));
+    args.where.name = Cur_filename;
+    args.what.type = NF3FIFO;
+    args.what.mknoddata3_u.pipe_attributes.mode.set_it = TRUE;
+    args.what.mknoddata3_u.pipe_attributes.mode.mode = (NFSMODE_FIFO | 0777);
+    args.what.mknoddata3_u.pipe_attributes.uid.set_it = TRUE;
+    args.what.mknoddata3_u.pipe_attributes.uid.uid = Cur_uid;
+    args.what.mknoddata3_u.pipe_attributes.gid.set_it = TRUE;
+    args.what.mknoddata3_u.pipe_attributes.gid.gid = Cur_gid;
+    args.what.mknoddata3_u.pipe_attributes.size.set_it = TRUE;
+    args.what.mknoddata3_u.pipe_attributes.size.size._p._u = (uint32_t) 0;
+    args.what.mknoddata3_u.pipe_attributes.size.size._p._l =
+							(uint32_t) 512;
+    args.what.mknoddata3_u.pipe_attributes.atime.set_it = TRUE;
+    args.what.mknoddata3_u.pipe_attributes.atime.atime.seconds =
+							Cur_time.esec;
+    args.what.mknoddata3_u.pipe_attributes.atime.atime.nseconds =
+							Cur_time.usec * 1000;
+    args.what.mknoddata3_u.pipe_attributes.mtime.set_it = TRUE;
+    args.what.mknoddata3_u.pipe_attributes.mtime.mtime.seconds =
+								Cur_time.esec;
+    args.what.mknoddata3_u.pipe_attributes.mtime.mtime.nseconds =
+							Cur_time.usec * 1000;
+#endif
+}
+
+void setarg_remove (int index, char * line, REMOVE3args * args, char * Cur_filename)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->object.dir, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle(&args->object.dir)
+#endif
+	t = parse_name (t, Cur_filename);
+	args->object.name = Cur_filename;
+}
+
+void setarg_rmdir (int index, char * line, RMDIR3args * args, char * Cur_filename)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->object.dir, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle(&args->object.dir)
+#endif
+	t = parse_name (t, Cur_filename);
+	args->object.name = Cur_filename;
+}
+
+void setarg_rename (int index, char * line, RENAME3args * args, char * fromname, char * toname)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->from.dir, &dep_tab[index].fh_2->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh_2 + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh_2, ' '); t++; 
+#else
+	setarg_fhandle(&args->from.dir)
+#endif
+	t = parse_name (t, fromname);
+	args->from.name = fromname;
+
+	t = strstr (t, "fh2");	
+	RFS_ASSERT (t);				
+	t += 4;						
+	memmove((char *)&args->to.dir, lookup_fhandle(t), sizeof (nfs_fh3));	
+	t+=65;
+
+	t = parse_name (t, toname);
+	args->to.name = toname;
+}
+
+void setarg_link (int index, char * line, LINK3args * args, char * Cur_filename)
+{
+	char * t;
+
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->file, &dep_tab[index].fh_2->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh_2 + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh_2, ' '); t++; 
+#else
+	setarg_fhandle(&args->file)
+#endif
+
+	t = strstr (t, "fh2");	
+	RFS_ASSERT (t);				
+	t += 4;						
+	memmove((char *)&args->link.dir, lookup_fhandle(t), sizeof (nfs_fh3));	
+	t+=65;
+
+	t = parse_name (t, Cur_filename);
+	args->link.name = Cur_filename;
+}
+
+void  setarg_readdir (int index, char * line, READDIR3args * args)
+{
+	char * t;
+
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->dir, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle(&args->dir);
+#endif
+	/* args->cookieverf is notset, it is not implemented in the linux-2.4.7 */
+	sscanf(t, "cookie %d count %d", &args->cookie._p._l, &args->count);
+    (void) memset((char *) args->cookieverf, '\0', NFS3_COOKIEVERFSIZE);
+	args->cookie._p._u = (uint32_t) 0;
+}
+
+void  setarg_readdirplus (int index, char * line, READDIRPLUS3args * args)
+{
+	char * t;
+
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->dir, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle(&args->dir);
+#endif
+	/* args->cookieverf is notset, it is not implemented in the linux-2.4.7 */
+	sscanf(t, "cookie %d count %d maxcnt", &args->cookie._p._l, &args->dircount, &args->maxcount);
+    (void) memset((char *) args->cookieverf, '\0', NFS3_COOKIEVERFSIZE);
+	args->cookie._p._u = (uint32_t) 0;
+
+#ifdef notdef
+    /* set up the arguments */
+    (void) memmove((char *) &args.dir, (char *) &Cur_file_ptr->dir->fh3,
+		sizeof (nfs_fh3));
+    args.cookie._p._l = args.cookie._p._u = (uint32_t) 0;
+    (void) memset((char *) args.cookieverf, '\0', NFS3_COOKIEVERFSIZE);
+	args.dircount = DEFAULT_MAX_BUFSIZE;
+	args.maxcount = DEFAULT_MAX_BUFSIZE;
+#endif
+}
+
+void setarg_fsstat (int index, char * line, FSSTAT3args * args)
+{
+	char * t;
+	setarg_fhandle(&args->fsroot);
+}
+
+void setarg_fsinfo (int index, char * line, FSINFO3args * args)
+{
+	char * t;
+	setarg_fhandle(&args->fsroot);
+}
+
+void setarg_pathconf (int index, char * line, PATHCONF3args * args)
+{
+	char * t;
+#ifdef TRY_SETARG_FAST
+	memcpy (&args->object, &dep_tab[index].fh->play_fh, sizeof(nfs_fh3));
+	//t = dep_tab[index].trace_fh + TRACE_FH_SIZE+1;
+	t = strchr(dep_tab[index].trace_fh, ' '); t++; 
+#else
+	setarg_fhandle(&args->object);
+#endif
+}
+
+void setarg_commit (int index, char * line, COMMIT3args * args)
+{
+	RFS_ASSERT (0);
+
+#ifdef notdef
+	/* set up the arguments */
+	(void) memmove((char *) &args.file, (char *) &Cur_file_ptr->fh3,
+	           sizeof (nfs_fh3));
+	args.offset._p._u = args.offset._p._l = (uint32_t) 0;
+	args.count = Cur_file_ptr->attributes3.size._p._l;
+#endif
+}
+
+void setbuf_void (char * buf)
+{
+	return;
+}
+
+void setbuf_invalid (char * buf)
+{
+	RFS_ASSERT (0);
+}
+
+void setres_lookup (LOOKUP3res * reply)
+{
+#ifndef TRY_SETRES_FAST
+    (void) memset((char *) &(reply->resok.object), '\0', sizeof (nfs_fh3));
+#endif
+}
+
+void setres_readlink (READLINK3res * reply, char * sym_data)
+{
+    /* Have lower layers fill in the data directly. */
+    reply->resok.data = sym_data;
+}
+
+void setres_read (READ3res * reply, char * buf)
+{
+	/* Have lower layers fill in the data directly.  */
+	reply->resok.data.data_len = 0;
+	reply->resok.data.data_val = buf;
+}
+
+void setres_readdir (READDIR3res * reply, entry3 * entry_stream)
+{
+#ifndef TRY_SETRES_FAST
+    /* Have lower layers fill in the data directly.  */
+    (void) memset((char *) reply, '\0', sizeof (READDIR3res));
+    (void) memset((char *) entry_stream, '\0',
+					sizeof (entry3) * SFS_MAXDIRENTS);
+#endif
+    reply->resok.count = SFS_MAXDIRENTS;
+    reply->resok.reply.entries = entry_stream;
+}
+
+void setres_readdirplus (READDIRPLUS3res * reply, entryplus3 * entry_stream)
+{
+#ifndef TRY_SETRES_FAST
+    (void) memset((char *) reply, '\0', sizeof (READDIRPLUS3res));
+	//printf ("sizeof(entryplus3) %d SFS_MAXDIRENT %d\n", sizeof (entryplus3), SFS_MAXDIRENTS);
+    (void) memset((char *) entry_stream, '\0',
+				sizeof (entryplus3) * SFS_MAXDIRENTS);
+#endif
+    reply->resok.count = SFS_MAXDIRENTS;
+    reply->resok.reply.entries = entry_stream;
+}
+
+#define NFSPROC3_INVALID -1
+/* the array is indexed by sfs operation number */
+rfs_op_type rfs_Ops[TOTAL] = {
+{NFSPROC3_NULL,		setbuf_void, 		setbuf_void, xdr_void, xdr_void},
+{NFSPROC3_GETATTR, 	setarg_getattr, 	setbuf_void, xdr_GETATTR3args, xdr_GETATTR3res},
+{NFSPROC3_SETATTR, 	setarg_setattr, 	setbuf_void, xdr_SETATTR3args, xdr_SETATTR3res},
+{NFSPROC3_INVALID,	setbuf_invalid, 	setbuf_invalid, NULL, NULL},
+{NFSPROC3_LOOKUP, 	setarg_lookup,	 	setres_lookup, xdr_LOOKUP3args, xdr_LOOKUP3res},
+{NFSPROC3_READLINK, setarg_readlink, 	setres_readlink, xdr_READLINK3args, xdr_READLINK3res},
+{NFSPROC3_READ, 	setarg_read, 		setres_read, xdr_READ3args, xdr_READ3res},
+{NFSPROC3_INVALID, 	setbuf_invalid, 	setbuf_invalid, NULL, NULL},
+{NFSPROC3_WRITE, 	setarg_write, 		setbuf_void, xdr_WRITE3args, xdr_WRITE3res},
+{NFSPROC3_CREATE, 	setarg_create, 		setbuf_void, xdr_CREATE3args, xdr_CREATE3res},
+{NFSPROC3_REMOVE, 	setarg_remove,	 	setbuf_void, xdr_REMOVE3args, xdr_REMOVE3res},
+{NFSPROC3_RENAME, 	setarg_rename,	 	setbuf_void, xdr_RENAME3args, xdr_RENAME3res},
+{NFSPROC3_LINK, 	setarg_link,		setbuf_void, xdr_LINK3args, xdr_LINK3res},
+{NFSPROC3_SYMLINK, 	setarg_symlink, 	setbuf_void, xdr_SYMLINK3args, xdr_SYMLINK3res},
+{NFSPROC3_MKDIR, 	setarg_mkdir, 		setbuf_void, xdr_MKDIR3args, xdr_MKDIR3res},
+{NFSPROC3_RMDIR, 	setarg_rmdir,		setbuf_void, xdr_RMDIR3args, xdr_RMDIR3res},
+{NFSPROC3_READDIR, 	setarg_readdir, 	setres_readdir, xdr_READDIR3args, xdr_READDIR3res},
+{NFSPROC3_FSSTAT, 	setarg_fsstat,	 	setbuf_void, xdr_FSSTAT3args, xdr_FSSTAT3res},
+{NFSPROC3_ACCESS, 	setarg_access,	 	setbuf_void, xdr_ACCESS3args, xdr_ACCESS3res},
+{NFSPROC3_COMMIT, 	setarg_commit,	 	setbuf_void, xdr_COMMIT3args, xdr_COMMIT3res},
+{NFSPROC3_FSINFO, 	setarg_fsinfo,		setbuf_void,  xdr_FSINFO3args, xdr_FSINFO3res},
+{NFSPROC3_MKNOD, 	setarg_mknod, 		setbuf_void, xdr_MKNOD3args, xdr_MKNOD3res},
+{NFSPROC3_PATHCONF, setarg_pathconf, 	setbuf_void, xdr_PATHCONF3args, xdr_PATHCONF3res},
+{NFSPROC3_READDIRPLUS, setarg_readdirplus, setres_readdirplus, xdr_READDIRPLUS3args, xdr_READDIRPLUS3res}};
+
+/*
+ * --------------------  NFS ops vector --------------------
+ */
+/*
+ * per operation information
+ */
+sfs_op_type nfsv3_Ops[] = {
+
+/* name        mix    op    call  no  req  req  req  results */
+/*             pcnt  class  targ call pcnt cnt  targ         */
+
+ { "null",        0, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "getattr",    11, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "setattr",     1, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "root",        0, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "lookup",     27, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "readlink",    7, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "read",       18, Read,    0,  0,  0.0,  0,   0,  { 0, }},
+ { "wrcache",     0, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "write",       9, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "create",      1, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "remove",      1, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "rename",      0, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "link",        0, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "symlink",     0, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "mkdir",       0, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "rmdir",       0, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "readdir",     2, Read,    0,  0,  0.0,  0,   0,  { 0, }},
+ { "fsstat",      1, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "access",      7, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "commit",      5, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "fsinfo",      1, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "mknod",       0, Write,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "pathconf",    0, Lookup,  0,  0,  0.0,  0,   0,  { 0, }},
+ { "readdirplus", 9, Read,   0,  0,  0.0,  0,   0,  { 0, }},
+ { "TOTAL",     100, Lookup,  0,  0,  0.0,  0,   0,  { 0, }}
+};
+
+sfs_op_type *Ops;
+

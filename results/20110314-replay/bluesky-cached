@@ -1,0 +1,314 @@
+size of fh_map_t 400 size of fh_map 160000000
+sizeof dep_tab_t 152 sizeof dep_tab 15200000
+size of memory_trace_ent_t 376 sizeof memory_trace 37600000
+size of CREATE3args 136
+size of MKDIR3args 132
+size of READ3args 80
+size of WRITE3args 92
+size of RENAME3args 144
+size of GETATTR3args 68
+size of SETATTR3args 140
+size of LINK3args 140
+size of SYMLINK3args 136
+size of MKNOD3args 144
+size of RMDIR3args 72
+size of REMOVE3args 72
+size of LOOKUP3args 72
+size of READDIR3args 88
+size of READDIRPLUS3args 92
+size of FSSTAT3args 68
+size of FSINFO3args 68
+size of COMMIT3args 80
+size of ACCESS3args 72
+size of READLINK3args 68
+async_rpc_sem semid 688128 for key 60000 value 1 
+SIZE of fh map 160000 KB
+0 fh_map entry read
+trace starttime 1001026799 824160 0
+io_thread EXIT
+trace_play
+receive problem reply, xid d37ccfca nfs_ret 2 No such file or directory trace_status 0 start 0:908505 stop 0:908734 command disk index 30
+receive problem reply, xid 147dcfca nfs_ret 2 No such file or directory trace_status 0 start 0:914720 stop 0:915260 command disk index 170
+receive problem reply, xid 487dcfca nfs_ret 2 No such file or directory trace_status 0 start 0:922903 stop 0:923792 command disk index 278
+receive problem reply, xid 497dcfca nfs_ret 2 No such file or directory trace_status 0 start 0:922944 stop 0:923858 command disk index 318
+receive problem reply, xid e680cfca nfs_ret 2 No such file or directory trace_status 0 start 0:979067 stop 0:979237 command disk index 2122
+receive problem reply, xid ff80cfca nfs_ret 2 No such file or directory trace_status 0 start 0:980449 stop 0:980671 command disk index 2172
+receive problem reply, xid 7681cfca nfs_ret 2 No such file or directory trace_status 0 start 0:996121 stop 0:996373 command disk index 2442
+receive problem reply, xid c981cfca nfs_ret 2 No such file or directory trace_status 0 start 1:8927 stop 1:9086 command disk index 2640
+receive problem reply, xid cc84cfca nfs_ret 2 No such file or directory trace_status 0 start 1:312118 stop 1:312408 command disk index 4712
+receive problem reply, xid cd84cfca nfs_ret 2 No such file or directory trace_status 0 start 1:312172 stop 1:312421 command disk index 4714
+receive problem reply, xid de85cfca nfs_ret 2 No such file or directory trace_status 0 start 1:333222 stop 1:333392 command disk index 5394
+receive problem reply, xid c387cfca nfs_ret 2 No such file or directory trace_status 0 start 1:397745 stop 1:399692 command disk index 6772
+receive problem reply, xid c487cfca nfs_ret 2 No such file or directory trace_status 0 start 1:397786 stop 1:399706 command disk index 6782
+receive problem reply, xid db87cfca nfs_ret 2 No such file or directory trace_status 0 start 1:401012 stop 1:404214 command disk index 6860
+receive problem reply, xid df87cfca nfs_ret 2 No such file or directory trace_status 0 start 1:404297 stop 1:404491 command disk index 6866
+receive problem reply, xid e087cfca nfs_ret 2 No such file or directory trace_status 0 start 1:404324 stop 1:404500 command disk index 6868
+receive problem reply, xid e187cfca nfs_ret 2 No such file or directory trace_status 0 start 1:404352 stop 1:404508 command disk index 6872
+receive problem reply, xid e287cfca nfs_ret 2 No such file or directory trace_status 0 start 1:404381 stop 1:404516 command disk index 6882
+receive problem reply, xid da89cfca nfs_ret 2 No such file or directory trace_status 0 start 1:472971 stop 1:473476 command disk index 8378
+receive problem reply, xid c48acfca nfs_ret 2 No such file or directory trace_status 0 start 1:506792 stop 1:507212 command disk index 8966
+fh_path_map error disk[7648] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+receive problem reply, xid b8bcfca nfs_ret 2 No such file or directory trace_status 0 start 1:517205 stop 1:517431 command disk index 9108
+receive problem reply, xid 9e8bcfca nfs_ret 2 No such file or directory trace_status 0 start 1:538946 stop 1:539101 command disk index 9428
+receive problem reply, xid a08bcfca nfs_ret 2 No such file or directory trace_status 0 start 1:539071 stop 1:539244 command disk index 9434
+receive problem reply, xid a18bcfca nfs_ret 2 No such file or directory trace_status 0 start 1:539150 stop 1:539328 command disk index 9436
+receive problem reply, xid a28bcfca nfs_ret 2 No such file or directory trace_status 0 start 1:539193 stop 1:539376 command disk index 9440
+receive problem reply, xid a38bcfca nfs_ret 2 No such file or directory trace_status 0 start 1:539227 stop 1:539385 command disk index 9444
+receive problem reply, xid 1c8ecfca nfs_ret 2 No such file or directory trace_status 0 start 1:610224 stop 1:611374 command disk index 11374
+receive problem reply, xid 1d8ecfca nfs_ret 2 No such file or directory trace_status 0 start 1:610273 stop 1:611385 command disk index 11382
+receive problem reply, xid 908ecfca nfs_ret 2 No such file or directory trace_status 0 start 1:627800 stop 1:628004 command disk index 11656
+receive problem reply, xid 5290cfca nfs_ret 2 No such file or directory trace_status 0 start 1:683928 stop 1:684075 command disk index 13050
+receive problem reply, xid 5790cfca nfs_ret 2 No such file or directory trace_status 0 start 1:684449 stop 1:684680 command disk index 13060
+receive problem reply, xid 1191cfca nfs_ret 2 No such file or directory trace_status 0 start 1:707954 stop 1:708201 command disk index 13496
+receive problem reply, xid 1c91cfca nfs_ret 2 No such file or directory trace_status 0 start 1:711642 stop 1:712042 command disk index 13518
+receive problem reply, xid 6793cfca nfs_ret 2 No such file or directory trace_status 0 start 1:753694 stop 1:755521 command disk index 14816
+receive problem reply, xid 9998cfca nfs_ret 2 No such file or directory trace_status 0 start 1:870857 stop 1:871044 command disk index 18450
+receive problem reply, xid 129ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:15238 stop 2:20165 command disk index 22450
+receive problem reply, xid 119ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:15208 stop 2:20180 command disk index 22438
+receive problem reply, xid 519ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:25118 stop 2:25273 command disk index 22556
+receive problem reply, xid 749ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:26752 stop 2:27084 command disk index 22638
+receive problem reply, xid 769ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:26795 stop 2:27170 command disk index 22644
+receive problem reply, xid 779ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:26831 stop 2:27182 command disk index 22646
+receive problem reply, xid 889ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:27729 stop 2:27967 command disk index 22720
+receive problem reply, xid 8a9ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:27798 stop 2:28055 command disk index 22726
+receive problem reply, xid 8b9ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:27817 stop 2:28066 command disk index 22728
+receive problem reply, xid 9e9ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:28594 stop 2:30721 command disk index 22818
+receive problem reply, xid 9d9ecfca nfs_ret 2 No such file or directory trace_status 0 start 2:28564 stop 2:30746 command disk index 22810
+receive problem reply, xid e9fcfca nfs_ret 2 No such file or directory trace_status 0 start 2:45383 stop 2:45606 command disk index 23096
+receive problem reply, xid 109fcfca nfs_ret 2 No such file or directory trace_status 0 start 2:45644 stop 2:45832 command disk index 23102
+receive problem reply, xid 119fcfca nfs_ret 2 No such file or directory trace_status 0 start 2:45675 stop 2:45844 command disk index 23104
+receive problem reply, xid 129fcfca nfs_ret 2 No such file or directory trace_status 0 start 2:45706 stop 2:45856 command disk index 23108
+receive problem reply, xid 139fcfca nfs_ret 2 No such file or directory trace_status 0 start 2:45775 stop 2:46097 command disk index 23116
+receive problem reply, xid 54a4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:200743 stop 2:200935 command disk index 26894
+receive problem reply, xid 59a4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:201005 stop 2:201169 command disk index 26910
+receive problem reply, xid 5aa4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:201055 stop 2:201227 command disk index 26914
+receive problem reply, xid 5ca4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:201140 stop 2:201322 command disk index 26920
+receive problem reply, xid 5da4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:201160 stop 2:201330 command disk index 26922
+receive problem reply, xid 5ea4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:201260 stop 2:201407 command disk index 26924
+receive problem reply, xid 61a4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:201353 stop 2:201520 command disk index 26932
+receive problem reply, xid 5fa6cfca nfs_ret 2 No such file or directory trace_status 0 start 2:262524 stop 2:263002 command disk index 28164
+receive problem reply, xid 72a6cfca nfs_ret 2 No such file or directory trace_status 0 start 2:268074 stop 2:268443 command disk index 28202
+receive problem reply, xid f6a6cfca nfs_ret 2 No such file or directory trace_status 0 start 2:276555 stop 2:276691 command disk index 28792
+receive problem reply, xid e3a7cfca nfs_ret 2 No such file or directory trace_status 0 start 2:309967 stop 2:310114 command disk index 29280
+receive problem reply, xid 5a8cfca nfs_ret 2 No such file or directory trace_status 0 start 2:311857 stop 2:312988 command disk index 29382
+receive problem reply, xid 6a8cfca nfs_ret 2 No such file or directory trace_status 0 start 2:311888 stop 2:313001 command disk index 29390
+receive problem reply, xid 3ca8cfca nfs_ret 2 No such file or directory trace_status 0 start 2:318375 stop 2:320067 command disk index 29518
+receive problem reply, xid 40a8cfca nfs_ret 2 No such file or directory trace_status 0 start 2:318472 stop 2:320092 command disk index 29530
+receive problem reply, xid 42a8cfca nfs_ret 2 No such file or directory trace_status 0 start 2:318830 stop 2:320100 command disk index 29534
+receive problem reply, xid 5ea9cfca nfs_ret 2 No such file or directory trace_status 0 start 2:356726 stop 2:358791 command disk index 30242
+receive problem reply, xid 60a9cfca nfs_ret 2 No such file or directory trace_status 0 start 2:356870 stop 2:358805 command disk index 30246
+receive problem reply, xid 8aa9cfca nfs_ret 2 No such file or directory trace_status 0 start 2:360220 stop 2:361776 command disk index 30330
+receive problem reply, xid 23aacfca nfs_ret 2 No such file or directory trace_status 0 start 2:380226 stop 2:385082 command disk index 30688
+receive problem reply, xid 43aacfca nfs_ret 2 No such file or directory trace_status 0 start 2:386545 stop 2:386701 command disk index 30790
+receive problem reply, xid 46aacfca nfs_ret 2 No such file or directory trace_status 0 start 2:386941 stop 2:387063 command disk index 30800
+receive problem reply, xid 4baacfca nfs_ret 2 No such file or directory trace_status 0 start 2:387356 stop 2:387506 command disk index 30844
+receive problem reply, xid 4daacfca nfs_ret 2 No such file or directory trace_status 0 start 2:387550 stop 2:387705 command disk index 30850
+receive problem reply, xid 4eaacfca nfs_ret 2 No such file or directory trace_status 0 start 2:387656 stop 2:387806 command disk index 30852
+receive problem reply, xid 4faacfca nfs_ret 2 No such file or directory trace_status 0 start 2:387742 stop 2:387901 command disk index 30856
+receive problem reply, xid 50aacfca nfs_ret 2 No such file or directory trace_status 0 start 2:387846 stop 2:387986 command disk index 30864
+receive problem reply, xid c4aacfca nfs_ret 2 No such file or directory trace_status 0 start 2:405164 stop 2:405430 command disk index 31156
+receive problem reply, xid c7aacfca nfs_ret 2 No such file or directory trace_status 0 start 2:405365 stop 2:405519 command disk index 31162
+receive problem reply, xid c8aacfca nfs_ret 2 No such file or directory trace_status 0 start 2:405392 stop 2:405588 command disk index 31164
+receive problem reply, xid c9aacfca nfs_ret 2 No such file or directory trace_status 0 start 2:405420 stop 2:405598 command disk index 31168
+receive problem reply, xid caaacfca nfs_ret 2 No such file or directory trace_status 0 start 2:405470 stop 2:405644 command disk index 31176
+receive problem reply, xid 19abcfca nfs_ret 2 No such file or directory trace_status 0 start 2:408756 stop 2:408970 command disk index 31696
+receive problem reply, xid 1babcfca nfs_ret 2 No such file or directory trace_status 0 start 2:408839 stop 2:409086 command disk index 31702
+receive problem reply, xid 1cabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:408867 stop 2:409095 command disk index 31704
+receive problem reply, xid 1dabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:408915 stop 2:409102 command disk index 31708
+receive problem reply, xid 1eabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:408946 stop 2:409110 command disk index 31716
+receive problem reply, xid 48abcfca nfs_ret 2 No such file or directory trace_status 0 start 2:410640 stop 2:410834 command disk index 31956
+receive problem reply, xid 4babcfca nfs_ret 2 No such file or directory trace_status 0 start 2:410766 stop 2:411009 command disk index 31962
+receive problem reply, xid 4cabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:410798 stop 2:411017 command disk index 31964
+receive problem reply, xid 4eabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:410885 stop 2:411150 command disk index 31968
+receive problem reply, xid 4fabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:410922 stop 2:411158 command disk index 31978
+receive problem reply, xid 79abcfca nfs_ret 2 No such file or directory trace_status 0 start 2:414375 stop 2:414537 command disk index 32110
+receive problem reply, xid 7cabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:414775 stop 2:414910 command disk index 32116
+receive problem reply, xid 7eabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:414977 stop 2:415120 command disk index 32118
+receive problem reply, xid 7fabcfca nfs_ret 2 No such file or directory trace_status 0 start 2:415178 stop 2:415433 command disk index 32122
+receive problem reply, xid 74abcfca nfs_ret 2 No such file or directory trace_status 0 start 2:413382 stop 2:415442 command disk index 32064
+receive problem reply, xid 85abcfca nfs_ret 2 No such file or directory trace_status 0 start 2:415558 stop 2:415696 command disk index 32134
+receive problem reply, xid baccfca nfs_ret 2 No such file or directory trace_status 0 start 2:433225 stop 2:433932 command disk index 32448
+receive problem reply, xid eaccfca nfs_ret 2 No such file or directory trace_status 0 start 2:433822 stop 2:434999 command disk index 32454
+receive problem reply, xid faccfca nfs_ret 2 No such file or directory trace_status 0 start 2:433875 stop 2:435012 command disk index 32456
+receive problem reply, xid 10accfca nfs_ret 2 No such file or directory trace_status 0 start 2:433915 stop 2:435023 command disk index 32460
+receive problem reply, xid 11accfca nfs_ret 2 No such file or directory trace_status 0 start 2:433979 stop 2:435033 command disk index 32472
+receive problem reply, xid 79adcfca nfs_ret 2 No such file or directory trace_status 0 start 2:477646 stop 2:478692 command disk index 33248
+receive problem reply, xid 7fadcfca nfs_ret 2 No such file or directory trace_status 0 start 2:478760 stop 2:478902 command disk index 33258
+receive problem reply, xid c3aecfca nfs_ret 2 No such file or directory trace_status 0 start 2:505665 stop 2:506124 command disk index 34138
+receive problem reply, xid 1ab1cfca nfs_ret 2 No such file or directory trace_status 0 start 2:555149 stop 2:555303 command disk index 35878
+receive problem reply, xid 43b1cfca nfs_ret 2 No such file or directory trace_status 0 start 2:557291 stop 2:557449 command disk index 35982
+receive problem reply, xid 50b1cfca nfs_ret 2 No such file or directory trace_status 0 start 2:557901 stop 2:558127 command disk index 36038
+receive problem reply, xid b1b1cfca nfs_ret 2 No such file or directory trace_status 0 start 2:562857 stop 2:563054 command disk index 36280
+receive problem reply, xid 72b2cfca nfs_ret 2 No such file or directory trace_status 0 start 2:574308 stop 2:574743 command disk index 36784
+receive problem reply, xid b6b3cfca nfs_ret 2 No such file or directory trace_status 0 start 2:604055 stop 2:604320 command disk index 37440
+receive problem reply, xid c9b4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:632237 stop 2:633853 command disk index 38078
+receive problem reply, xid dfb4cfca nfs_ret 2 No such file or directory trace_status 0 start 2:634744 stop 2:634989 command disk index 38098
+receive problem reply, xid 39b5cfca nfs_ret 2 No such file or directory trace_status 0 start 2:643936 stop 2:644066 command disk index 38282
+receive problem reply, xid 3bb5cfca nfs_ret 2 No such file or directory trace_status 0 start 2:644103 stop 2:644272 command disk index 38286
+receive problem reply, xid 85b6cfca nfs_ret 2 No such file or directory trace_status 0 start 2:691937 stop 2:692157 command disk index 39328
+receive problem reply, xid cb8cfca nfs_ret 2 No such file or directory trace_status 0 start 2:732342 stop 2:732462 command disk index 40338
+receive problem reply, xid 56bdcfca nfs_ret 2 No such file or directory trace_status 0 start 2:863939 stop 2:864088 command disk index 43858
+receive problem reply, xid c9c2cfca nfs_ret 2 No such file or directory trace_status 0 start 2:973375 stop 2:974515 command disk index 47776
+receive problem reply, xid d6c3cfca nfs_ret 2 No such file or directory trace_status 0 start 2:998974 stop 2:999142 command disk index 48424
+receive problem reply, xid e4c3cfca nfs_ret 2 No such file or directory trace_status 0 start 2:999606 stop 2:999857 command disk index 48460
+receive problem reply, xid e5c3cfca nfs_ret 2 No such file or directory trace_status 0 start 2:999618 stop 2:999869 command disk index 48464
+receive problem reply, xid e7c3cfca nfs_ret 2 No such file or directory trace_status 0 start 2:999825 stop 3:14 command disk index 48470
+receive problem reply, xid e8c3cfca nfs_ret 2 No such file or directory trace_status 0 start 2:999844 stop 3:54 command disk index 48472
+receive problem reply, xid e9c3cfca nfs_ret 2 No such file or directory trace_status 0 start 2:999897 stop 3:86 command disk index 48474
+receive problem reply, xid edc3cfca nfs_ret 2 No such file or directory trace_status 0 start 3:38 stop 3:190 command disk index 48482
+receive problem reply, xid 11c5cfca nfs_ret 2 No such file or directory trace_status 0 start 3:32706 stop 3:32915 command disk index 49438
+receive problem reply, xid 16c5cfca nfs_ret 2 No such file or directory trace_status 0 start 3:33206 stop 3:33352 command disk index 49448
+receive problem reply, xid 81c5cfca nfs_ret 2 No such file or directory trace_status 0 start 3:54006 stop 3:55924 command disk index 49678
+receive problem reply, xid f3c6cfca nfs_ret 2 No such file or directory trace_status 0 start 3:80129 stop 3:81400 command disk index 50428
+receive problem reply, xid 97c7cfca nfs_ret 2 No such file or directory trace_status 0 start 3:102317 stop 3:105339 command disk index 50882
+receive problem reply, xid fdc8cfca nfs_ret 2 No such file or directory trace_status 0 start 3:141750 stop 3:142286 command disk index 51686
+receive problem reply, xid 1ecacfca nfs_ret 2 No such file or directory trace_status 0 start 3:167163 stop 3:167377 command disk index 52608
+receive problem reply, xid 72cbcfca nfs_ret 2 No such file or directory trace_status 0 start 3:205279 stop 3:205484 command disk index 53514
+receive problem reply, xid 73cbcfca nfs_ret 2 No such file or directory trace_status 0 start 3:205302 stop 3:205537 command disk index 53518
+receive problem reply, xid 75cbcfca nfs_ret 2 No such file or directory trace_status 0 start 3:205356 stop 3:205615 command disk index 53524
+receive problem reply, xid 77cbcfca nfs_ret 2 No such file or directory trace_status 0 start 3:205444 stop 3:205696 command disk index 53528
+receive problem reply, xid 76cbcfca nfs_ret 2 No such file or directory trace_status 0 start 3:205373 stop 3:205720 command disk index 53526
+receive problem reply, xid 43d6cfca nfs_ret 2 No such file or directory trace_status 0 start 3:512215 stop 3:512371 command disk index 61094
+receive problem reply, xid dad7cfca nfs_ret 2 No such file or directory trace_status 0 start 3:548854 stop 3:549023 command disk index 62506
+receive problem reply, xid d5d9cfca nfs_ret 2 No such file or directory trace_status 0 start 3:601270 stop 3:601460 command disk index 63650
+receive problem reply, xid d9d9cfca nfs_ret 2 No such file or directory trace_status 0 start 3:601538 stop 3:601710 command disk index 63658
+receive problem reply, xid 46e0cfca nfs_ret 2 No such file or directory trace_status 0 start 3:714430 stop 3:714679 command disk index 67702
+receive problem reply, xid 49e0cfca nfs_ret 2 No such file or directory trace_status 0 start 3:714761 stop 3:714932 command disk index 67708
+receive problem reply, xid 5be0cfca nfs_ret 2 No such file or directory trace_status 0 start 3:716332 stop 3:720317 command disk index 67758
+receive problem reply, xid 5ee0cfca nfs_ret 2 No such file or directory trace_status 0 start 3:716618 stop 3:720328 command disk index 67764
+receive problem reply, xid 60e0cfca nfs_ret 2 No such file or directory trace_status 0 start 3:720261 stop 3:720431 command disk index 67766
+receive problem reply, xid b3e1cfca nfs_ret 2 No such file or directory trace_status 0 start 3:762315 stop 3:762509 command disk index 68588
+receive problem reply, xid c1e1cfca nfs_ret 2 No such file or directory trace_status 0 start 3:762839 stop 3:763040 command disk index 68630
+receive problem reply, xid e5e1cfca nfs_ret 2 No such file or directory trace_status 0 start 3:764089 stop 3:764307 command disk index 68732
+receive problem reply, xid e7e2cfca nfs_ret 2 No such file or directory trace_status 0 start 3:786419 stop 3:786649 command disk index 69338
+receive problem reply, xid e4ebcfca nfs_ret 2 No such file or directory trace_status 0 start 3:982213 stop 3:986141 command disk index 75436
+receive problem reply, xid ebeccfca nfs_ret 2 No such file or directory trace_status 0 start 4:5641 stop 4:5912 command disk index 76304
+receive problem reply, xid 5deecfca nfs_ret 2 No such file or directory trace_status 0 start 4:42127 stop 4:42349 command disk index 77128
+receive problem reply, xid 14f1cfca nfs_ret 2 No such file or directory trace_status 0 start 4:117321 stop 4:117535 command disk index 79064
+receive problem reply, xid 65f1cfca nfs_ret 2 No such file or directory trace_status 0 start 4:122823 stop 4:124321 command disk index 79286
+receive problem reply, xid 67f1cfca nfs_ret 2 No such file or directory trace_status 0 start 4:122887 stop 4:124342 command disk index 79292
+receive problem reply, xid 68f1cfca nfs_ret 2 No such file or directory trace_status 0 start 4:122899 stop 4:124353 command disk index 79294
+receive problem reply, xid 6af1cfca nfs_ret 2 No such file or directory trace_status 0 start 4:124290 stop 4:126032 command disk index 79298
+receive problem reply, xid 6bf1cfca nfs_ret 2 No such file or directory trace_status 0 start 4:124373 stop 4:126077 command disk index 79308
+fh_path_map error disk[80282] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80284] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+receive problem reply, xid 61f3cfca nfs_ret 2 No such file or directory trace_status 0 start 4:185826 stop 4:186016 command disk index 80532
+receive problem reply, xid 66f3cfca nfs_ret 2 No such file or directory trace_status 0 start 4:186269 stop 4:186424 command disk index 80542
+fh_path_map error disk[80600] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80610] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80612] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80614] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80616] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80620] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80622] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80624] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+receive problem reply, xid acf3cfca nfs_ret 2 No such file or directory trace_status 0 start 4:203991 stop 4:204606 command disk index 80716
+fh_path_map error disk[80626] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80630] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80632] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80634] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80636] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80640] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80642] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+fh_path_map error disk[80652] state DEP_FLAG_WAIT_FHANDLE to DEP_FLAG_DONE
+receive problem reply, xid e2f3cfca nfs_ret 2 No such file or directory trace_status 0 start 4:220513 stop 4:220898 command disk index 80824
+receive problem reply, xid f0f3cfca nfs_ret 2 No such file or directory trace_status 0 start 4:223010 stop 4:223214 command disk index 80846
+receive problem reply, xid 5ef6cfca nfs_ret 2 No such file or directory trace_status 0 start 4:287052 stop 4:287237 command disk index 82662
+receive problem reply, xid eef7cfca nfs_ret 2 No such file or directory trace_status 0 start 4:301855 stop 4:302095 command disk index 83494
+receive problem reply, xid 4221d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:88995 stop 6:90023 command disk index 105374
+receive problem reply, xid b021d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:110481 stop 6:110648 command disk index 105588
+receive problem reply, xid 5123d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:156272 stop 6:156511 command disk index 106938
+receive problem reply, xid 6c23d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:165309 stop 6:165468 command disk index 107010
+receive problem reply, xid 6d23d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:165408 stop 6:165564 command disk index 107012
+receive problem reply, xid 7825d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:412798 stop 6:413072 command disk index 108676
+receive problem reply, xid 8625d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:413593 stop 6:413851 command disk index 108704
+receive problem reply, xid a26d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:444202 stop 6:444417 command disk index 108976
+receive problem reply, xid 1626d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:445008 stop 6:445266 command disk index 109002
+receive problem reply, xid 3a29d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:532234 stop 6:532766 command disk index 110978
+receive problem reply, xid 9729d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:543507 stop 6:543697 command disk index 111160
+receive problem reply, xid 5c2ad0ca nfs_ret 2 No such file or directory trace_status 0 start 6:554260 stop 6:554553 command disk index 111928
+receive problem reply, xid 732ad0ca nfs_ret 2 No such file or directory trace_status 0 start 6:555321 stop 6:555518 command disk index 111972
+receive problem reply, xid 962bd0ca nfs_ret 2 No such file or directory trace_status 0 start 6:597280 stop 6:597443 command disk index 112600
+receive problem reply, xid a42bd0ca nfs_ret 2 No such file or directory trace_status 0 start 6:597917 stop 6:598159 command disk index 112626
+receive problem reply, xid 2f2fd0ca nfs_ret 2 No such file or directory trace_status 0 start 6:668938 stop 6:669171 command disk index 115164
+receive problem reply, xid 2b33d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:738203 stop 6:738957 command disk index 117714
+receive problem reply, xid a333d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:759200 stop 6:759393 command disk index 117944
+receive problem reply, xid 2834d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:772163 stop 6:773033 command disk index 118564
+receive problem reply, xid 2934d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:772182 stop 6:773047 command disk index 118568
+receive problem reply, xid 2b34d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:772249 stop 6:773107 command disk index 118574
+receive problem reply, xid 2c34d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:772558 stop 6:773126 command disk index 118576
+receive problem reply, xid 2d34d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:772579 stop 6:773137 command disk index 118578
+receive problem reply, xid 3634d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:773269 stop 6:774339 command disk index 118596
+receive problem reply, xid 3b34d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:773561 stop 6:774375 command disk index 118612
+receive problem reply, xid 3f34d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:774414 stop 6:774583 command disk index 118616
+receive problem reply, xid 4234d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:774475 stop 6:774708 command disk index 118624
+receive problem reply, xid 4334d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:774495 stop 6:774721 command disk index 118626
+receive problem reply, xid 4434d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:774610 stop 6:774771 command disk index 118628
+receive problem reply, xid 4734d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:774742 stop 6:774950 command disk index 118636
+receive problem reply, xid c034d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:789528 stop 6:790139 command disk index 119010
+receive problem reply, xid c134d0ca nfs_ret 2 No such file or directory trace_status 0 start 6:789589 stop 6:790151 command disk index 119014
+receive problem reply, xid 303cd0ca nfs_ret 2 No such file or directory trace_status 0 start 6:981393 stop 6:981619 command disk index 123708
+receive problem reply, xid 343fd0ca nfs_ret 2 No such file or directory trace_status 0 start 7:38391 stop 7:38594 command disk index 125940
+receive problem reply, xid 363fd0ca nfs_ret 2 No such file or directory trace_status 0 start 7:38570 stop 7:38726 command disk index 125944
+receive problem reply, xid 3a3fd0ca nfs_ret 2 No such file or directory trace_status 0 start 7:38758 stop 7:39599 command disk index 125952
+receive problem reply, xid f740d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:92005 stop 7:97033 command disk index 127232
+receive problem reply, xid fd40d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:96984 stop 7:97160 command disk index 127240
+receive problem reply, xid 5541d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:108070 stop 7:108247 command disk index 127442
+receive problem reply, xid 5a41d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:108293 stop 7:108486 command disk index 127458
+receive problem reply, xid 5b41d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:108332 stop 7:108568 command disk index 127462
+receive problem reply, xid 5d41d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:108471 stop 7:110328 command disk index 127468
+receive problem reply, xid 5e41d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:108521 stop 7:110384 command disk index 127470
+receive problem reply, xid 5f41d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:108598 stop 7:110395 command disk index 127472
+receive problem reply, xid ba45d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:192111 stop 7:192496 command disk index 130564
+receive problem reply, xid 8246d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:220598 stop 7:220784 command disk index 131128
+receive problem reply, xid 8747d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:245975 stop 7:246767 command disk index 131766
+receive problem reply, xid e547d0ca nfs_ret 2 No such file or directory trace_status 0 start 7:259650 stop 7:259805 command disk index 131970
+receive problem reply, xid 244ad0ca nfs_ret 2 No such file or directory trace_status 0 start 7:318535 stop 7:319423 command disk index 133642
+trace starttime 1001026799, trace_end_time 1001030401 trace_duration 3602
+can_not_catch_speed_num_total 0 can_not_catch_speed_num_last_10_seconds 0total_profile.about: total_profile
+...                            total_profile   6.478778 num 87277 avg 74 
+
+...             execute_next_request_profile   1.332476 num 33777 avg 39 
+...                 valid_get_nextop_profile   0.765593 num 53499 avg 14 
+...               invalid_get_nextop_profile   0.019476 num 396 avg 49 
+...                 prepare_argument_profile   0.140548 num 53499 avg 2 
+...                   biod_clnt_call_profile   0.334010 num 53499 avg 6 
+
+...               receive_next_reply_profile   5.071202 num 33777 avg 150 
+...         valid_poll_and_get_reply_profile   3.491874 num 53465 avg 65 
+...       invalid_poll_and_get_reply_profile   1.292512 num 33777 avg 38 
+...                     decode_reply_profile   0.141838 num 53465 avg 2 
+...                      check_reply_profile   0.041211 num 53465 avg 0 
+...                            fgets_profile   0.094430 num 136201 avg 0 
+...                        read_line_profile   0.175433 num 136200 avg 1 
+...                       read_trace_profile   0.525603 num 1 avg 525603 
+
+dep_tab_index.tail 53687 dep_tab_index.head 53687 num_out_reqs 0
+Total play time: 6 sec 478857 usec
+trace play result:
+	    percentage good_cnt bad_cnt timeout_cnt	elapsed time			average time
+       null	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    getattr	12.5	6669	   0	   0		sec        2 usec    61893 	usec      309
+    setattr	 6.8	3625	   0	   0		sec        7 usec   300378 	usec     2013
+       root	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     lookup	29.1	15473	 289	   0		sec        6 usec   500890 	usec      420
+   readlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+       read	28.3	15051	   0	  27		sec        8 usec   200509 	usec      544
+    wrcache	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      write	 9.6	5121	   0	   7		sec        5 usec   971455 	usec     1166
+     create	 1.8	 952	   0	   0		sec        2 usec   456985 	usec     2580
+     remove	 1.9	1027	   0	   0		sec        1 usec   360855 	usec     1325
+     rename	 0.1	  34	   0	   0		sec        0 usec    84097 	usec     2473
+       link	 0.2	  99	   0	   0		sec        0 usec   377891 	usec     3817
+    symlink	 0.0	   3	   0	   0		sec        0 usec     6149 	usec     2049
+      mkdir	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      rmdir	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    readdir	 0.9	 455	   0	   0		sec        0 usec   170469 	usec      374
+     fsstat	 0.4	 194	   0	   0		sec        0 usec    53483 	usec      275
+     access	 8.2	4370	   0	   0		sec        1 usec   214265 	usec      277
+     commit	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     fsinfo	 0.0	   5	   0	   0		sec        0 usec      889 	usec      177
+      mknod	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+   pathconf	 0.1	  61	   0	   0		sec        0 usec    13492 	usec      221
+readdirplus	 0.1	  37	   0	   0		sec        0 usec    17519 	usec      473
+      TOTAL	100.0	53176	 289	  34		sec        0 usec        0 	usec        0

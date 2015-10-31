@@ -1,0 +1,2460 @@
+--------------------------------------------------------------------------------
+Command:            /home/mvrable/local/bluesky.git/nfs3/nfsproxy
+Massif arguments:   (none)
+ms_print arguments: massif.out.31456
+--------------------------------------------------------------------------------
+
+
+    MB
+460.4^                                                                ##      
+     |                                                                #       
+     |                                                                #       
+     |                                                 @@ @           #       
+     |             @                       @@          @  @           #       
+     |            :@                       @           @  @       :   #       
+     |            :@                       @           @  @       : ::#       
+     |            :@   :      @           :@        :  @  @       : : #   @   
+     |         @@ :@   :      @       @   :@        :  @  @       : : # ::@   
+     | :       @  :@   :      @       @:: :@        :  @  @:::    : : # : @   
+     | :       @  :@   :   :: @     ::@:  :@        :  @ :@: :  ::: : # : @   
+     | :       @  :@   :   : :@     : @:  :@ :      :  @ :@: :  : : : # : @   
+     | :   :   @ ::@   : ::: :@:  ::: @: ::@ :@  :: :::@ :@: :  : ::: # : @@  
+     | :   :   @ ::@@@ :@: : :@:  : : @: ::@ :@  : ::: @ :@: :  : ::: # : @@  
+     | :   :   @ ::@@  :@: : :@:  : : @: ::@ :@  : ::: @ :@: :::: ::: # : @@:@
+     | :  ::   @ ::@@ ::@: : :@:  : : @: ::@ :@@@: ::: @ :@: :: : ::: # : @@:@
+     | :  :::: @ ::@@ ::@: : :@:  : : @: ::@ :@@ : ::: @ :@: :: : ::: # : @@:@
+     | :  ::: :@ ::@@ ::@: : :@:  : : @: ::@ :@@ : ::: @ :@: :: : ::: # : @@:@
+     | :  ::: :@ ::@@ ::@: : :@:::: : @: ::@ :@@ : ::: @ :@: :: : ::: # : @@:@
+     | :::::: :@ ::@@ ::@: : :@:: : : @: ::@ :@@ : ::: @ :@: :: : ::: # : @@:@
+   0 +----------------------------------------------------------------------->Ti
+     0                                                                   2.045
+
+Number of snapshots: 61
+ Detailed snapshots: [7, 10, 11, 14, 18, 23, 27, 29, 30, 35, 37, 45 (peak), 47, 48, 58]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1 35,444,380,811      279,285,288      278,497,131       788,157            0
+  2 73,512,432,941       32,558,152       31,473,685     1,084,467            0
+  3 126,470,293,003      125,018,592      123,362,378     1,656,214            0
+  4 161,097,829,348      201,679,928      199,750,180     1,929,748            0
+  5 204,006,930,270      102,504,480      100,150,491     2,353,989            0
+  6 256,149,437,100       91,423,720       88,395,432     3,028,288            0
+  7 300,598,278,916      291,006,752      287,494,974     3,511,778            0
+98.79% (287,494,974B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->91.54% (266,381,816B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->90.94% (264,642,584B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->90.82% (264,306,688B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->87.92% (255,852,544B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->87.92% (255,852,544B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->87.92% (255,852,544B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->87.92% (255,852,544B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->87.92% (255,852,544B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->87.92% (255,852,544B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->87.92% (255,852,544B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->02.88% (8,388,608B) 0x4E3BFF6: bluesky_cloudlog_serialize (cloudlog.c:425)
+| | | | ->02.88% (8,388,608B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | |   ->02.88% (8,388,608B) 0x4E3A041: flushd_task (cache.c:398)
+| | | |     ->02.88% (8,388,608B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |       ->02.88% (8,388,608B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |         ->02.88% (8,388,608B) 0x71E170B: clone (clone.S:112)
+| | | |           
+| | | ->00.02% (65,536B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.12% (335,896B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.60% (1,739,232B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->03.72% (10,839,396B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->02.67% (7,769,000B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->02.49% (7,240,504B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->02.49% (7,240,504B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->02.49% (7,240,504B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->02.32% (6,745,328B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->02.19% (6,385,608B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->02.19% (6,385,608B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->02.19% (6,385,608B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->02.19% (6,385,608B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->02.19% (6,385,608B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->02.19% (6,385,608B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->02.19% (6,385,608B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.12% (359,720B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.17% (495,176B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.18% (528,496B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.06% (3,070,396B) in 27 places, all below massif's threshold (01.00%)
+|   
+->02.78% (8,102,790B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->02.78% (8,102,790B) in 31 places, all below massif's threshold (01.00%)
+|   
+->00.75% (2,170,972B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  8 356,786,829,998      216,214,392      212,192,789     4,021,603            0
+  9 403,203,312,316      376,552,400      371,706,990     4,845,410            0
+ 10 428,437,602,692      386,395,432      381,540,851     4,854,581            0
+98.74% (381,540,851B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->76.74% (296,514,404B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->76.09% (294,002,708B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->76.00% (293,666,816B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->75.98% (293,601,280B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->75.98% (293,601,280B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->75.98% (293,601,280B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->75.98% (293,601,280B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->75.98% (293,601,280B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->75.98% (293,601,280B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->75.98% (293,601,280B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.02% (65,536B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.09% (335,892B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.65% (2,511,696B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->18.51% (71,513,820B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->14.45% (55,836,672B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->14.45% (55,836,672B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->14.45% (55,836,672B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->14.45% (55,836,672B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->14.45% (55,836,672B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->14.45% (55,836,672B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->14.45% (55,836,672B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->14.45% (55,836,672B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->14.45% (55,836,672B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->02.76% (10,682,528B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->02.58% (9,983,352B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->02.58% (9,983,352B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->02.58% (9,983,352B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->02.46% (9,488,176B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->02.33% (9,010,136B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->02.33% (9,010,136B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->02.33% (9,010,136B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->02.33% (9,010,136B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->02.33% (9,010,136B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->02.33% (9,010,136B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->02.33% (9,010,136B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.12% (478,040B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.13% (495,176B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.18% (699,176B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.29% (4,994,620B) in 26 places, all below massif's threshold (01.00%)
+|   
+->02.93% (11,323,708B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->02.93% (11,323,708B) in 31 places, all below massif's threshold (01.00%)
+|   
+->00.57% (2,188,919B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 11 468,428,676,638      170,163,864      165,083,088     5,080,776            0
+97.01% (165,083,088B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->78.19% (133,055,668B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->76.69% (130,491,028B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->76.45% (130,089,216B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->76.41% (130,023,424B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->76.41% (130,023,424B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->76.41% (130,023,424B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->76.41% (130,023,424B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->76.41% (130,023,424B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->76.41% (130,023,424B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->76.41% (130,023,424B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.04% (65,792B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.24% (401,812B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.51% (2,564,512B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.50% (2,544,608B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.50% (2,544,032B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->01.50% (2,544,032B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->01.50% (2,544,032B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->01.50% (2,544,032B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->01.50% (2,544,032B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->01.50% (2,544,032B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->01.50% (2,544,032B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->01.50% (2,544,032B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (576B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.01% (19,904B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->10.63% (18,092,356B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->06.79% (11,554,832B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->06.35% (10,807,784B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->06.35% (10,807,784B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->06.35% (10,807,784B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->06.06% (10,312,608B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->05.76% (9,797,848B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->05.76% (9,797,848B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->05.76% (9,797,848B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->05.76% (9,797,848B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->05.76% (9,797,848B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->05.76% (9,797,848B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->05.76% (9,797,848B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.30% (514,760B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.29% (495,176B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.44% (747,048B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.15% (3,664,128B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.15% (3,664,128B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->01.85% (3,145,728B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->01.85% (3,145,728B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->01.85% (3,145,728B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->01.85% (3,145,728B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->01.85% (3,145,728B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->01.85% (3,145,728B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->01.85% (3,145,728B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->01.85% (3,145,728B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->01.85% (3,145,728B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->01.85% (3,145,728B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->01.85% (3,145,728B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->01.85% (3,145,728B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->01.85% (3,145,728B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.30% (518,400B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->01.69% (2,873,396B) in 26 places, all below massif's threshold (01.00%)
+|   
+->06.92% (11,768,545B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->02.41% (4,108,416B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.40% (4,078,176B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->02.24% (3,814,512B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.24% (3,814,512B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.24% (3,814,512B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.14% (3,639,744B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.03% (3,458,064B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.03% (3,458,064B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.03% (3,458,064B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.03% (3,458,064B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.03% (3,458,064B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.03% (3,458,064B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.03% (3,458,064B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.11% (181,680B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.10% (174,768B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.15% (263,664B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (30,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.14% (3,643,800B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.00% (3,398,480B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->01.87% (3,178,760B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->01.87% (3,178,760B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->01.87% (3,178,760B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->01.78% (3,033,120B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->01.69% (2,881,720B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->01.69% (2,881,720B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->01.69% (2,881,720B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->01.69% (2,881,720B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->01.69% (2,881,720B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->01.69% (2,881,720B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->01.69% (2,881,720B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.09% (151,400B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.09% (145,640B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.13% (219,720B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.14% (245,320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.10% (3,570,328B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.70% (2,885,984B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.50% (2,547,104B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->01.49% (2,543,008B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->01.49% (2,543,008B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->01.49% (2,543,008B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->01.43% (2,426,496B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->01.35% (2,305,376B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->01.35% (2,305,376B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->01.35% (2,305,376B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->01.35% (2,305,376B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->01.35% (2,305,376B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->01.35% (2,305,376B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->01.35% (2,305,376B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.07% (121,120B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.07% (116,512B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (4,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.20% (338,880B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.40% (684,344B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.26% (446,001B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.27% (2,166,519B) in 179 places, all below massif's threshold (01.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 12 504,422,559,283      142,954,264      137,399,954     5,554,310            0
+ 13 544,417,614,606      328,955,776      323,131,400     5,824,376            0
+ 14 588,407,598,224      172,054,336      165,685,717     6,368,619            0
+96.30% (165,685,717B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->44.20% (76,054,068B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->32.63% (56,135,680B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->32.63% (56,135,680B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->32.63% (56,135,680B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->32.63% (56,135,680B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->32.63% (56,135,680B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->32.63% (56,135,680B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->32.63% (56,135,680B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->32.63% (56,135,680B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->32.63% (56,135,680B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->08.45% (14,544,520B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->07.95% (13,669,904B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->07.95% (13,669,904B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->07.95% (13,669,904B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->07.53% (12,955,496B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->07.18% (12,349,752B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->07.18% (12,349,752B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->07.18% (12,349,752B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->07.18% (12,349,752B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->07.18% (12,349,752B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->07.18% (12,349,752B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->07.18% (12,349,752B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.35% (605,744B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.42% (714,408B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.51% (874,616B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.16% (3,711,744B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.16% (3,711,744B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->01.83% (3,145,728B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->01.83% (3,145,728B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->01.83% (3,145,728B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->01.83% (3,145,728B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->01.83% (3,145,728B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->01.83% (3,145,728B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->01.83% (3,145,728B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->01.83% (3,145,728B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->01.83% (3,145,728B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->01.83% (3,145,728B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->01.83% (3,145,728B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->01.83% (3,145,728B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->01.83% (3,145,728B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.33% (566,016B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.97% (1,662,124B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->42.28% (72,737,224B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->40.39% (69,485,592B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->40.22% (69,206,528B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->40.22% (69,206,016B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->40.22% (69,206,016B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->40.22% (69,206,016B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->40.22% (69,206,016B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->40.22% (69,206,016B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->40.22% (69,206,016B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->40.22% (69,206,016B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.00% (512B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.16% (279,064B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.89% (3,251,504B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.87% (3,217,184B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.87% (3,216,448B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->01.87% (3,216,448B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->01.87% (3,216,448B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->01.87% (3,216,448B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->01.87% (3,216,448B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->01.87% (3,216,448B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->01.87% (3,216,448B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->01.87% (3,216,448B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (736B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (34,320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->08.59% (14,783,851B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->03.01% (5,170,848B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.98% (5,133,360B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->02.80% (4,824,672B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.80% (4,824,672B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.80% (4,824,672B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.66% (4,572,528B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.53% (4,358,736B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.53% (4,358,736B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.53% (4,358,736B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.53% (4,358,736B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.53% (4,358,736B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.53% (4,358,736B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.53% (4,358,736B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.12% (213,792B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.15% (252,144B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.18% (308,688B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (37,488B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.65% (4,566,680B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.49% (4,277,800B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->02.34% (4,020,560B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.34% (4,020,560B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.34% (4,020,560B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.21% (3,810,440B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.11% (3,632,280B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.11% (3,632,280B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.11% (3,632,280B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.11% (3,632,280B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.11% (3,632,280B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.11% (3,632,280B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.11% (3,632,280B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.10% (178,160B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.12% (210,120B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.15% (257,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.17% (288,880B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.60% (4,477,992B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.10% (3,619,488B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.87% (3,217,408B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->01.87% (3,216,448B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->01.87% (3,216,448B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->01.87% (3,216,448B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->01.77% (3,048,352B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->01.69% (2,905,824B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->01.69% (2,905,824B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->01.69% (2,905,824B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->01.69% (2,905,824B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->01.69% (2,905,824B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->01.69% (2,905,824B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->01.69% (2,905,824B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.08% (142,528B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.10% (168,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (960B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.23% (402,080B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.50% (858,504B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.33% (568,331B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.23% (2,110,574B) in 179 places, all below massif's threshold (01.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 15 616,400,717,855      194,300,016      187,855,379     6,444,637            0
+ 16 664,791,878,531      265,383,288      258,354,478     7,028,810            0
+ 17 720,093,316,990      221,571,008      214,027,570     7,543,438            0
+ 18 765,025,297,568      333,105,464      325,135,174     7,970,290            0
+97.61% (325,135,174B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->81.95% (272,989,600B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->80.69% (268,771,424B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->80.61% (268,501,056B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->80.59% (268,435,456B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->80.59% (268,435,456B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->80.59% (268,435,456B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->80.59% (268,435,456B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->80.59% (268,435,456B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->80.59% (268,435,456B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->80.59% (268,435,456B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.02% (65,600B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.08% (270,368B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.27% (4,218,048B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.24% (4,118,464B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.24% (4,118,144B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->01.24% (4,118,144B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->01.24% (4,118,144B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->01.24% (4,118,144B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->01.24% (4,118,144B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->01.24% (4,118,144B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->01.24% (4,118,144B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->01.24% (4,118,144B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.03% (99,584B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->09.40% (31,304,788B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->05.57% (18,545,504B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->05.25% (17,482,528B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->05.25% (17,482,528B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->05.25% (17,482,528B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->04.92% (16,395,072B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->04.70% (15,659,040B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->04.70% (15,659,040B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->04.70% (15,659,040B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->04.70% (15,659,040B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->04.70% (15,659,040B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->04.70% (15,659,040B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->04.70% (15,659,040B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.22% (736,032B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.33% (1,087,456B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.32% (1,062,976B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.15% (7,147,776B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.15% (7,147,776B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->01.89% (6,291,456B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->01.89% (6,291,456B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->01.89% (6,291,456B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->01.89% (6,291,456B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->01.89% (6,291,456B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->01.89% (6,291,456B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->01.89% (6,291,456B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->01.89% (6,291,456B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->01.89% (6,291,456B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->01.89% (6,291,456B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->01.89% (6,291,456B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->01.89% (6,291,456B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->01.89% (6,291,456B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.26% (856,320B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->01.08% (3,604,480B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->01.08% (3,604,480B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->01.08% (3,604,480B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->01.08% (3,604,480B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->01.08% (3,604,480B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->01.08% (3,604,480B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->01.08% (3,604,480B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->01.08% (3,604,480B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->01.08% (3,604,480B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->00.60% (2,007,028B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->05.60% (18,646,985B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->01.98% (6,594,672B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->01.96% (6,545,472B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->01.85% (6,170,304B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->01.85% (6,170,304B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->01.85% (6,170,304B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->01.74% (5,786,496B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->01.66% (5,526,720B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->01.66% (5,526,720B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->01.66% (5,526,720B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->01.66% (5,526,720B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->01.66% (5,526,720B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->01.66% (5,526,720B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->01.66% (5,526,720B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.08% (259,776B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.12% (383,808B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.11% (375,168B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.01% (49,200B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.74% (5,808,520B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->01.64% (5,454,560B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->01.54% (5,141,920B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->01.54% (5,141,920B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->01.54% (5,141,920B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->01.45% (4,822,080B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->01.38% (4,605,600B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->01.38% (4,605,600B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->01.38% (4,605,600B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->01.38% (4,605,600B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->01.38% (4,605,600B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->01.38% (4,605,600B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->01.38% (4,605,600B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.06% (216,480B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.10% (319,840B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.09% (312,640B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.11% (353,960B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.67% (5,577,984B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.38% (4,604,960B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.24% (4,117,728B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->01.23% (4,113,536B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->01.23% (4,113,536B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->01.23% (4,113,536B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->01.16% (3,857,664B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->01.11% (3,684,480B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->01.11% (3,684,480B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->01.11% (3,684,480B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->01.11% (3,684,480B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->01.11% (3,684,480B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->01.11% (3,684,480B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->01.11% (3,684,480B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.05% (173,184B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.08% (255,872B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (4,192B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.15% (487,232B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.29% (973,024B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.20% (665,809B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.66% (2,193,801B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 19 797,491,126,996      200,780,448      192,624,188     8,156,260            0
+ 20 837,895,327,008       67,034,472       58,577,580     8,456,892            0
+ 21 882,769,108,482      206,012,224      197,094,488     8,917,736            0
+ 22 947,017,688,047      243,948,752      234,358,930     9,589,822            0
+ 23 1,007,567,070,050      299,878,096      289,637,937    10,240,159            0
+96.59% (289,637,937B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->62.15% (186,388,772B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->60.36% (180,994,164B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->60.15% (180,387,904B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->60.14% (180,355,072B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->60.14% (180,355,072B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->60.14% (180,355,072B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->60.14% (180,355,072B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->60.14% (180,355,072B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->60.14% (180,355,072B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->60.14% (180,355,072B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.01% (32,832B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.20% (606,260B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.80% (5,394,480B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.78% (5,324,768B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.78% (5,324,576B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->01.78% (5,324,576B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->01.78% (5,324,576B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->01.78% (5,324,576B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->01.78% (5,324,576B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->01.78% (5,324,576B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->01.78% (5,324,576B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->01.78% (5,324,576B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (192B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (69,712B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->25.72% (77,114,948B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->14.46% (43,352,064B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->14.46% (43,352,064B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->14.46% (43,352,064B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->14.46% (43,352,064B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->14.46% (43,352,064B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->14.46% (43,352,064B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->14.46% (43,352,064B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->14.46% (43,352,064B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->14.46% (43,352,064B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->07.91% (23,714,320B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->07.43% (22,292,440B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->07.43% (22,292,440B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->07.43% (22,292,440B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->07.00% (20,988,744B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->06.69% (20,056,056B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->06.69% (20,056,056B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->06.69% (20,056,056B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->06.69% (20,056,056B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->06.69% (20,056,056B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->06.69% (20,056,056B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->06.69% (20,056,056B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.31% (932,688B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.43% (1,303,696B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.47% (1,421,880B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.42% (7,270,656B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.42% (7,270,656B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->02.10% (6,291,456B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->02.10% (6,291,456B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->02.10% (6,291,456B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->02.10% (6,291,456B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->02.10% (6,291,456B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->02.10% (6,291,456B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->02.10% (6,291,456B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->02.10% (6,291,456B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->02.10% (6,291,456B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->02.10% (6,291,456B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->02.10% (6,291,456B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->02.10% (6,291,456B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->02.10% (6,291,456B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.33% (979,200B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.93% (2,777,908B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->07.99% (23,973,447B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->02.81% (8,433,120B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.79% (8,369,760B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->02.62% (7,867,920B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.62% (7,867,920B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.62% (7,867,920B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.47% (7,407,792B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.36% (7,078,608B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.36% (7,078,608B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.36% (7,078,608B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.36% (7,078,608B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.36% (7,078,608B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.36% (7,078,608B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.36% (7,078,608B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.11% (329,184B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.15% (460,128B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.17% (501,840B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (63,360B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.48% (7,446,240B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.33% (6,974,800B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->02.19% (6,556,600B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.19% (6,556,600B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.19% (6,556,600B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.06% (6,173,160B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->01.97% (5,898,840B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->01.97% (5,898,840B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->01.97% (5,898,840B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->01.97% (5,898,840B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->01.97% (5,898,840B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->01.97% (5,898,840B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->01.97% (5,898,840B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.09% (274,320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.13% (383,440B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.14% (418,200B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.16% (471,440B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.39% (7,181,888B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.97% (5,894,336B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.75% (5,249,760B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->01.75% (5,245,280B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->01.75% (5,245,280B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->01.75% (5,245,280B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->01.65% (4,938,528B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->01.57% (4,719,072B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->01.57% (4,719,072B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->01.57% (4,719,072B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->01.57% (4,719,072B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->01.57% (4,719,072B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->01.57% (4,719,072B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->01.57% (4,719,072B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.07% (219,456B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.10% (306,752B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (4,480B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.21% (644,576B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.43% (1,287,552B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.30% (912,199B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.72% (2,160,770B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 24 1,048,521,913,155      281,987,608      271,403,306    10,584,302            0
+ 25 1,095,151,688,081      203,532,368      192,617,554    10,914,814            0
+ 26 1,135,542,866,108      318,941,944      307,527,235    11,414,709            0
+ 27 1,185,948,657,850      405,276,192      393,153,062    12,123,130            0
+97.01% (393,153,062B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->72.15% (292,420,844B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->70.56% (285,950,140B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->70.40% (285,311,104B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->70.37% (285,212,672B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->70.37% (285,212,672B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->70.37% (285,212,672B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->70.37% (285,212,672B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->70.37% (285,212,672B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->70.37% (285,212,672B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->70.37% (285,212,672B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.02% (98,432B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.16% (639,036B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.60% (6,470,576B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.58% (6,401,088B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.58% (6,400,768B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->01.58% (6,400,768B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->01.58% (6,400,768B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->01.58% (6,400,768B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->01.58% (6,400,768B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->01.58% (6,400,768B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->01.58% (6,400,768B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->01.58% (6,400,768B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (69,488B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->17.27% (69,989,556B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->07.69% (31,178,752B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->07.69% (31,178,752B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->07.69% (31,178,752B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->07.69% (31,178,752B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->07.69% (31,178,752B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->07.69% (31,178,752B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->07.69% (31,178,752B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->07.69% (31,178,752B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->07.69% (31,178,752B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->07.03% (28,495,536B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->06.65% (26,957,784B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->06.65% (26,957,784B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->06.65% (26,957,784B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->06.21% (25,164,896B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->05.96% (24,155,912B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->05.96% (24,155,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->05.96% (24,155,912B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->05.96% (24,155,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->05.96% (24,155,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->05.96% (24,155,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->05.96% (24,155,912B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.25% (1,008,984B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.44% (1,792,888B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.38% (1,537,752B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.80% (7,315,200B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.80% (7,315,200B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->01.55% (6,291,456B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->01.55% (6,291,456B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->01.55% (6,291,456B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->01.55% (6,291,456B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->01.55% (6,291,456B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->01.55% (6,291,456B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->01.55% (6,291,456B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->01.55% (6,291,456B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->01.55% (6,291,456B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->01.55% (6,291,456B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->01.55% (6,291,456B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->01.55% (6,291,456B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->01.55% (6,291,456B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.25% (1,023,744B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.74% (3,000,068B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->07.05% (28,556,674B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->02.50% (10,133,328B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.48% (10,057,248B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->02.35% (9,514,512B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.35% (9,514,512B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.35% (9,514,512B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.19% (8,881,728B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.10% (8,525,616B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.10% (8,525,616B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.10% (8,525,616B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.10% (8,525,616B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.10% (8,525,616B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.10% (8,525,616B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.10% (8,525,616B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.09% (356,112B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.16% (632,784B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.13% (542,736B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (76,080B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.20% (8,896,880B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.07% (8,381,040B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->01.96% (7,928,760B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->01.96% (7,928,760B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->01.96% (7,928,760B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->01.83% (7,401,440B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->01.75% (7,104,680B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->01.75% (7,104,680B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->01.75% (7,104,680B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->01.75% (7,104,680B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->01.75% (7,104,680B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->01.75% (7,104,680B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->01.75% (7,104,680B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.07% (296,760B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.13% (527,320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.11% (452,280B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.13% (515,840B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.09% (8,456,848B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.74% (7,046,368B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.57% (6,350,400B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->01.57% (6,343,008B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->01.57% (6,343,008B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->01.57% (6,343,008B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->01.46% (5,921,152B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->01.40% (5,683,744B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->01.40% (5,683,744B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->01.40% (5,683,744B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->01.40% (5,683,744B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->01.40% (5,683,744B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->01.40% (5,683,744B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->01.40% (5,683,744B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.06% (237,408B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.10% (421,856B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (7,392B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.17% (695,968B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.35% (1,410,480B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.26% (1,069,618B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.54% (2,185,988B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 28 1,236,076,187,130      227,838,784      215,667,610    12,171,174            0
+ 29 1,276,560,376,081      211,122,904      198,431,428    12,691,476            0
+93.99% (198,431,428B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->53.15% (112,214,696B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->49.95% (105,464,888B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->49.70% (104,923,392B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->49.67% (104,857,600B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->49.67% (104,857,600B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->49.67% (104,857,600B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->49.67% (104,857,600B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->49.67% (104,857,600B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->49.67% (104,857,600B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->49.67% (104,857,600B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.03% (65,792B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.26% (541,496B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->03.20% (6,749,680B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->03.18% (6,723,456B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->03.18% (6,722,752B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->03.18% (6,722,752B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->03.18% (6,722,752B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->03.18% (6,722,752B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->03.18% (6,722,752B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->03.18% (6,722,752B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->03.18% (6,722,752B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->03.18% (6,722,752B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (704B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.01% (26,224B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->25.70% (54,252,460B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->14.24% (30,067,288B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->13.48% (28,466,024B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->13.48% (28,466,024B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->13.48% (28,466,024B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->12.58% (26,566,104B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->12.09% (25,515,232B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->12.09% (25,515,232B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->12.09% (25,515,232B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->12.09% (25,515,232B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->12.09% (25,515,232B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->12.09% (25,515,232B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->12.09% (25,515,232B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.50% (1,050,872B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.90% (1,899,920B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.76% (1,601,264B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->06.50% (13,729,792B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->06.50% (13,729,792B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->06.50% (13,729,792B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->06.50% (13,729,792B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->06.50% (13,729,792B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->06.50% (13,729,792B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->06.50% (13,729,792B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->06.50% (13,729,792B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->06.50% (13,729,792B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->03.48% (7,338,240B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->03.48% (7,338,240B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->02.98% (6,291,456B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->02.98% (6,291,456B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->02.98% (6,291,456B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->02.98% (6,291,456B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->02.98% (6,291,456B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->02.98% (6,291,456B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->02.98% (6,291,456B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->02.98% (6,291,456B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->02.98% (6,291,456B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->02.98% (6,291,456B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->02.98% (6,291,456B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->02.98% (6,291,456B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->02.98% (6,291,456B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.50% (1,046,784B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->01.25% (2,635,136B) 0x4E40E61: bluesky_new_inode (inode.c:261)
+| | ->01.18% (2,494,912B) 0x409155: nfsproc3_create_3_svc (nfs3.c:484)
+| | | ->01.18% (2,494,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |   ->01.18% (2,494,912B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     ->01.18% (2,494,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |       ->01.18% (2,494,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |         ->01.18% (2,494,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |           ->01.18% (2,494,912B) 0x71E170B: clone (clone.S:112)
+| | |             
+| | ->00.07% (140,224B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.23% (482,004B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->14.13% (29,841,898B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->05.06% (10,691,040B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->05.03% (10,611,984B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->04.76% (10,046,832B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->04.76% (10,046,832B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->04.76% (10,046,832B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->04.44% (9,376,272B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->04.27% (9,005,376B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->04.27% (9,005,376B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->04.27% (9,005,376B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->04.27% (9,005,376B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->04.27% (9,005,376B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->04.27% (9,005,376B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->04.27% (9,005,376B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.18% (370,896B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.32% (670,560B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.27% (565,152B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.04% (79,056B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->04.44% (9,380,560B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->04.19% (8,843,320B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->03.97% (8,372,360B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->03.97% (8,372,360B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->03.97% (8,372,360B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->03.70% (7,813,560B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->03.55% (7,504,480B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->03.55% (7,504,480B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->03.55% (7,504,480B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->03.55% (7,504,480B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->03.55% (7,504,480B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->03.55% (7,504,480B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->03.55% (7,504,480B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.15% (309,080B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.26% (558,800B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.22% (470,960B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.25% (537,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->04.20% (8,872,840B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->03.52% (7,431,328B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->03.17% (6,699,776B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->03.17% (6,697,888B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->03.17% (6,697,888B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->03.17% (6,697,888B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->02.96% (6,250,848B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->02.84% (6,003,584B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->02.84% (6,003,584B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->02.84% (6,003,584B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->02.84% (6,003,584B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->02.84% (6,003,584B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->02.84% (6,003,584B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->02.84% (6,003,584B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.12% (247,264B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.21% (447,040B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (1,888B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.35% (731,552B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.68% (1,441,512B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.43% (897,458B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.01% (2,122,374B) in 179 places, all below massif's threshold (01.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 30 1,307,699,735,075      137,178,184      124,083,871    13,094,313            0
+90.45% (124,083,871B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->36.08% (49,498,816B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->31.00% (42,521,712B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->30.58% (41,943,616B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->30.58% (41,943,040B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->30.58% (41,943,040B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->30.58% (41,943,040B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->30.58% (41,943,040B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->30.58% (41,943,040B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->30.58% (41,943,040B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->30.58% (41,943,040B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.00% (576B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.42% (578,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->05.09% (6,976,976B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->05.06% (6,935,616B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->05.06% (6,934,912B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->05.06% (6,934,912B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->05.06% (6,934,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->05.06% (6,934,912B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->05.06% (6,934,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->05.06% (6,934,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->05.06% (6,934,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->05.06% (6,934,912B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (704B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.03% (41,360B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->30.34% (41,620,548B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->22.62% (31,031,664B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->21.41% (29,367,704B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->21.41% (29,367,704B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->21.41% (29,367,704B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->20.02% (27,467,784B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->19.23% (26,373,664B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->19.23% (26,373,664B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->19.23% (26,373,664B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->19.23% (26,373,664B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->19.23% (26,373,664B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->19.23% (26,373,664B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->19.23% (26,373,664B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.80% (1,094,120B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->01.39% (1,899,920B) 0x4E390F7: flushd_dirty_inode (cache.c:54)
+| | |       ->01.39% (1,899,920B) 0x4E392AF: flushd_dirty (cache.c:101)
+| | |         ->01.39% (1,899,920B) 0x4E3A035: flushd_task (cache.c:397)
+| | |           ->01.39% (1,899,920B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |             ->01.39% (1,899,920B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |               ->01.39% (1,899,920B) 0x71E170B: clone (clone.S:112)
+| | |                 
+| | ->01.21% (1,663,552B) 0x4E443BF: bluesky_serialize_inode (serialize.c:76)
+| | | ->01.21% (1,663,552B) 0x4E4101C: bluesky_inode_start_sync (inode.c:320)
+| | |   ->01.20% (1,644,648B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |   | ->01.20% (1,644,648B) in 11 places, all below massif's threshold (01.00%)
+| | |   |   
+| | |   ->00.01% (18,904B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |   
+| | ->00.00% (408B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->05.37% (7,362,816B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->05.37% (7,362,816B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->04.59% (6,291,456B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->04.59% (6,291,456B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->04.59% (6,291,456B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->04.59% (6,291,456B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->04.59% (6,291,456B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->04.59% (6,291,456B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->04.59% (6,291,456B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->04.59% (6,291,456B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->04.59% (6,291,456B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->04.59% (6,291,456B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->04.59% (6,291,456B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->04.59% (6,291,456B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->04.59% (6,291,456B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.78% (1,071,360B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->02.00% (2,738,400B) 0x4E40E61: bluesky_new_inode (inode.c:261)
+| | ->01.89% (2,598,176B) 0x409155: nfsproc3_create_3_svc (nfs3.c:484)
+| | | ->01.89% (2,598,176B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |   ->01.89% (2,598,176B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     ->01.89% (2,598,176B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |       ->01.89% (2,598,176B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |         ->01.89% (2,598,176B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |           ->01.89% (2,598,176B) 0x71E170B: clone (clone.S:112)
+| | |             
+| | ->00.10% (140,224B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.36% (487,668B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->22.48% (30,834,397B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->08.04% (11,033,616B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->07.98% (10,952,352B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->07.56% (10,365,072B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->07.56% (10,365,072B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->07.56% (10,365,072B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->07.07% (9,694,512B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->06.79% (9,308,352B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->06.79% (9,308,352B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->06.79% (9,308,352B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->06.79% (9,308,352B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->06.79% (9,308,352B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->06.79% (9,308,352B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->06.79% (9,308,352B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.28% (386,160B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.49% (670,560B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.43% (587,280B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.06% (81,264B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->07.06% (9,684,480B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->06.65% (9,126,960B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->06.30% (8,637,560B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->06.30% (8,637,560B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->06.30% (8,637,560B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->05.89% (8,078,760B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->05.65% (7,756,960B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->05.65% (7,756,960B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->05.65% (7,756,960B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->05.65% (7,756,960B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->05.65% (7,756,960B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->05.65% (7,756,960B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->05.65% (7,756,960B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.23% (321,800B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.41% (558,800B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.36% (489,400B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.41% (557,520B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->06.65% (9,126,016B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->05.59% (7,672,992B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->05.04% (6,916,320B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->05.04% (6,910,048B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->05.04% (6,910,048B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->05.04% (6,910,048B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->04.71% (6,463,008B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->04.52% (6,205,568B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->04.52% (6,205,568B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->04.52% (6,205,568B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->04.52% (6,205,568B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->04.52% (6,205,568B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->04.52% (6,205,568B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->04.52% (6,205,568B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.19% (257,440B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.33% (447,040B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (6,272B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.55% (756,672B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->01.06% (1,453,024B) in 9 places, all below massif's threshold (01.00%)
+| |   
+| ->00.72% (990,285B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.55% (2,130,110B) in 179 places, all below massif's threshold (01.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 31 1,351,297,081,956      207,857,760      194,363,395    13,494,365            0
+ 32 1,413,576,547,425      184,549,168      170,610,026    13,939,142            0
+ 33 1,454,084,028,541      320,011,288      305,712,408    14,298,880            0
+ 34 1,491,470,518,982      214,246,504      199,669,210    14,577,294            0
+ 35 1,554,803,692,087      416,415,704      401,082,777    15,332,927            0
+96.32% (401,082,777B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->70.64% (294,139,260B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->68.65% (285,884,476B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->68.51% (285,278,208B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->68.49% (285,212,672B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->68.49% (285,212,672B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->68.49% (285,212,672B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->68.49% (285,212,672B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->68.49% (285,212,672B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->68.49% (285,212,672B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->68.49% (285,212,672B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.02% (65,536B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.15% (606,268B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.98% (8,254,656B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.97% (8,217,312B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.97% (8,217,120B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->01.97% (8,217,120B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->01.97% (8,217,120B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->01.97% (8,217,120B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->01.97% (8,217,120B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->01.97% (8,217,120B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->01.97% (8,217,120B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->01.97% (8,217,120B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (192B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.01% (37,344B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->16.47% (68,564,964B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->08.79% (36,602,224B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->08.35% (34,751,808B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->08.35% (34,751,808B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->08.35% (34,751,808B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->07.81% (32,523,584B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->07.52% (31,296,592B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->07.52% (31,296,592B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->07.52% (31,296,592B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->07.52% (31,296,592B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->07.52% (31,296,592B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->07.52% (31,296,592B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->07.52% (31,296,592B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.29% (1,226,992B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.54% (2,228,224B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.44% (1,850,416B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->03.51% (14,614,528B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->03.51% (14,614,528B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->03.51% (14,614,528B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->03.51% (14,614,528B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->03.51% (14,614,528B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->03.51% (14,614,528B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->03.51% (14,614,528B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->03.51% (14,614,528B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->03.51% (14,614,528B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->03.31% (13,771,008B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->03.31% (13,771,008B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->03.02% (12,582,912B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->03.02% (12,582,912B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->03.02% (12,582,912B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->03.02% (12,582,912B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->03.02% (12,582,912B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->03.02% (12,582,912B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->03.02% (12,582,912B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->03.02% (12,582,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->03.02% (12,582,912B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->03.02% (12,582,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->03.02% (12,582,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->03.02% (12,582,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->03.02% (12,582,912B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.29% (1,188,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.86% (3,577,204B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->08.69% (36,187,035B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->03.13% (13,015,776B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->03.10% (12,918,432B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->02.95% (12,265,344B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.95% (12,265,344B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.95% (12,265,344B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.76% (11,478,912B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.65% (11,045,856B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.65% (11,045,856B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.65% (11,045,856B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.65% (11,045,856B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.65% (11,045,856B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.65% (11,045,856B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.65% (11,045,856B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.10% (433,056B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.19% (786,432B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.16% (653,088B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (97,344B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.74% (11,390,880B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.59% (10,765,360B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->02.45% (10,221,120B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.45% (10,221,120B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.45% (10,221,120B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.30% (9,565,760B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.21% (9,204,880B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.21% (9,204,880B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.21% (9,204,880B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.21% (9,204,880B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.21% (9,204,880B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.21% (9,204,880B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.21% (9,204,880B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.09% (360,880B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.16% (655,360B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.13% (544,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.15% (625,520B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.57% (10,693,792B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.17% (9,027,392B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.96% (8,180,032B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->01.96% (8,176,896B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->01.96% (8,176,896B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->01.96% (8,176,896B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->01.84% (7,652,608B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->01.77% (7,363,904B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->01.77% (7,363,904B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->01.77% (7,363,904B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->01.77% (7,363,904B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->01.77% (7,363,904B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->01.77% (7,363,904B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->01.77% (7,363,904B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.07% (288,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.13% (524,288B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (3,136B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.20% (847,360B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.40% (1,666,400B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.26% (1,086,587B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.53% (2,191,518B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 36 1,599,091,468,885      265,382,416      249,768,170    15,614,246            0
+ 37 1,639,165,677,032      431,283,952      414,936,273    16,347,679            0
+96.21% (414,936,273B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->68.33% (294,705,608B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->66.29% (285,884,472B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->66.15% (285,278,208B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->66.13% (285,212,672B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->66.13% (285,212,672B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->66.13% (285,212,672B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->66.13% (285,212,672B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->66.13% (285,212,672B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->66.13% (285,212,672B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->66.13% (285,212,672B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.02% (65,536B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.14% (606,264B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.05% (8,821,008B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.03% (8,754,272B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->02.03% (8,754,080B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->02.03% (8,754,080B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->02.03% (8,754,080B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->02.03% (8,754,080B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->02.03% (8,754,080B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->02.03% (8,754,080B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->02.03% (8,754,080B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->02.03% (8,754,080B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (192B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (66,736B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->18.41% (79,413,748B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->09.03% (38,965,632B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->08.58% (36,994,176B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->08.58% (36,994,176B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->08.58% (36,994,176B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->08.05% (34,704,888B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->07.74% (33,394,664B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->07.74% (33,394,664B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->07.74% (33,394,664B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->07.74% (33,394,664B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->07.74% (33,394,664B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->07.74% (33,394,664B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->07.74% (33,394,664B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.30% (1,310,224B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.53% (2,289,288B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.46% (1,971,456B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->05.30% (22,839,296B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->05.30% (22,839,296B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->05.30% (22,839,296B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->05.30% (22,839,296B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->05.30% (22,839,296B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->05.30% (22,839,296B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->05.30% (22,839,296B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->05.30% (22,839,296B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->05.30% (22,839,296B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->03.20% (13,817,088B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->03.20% (13,817,088B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->02.92% (12,582,912B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->02.92% (12,582,912B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->02.92% (12,582,912B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->02.92% (12,582,912B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->02.92% (12,582,912B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->02.92% (12,582,912B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->02.92% (12,582,912B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->02.92% (12,582,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->02.92% (12,582,912B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->02.92% (12,582,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->02.92% (12,582,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->02.92% (12,582,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->02.92% (12,582,912B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.29% (1,234,176B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.88% (3,791,732B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->08.96% (38,635,239B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->03.21% (13,855,968B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->03.19% (13,752,576B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->03.03% (13,056,768B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->03.03% (13,056,768B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->03.03% (13,056,768B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.84% (12,248,784B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.73% (11,786,352B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.73% (11,786,352B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.73% (11,786,352B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.73% (11,786,352B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.73% (11,786,352B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.73% (11,786,352B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.73% (11,786,352B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.11% (462,432B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.19% (807,984B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.16% (695,808B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (103,392B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.81% (12,126,600B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.66% (11,460,480B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->02.52% (10,880,640B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.52% (10,880,640B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.52% (10,880,640B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.37% (10,207,320B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.28% (9,821,960B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.28% (9,821,960B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.28% (9,821,960B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.28% (9,821,960B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.28% (9,821,960B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.28% (9,821,960B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.28% (9,821,960B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.09% (385,360B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.16% (673,320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.13% (579,840B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.15% (666,120B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.64% (11,376,672B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.23% (9,611,936B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->02.02% (8,717,088B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->02.02% (8,704,512B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->02.02% (8,704,512B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->02.02% (8,704,512B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->01.89% (8,165,856B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->01.82% (7,857,568B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->01.82% (7,857,568B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->01.82% (7,857,568B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->01.82% (7,857,568B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->01.82% (7,857,568B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->01.82% (7,857,568B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->01.82% (7,857,568B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.07% (308,288B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.12% (538,656B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (12,576B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.21% (894,848B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.41% (1,764,736B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.30% (1,275,999B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.51% (2,181,678B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 38 1,685,173,836,935      287,412,096      270,990,919    16,421,177            0
+ 39 1,741,629,479,442      266,163,856      249,188,646    16,975,210            0
+ 40 1,776,757,695,415      150,399,664      133,114,686    17,284,978            0
+ 41 1,830,797,468,503      253,766,664      236,012,968    17,753,696            0
+ 42 1,876,741,119,574      363,106,160      344,879,791    18,226,369            0
+ 43 1,908,521,817,632      209,364,728      190,898,933    18,465,795            0
+ 44 1,960,365,279,266      350,982,536      331,853,376    19,129,160            0
+ 45 2,015,696,902,762      482,777,072      462,670,909    20,106,163            0
+95.84% (462,670,909B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->61.49% (296,876,060B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->59.23% (285,951,932B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->59.10% (285,345,024B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->59.08% (285,212,672B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->59.08% (285,212,672B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->59.08% (285,212,672B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->59.08% (285,212,672B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->59.08% (285,212,672B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->59.08% (285,212,672B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->59.08% (285,212,672B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.03% (132,352B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.13% (606,908B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.26% (10,924,000B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.24% (10,834,080B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->02.24% (10,833,504B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->02.24% (10,833,504B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->02.24% (10,833,504B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->02.24% (10,833,504B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->02.24% (10,833,504B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->02.24% (10,833,504B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->02.24% (10,833,504B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->02.24% (10,833,504B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (576B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (89,920B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->24.03% (116,008,828B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->10.16% (49,053,696B) 0x4E3E6AC: bluesky_block_touch (file.c:34)
+| | ->10.16% (49,053,696B) 0x4E3EBEE: bluesky_file_write (file.c:146)
+| |   ->10.16% (49,053,696B) 0x408B79: nfsproc3_write_3_svc (nfs3.c:423)
+| |     ->10.16% (49,053,696B) 0x406376: nfs_program_3 (rpc.c:493)
+| |       ->10.16% (49,053,696B) 0x406409: async_rpc_task (rpc.c:536)
+| |         ->10.16% (49,053,696B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |           ->10.16% (49,053,696B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |             ->10.16% (49,053,696B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |               ->10.16% (49,053,696B) 0x71E170B: clone (clone.S:112)
+| |                 
+| ->09.97% (48,137,744B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->09.49% (45,797,456B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->09.49% (45,797,456B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->09.49% (45,797,456B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->08.96% (43,261,328B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->08.64% (41,688,896B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->08.64% (41,688,896B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->08.64% (41,688,896B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->08.64% (41,688,896B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->08.64% (41,688,896B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->08.64% (41,688,896B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->08.64% (41,688,896B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.33% (1,572,432B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.53% (2,536,128B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.48% (2,340,288B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.97% (14,351,616B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.97% (14,351,616B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->02.61% (12,582,912B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->02.61% (12,582,912B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->02.61% (12,582,912B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->02.61% (12,582,912B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->02.61% (12,582,912B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->02.61% (12,582,912B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->02.61% (12,582,912B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->02.61% (12,582,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->02.61% (12,582,912B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->02.61% (12,582,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->02.61% (12,582,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->02.61% (12,582,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->02.61% (12,582,912B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.37% (1,768,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->00.93% (4,465,772B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->09.86% (47,602,140B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->03.55% (17,116,896B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->03.52% (16,989,792B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->03.35% (16,163,808B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->03.35% (16,163,808B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->03.35% (16,163,808B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->03.16% (15,268,704B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->03.05% (14,713,728B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->03.05% (14,713,728B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->03.05% (14,713,728B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->03.05% (14,713,728B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->03.05% (14,713,728B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->03.05% (14,713,728B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->03.05% (14,713,728B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.11% (554,976B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.19% (895,104B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.17% (825,984B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.03% (127,104B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->03.10% (14,952,520B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->02.93% (14,158,160B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->02.79% (13,469,840B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->02.79% (13,469,840B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->02.79% (13,469,840B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->02.64% (12,723,920B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->02.54% (12,261,440B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->02.54% (12,261,440B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->02.54% (12,261,440B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->02.54% (12,261,440B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->02.54% (12,261,440B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->02.54% (12,261,440B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->02.54% (12,261,440B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.10% (462,480B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.15% (745,920B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.14% (688,320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.16% (794,360B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->02.89% (13,966,568B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->02.46% (11,856,864B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->02.24% (10,794,048B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->02.23% (10,775,872B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->02.23% (10,775,872B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->02.23% (10,775,872B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->02.11% (10,179,136B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->02.03% (9,809,152B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->02.03% (9,809,152B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->02.03% (9,809,152B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->02.03% (9,809,152B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->02.03% (9,809,152B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->02.03% (9,809,152B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->02.03% (9,809,152B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.08% (369,984B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.12% (596,736B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (18,176B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.22% (1,062,816B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.44% (2,109,704B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.32% (1,566,156B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.45% (2,183,881B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 46 2,079,080,722,098      307,974,632      287,845,213    20,129,419            0
+ 47 2,134,438,846,503      324,813,184      304,095,482    20,717,702            0
+93.62% (304,095,482B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->56.62% (183,904,232B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->53.16% (172,655,288B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->52.97% (172,048,768B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->51.65% (167,772,160B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->51.65% (167,772,160B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->51.65% (167,772,160B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->51.65% (167,772,160B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->51.65% (167,772,160B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->51.65% (167,772,160B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->51.65% (167,772,160B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->01.29% (4,194,304B) 0x4E3BFF6: bluesky_cloudlog_serialize (cloudlog.c:425)
+| | | | ->01.29% (4,194,304B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->01.29% (4,194,304B) 0x4E39602: flushd_cloud (cache.c:175)
+| | | | |   ->01.29% (4,194,304B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | |     ->01.29% (4,194,304B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |       ->01.29% (4,194,304B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |         ->01.29% (4,194,304B) 0x71E170B: clone (clone.S:112)
+| | | | |           
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.03% (82,304B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.19% (606,520B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->03.46% (11,248,816B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->03.44% (11,177,888B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->03.44% (11,177,568B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->03.44% (11,177,568B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->03.44% (11,177,568B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->03.44% (11,177,568B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->03.44% (11,177,568B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->03.44% (11,177,568B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->03.44% (11,177,568B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->03.44% (11,177,568B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.02% (70,928B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->21.26% (69,065,908B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->15.35% (49,858,688B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->14.59% (47,398,448B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->14.59% (47,398,448B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->14.59% (47,398,448B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->13.81% (44,862,320B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->13.30% (43,208,560B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->13.30% (43,208,560B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->13.30% (43,208,560B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->13.30% (43,208,560B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->13.30% (43,208,560B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->13.30% (43,208,560B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->13.30% (43,208,560B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.51% (1,653,760B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->00.78% (2,536,128B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     
+| | ->00.76% (2,460,240B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->04.43% (14,393,088B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->04.43% (14,393,088B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->03.87% (12,582,912B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->03.87% (12,582,912B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->03.87% (12,582,912B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->03.87% (12,582,912B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->03.87% (12,582,912B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->03.87% (12,582,912B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->03.87% (12,582,912B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->03.87% (12,582,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->03.87% (12,582,912B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->03.87% (12,582,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->03.87% (12,582,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->03.87% (12,582,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->03.87% (12,582,912B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.56% (1,810,176B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->01.25% (4,050,592B) 0x4E40E61: bluesky_new_inode (inode.c:261)
+| | ->01.20% (3,909,024B) 0x409155: nfsproc3_create_3_svc (nfs3.c:484)
+| | | ->01.20% (3,909,024B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |   ->01.20% (3,909,024B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     ->01.20% (3,909,024B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |       ->01.20% (3,909,024B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |         ->01.20% (3,909,024B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |           ->01.20% (3,909,024B) 0x71E170B: clone (clone.S:112)
+| | |             
+| | ->00.04% (141,568B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.24% (763,540B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->15.08% (48,971,998B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->05.46% (17,728,224B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->05.42% (17,597,184B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->05.15% (16,728,864B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->05.15% (16,728,864B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->05.15% (16,728,864B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->04.87% (15,833,760B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->04.70% (15,250,080B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->04.70% (15,250,080B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->04.70% (15,250,080B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->04.70% (15,250,080B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->04.70% (15,250,080B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->04.70% (15,250,080B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->04.70% (15,250,080B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.18% (583,680B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.28% (895,104B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.27% (868,320B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.04% (131,040B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->04.77% (15,497,520B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->04.51% (14,664,320B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->04.29% (13,940,720B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->04.29% (13,940,720B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->04.29% (13,940,720B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->04.06% (13,194,800B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->03.91% (12,708,400B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->03.91% (12,708,400B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->03.91% (12,708,400B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->03.91% (12,708,400B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->03.91% (12,708,400B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->03.91% (12,708,400B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->03.91% (12,708,400B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.15% (486,400B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.23% (745,920B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.22% (723,600B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.26% (833,200B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->04.44% (14,426,184B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->03.78% (12,290,048B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->03.43% (11,155,840B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->03.43% (11,152,576B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->03.43% (11,152,576B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->03.43% (11,152,576B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->03.25% (10,555,840B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->03.13% (10,166,720B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->03.13% (10,166,720B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->03.13% (10,166,720B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->03.13% (10,166,720B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->03.13% (10,166,720B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->03.13% (10,166,720B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->03.13% (10,166,720B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.12% (389,120B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.18% (596,736B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (3,264B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.35% (1,134,208B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.66% (2,136,136B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.41% (1,320,070B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->00.66% (2,153,344B) in 1+ places, all below ms_print's threshold (01.00%)
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 48 2,169,039,315,852      199,552,208      178,415,580    21,136,628            0
+89.41% (178,415,580B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->35.23% (70,309,980B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->25.47% (50,834,488B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->24.20% (48,289,792B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->24.20% (48,289,792B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->24.20% (48,289,792B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->22.93% (45,753,664B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->22.07% (44,043,056B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->22.07% (44,043,056B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->22.07% (44,043,056B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->22.07% (44,043,056B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->22.07% (44,043,056B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->22.07% (44,043,056B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->22.07% (44,043,056B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.86% (1,710,608B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->01.27% (2,536,128B) 0x4E390F7: flushd_dirty_inode (cache.c:54)
+| | |       ->01.27% (2,536,128B) 0x4E392AF: flushd_dirty (cache.c:101)
+| | |         ->01.27% (2,536,128B) 0x4E3A035: flushd_task (cache.c:397)
+| | |           ->01.27% (2,536,128B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |             ->01.27% (2,536,128B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |               ->01.27% (2,536,128B) 0x71E170B: clone (clone.S:112)
+| | |                 
+| | ->01.27% (2,544,152B) 0x4E443BF: bluesky_serialize_inode (serialize.c:76)
+| | | ->01.27% (2,544,152B) 0x4E4101C: bluesky_inode_start_sync (inode.c:320)
+| | |   ->01.27% (2,525,248B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |   | ->01.27% (2,525,248B) in 11 places, all below massif's threshold (01.00%)
+| | |   |   
+| | |   ->00.01% (18,904B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |   
+| | ->00.00% (544B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->07.23% (14,422,272B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->07.23% (14,422,272B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->06.31% (12,582,912B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->06.31% (12,582,912B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->06.31% (12,582,912B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->06.31% (12,582,912B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->06.31% (12,582,912B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->06.31% (12,582,912B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->06.31% (12,582,912B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->06.31% (12,582,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->06.31% (12,582,912B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->06.31% (12,582,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->06.31% (12,582,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->06.31% (12,582,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->06.31% (12,582,912B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->00.92% (1,839,360B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   
+| ->02.10% (4,188,128B) 0x4E40E61: bluesky_new_inode (inode.c:261)
+| | ->02.03% (4,045,216B) 0x409155: nfsproc3_create_3_svc (nfs3.c:484)
+| | | ->02.03% (4,045,216B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |   ->02.03% (4,045,216B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     ->02.03% (4,045,216B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |       ->02.03% (4,045,216B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |         ->02.03% (4,045,216B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |           ->02.03% (4,045,216B) 0x71E170B: clone (clone.S:112)
+| | |             
+| | ->00.07% (142,912B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.43% (865,092B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->28.09% (56,052,652B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->22.37% (44,646,444B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->22.07% (44,040,192B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->22.07% (44,040,192B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->22.07% (44,040,192B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->22.07% (44,040,192B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->22.07% (44,040,192B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->22.07% (44,040,192B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->22.07% (44,040,192B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->22.07% (44,040,192B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.30% (606,252B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->05.72% (11,406,080B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->05.71% (11,388,000B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->05.71% (11,387,424B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->05.71% (11,387,424B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->05.71% (11,387,424B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->05.71% (11,387,424B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->05.71% (11,387,424B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->05.71% (11,387,424B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->05.71% (11,387,424B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->05.71% (11,387,424B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (576B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.01% (18,080B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.00% (128B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->25.03% (49,938,135B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->09.06% (18,074,256B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->08.99% (17,941,584B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->08.54% (17,043,456B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->08.54% (17,043,456B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->08.54% (17,043,456B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->08.09% (16,148,352B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->07.79% (15,544,608B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->07.79% (15,544,608B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->07.79% (15,544,608B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->07.79% (15,544,608B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->07.79% (15,544,608B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->07.79% (15,544,608B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->07.79% (15,544,608B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.30% (603,744B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.45% (895,104B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.45% (898,128B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.07% (132,672B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->07.92% (15,810,400B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->07.49% (14,951,320B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->07.12% (14,202,880B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->07.12% (14,202,880B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->07.12% (14,202,880B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->06.74% (13,456,960B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->06.49% (12,953,840B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->06.49% (12,953,840B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->06.49% (12,953,840B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->06.49% (12,953,840B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->06.49% (12,953,840B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->06.49% (12,953,840B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->06.49% (12,953,840B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.25% (503,120B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.37% (745,920B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.38% (748,440B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.43% (859,080B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->07.37% (14,705,800B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->06.28% (12,539,168B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->05.70% (11,372,096B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->05.69% (11,362,304B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->05.69% (11,362,304B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->05.69% (11,362,304B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->05.39% (10,765,568B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->05.19% (10,363,072B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->05.19% (10,363,072B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->05.19% (10,363,072B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->05.19% (10,363,072B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->05.19% (10,363,072B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->05.19% (10,363,072B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->05.19% (10,363,072B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.20% (402,496B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.30% (596,736B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (9,792B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.58% (1,167,072B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->01.09% (2,166,632B) in 9 places, all below massif's threshold (01.00%)
+| |   
+| ->00.68% (1,347,679B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.06% (2,114,813B) in 179 places, all below massif's threshold (01.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 49 2,207,099,952,983      164,461,312      143,056,172    21,405,140            0
+ 50 2,210,861,837,075      164,297,968      142,869,784    21,428,184            0
+ 51 2,214,622,198,002      164,950,584      143,499,598    21,450,986            0
+ 52 2,218,381,689,473      159,833,152      138,364,383    21,468,769            0
+ 53 2,222,142,480,715      166,230,512      144,738,650    21,491,862            0
+ 54 2,225,903,663,124      165,042,744      143,533,807    21,508,937            0
+ 55 2,229,663,117,532      160,011,112      138,470,824    21,540,288            0
+ 56 2,233,423,159,365      162,996,248      141,454,270    21,541,978            0
+ 57 2,237,184,208,658      163,363,736      141,804,845    21,558,891            0
+ 58 2,240,945,111,644      162,725,832      141,149,834    21,575,998            0
+86.74% (141,149,834B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->43.80% (71,277,671B) 0x54AD678: g_malloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| ->31.73% (51,637,024B) 0x4E3B216: bluesky_cloudlog_new (cloudlog.c:86)
+| | ->30.11% (48,998,352B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | ->30.11% (48,998,352B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | |   ->30.11% (48,998,352B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | |     ->28.36% (46,145,480B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |     | ->27.44% (44,645,536B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | |     | | ->27.44% (44,645,536B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |     | |   ->27.44% (44,645,536B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     | |     ->27.44% (44,645,536B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |       ->27.44% (44,645,536B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |     | |         ->27.44% (44,645,536B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |     | |           ->27.44% (44,645,536B) 0x71E170B: clone (clone.S:112)
+| | |     | |             
+| | |     | ->00.92% (1,499,944B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |     | 
+| | |     ->01.75% (2,852,872B) 0x4E390F7: flushd_dirty_inode (cache.c:54)
+| | |       ->01.75% (2,852,872B) 0x4E392AF: flushd_dirty (cache.c:101)
+| | |         ->01.75% (2,852,872B) 0x4E3A035: flushd_task (cache.c:397)
+| | |           ->01.75% (2,852,872B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |             ->01.75% (2,852,872B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |               ->01.75% (2,852,872B) 0x71E170B: clone (clone.S:112)
+| | |                 
+| | ->01.62% (2,637,720B) 0x4E443BF: bluesky_serialize_inode (serialize.c:76)
+| | | ->01.62% (2,637,720B) 0x4E4101C: bluesky_inode_start_sync (inode.c:320)
+| | |   ->01.52% (2,469,624B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | |   | ->01.52% (2,469,624B) in 11 places, all below massif's threshold (01.00%)
+| | |   |   
+| | |   ->00.10% (168,096B) in 1+ places, all below ms_print's threshold (01.00%)
+| | |   
+| | ->00.00% (952B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->08.90% (14,477,568B) 0x54962BF: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->08.90% (14,477,568B) 0x5496536: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   ->07.73% (12,582,912B) 0x4E3B7BA: bluesky_cloudlog_insert_locked (cloudlog.c:239)
+| |   | ->07.73% (12,582,912B) 0x4E3B7FC: bluesky_cloudlog_insert (cloudlog.c:245)
+| |   |   ->07.73% (12,582,912B) 0x4E3F0CD: bluesky_block_flush (file.c:246)
+| |   |   | ->07.73% (12,582,912B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| |   |   |   ->07.73% (12,582,912B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| |   |   |     ->07.73% (12,582,912B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| |   |   |       ->07.73% (12,582,912B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| |   |   |       | ->07.73% (12,582,912B) 0x406376: nfs_program_3 (rpc.c:493)
+| |   |   |       |   ->07.73% (12,582,912B) 0x406409: async_rpc_task (rpc.c:536)
+| |   |   |       |     ->07.73% (12,582,912B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |       ->07.73% (12,582,912B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| |   |   |       |         ->07.73% (12,582,912B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| |   |   |       |           ->07.73% (12,582,912B) 0x71E170B: clone (clone.S:112)
+| |   |   |       |             
+| |   |   |       ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   |       
+| |   |   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| |   |   
+| |   ->01.16% (1,894,656B) in 6 places, all below massif's threshold (01.00%)
+| |     
+| ->02.67% (4,344,256B) 0x4E40E61: bluesky_new_inode (inode.c:261)
+| | ->02.58% (4,198,656B) 0x409155: nfsproc3_create_3_svc (nfs3.c:484)
+| | | ->02.58% (4,198,656B) 0x406376: nfs_program_3 (rpc.c:493)
+| | |   ->02.58% (4,198,656B) 0x406409: async_rpc_task (rpc.c:536)
+| | |     ->02.58% (4,198,656B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |       ->02.58% (4,198,656B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | |         ->02.58% (4,198,656B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | |           ->02.58% (4,198,656B) 0x71E170B: clone (clone.S:112)
+| | |             
+| | ->00.09% (145,600B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.50% (818,823B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->31.99% (52,053,450B) 0x54AD753: g_malloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->11.28% (18,360,096B) 0x505B6DD: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->11.20% (18,224,832B) 0x4E3B23B: bluesky_cloudlog_new (cloudlog.c:89)
+| | | ->10.63% (17,293,536B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->10.63% (17,293,536B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->10.63% (17,293,536B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->10.01% (16,286,640B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->09.68% (15,757,248B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->09.68% (15,757,248B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->09.68% (15,757,248B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->09.68% (15,757,248B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->09.68% (15,757,248B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->09.68% (15,757,248B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->09.68% (15,757,248B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.33% (529,392B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.62% (1,006,896B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.57% (931,296B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.08% (135,264B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->09.88% (16,076,560B) 0x505B82D: ??? (in /usr/lib/libgthread-2.0.so.0.2400.1)
+| | ->09.33% (15,187,360B) 0x4E3B226: bluesky_cloudlog_new (cloudlog.c:88)
+| | | ->08.86% (14,411,280B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | ->08.86% (14,411,280B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | |   ->08.86% (14,411,280B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | |     ->08.34% (13,572,200B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | |     | ->08.07% (13,131,040B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | |     | | ->08.07% (13,131,040B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     | |   ->08.07% (13,131,040B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |     | |     ->08.07% (13,131,040B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |       ->08.07% (13,131,040B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |     | |         ->08.07% (13,131,040B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |     | |           ->08.07% (13,131,040B) 0x71E170B: clone (clone.S:112)
+| | | |     | |             
+| | | |     | ->00.27% (441,160B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     | 
+| | | |     ->00.52% (839,080B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | |     
+| | | ->00.48% (776,080B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.55% (889,200B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->09.20% (14,968,704B) 0x54C2758: g_slice_alloc (in /lib/libglib-2.0.so.0.2400.1)
+| | ->07.84% (12,749,984B) 0x547EF30: g_array_sized_new (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->07.09% (11,531,168B) 0x4E3B2AF: bluesky_cloudlog_new (cloudlog.c:96)
+| | | | ->07.08% (11,529,024B) 0x4E3F04C: bluesky_block_flush (file.c:238)
+| | | | | ->07.08% (11,529,024B) 0x4E3F1AF: bluesky_file_flush (file.c:262)
+| | | | |   ->07.08% (11,529,024B) 0x4E41010: bluesky_inode_start_sync (inode.c:318)
+| | | | |     ->06.67% (10,857,760B) 0x4E411AF: bluesky_inode_do_sync (inode.c:356)
+| | | | |     | ->06.46% (10,504,832B) 0x40C505: nfsproc3_commit_3_svc (nfs3.c:1168)
+| | | | |     | | ->06.46% (10,504,832B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | | |     | |   ->06.46% (10,504,832B) 0x406409: async_rpc_task (rpc.c:536)
+| | | | |     | |     ->06.46% (10,504,832B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |       ->06.46% (10,504,832B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | |     | |         ->06.46% (10,504,832B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | |     | |           ->06.46% (10,504,832B) 0x71E170B: clone (clone.S:112)
+| | | | |     | |             
+| | | | |     | ->00.22% (352,928B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     | 
+| | | | |     ->00.41% (671,264B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | |     
+| | | | ->00.00% (2,144B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.75% (1,218,816B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->01.02% (1,660,864B) 0x54C2A64: g_slice_alloc0 (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.02% (1,660,680B) 0x54BFADC: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | ->01.02% (1,660,680B) in 2 places, all below massif's threshold (01.00%)
+| | | |   
+| | | ->00.00% (184B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.34% (557,856B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.63% (2,648,090B) in 28 places, all below massif's threshold (01.00%)
+|   
+->09.65% (15,710,994B) 0x54AD58D: g_realloc (in /lib/libglib-2.0.so.0.2400.1)
+| ->07.21% (11,734,576B) 0x547EDC9: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->07.10% (11,550,560B) 0x547EE91: g_array_set_size (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->07.10% (11,549,728B) 0x4E3E92B: bluesky_file_truncate (file.c:93)
+| | | | ->07.10% (11,549,728B) 0x408B2D: nfsproc3_write_3_svc (nfs3.c:417)
+| | | |   ->07.10% (11,549,728B) 0x406376: nfs_program_3 (rpc.c:493)
+| | | |     ->07.10% (11,549,728B) 0x406409: async_rpc_task (rpc.c:536)
+| | | |       ->07.10% (11,549,728B) 0x54CFA5D: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |         ->07.10% (11,549,728B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | |           ->07.10% (11,549,728B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | |             ->07.10% (11,549,728B) 0x71E170B: clone (clone.S:112)
+| | | |               
+| | | ->00.00% (832B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.11% (184,016B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->01.78% (2,900,920B) 0x54C73B5: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | ->01.45% (2,359,936B) 0x54C7FF1: g_string_insert_len (in /lib/libglib-2.0.so.0.2400.1)
+| | | ->01.29% (2,097,152B) 0x4E3BF9C: bluesky_cloudlog_serialize (cloudlog.c:423)
+| | | | ->01.29% (2,097,152B) 0x4E3BDAC: bluesky_cloudlog_serialize (cloudlog.c:392)
+| | | | | ->01.29% (2,097,152B) 0x4E3957C: flushd_cloud (cache.c:163)
+| | | | | | ->01.29% (2,097,152B) 0x4E3A041: flushd_task (cache.c:398)
+| | | | | |   ->01.29% (2,097,152B) 0x54CDB82: ??? (in /lib/libglib-2.0.so.0.2400.1)
+| | | | | |     ->01.29% (2,097,152B) 0x6EE49C8: start_thread (pthread_create.c:300)
+| | | | | |       ->01.29% (2,097,152B) 0x71E170B: clone (clone.S:112)
+| | | | | |         
+| | | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | | 
+| | | | ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | | 
+| | | ->00.16% (262,784B) in 1+ places, all below ms_print's threshold (01.00%)
+| | | 
+| | ->00.33% (540,984B) in 1+ places, all below ms_print's threshold (01.00%)
+| | 
+| ->00.66% (1,075,498B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->01.30% (2,107,719B) in 179 places, all below massif's threshold (01.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 59 2,244,706,107,341      164,779,504      143,190,037    21,589,467            0
+ 60 2,248,465,561,917      157,648,368      136,128,417    21,519,951            0

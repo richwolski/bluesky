@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Launch the synthetic read benchmark.
+
+SYNREAD_OUTSTANDING=32
+SYNREAD_PROCS=4
+SYNREAD_SIZE=$((1 << 20))
+SYNREAD_DURATION=30
+
+# Export any environment variables specified on the command line
+for e in "$@"; do
+    echo "$e" 1>&2
+    if echo "$e" | grep = >/dev/null; then
+        eval "$e"
+        export ${e%=*}
+    fi
+done
+
+mkdir /scratch/synread/$BLUESKY_RUN_NAME
+cd /scratch/synread/$BLUESKY_RUN_NAME
+for i in $(seq $SYNREAD_PROCS); do
+    /scratch/bluesky.git/nfs3/synreadbench /scratch/inodes.txt $SYNREAD_OUTSTANDING $SYNREAD_SIZE proc-$i.data &
+done
+
+sleep $SYNREAD_DURATION
+
+pkill -TERM synreadbench

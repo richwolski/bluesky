@@ -1,0 +1,2231 @@
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 100  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 18:58:07 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 18:58:07 2011 Mounting 16 remote test directories.
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Sat Apr 30 18:58:25 2011 Completed.
+Sat Apr 30 18:58:25 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 18:58:25 2011 Completed.
+Sat Apr 30 18:58:25 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 18:58:25 2011 Received.
+
+Sat Apr 30 18:58:25 2011 Initializing test directories.
+Sat Apr 30 18:58:25 2011 Child 15 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 6 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 5 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 2 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 10 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 9 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 14 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 12 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 8 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 0 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 7 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 3 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 1 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 13 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 11 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 4 will create 46 directories.
+Sat Apr 30 18:58:25 2011 Child 13 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 13 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 8 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 8 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 9 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 9 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 12 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 12 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 11 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 11 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 6 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 6 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 4 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 4 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 5 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 5 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 1 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 1 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 3 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 3 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 10 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 10 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 0 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 0 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 2 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 2 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 7 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 7 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 15 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 15 will create 1386 files.
+Sat Apr 30 18:58:25 2011 Child 14 finished creating 46 directories.
+Sat Apr 30 18:58:25 2011 Child 14 will create 1386 files.
+Sat Apr 30 19:06:13 2011 Child 10 verified 944 files (944 creates).
+Sat Apr 30 19:06:13 2011 Child 1 verified 899 files (899 creates).
+Sat Apr 30 19:06:14 2011 Child 15 verified 894 files (894 creates).
+Sat Apr 30 19:06:14 2011 Child 8 verified 1005 files (1005 creates).
+Sat Apr 30 19:06:23 2011 Child 14 verified 996 files (996 creates).
+Sat Apr 30 19:06:23 2011 Child 0 verified 872 files (872 creates).
+Sat Apr 30 19:06:27 2011 Child 4 verified 903 files (903 creates).
+Sat Apr 30 19:06:27 2011 Child 2 verified 996 files (996 creates).
+Sat Apr 30 19:06:27 2011 Child 9 verified 996 files (996 creates).
+Sat Apr 30 19:06:27 2011 Child 6 verified 996 files (996 creates).
+Sat Apr 30 19:06:27 2011 Child 11 verified 996 files (996 creates).
+Sat Apr 30 19:06:27 2011 Child 7 verified 996 files (996 creates).
+Sat Apr 30 19:06:27 2011 Child 13 verified 996 files (996 creates).
+Sat Apr 30 19:06:27 2011 Child 3 verified 996 files (996 creates).
+Sat Apr 30 19:07:28 2011 Child 12 verified 1118 files (1118 creates).
+Sat Apr 30 19:07:35 2011 Child 5 verified 1118 files (1118 creates).
+Sat Apr 30 19:08:45 2011 Child 12 verified 1386 files, created 1373
+Sat Apr 30 19:08:45 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 19:08:45 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 19:08:45 2011 Child 7 verified 1386 files, created 1373
+Sat Apr 30 19:08:45 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 19:08:45 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 19:08:45 2011 Child 9 verified 1386 files, created 1373
+Sat Apr 30 19:08:45 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 19:08:45 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 19:08:45 2011 Child 5 verified 1386 files, created 1373
+Sat Apr 30 19:08:45 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 19:08:46 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 19:08:46 2011 Child 8 verified 1386 files, created 1373
+Sat Apr 30 19:08:46 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 19:08:46 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 2 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 4 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 14 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 1 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 10 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 13 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 11 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 6 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 3 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 15 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 0 verified 1386 files, created 1373
+Sat Apr 30 19:08:49 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 19:08:49 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 19:08:50 2011 Completed.
+Sat Apr 30 19:08:50 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:08:50 2011 Completed.
+Sat Apr 30 19:08:50 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:08:50 2011 Received.
+Sat Apr 30 19:08:50 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 19:13:50 2011 Completed.
+Sat Apr 30 19:13:50 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:13:50 2011 Completed.
+Sat Apr 30 19:13:50 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:13:51 2011 Received.
+Sat Apr 30 19:13:51 2011 Starting 300 seconds test run.
+Child 4 - 50 aborted ops
+Child 4 - 100 aborted ops
+SFS Single Client (c09-44) Results, Sat Apr 30 19:19:01 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    25.9%     7752     7752      0      0.19     0.02      0.00  5.0%
+setattr      4.0%     4.0%     1190     1190      0      0.97     1.10      0.06  3.9%
+lookup      24.0%    23.7%     7103     7103      0      0.19     0.02      0.00  4.7%
+readlink     1.0%     1.0%      302      302      0      0.19     0.06      0.03  0.2%
+read        18.0%    18.1%     5442     6647      0      1.48     4.08      0.05 27.6%
+write       10.0%    10.2%     3052     3705      0      3.88    13.85      0.13 40.7%
+create       1.0%     1.0%      302      302      0      1.93     0.93      0.11  2.0%
+remove       1.0%     1.0%      296      296      0      1.13     1.09      0.12  1.1%
+readdir      1.0%     1.0%      288      288      0      0.35     0.05      0.03  0.4%
+fsstat       1.0%     1.0%      292      292      0      0.18     0.01      0.01  0.2%
+access      11.0%    11.1%     3339     3339      0      0.19     0.03      0.01  2.2%
+commit       0.0%     0.0%        0     1342      0      0.00     0.00      0.00 10.8%
+readdirplus  2.0%     2.1%      629      629      0      0.56     0.06      0.02  1.2%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:   99.95 Ops/Sec   AVG. RESPONSE TIME:    0.97 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 100 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  29987          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 33187    
+PHYSICAL NFS V3 THROUGHPUT:  110.62 Ops/Sec
+FILE SET SIZE CREATED: 11537568.0 KB
+FILE SET SIZE ACCESSED: 3466368.0 - 3536572.0 KB  (100.00% to 102.03% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 19:19:01 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 100
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 21728 Files created for I/O operations
+		   6512 Files accessed for I/O operations
+		    448 Files for non-I/O operations
+		     32 Symlinks
+		    720 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 19:19:01 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:19:01 2011 Completed.
+Sat Apr 30 19:19:01 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 19:19:02 2011 Received.
+Sat Apr 30 19:19:02 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 19:19:02 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 200  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 19:19:04 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 19:19:04 2011 Mounting 16 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Sat Apr 30 19:19:18 2011 Completed.
+Sat Apr 30 19:19:18 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:19:18 2011 Completed.
+Sat Apr 30 19:19:18 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:19:20 2011 Received.
+
+Sat Apr 30 19:19:20 2011 Initializing test directories.
+Sat Apr 30 19:19:20 2011 Child 13 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 15 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 12 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 0 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 4 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 14 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 11 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 1 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 10 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 5 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 9 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 2 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 6 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 7 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 8 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 3 will create 95 directories.
+Sat Apr 30 19:19:20 2011 Child 15 finished creating 95 directories.
+Sat Apr 30 19:19:20 2011 Child 15 will create 2897 files.
+Sat Apr 30 19:19:20 2011 Child 1 finished creating 95 directories.
+Sat Apr 30 19:19:20 2011 Child 1 will create 2897 files.
+Sat Apr 30 19:19:20 2011 Child 0 finished creating 95 directories.
+Sat Apr 30 19:19:20 2011 Child 0 will create 2897 files.
+Sat Apr 30 19:19:20 2011 Child 3 finished creating 95 directories.
+Sat Apr 30 19:19:20 2011 Child 3 will create 2897 files.
+Sat Apr 30 19:19:21 2011 Child 12 finished creating 95 directories.
+Sat Apr 30 19:19:21 2011 Child 12 will create 2897 files.
+Sat Apr 30 19:19:21 2011 Child 5 finished creating 95 directories.
+Sat Apr 30 19:19:21 2011 Child 5 will create 2897 files.
+Sat Apr 30 19:19:22 2011 Child 11 finished creating 95 directories.
+Sat Apr 30 19:19:22 2011 Child 11 will create 2897 files.
+Sat Apr 30 19:19:22 2011 Child 13 finished creating 95 directories.
+Sat Apr 30 19:19:22 2011 Child 13 will create 2897 files.
+Sat Apr 30 19:19:24 2011 Child 7 finished creating 95 directories.
+Sat Apr 30 19:19:24 2011 Child 7 will create 2897 files.
+Sat Apr 30 19:19:25 2011 Child 10 finished creating 95 directories.
+Sat Apr 30 19:19:25 2011 Child 10 will create 2897 files.
+Sat Apr 30 19:19:25 2011 Child 14 finished creating 95 directories.
+Sat Apr 30 19:19:25 2011 Child 14 will create 2897 files.
+Sat Apr 30 19:19:25 2011 Child 9 finished creating 95 directories.
+Sat Apr 30 19:19:25 2011 Child 9 will create 2897 files.
+Sat Apr 30 19:19:25 2011 Child 2 finished creating 95 directories.
+Sat Apr 30 19:19:25 2011 Child 2 will create 2897 files.
+Sat Apr 30 19:19:25 2011 Child 4 finished creating 95 directories.
+Sat Apr 30 19:19:25 2011 Child 4 will create 2897 files.
+Sat Apr 30 19:19:25 2011 Child 8 finished creating 95 directories.
+Sat Apr 30 19:19:25 2011 Child 8 will create 2897 files.
+Sat Apr 30 19:19:25 2011 Child 6 finished creating 95 directories.
+Sat Apr 30 19:19:25 2011 Child 6 will create 2897 files.
+Sat Apr 30 19:24:23 2011 Child 15 verified 1784 files (426 creates).
+Sat Apr 30 19:24:30 2011 Child 14 verified 1719 files (361 creates).
+Sat Apr 30 19:24:30 2011 Child 12 verified 1687 files (329 creates).
+Sat Apr 30 19:24:30 2011 Child 7 verified 1687 files (329 creates).
+Sat Apr 30 19:24:30 2011 Child 4 verified 1687 files (329 creates).
+Sat Apr 30 19:24:31 2011 Child 13 verified 1687 files (329 creates).
+Sat Apr 30 19:24:31 2011 Child 2 verified 1687 files (329 creates).
+Sat Apr 30 19:24:31 2011 Child 9 verified 1687 files (329 creates).
+Sat Apr 30 19:24:54 2011 Child 1 verified 1784 files (426 creates).
+Sat Apr 30 19:24:54 2011 Child 6 verified 1687 files (329 creates).
+Sat Apr 30 19:25:05 2011 Child 0 verified 1866 files (508 creates).
+Sat Apr 30 19:25:05 2011 Child 5 verified 1780 files (422 creates).
+Sat Apr 30 19:25:05 2011 Child 11 verified 1780 files (422 creates).
+Sat Apr 30 19:25:19 2011 Child 10 verified 1687 files (329 creates).
+Sat Apr 30 19:25:23 2011 Child 8 verified 1687 files (329 creates).
+Sat Apr 30 19:25:28 2011 Child 3 verified 1774 files (416 creates).
+Sat Apr 30 19:29:45 2011 Child 2 verified 1907 files (549 creates).
+Sat Apr 30 19:29:45 2011 Child 4 verified 1907 files (549 creates).
+Sat Apr 30 19:29:45 2011 Child 14 verified 1998 files (640 creates).
+Sat Apr 30 19:29:49 2011 Child 12 verified 1907 files (549 creates).
+Sat Apr 30 19:29:49 2011 Child 9 verified 1907 files (549 creates).
+Sat Apr 30 19:29:49 2011 Child 7 verified 1907 files (549 creates).
+Sat Apr 30 19:29:49 2011 Child 13 verified 1907 files (549 creates).
+Sat Apr 30 19:29:49 2011 Child 15 verified 2141 files (783 creates).
+Sat Apr 30 19:29:55 2011 Child 6 verified 1933 files (575 creates).
+Sat Apr 30 19:29:58 2011 Child 1 verified 2141 files (783 creates).
+Sat Apr 30 19:30:06 2011 Child 5 verified 2199 files (841 creates).
+Sat Apr 30 19:30:06 2011 Child 0 verified 2362 files (1004 creates).
+Sat Apr 30 19:30:06 2011 Child 11 verified 2193 files (835 creates).
+Sat Apr 30 19:30:19 2011 Child 10 verified 2100 files (742 creates).
+Sat Apr 30 19:30:20 2011 Child 8 verified 2028 files (670 creates).
+Sat Apr 30 19:32:00 2011 Child 3 verified 2141 files (783 creates).
+Sat Apr 30 19:35:25 2011 Child 4 verified 2402 files (1044 creates).
+Sat Apr 30 19:35:25 2011 Child 13 verified 2339 files (981 creates).
+Sat Apr 30 19:35:25 2011 Child 10 verified 2356 files (998 creates).
+Sat Apr 30 19:35:25 2011 Child 2 verified 2404 files (1046 creates).
+Sat Apr 30 19:35:25 2011 Child 7 verified 2370 files (1012 creates).
+Sat Apr 30 19:35:33 2011 Child 0 verified 2643 files (1285 creates).
+Sat Apr 30 19:35:43 2011 Child 15 verified 2560 files (1202 creates).
+Sat Apr 30 19:35:52 2011 Child 5 verified 2501 files (1143 creates).
+Sat Apr 30 19:35:52 2011 Child 14 verified 2501 files (1143 creates).
+Sat Apr 30 19:35:52 2011 Child 8 verified 2364 files (1006 creates).
+Sat Apr 30 19:35:52 2011 Child 11 verified 2501 files (1143 creates).
+Sat Apr 30 19:35:52 2011 Child 9 verified 2364 files (1006 creates).
+Sat Apr 30 19:35:52 2011 Child 12 verified 2364 files (1006 creates).
+Sat Apr 30 19:35:52 2011 Child 1 verified 2501 files (1143 creates).
+Sat Apr 30 19:35:52 2011 Child 6 verified 2364 files (1006 creates).
+Sat Apr 30 19:37:05 2011 Child 3 verified 2399 files (1041 creates).
+Sat Apr 30 19:38:05 2011 Child 0 verified 2897 files, created 1511
+Sat Apr 30 19:38:05 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 19:38:05 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 19:40:22 2011 Child 15 verified 2897 files, created 1511
+Sat Apr 30 19:40:22 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 19:40:22 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 19:40:48 2011 Child 4 verified 2603 files (1245 creates).
+Sat Apr 30 19:40:49 2011 Child 7 verified 2542 files (1184 creates).
+Sat Apr 30 19:41:04 2011 Child 12 verified 2542 files (1184 creates).
+Sat Apr 30 19:41:04 2011 Child 9 verified 2542 files (1184 creates).
+Sat Apr 30 19:41:04 2011 Child 10 verified 2542 files (1184 creates).
+Sat Apr 30 19:41:04 2011 Child 2 verified 2643 files (1285 creates).
+Sat Apr 30 19:41:04 2011 Child 8 verified 2542 files (1184 creates).
+Sat Apr 30 19:41:04 2011 Child 6 verified 2542 files (1184 creates).
+Sat Apr 30 19:41:04 2011 Child 13 verified 2539 files (1181 creates).
+Sat Apr 30 19:41:08 2011 Child 1 verified 2897 files, created 1511
+Sat Apr 30 19:41:08 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 19:41:08 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 19:41:08 2011 Child 11 verified 2897 files, created 1511
+Sat Apr 30 19:41:08 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 19:41:08 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 19:41:10 2011 Child 5 verified 2897 files, created 1511
+Sat Apr 30 19:41:10 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 19:41:10 2011 Child 14 verified 2897 files, created 1511
+Sat Apr 30 19:41:10 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 19:41:11 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 19:41:15 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 19:41:24 2011 Child 2 verified 2897 files, created 1511
+Sat Apr 30 19:41:24 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 19:41:24 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 19:41:32 2011 Child 3 verified 2897 files, created 1511
+Sat Apr 30 19:41:32 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 19:41:32 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 19:41:38 2011 Child 7 verified 2897 files, created 1511
+Sat Apr 30 19:41:38 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 19:41:38 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 19:41:40 2011 Child 4 verified 2897 files, created 1511
+Sat Apr 30 19:41:40 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 19:41:40 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 19:41:45 2011 Child 10 verified 2897 files, created 1511
+Sat Apr 30 19:41:45 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 19:41:45 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 19:41:45 2011 Child 6 verified 2897 files, created 1511
+Sat Apr 30 19:41:45 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 19:41:45 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 19:41:46 2011 Child 8 verified 2897 files, created 1511
+Sat Apr 30 19:41:46 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 19:41:46 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 19:41:48 2011 Child 12 verified 2897 files, created 1511
+Sat Apr 30 19:41:48 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 19:41:48 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 19:41:49 2011 Child 9 verified 2897 files, created 1511
+Sat Apr 30 19:41:49 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 19:41:49 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 19:41:49 2011 Child 13 verified 2897 files, created 1511
+Sat Apr 30 19:41:49 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 19:41:49 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 19:41:50 2011 Completed.
+Sat Apr 30 19:41:50 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:41:50 2011 Completed.
+Sat Apr 30 19:41:50 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:41:50 2011 Received.
+Sat Apr 30 19:41:50 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 19:46:50 2011 Completed.
+Sat Apr 30 19:46:50 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:46:50 2011 Completed.
+Sat Apr 30 19:46:50 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:46:51 2011 Received.
+Sat Apr 30 19:46:51 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Sat Apr 30 19:52:01 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    26.1%    15638    15638      0      0.19     0.04      0.00  3.9%
+setattr      4.0%     4.1%     2445     2445      0      1.59     3.13      0.07  5.0%
+lookup      24.0%    23.9%    14315    14315      0      0.20     0.04      0.00  3.7%
+readlink     1.0%     1.0%      622      622      0      0.19     0.03      0.01  0.2%
+read        18.0%    18.1%    10840    13423      0      2.69     6.72      0.05 37.9%
+write       10.0%     9.9%     5966     7275      0      3.99    12.15      0.09 30.9%
+create       1.0%     1.0%      599      599      0      3.27     4.30      0.17  2.5%
+remove       1.0%     1.0%      622      622      0      2.34     3.43      0.15  1.9%
+readdir      1.0%     1.0%      604      604      0      0.40     0.07      0.02  0.3%
+fsstat       1.0%     1.0%      616      616      0      0.19     0.06      0.02  0.2%
+access      11.0%    10.9%     6545     6545      0      0.19     0.04      0.00  1.6%
+commit       0.0%     0.0%        0     2600      0      0.00     0.00      0.00 10.9%
+readdirplus  2.0%     2.0%     1206     1206      0      0.65     0.07      0.01  1.0%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  200.06 Ops/Sec   AVG. RESPONSE TIME:    1.28 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 200 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  60018          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 66510    
+PHYSICAL NFS V3 THROUGHPUT:  221.70 Ops/Sec
+FILE SET SIZE CREATED: 24128640.0 KB
+FILE SET SIZE ACCESSED: 7247088.0 - 7391741.0 KB  (100.00% to 102.00% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 19:52:01 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 200
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 45440 Files created for I/O operations
+		   13632 Files accessed for I/O operations
+		    912 Files for non-I/O operations
+		     32 Symlinks
+		   1504 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 19:52:01 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:52:01 2011 Completed.
+Sat Apr 30 19:52:01 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 19:52:02 2011 Received.
+Sat Apr 30 19:52:02 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 19:52:02 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 300  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+************************************************************************
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 19:52:04 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 19:52:04 2011 Mounting 16 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Sat Apr 30 19:52:18 2011 Completed.
+Sat Apr 30 19:52:18 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:52:18 2011 Completed.
+Sat Apr 30 19:52:18 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 19:52:20 2011 Received.
+
+Sat Apr 30 19:52:20 2011 Initializing test directories.
+Sat Apr 30 19:52:20 2011 Child 8 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 4 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 2 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 7 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 1 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 0 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 6 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 5 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 3 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 9 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 15 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 10 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 14 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 11 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 13 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 12 will create 145 directories.
+Sat Apr 30 19:52:20 2011 Child 4 finished creating 145 directories.
+Sat Apr 30 19:52:20 2011 Child 4 will create 4408 files.
+Sat Apr 30 19:52:20 2011 Child 5 finished creating 145 directories.
+Sat Apr 30 19:52:20 2011 Child 5 will create 4408 files.
+Sat Apr 30 19:52:21 2011 Child 1 finished creating 145 directories.
+Sat Apr 30 19:52:21 2011 Child 1 will create 4408 files.
+Sat Apr 30 19:52:21 2011 Child 3 finished creating 145 directories.
+Sat Apr 30 19:52:21 2011 Child 3 will create 4408 files.
+Sat Apr 30 19:52:21 2011 Child 10 finished creating 145 directories.
+Sat Apr 30 19:52:21 2011 Child 10 will create 4408 files.
+Sat Apr 30 19:52:23 2011 Child 13 finished creating 145 directories.
+Sat Apr 30 19:52:23 2011 Child 13 will create 4408 files.
+Sat Apr 30 19:52:23 2011 Child 15 finished creating 145 directories.
+Sat Apr 30 19:52:23 2011 Child 15 will create 4408 files.
+Sat Apr 30 19:52:23 2011 Child 6 finished creating 145 directories.
+Sat Apr 30 19:52:23 2011 Child 6 will create 4408 files.
+Sat Apr 30 19:52:25 2011 Child 9 finished creating 145 directories.
+Sat Apr 30 19:52:25 2011 Child 9 will create 4408 files.
+Sat Apr 30 19:52:25 2011 Child 7 finished creating 145 directories.
+Sat Apr 30 19:52:25 2011 Child 7 will create 4408 files.
+Sat Apr 30 19:52:29 2011 Child 12 finished creating 145 directories.
+Sat Apr 30 19:52:29 2011 Child 12 will create 4408 files.
+Sat Apr 30 19:52:29 2011 Child 14 finished creating 145 directories.
+Sat Apr 30 19:52:29 2011 Child 14 will create 4408 files.
+Sat Apr 30 19:52:29 2011 Child 8 finished creating 145 directories.
+Sat Apr 30 19:52:29 2011 Child 8 will create 4408 files.
+Sat Apr 30 19:52:30 2011 Child 0 finished creating 145 directories.
+Sat Apr 30 19:52:30 2011 Child 0 will create 4408 files.
+Sat Apr 30 19:52:30 2011 Child 2 finished creating 145 directories.
+Sat Apr 30 19:52:30 2011 Child 2 will create 4408 files.
+Sat Apr 30 19:52:31 2011 Child 11 finished creating 145 directories.
+Sat Apr 30 19:52:31 2011 Child 11 will create 4408 files.
+Sat Apr 30 19:57:25 2011 Child 3 verified 3281 files (441 creates).
+Sat Apr 30 19:57:25 2011 Child 4 verified 3271 files (431 creates).
+Sat Apr 30 19:57:25 2011 Child 1 verified 3231 files (391 creates).
+Sat Apr 30 19:57:25 2011 Child 6 verified 3099 files (259 creates).
+Sat Apr 30 19:57:25 2011 Child 13 verified 3075 files (235 creates).
+Sat Apr 30 19:57:25 2011 Child 15 verified 3146 files (306 creates).
+Sat Apr 30 19:57:42 2011 Child 9 verified 3107 files (267 creates).
+Sat Apr 30 19:57:42 2011 Child 12 verified 3075 files (235 creates).
+Sat Apr 30 19:57:42 2011 Child 7 verified 3075 files (235 creates).
+Sat Apr 30 19:57:42 2011 Child 2 verified 3052 files (212 creates).
+Sat Apr 30 19:57:42 2011 Child 10 verified 3146 files (306 creates).
+Sat Apr 30 19:57:42 2011 Child 14 verified 3052 files (212 creates).
+Sat Apr 30 19:57:42 2011 Child 11 verified 3052 files (212 creates).
+Sat Apr 30 19:57:42 2011 Child 0 verified 3075 files (235 creates).
+Sat Apr 30 19:57:42 2011 Child 5 verified 3370 files (530 creates).
+Sat Apr 30 19:57:42 2011 Child 8 verified 3075 files (235 creates).
+Sat Apr 30 20:02:34 2011 Child 1 verified 3544 files (704 creates).
+Sat Apr 30 20:02:44 2011 Child 11 verified 3456 files (616 creates).
+Sat Apr 30 20:02:44 2011 Child 10 verified 3661 files (821 creates).
+Sat Apr 30 20:02:54 2011 Child 4 verified 3661 files (821 creates).
+Sat Apr 30 20:02:54 2011 Child 14 verified 3456 files (616 creates).
+Sat Apr 30 20:03:05 2011 Child 3 verified 3778 files (938 creates).
+Sat Apr 30 20:03:05 2011 Child 2 verified 3456 files (616 creates).
+Sat Apr 30 20:03:05 2011 Child 12 verified 3508 files (668 creates).
+Sat Apr 30 20:03:05 2011 Child 7 verified 3456 files (616 creates).
+Sat Apr 30 20:03:19 2011 Child 9 verified 3505 files (665 creates).
+Sat Apr 30 20:03:33 2011 Child 13 verified 3505 files (665 creates).
+Sat Apr 30 20:03:40 2011 Child 8 verified 3505 files (665 creates).
+Sat Apr 30 20:03:40 2011 Child 15 verified 3505 files (665 creates).
+Sat Apr 30 20:03:40 2011 Child 0 verified 3505 files (665 creates).
+Sat Apr 30 20:03:40 2011 Child 5 verified 3817 files (977 creates).
+Sat Apr 30 20:03:40 2011 Child 6 verified 3505 files (665 creates).
+Sat Apr 30 20:07:39 2011 Child 1 verified 4022 files (1182 creates).
+Sat Apr 30 20:07:51 2011 Child 10 verified 3886 files (1046 creates).
+Sat Apr 30 20:08:08 2011 Child 4 verified 3903 files (1063 creates).
+Sat Apr 30 20:08:08 2011 Child 3 verified 4061 files (1221 creates).
+Sat Apr 30 20:08:08 2011 Child 12 verified 3879 files (1039 creates).
+Sat Apr 30 20:08:14 2011 Child 14 verified 3778 files (938 creates).
+Sat Apr 30 20:08:27 2011 Child 11 verified 3778 files (938 creates).
+Sat Apr 30 20:08:27 2011 Child 2 verified 3743 files (903 creates).
+Sat Apr 30 20:08:27 2011 Child 7 verified 3743 files (903 creates).
+Sat Apr 30 20:08:27 2011 Child 9 verified 3886 files (1046 creates).
+Sat Apr 30 20:09:00 2011 Child 6 verified 3817 files (977 creates).
+Sat Apr 30 20:09:00 2011 Child 5 verified 4171 files (1331 creates).
+Sat Apr 30 20:09:20 2011 Child 15 verified 3817 files (977 creates).
+Sat Apr 30 20:09:20 2011 Child 0 verified 3817 files (977 creates).
+Sat Apr 30 20:09:49 2011 Child 3 verified 4408 files, created 1525
+Sat Apr 30 20:09:49 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 20:09:49 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 20:09:53 2011 Child 5 verified 4408 files, created 1525
+Sat Apr 30 20:09:53 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 20:09:53 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 20:10:12 2011 Child 8 verified 3817 files (977 creates).
+Sat Apr 30 20:10:12 2011 Child 13 verified 3873 files (1033 creates).
+Sat Apr 30 20:10:37 2011 Child 1 verified 4408 files, created 1525
+Sat Apr 30 20:10:37 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 20:10:37 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 20:10:39 2011 Child 10 verified 4408 files, created 1525
+Sat Apr 30 20:10:39 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 20:10:39 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 20:10:41 2011 Child 4 verified 4408 files, created 1525
+Sat Apr 30 20:10:41 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 20:10:41 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 20:10:44 2011 Child 9 verified 4408 files, created 1525
+Sat Apr 30 20:10:44 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 20:10:44 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 20:10:57 2011 Child 12 verified 4408 files, created 1525
+Sat Apr 30 20:10:57 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 20:10:57 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 20:11:03 2011 Child 0 verified 4408 files, created 1525
+Sat Apr 30 20:11:03 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 20:11:03 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 20:11:04 2011 Child 6 verified 4408 files, created 1525
+Sat Apr 30 20:11:04 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 20:11:04 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 20:11:05 2011 Child 13 verified 4408 files, created 1525
+Sat Apr 30 20:11:05 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 20:11:05 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 20:11:06 2011 Child 7 verified 4408 files, created 1525
+Sat Apr 30 20:11:06 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 20:11:06 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 20:11:06 2011 Child 15 verified 4408 files, created 1525
+Sat Apr 30 20:11:06 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 20:11:07 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 20:11:08 2011 Child 8 verified 4408 files, created 1525
+Sat Apr 30 20:11:08 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 20:11:08 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 20:11:08 2011 Child 11 verified 4408 files, created 1525
+Sat Apr 30 20:11:08 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 20:11:08 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 20:11:08 2011 Child 2 verified 4408 files, created 1525
+Sat Apr 30 20:11:08 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 20:11:08 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 20:11:08 2011 Child 14 verified 4408 files, created 1525
+Sat Apr 30 20:11:08 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 20:11:08 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 20:11:09 2011 Completed.
+Sat Apr 30 20:11:09 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:11:09 2011 Completed.
+Sat Apr 30 20:11:09 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:11:09 2011 Received.
+Sat Apr 30 20:11:09 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 20:16:09 2011 Completed.
+Sat Apr 30 20:16:09 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:16:09 2011 Completed.
+Sat Apr 30 20:16:09 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:16:10 2011 Received.
+Sat Apr 30 20:16:10 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Sat Apr 30 20:21:20 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    26.0%    23397    23397      0      0.20     0.39      0.01  2.6%
+setattr      4.0%     4.0%     3599     3599      0      2.78     6.25      0.08  5.6%
+lookup      24.0%    24.1%    21692    21692      0      0.20     0.17      0.01  2.4%
+readlink     1.0%     1.0%      907      907      0      0.20     0.05      0.01  0.1%
+read        18.0%    17.9%    16106    19733      0      4.52    57.69      0.12 40.6%
+write       10.0%    10.1%     9111    11155      0      6.27   127.23      0.23 31.9%
+create       1.0%     1.0%      935      935      0      4.78     5.96      0.16  2.5%
+remove       1.0%     1.0%      865      865      0      4.19     6.73      0.17  2.0%
+readdir      1.0%     0.9%      855      855      0      0.41     0.07      0.02  0.2%
+fsstat       1.0%     1.0%      923      923      0      0.20     0.05      0.01  0.1%
+access      11.0%    11.0%     9878     9878      0      0.20     0.53      0.01  1.1%
+commit       0.0%     0.0%        0     3992      0      0.00     0.00      0.00 10.2%
+readdirplus  2.0%     2.0%     1778     1778      0      0.70     0.12      0.02  0.7%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  301.15 Ops/Sec   AVG. RESPONSE TIME:    1.99 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 300 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  90046          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 99709    
+PHYSICAL NFS V3 THROUGHPUT:  333.47 Ops/Sec
+FILE SET SIZE CREATED: 36711216.0 KB
+FILE SET SIZE ACCESSED: 11019312.0 - 11237901.0 KB  (100.00% to 101.98% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 20:21:20 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 300
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 69136 Files created for I/O operations
+		   20736 Files accessed for I/O operations
+		   1392 Files for non-I/O operations
+		     32 Symlinks
+		   2304 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 20:21:20 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:21:20 2011 Completed.
+Sat Apr 30 20:21:20 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 20:21:21 2011 Received.
+Sat Apr 30 20:21:21 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 20:21:21 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 400  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 20:21:23 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 20:21:23 2011 Mounting 16 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Sat Apr 30 20:21:37 2011 Completed.
+Sat Apr 30 20:21:37 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:21:37 2011 Completed.
+Sat Apr 30 20:21:37 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:21:39 2011 Received.
+
+Sat Apr 30 20:21:39 2011 Initializing test directories.
+Sat Apr 30 20:21:39 2011 Child 6 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 7 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 3 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 1 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 4 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 9 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 2 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 5 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 10 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 15 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 8 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 11 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 0 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 12 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 14 will create 190 directories.
+Sat Apr 30 20:21:39 2011 Child 13 will create 190 directories.
+Sat Apr 30 20:21:40 2011 Child 2 finished creating 190 directories.
+Sat Apr 30 20:21:40 2011 Child 2 will create 5793 files.
+Sat Apr 30 20:21:41 2011 Child 15 finished creating 190 directories.
+Sat Apr 30 20:21:41 2011 Child 15 will create 5793 files.
+Sat Apr 30 20:21:41 2011 Child 6 finished creating 190 directories.
+Sat Apr 30 20:21:41 2011 Child 6 will create 5793 files.
+Sat Apr 30 20:21:43 2011 Child 10 finished creating 190 directories.
+Sat Apr 30 20:21:43 2011 Child 10 will create 5793 files.
+Sat Apr 30 20:21:43 2011 Child 7 finished creating 190 directories.
+Sat Apr 30 20:21:43 2011 Child 7 will create 5793 files.
+Sat Apr 30 20:21:44 2011 Child 0 finished creating 190 directories.
+Sat Apr 30 20:21:44 2011 Child 0 will create 5793 files.
+Sat Apr 30 20:21:44 2011 Child 8 finished creating 190 directories.
+Sat Apr 30 20:21:44 2011 Child 8 will create 5793 files.
+Sat Apr 30 20:21:44 2011 Child 13 finished creating 190 directories.
+Sat Apr 30 20:21:44 2011 Child 13 will create 5793 files.
+Sat Apr 30 20:21:51 2011 Child 4 finished creating 190 directories.
+Sat Apr 30 20:21:51 2011 Child 4 will create 5793 files.
+Sat Apr 30 20:21:51 2011 Child 12 finished creating 190 directories.
+Sat Apr 30 20:21:51 2011 Child 12 will create 5793 files.
+Sat Apr 30 20:21:51 2011 Child 14 finished creating 190 directories.
+Sat Apr 30 20:21:51 2011 Child 14 will create 5793 files.
+Sat Apr 30 20:21:52 2011 Child 5 finished creating 190 directories.
+Sat Apr 30 20:21:52 2011 Child 5 will create 5793 files.
+Sat Apr 30 20:21:53 2011 Child 9 finished creating 190 directories.
+Sat Apr 30 20:21:53 2011 Child 9 will create 5793 files.
+Sat Apr 30 20:21:53 2011 Child 11 finished creating 190 directories.
+Sat Apr 30 20:21:53 2011 Child 11 will create 5793 files.
+Sat Apr 30 20:21:54 2011 Child 3 finished creating 190 directories.
+Sat Apr 30 20:21:54 2011 Child 3 will create 5793 files.
+Sat Apr 30 20:21:54 2011 Child 1 finished creating 190 directories.
+Sat Apr 30 20:21:54 2011 Child 1 will create 5793 files.
+Sat Apr 30 20:26:41 2011 Child 2 verified 5166 files (845 creates).
+Sat Apr 30 20:26:43 2011 Child 6 verified 5182 files (861 creates).
+Sat Apr 30 20:27:23 2011 Child 7 verified 4932 files (611 creates).
+Sat Apr 30 20:27:23 2011 Child 13 verified 4819 files (498 creates).
+Sat Apr 30 20:27:23 2011 Child 3 verified 4714 files (393 creates).
+Sat Apr 30 20:27:23 2011 Child 12 verified 4514 files (193 creates).
+Sat Apr 30 20:27:29 2011 Child 9 verified 4525 files (204 creates).
+Sat Apr 30 20:27:30 2011 Child 15 verified 4896 files (575 creates).
+Sat Apr 30 20:27:30 2011 Child 1 verified 4479 files (158 creates).
+Sat Apr 30 20:27:30 2011 Child 8 verified 4886 files (565 creates).
+Sat Apr 30 20:27:30 2011 Child 5 verified 4571 files (250 creates).
+Sat Apr 30 20:27:45 2011 Child 4 verified 4777 files (456 creates).
+Sat Apr 30 20:28:02 2011 Child 0 verified 4991 files (670 creates).
+Sat Apr 30 20:28:02 2011 Child 10 verified 4886 files (565 creates).
+Sat Apr 30 20:28:02 2011 Child 14 verified 4571 files (250 creates).
+Sat Apr 30 20:28:02 2011 Child 11 verified 4571 files (250 creates).
+Sat Apr 30 20:29:51 2011 Child 6 verified 5793 files, created 1416
+Sat Apr 30 20:29:51 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 20:29:51 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 20:29:53 2011 Child 2 verified 5793 files, created 1416
+Sat Apr 30 20:29:53 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 20:29:53 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 20:32:28 2011 Child 12 verified 4951 files (630 creates).
+Sat Apr 30 20:32:37 2011 Child 1 verified 4951 files (630 creates).
+Sat Apr 30 20:32:37 2011 Child 9 verified 4896 files (575 creates).
+Sat Apr 30 20:32:37 2011 Child 8 verified 5269 files (948 creates).
+Sat Apr 30 20:32:37 2011 Child 13 verified 5275 files (954 creates).
+Sat Apr 30 20:32:37 2011 Child 3 verified 5191 files (870 creates).
+Sat Apr 30 20:32:37 2011 Child 7 verified 5362 files (1041 creates).
+Sat Apr 30 20:32:37 2011 Child 5 verified 4962 files (641 creates).
+Sat Apr 30 20:32:46 2011 Child 4 verified 5269 files (948 creates).
+Sat Apr 30 20:32:57 2011 Child 0 verified 5793 files, created 1416
+Sat Apr 30 20:32:57 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 20:32:57 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 20:33:02 2011 Child 10 verified 5505 files (1184 creates).
+Sat Apr 30 20:33:11 2011 Child 7 verified 5793 files, created 1416
+Sat Apr 30 20:33:11 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 20:33:11 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 20:33:13 2011 Child 13 verified 5793 files, created 1416
+Sat Apr 30 20:33:13 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 20:33:13 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 20:33:20 2011 Child 10 verified 5793 files, created 1416
+Sat Apr 30 20:33:20 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 20:33:20 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 20:33:28 2011 Child 3 verified 5793 files, created 1416
+Sat Apr 30 20:33:28 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 20:33:28 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 20:33:29 2011 Child 4 verified 5793 files, created 1416
+Sat Apr 30 20:33:29 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 20:33:29 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 20:33:33 2011 Child 5 verified 5793 files, created 1416
+Sat Apr 30 20:33:33 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 20:33:33 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 20:33:36 2011 Child 14 verified 4991 files (670 creates).
+Sat Apr 30 20:33:36 2011 Child 11 verified 4991 files (670 creates).
+Sat Apr 30 20:33:37 2011 Child 15 verified 5362 files (1041 creates).
+Sat Apr 30 20:33:37 2011 Child 8 verified 5793 files, created 1416
+Sat Apr 30 20:33:37 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 20:33:37 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 20:33:38 2011 Child 12 verified 5793 files, created 1416
+Sat Apr 30 20:33:38 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 20:33:38 2011 Child 9 verified 5793 files, created 1416
+Sat Apr 30 20:33:38 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 20:33:38 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 20:33:38 2011 Child 1 verified 5793 files, created 1416
+Sat Apr 30 20:33:38 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 20:33:38 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 20:33:38 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 20:33:45 2011 Child 15 verified 5793 files, created 1416
+Sat Apr 30 20:33:45 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 20:33:45 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 20:34:00 2011 Child 11 verified 5793 files, created 1416
+Sat Apr 30 20:34:00 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 20:34:00 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 20:34:00 2011 Child 14 verified 5793 files, created 1416
+Sat Apr 30 20:34:00 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 20:34:00 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 20:34:00 2011 Completed.
+Sat Apr 30 20:34:00 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:34:00 2011 Completed.
+Sat Apr 30 20:34:00 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:34:00 2011 Received.
+Sat Apr 30 20:34:00 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 20:39:00 2011 Completed.
+Sat Apr 30 20:39:00 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:39:00 2011 Completed.
+Sat Apr 30 20:39:00 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:39:01 2011 Received.
+Sat Apr 30 20:39:01 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Sat Apr 30 20:44:12 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    25.9%    30879    30879      0      0.20     0.95      0.01  1.9%
+setattr      4.0%     4.0%     4781     4781      0      6.79    67.75      0.23  9.7%
+lookup      24.0%    23.8%    28411    28411      0      0.23     1.90      0.02  2.0%
+readlink     1.0%     1.0%     1223     1223      0      0.21     0.27      0.03  0.1%
+read        18.0%    18.1%    21599    26549      0      4.78    31.41      0.07 31.0%
+write       10.0%    10.1%    12039    14782      0      8.25    44.50      0.12 29.8%
+create       1.0%     1.0%     1162     1162      0     10.44    84.96      0.53  3.6%
+remove       1.0%     1.0%     1204     1204      0      7.77    62.93      0.45  2.8%
+readdir      1.0%     1.0%     1160     1160      0      0.42     0.10      0.02  0.1%
+fsstat       1.0%     1.0%     1250     1250      0      0.20     0.06      0.01  0.1%
+access      11.0%    11.0%    13076    13076      0      0.31    11.62      0.06  1.2%
+commit       0.0%     0.0%        0     5343      0      0.00     0.00      0.00 17.0%
+readdirplus  2.0%     2.0%     2385     2385      0      0.77     2.71      0.07  0.6%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  395.91 Ops/Sec   AVG. RESPONSE TIME:    2.79 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 400 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  119169         TEST TIME: 301 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 132205   
+PHYSICAL NFS V3 THROUGHPUT:  439.21 Ops/Sec
+FILE SET SIZE CREATED: 48248784.0 KB
+FILE SET SIZE ACCESSED: 14477184.0 - 14765993.0 KB  (100.00% to 101.99% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 20:44:12 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 400
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 90864 Files created for I/O operations
+		   27248 Files accessed for I/O operations
+		   1824 Files for non-I/O operations
+		     32 Symlinks
+		   3024 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 20:44:12 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:44:12 2011 Completed.
+Sat Apr 30 20:44:12 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 20:44:13 2011 Received.
+Sat Apr 30 20:44:13 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 20:44:13 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 500  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 20:44:15 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 20:44:15 2011 Mounting 16 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Sat Apr 30 20:44:29 2011 Completed.
+Sat Apr 30 20:44:29 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:44:29 2011 Completed.
+Sat Apr 30 20:44:29 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:44:31 2011 Received.
+
+Sat Apr 30 20:44:31 2011 Initializing test directories.
+Sat Apr 30 20:44:31 2011 Child 15 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 8 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 7 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 0 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 12 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 13 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 14 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 1 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 11 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 5 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 4 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 9 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 6 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 10 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 3 will create 239 directories.
+Sat Apr 30 20:44:31 2011 Child 2 will create 239 directories.
+Sat Apr 30 20:44:32 2011 Child 2 finished creating 239 directories.
+Sat Apr 30 20:44:32 2011 Child 2 will create 7304 files.
+Sat Apr 30 20:44:33 2011 Child 6 finished creating 239 directories.
+Sat Apr 30 20:44:33 2011 Child 6 will create 7304 files.
+Sat Apr 30 20:44:33 2011 Child 3 finished creating 239 directories.
+Sat Apr 30 20:44:33 2011 Child 3 will create 7304 files.
+Sat Apr 30 20:44:36 2011 Child 10 finished creating 239 directories.
+Sat Apr 30 20:44:36 2011 Child 10 will create 7304 files.
+Sat Apr 30 20:44:37 2011 Child 12 finished creating 239 directories.
+Sat Apr 30 20:44:37 2011 Child 12 will create 7304 files.
+Sat Apr 30 20:44:40 2011 Child 15 finished creating 239 directories.
+Sat Apr 30 20:44:40 2011 Child 15 will create 7304 files.
+Sat Apr 30 20:44:40 2011 Child 9 finished creating 239 directories.
+Sat Apr 30 20:44:40 2011 Child 9 will create 7304 files.
+Sat Apr 30 20:44:42 2011 Child 0 finished creating 239 directories.
+Sat Apr 30 20:44:42 2011 Child 0 will create 7304 files.
+Sat Apr 30 20:44:42 2011 Child 4 finished creating 239 directories.
+Sat Apr 30 20:44:42 2011 Child 4 will create 7304 files.
+Sat Apr 30 20:44:42 2011 Child 11 finished creating 239 directories.
+Sat Apr 30 20:44:42 2011 Child 11 will create 7304 files.
+Sat Apr 30 20:44:43 2011 Child 1 finished creating 239 directories.
+Sat Apr 30 20:44:43 2011 Child 1 will create 7304 files.
+Sat Apr 30 20:44:46 2011 Child 7 finished creating 239 directories.
+Sat Apr 30 20:44:46 2011 Child 7 will create 7304 files.
+Sat Apr 30 20:44:46 2011 Child 13 finished creating 239 directories.
+Sat Apr 30 20:44:46 2011 Child 13 will create 7304 files.
+Sat Apr 30 20:44:47 2011 Child 5 finished creating 239 directories.
+Sat Apr 30 20:44:47 2011 Child 5 will create 7304 files.
+Sat Apr 30 20:44:49 2011 Child 14 finished creating 239 directories.
+Sat Apr 30 20:44:49 2011 Child 14 will create 7304 files.
+Sat Apr 30 20:44:52 2011 Child 8 finished creating 239 directories.
+Sat Apr 30 20:44:52 2011 Child 8 will create 7304 files.
+Sat Apr 30 20:50:44 2011 Child 5 verified 6267 files (588 creates).
+Sat Apr 30 20:50:44 2011 Child 7 verified 6198 files (519 creates).
+Sat Apr 30 20:50:44 2011 Child 2 verified 6712 files (1033 creates).
+Sat Apr 30 20:50:44 2011 Child 0 verified 6337 files (658 creates).
+Sat Apr 30 20:51:00 2011 Child 14 verified 6152 files (473 creates).
+Sat Apr 30 20:51:00 2011 Child 8 verified 6092 files (413 creates).
+Sat Apr 30 20:51:00 2011 Child 4 verified 6337 files (658 creates).
+Sat Apr 30 20:51:00 2011 Child 13 verified 6195 files (516 creates).
+Sat Apr 30 20:51:00 2011 Child 6 verified 6500 files (821 creates).
+Sat Apr 30 20:51:00 2011 Child 15 verified 6353 files (674 creates).
+Sat Apr 30 20:51:49 2011 Child 11 verified 6337 files (658 creates).
+Sat Apr 30 20:51:53 2011 Child 10 verified 6456 files (777 creates).
+Sat Apr 30 20:51:53 2011 Child 9 verified 6456 files (777 creates).
+Sat Apr 30 20:51:53 2011 Child 3 verified 6642 files (963 creates).
+Sat Apr 30 20:51:53 2011 Child 12 verified 6337 files (658 creates).
+Sat Apr 30 20:51:53 2011 Child 1 verified 6337 files (658 creates).
+Sat Apr 30 20:55:45 2011 Child 7 verified 6598 files (919 creates).
+Sat Apr 30 20:55:45 2011 Child 2 verified 7109 files (1430 creates).
+Sat Apr 30 20:55:49 2011 Child 0 verified 6543 files (864 creates).
+Sat Apr 30 20:55:51 2011 Child 5 verified 6543 files (864 creates).
+Sat Apr 30 20:55:55 2011 Child 2 verified 7304 files, created 1554
+Sat Apr 30 20:55:55 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 20:55:55 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 20:56:39 2011 Child 4 verified 6800 files (1121 creates).
+Sat Apr 30 20:56:40 2011 Child 13 verified 6638 files (959 creates).
+Sat Apr 30 20:56:42 2011 Child 15 verified 6811 files (1132 creates).
+Sat Apr 30 20:56:42 2011 Child 14 verified 6543 files (864 creates).
+Sat Apr 30 20:56:42 2011 Child 6 verified 7046 files (1367 creates).
+Sat Apr 30 20:56:54 2011 Child 10 verified 6799 files (1120 creates).
+Sat Apr 30 20:56:54 2011 Child 11 verified 6642 files (963 creates).
+Sat Apr 30 20:56:54 2011 Child 9 verified 6800 files (1121 creates).
+Sat Apr 30 20:56:54 2011 Child 12 verified 6643 files (964 creates).
+Sat Apr 30 20:56:54 2011 Child 1 verified 6657 files (978 creates).
+Sat Apr 30 20:56:57 2011 Child 6 verified 7304 files, created 1554
+Sat Apr 30 20:56:57 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 20:56:58 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 20:57:20 2011 Child 4 verified 7304 files, created 1554
+Sat Apr 30 20:57:20 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 20:57:20 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 20:57:21 2011 Child 15 verified 7304 files, created 1554
+Sat Apr 30 20:57:21 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 20:57:21 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 20:57:43 2011 Child 13 verified 7304 files, created 1554
+Sat Apr 30 20:57:43 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 20:57:43 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 20:57:43 2011 Child 3 verified 7036 files (1357 creates).
+Sat Apr 30 20:57:43 2011 Child 8 verified 6543 files (864 creates).
+Sat Apr 30 20:57:46 2011 Child 0 verified 7304 files, created 1554
+Sat Apr 30 20:57:46 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 20:57:46 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 20:57:46 2011 Child 5 verified 7304 files, created 1554
+Sat Apr 30 20:57:46 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 20:57:46 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 20:57:46 2011 Child 10 verified 7304 files, created 1554
+Sat Apr 30 20:57:46 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 20:57:46 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 20:57:48 2011 Child 1 verified 7304 files, created 1554
+Sat Apr 30 20:57:48 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 20:57:49 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 20:57:49 2011 Child 11 verified 7304 files, created 1554
+Sat Apr 30 20:57:49 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 20:57:50 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 20:57:50 2011 Child 12 verified 7304 files, created 1554
+Sat Apr 30 20:57:50 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 20:57:50 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 20:57:52 2011 Child 3 verified 7304 files, created 1554
+Sat Apr 30 20:57:52 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 20:57:52 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 20:57:56 2011 Child 9 verified 7304 files, created 1554
+Sat Apr 30 20:57:56 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 20:57:56 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 20:58:06 2011 Child 7 verified 7304 files, created 1554
+Sat Apr 30 20:58:06 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 20:58:06 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 20:58:09 2011 Child 8 verified 7304 files, created 1554
+Sat Apr 30 20:58:09 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 20:58:09 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 20:58:11 2011 Child 14 verified 7304 files, created 1554
+Sat Apr 30 20:58:11 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 20:58:11 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 20:58:11 2011 Completed.
+Sat Apr 30 20:58:11 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:58:11 2011 Completed.
+Sat Apr 30 20:58:11 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 20:58:11 2011 Received.
+Sat Apr 30 20:58:11 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 21:03:11 2011 Completed.
+Sat Apr 30 21:03:11 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:03:11 2011 Completed.
+Sat Apr 30 21:03:11 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:03:12 2011 Received.
+Sat Apr 30 21:03:12 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Sat Apr 30 21:08:22 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    25.8%    36899    36899      0      0.41     2.43      0.02  1.8%
+setattr      4.0%     4.0%     5703     5703      0     11.79    33.36      0.15  8.0%
+lookup      24.0%    23.9%    34236    34236      0      2.24   162.84      0.14  9.2%
+readlink     1.0%     1.0%     1471     1471      0      0.46     3.55      0.10  0.1%
+read        18.0%    18.2%    26032    31980      0     11.11    31.14      0.07 34.6%
+write       10.0%    10.0%    14360    17438      0     17.15   176.45      0.22 29.5%
+create       1.0%     1.0%     1369     1369      0     21.35    65.97      0.43  3.5%
+remove       1.0%     1.0%     1433     1433      0     13.82    24.71      0.26  2.4%
+readdir      1.0%     1.0%     1369     1369      0      0.62     1.88      0.07  0.1%
+fsstat       1.0%     1.0%     1438     1438      0      0.43     2.14      0.08  0.1%
+access      11.0%    11.0%    15727    15727      0      0.41     2.27      0.02  0.8%
+commit       0.0%     0.0%        0     5921      0      0.00     0.00      0.00  9.6%
+readdirplus  2.0%     2.0%     2923     2923      0      1.01     2.57      0.06  0.4%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  501.61 Ops/Sec   AVG. RESPONSE TIME:    5.84 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 500 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  142960         TEST TIME: 285 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 157907   
+PHYSICAL NFS V3 THROUGHPUT:  554.05 Ops/Sec
+FILE SET SIZE CREATED: 60831360.0 KB
+FILE SET SIZE ACCESSED: 18257904.0 - 18538698.0 KB  (100.00% to 101.54% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 21:08:22 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 500
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 114560 Files created for I/O operations
+		   34368 Files accessed for I/O operations
+		   2304 Files for non-I/O operations
+		     32 Symlinks
+		   3808 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 21:08:22 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:08:22 2011 Completed.
+Sat Apr 30 21:08:22 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 21:08:23 2011 Received.
+Sat Apr 30 21:08:23 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 21:08:23 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 600  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 21:08:25 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 21:08:25 2011 Mounting 16 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Sat Apr 30 21:08:39 2011 Completed.
+Sat Apr 30 21:08:39 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:08:39 2011 Completed.
+Sat Apr 30 21:08:39 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:08:41 2011 Received.
+
+Sat Apr 30 21:08:41 2011 Initializing test directories.
+Sat Apr 30 21:08:41 2011 Child 7 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 5 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 14 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 1 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 4 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 0 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 13 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 2 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 15 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 3 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 12 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 6 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 11 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 8 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 10 will create 289 directories.
+Sat Apr 30 21:08:41 2011 Child 9 will create 289 directories.
+Sat Apr 30 21:08:45 2011 Child 2 finished creating 289 directories.
+Sat Apr 30 21:08:45 2011 Child 2 will create 8814 files.
+Sat Apr 30 21:08:47 2011 Child 13 finished creating 289 directories.
+Sat Apr 30 21:08:47 2011 Child 13 will create 8814 files.
+Sat Apr 30 21:08:48 2011 Child 3 finished creating 289 directories.
+Sat Apr 30 21:08:48 2011 Child 3 will create 8814 files.
+Sat Apr 30 21:08:49 2011 Child 9 finished creating 289 directories.
+Sat Apr 30 21:08:49 2011 Child 9 will create 8814 files.
+Sat Apr 30 21:08:52 2011 Child 5 finished creating 289 directories.
+Sat Apr 30 21:08:52 2011 Child 5 will create 8814 files.
+Sat Apr 30 21:08:54 2011 Child 10 finished creating 289 directories.
+Sat Apr 30 21:08:54 2011 Child 10 will create 8814 files.
+Sat Apr 30 21:08:54 2011 Child 14 finished creating 289 directories.
+Sat Apr 30 21:08:54 2011 Child 14 will create 8814 files.
+Sat Apr 30 21:08:58 2011 Child 15 finished creating 289 directories.
+Sat Apr 30 21:08:58 2011 Child 15 will create 8814 files.
+Sat Apr 30 21:08:58 2011 Child 8 finished creating 289 directories.
+Sat Apr 30 21:08:58 2011 Child 8 will create 8814 files.
+Sat Apr 30 21:09:00 2011 Child 12 finished creating 289 directories.
+Sat Apr 30 21:09:00 2011 Child 12 will create 8814 files.
+Sat Apr 30 21:09:01 2011 Child 1 finished creating 289 directories.
+Sat Apr 30 21:09:01 2011 Child 1 will create 8814 files.
+Sat Apr 30 21:09:02 2011 Child 7 finished creating 289 directories.
+Sat Apr 30 21:09:02 2011 Child 7 will create 8814 files.
+Sat Apr 30 21:09:02 2011 Child 4 finished creating 289 directories.
+Sat Apr 30 21:09:02 2011 Child 4 will create 8814 files.
+Sat Apr 30 21:09:02 2011 Child 6 finished creating 289 directories.
+Sat Apr 30 21:09:02 2011 Child 6 will create 8814 files.
+Sat Apr 30 21:09:06 2011 Child 0 finished creating 289 directories.
+Sat Apr 30 21:09:06 2011 Child 0 will create 8814 files.
+Sat Apr 30 21:09:06 2011 Child 11 finished creating 289 directories.
+Sat Apr 30 21:09:06 2011 Child 11 will create 8814 files.
+Sat Apr 30 21:13:47 2011 Child 2 verified 8357 files (1197 creates).
+Sat Apr 30 21:13:51 2011 Child 13 verified 8229 files (1069 creates).
+Sat Apr 30 21:13:51 2011 Child 3 verified 8104 files (944 creates).
+Sat Apr 30 21:13:51 2011 Child 9 verified 8100 files (940 creates).
+Sat Apr 30 21:13:55 2011 Child 5 verified 7877 files (717 creates).
+Sat Apr 30 21:13:56 2011 Child 10 verified 7861 files (701 creates).
+Sat Apr 30 21:13:56 2011 Child 14 verified 7806 files (646 creates).
+Sat Apr 30 21:13:59 2011 Child 15 verified 7708 files (548 creates).
+Sat Apr 30 21:14:00 2011 Child 8 verified 7724 files (564 creates).
+Sat Apr 30 21:14:02 2011 Child 12 verified 7645 files (485 creates).
+Sat Apr 30 21:14:02 2011 Child 1 verified 7654 files (494 creates).
+Sat Apr 30 21:14:03 2011 Child 7 verified 7668 files (508 creates).
+Sat Apr 30 21:14:03 2011 Child 4 verified 7673 files (513 creates).
+Sat Apr 30 21:14:04 2011 Child 6 verified 7669 files (509 creates).
+Sat Apr 30 21:14:07 2011 Child 0 verified 7685 files (525 creates).
+Sat Apr 30 21:14:09 2011 Child 11 verified 7716 files (556 creates).
+Sat Apr 30 21:14:39 2011 Child 2 verified 8814 files, created 1568
+Sat Apr 30 21:14:39 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 21:14:39 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 21:15:12 2011 Child 13 verified 8814 files, created 1568
+Sat Apr 30 21:15:12 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 21:15:12 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 21:15:43 2011 Child 3 verified 8814 files, created 1568
+Sat Apr 30 21:15:43 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 21:15:43 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 21:20:34 2011 Child 5 verified 8415 files (1255 creates).
+Sat Apr 30 21:20:55 2011 Child 11 verified 8233 files (1073 creates).
+Sat Apr 30 21:20:55 2011 Child 12 verified 8233 files (1073 creates).
+Sat Apr 30 21:20:55 2011 Child 7 verified 8233 files (1073 creates).
+Sat Apr 30 21:20:55 2011 Child 9 verified 8613 files (1453 creates).
+Sat Apr 30 21:20:55 2011 Child 14 verified 8357 files (1197 creates).
+Sat Apr 30 21:20:55 2011 Child 10 verified 8385 files (1225 creates).
+Sat Apr 30 21:20:55 2011 Child 8 verified 8286 files (1126 creates).
+Sat Apr 30 21:20:55 2011 Child 4 verified 8233 files (1073 creates).
+Sat Apr 30 21:20:55 2011 Child 1 verified 8233 files (1073 creates).
+Sat Apr 30 21:20:55 2011 Child 15 verified 8286 files (1126 creates).
+Sat Apr 30 21:20:55 2011 Child 6 verified 8233 files (1073 creates).
+Sat Apr 30 21:20:55 2011 Child 0 verified 8233 files (1073 creates).
+Sat Apr 30 21:21:02 2011 Child 9 verified 8814 files, created 1568
+Sat Apr 30 21:21:02 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 21:21:10 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 21:23:20 2011 Child 14 verified 8814 files, created 1568
+Sat Apr 30 21:23:20 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 21:23:20 2011 Child 10 verified 8814 files, created 1568
+Sat Apr 30 21:23:20 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 21:23:20 2011 Child 5 verified 8814 files, created 1568
+Sat Apr 30 21:23:20 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 21:23:20 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 21:23:20 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 21:23:20 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 21:23:34 2011 Child 15 verified 8814 files, created 1568
+Sat Apr 30 21:23:34 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 21:23:34 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 21:23:34 2011 Child 11 verified 8814 files, created 1568
+Sat Apr 30 21:23:34 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 21:23:34 2011 Child 8 verified 8814 files, created 1568
+Sat Apr 30 21:23:34 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 21:23:34 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 21:23:34 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 21:23:43 2011 Child 12 verified 8814 files, created 1568
+Sat Apr 30 21:23:43 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 21:23:43 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 21:23:43 2011 Child 4 verified 8814 files, created 1568
+Sat Apr 30 21:23:43 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 21:23:48 2011 Child 7 verified 8814 files, created 1568
+Sat Apr 30 21:23:48 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 21:23:48 2011 Child 0 verified 8814 files, created 1568
+Sat Apr 30 21:23:48 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 21:23:48 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 21:23:48 2011 Child 6 verified 8814 files, created 1568
+Sat Apr 30 21:23:48 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 21:23:48 2011 Child 1 verified 8814 files, created 1568
+Sat Apr 30 21:23:48 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 21:23:48 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 21:23:48 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 21:23:48 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 21:23:50 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 21:23:50 2011 Completed.
+Sat Apr 30 21:23:50 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:23:50 2011 Completed.
+Sat Apr 30 21:23:50 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:23:50 2011 Received.
+Sat Apr 30 21:23:50 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 21:28:50 2011 Completed.
+Sat Apr 30 21:28:50 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:28:50 2011 Completed.
+Sat Apr 30 21:28:50 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:28:51 2011 Received.
+Sat Apr 30 21:28:51 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Sat Apr 30 21:34:01 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    26.1%    47120    47120      0      0.40     2.55      0.01  1.8%
+setattr      4.0%     4.0%     7224     7224      0     13.06    25.31      0.12  8.9%
+lookup      24.0%    23.8%    43038    43038      0      0.38     2.57      0.02  1.6%
+readlink     1.0%     1.0%     1829     1829      0      0.38     2.67      0.07  0.1%
+read        18.0%    18.1%    32621    40280      0     12.84    40.81      0.07 39.7%
+write       10.0%    10.0%    18079    22003      0     17.19    31.39      0.08 29.4%
+create       1.0%     1.0%     1840     1840      0     21.59    34.04      0.27  3.8%
+remove       1.0%     1.0%     1864     1864      0     15.41    25.12      0.23  2.7%
+readdir      1.0%     1.0%     1795     1795      0      0.68     2.70      0.08  0.1%
+fsstat       1.0%     1.0%     1771     1771      0      0.46     2.92      0.08  0.1%
+access      11.0%    10.9%    19673    19673      0      0.39     2.58      0.02  0.7%
+commit       0.0%     0.0%        0     7470      0      0.00     0.00      0.00 10.8%
+readdirplus  2.0%     2.1%     3780     3780      0      1.07     5.07      0.07  0.4%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  604.12 Ops/Sec   AVG. RESPONSE TIME:    5.84 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 600 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  180634         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 199687   
+PHYSICAL NFS V3 THROUGHPUT:  667.84 Ops/Sec
+FILE SET SIZE CREATED: 73413936.0 KB
+FILE SET SIZE ACCESSED: 22030128.0 - 22378674.0 KB  (100.00% to 101.58% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 21:34:01 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 600
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 138256 Files created for I/O operations
+		   41472 Files accessed for I/O operations
+		   2768 Files for non-I/O operations
+		     32 Symlinks
+		   4608 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 21:34:01 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:34:01 2011 Completed.
+Sat Apr 30 21:34:01 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 21:34:02 2011 Received.
+Sat Apr 30 21:34:02 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 21:34:02 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 700  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 21:34:04 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 21:34:04 2011 Mounting 16 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Sat Apr 30 21:34:18 2011 Completed.
+Sat Apr 30 21:34:18 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:34:18 2011 Completed.
+Sat Apr 30 21:34:18 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:34:20 2011 Received.
+
+Sat Apr 30 21:34:20 2011 Initializing test directories.
+Sat Apr 30 21:34:20 2011 Child 14 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 12 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 6 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 1 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 8 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 7 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 2 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 9 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 5 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 3 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 13 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 11 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 15 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 4 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 0 will create 338 directories.
+Sat Apr 30 21:34:20 2011 Child 10 will create 338 directories.
+Sat Apr 30 21:34:25 2011 Child 8 finished creating 338 directories.
+Sat Apr 30 21:34:25 2011 Child 8 will create 10325 files.
+Sat Apr 30 21:34:25 2011 Child 0 finished creating 338 directories.
+Sat Apr 30 21:34:25 2011 Child 0 will create 10325 files.
+Sat Apr 30 21:34:25 2011 Child 2 finished creating 338 directories.
+Sat Apr 30 21:34:25 2011 Child 2 will create 10325 files.
+Sat Apr 30 21:34:27 2011 Child 5 finished creating 338 directories.
+Sat Apr 30 21:34:27 2011 Child 5 will create 10325 files.
+Sat Apr 30 21:34:29 2011 Child 6 finished creating 338 directories.
+Sat Apr 30 21:34:29 2011 Child 6 will create 10325 files.
+Sat Apr 30 21:34:30 2011 Child 4 finished creating 338 directories.
+Sat Apr 30 21:34:30 2011 Child 4 will create 10325 files.
+Sat Apr 30 21:34:32 2011 Child 11 finished creating 338 directories.
+Sat Apr 30 21:34:32 2011 Child 11 will create 10325 files.
+Sat Apr 30 21:34:32 2011 Child 10 finished creating 338 directories.
+Sat Apr 30 21:34:32 2011 Child 10 will create 10325 files.
+Sat Apr 30 21:34:32 2011 Child 7 finished creating 338 directories.
+Sat Apr 30 21:34:32 2011 Child 7 will create 10325 files.
+Sat Apr 30 21:34:35 2011 Child 13 finished creating 338 directories.
+Sat Apr 30 21:34:35 2011 Child 13 will create 10325 files.
+Sat Apr 30 21:34:36 2011 Child 14 finished creating 338 directories.
+Sat Apr 30 21:34:36 2011 Child 14 will create 10325 files.
+Sat Apr 30 21:34:37 2011 Child 9 finished creating 338 directories.
+Sat Apr 30 21:34:37 2011 Child 9 will create 10325 files.
+Sat Apr 30 21:34:43 2011 Child 12 finished creating 338 directories.
+Sat Apr 30 21:34:43 2011 Child 12 will create 10325 files.
+Sat Apr 30 21:34:43 2011 Child 15 finished creating 338 directories.
+Sat Apr 30 21:34:43 2011 Child 15 will create 10325 files.
+Sat Apr 30 21:34:44 2011 Child 1 finished creating 338 directories.
+Sat Apr 30 21:34:44 2011 Child 1 will create 10325 files.
+Sat Apr 30 21:34:47 2011 Child 3 finished creating 338 directories.
+Sat Apr 30 21:34:47 2011 Child 3 will create 10325 files.
+Sat Apr 30 21:39:38 2011 Child 4 verified 9302 files (661 creates).
+Sat Apr 30 21:39:38 2011 Child 11 verified 9152 files (511 creates).
+Sat Apr 30 21:39:40 2011 Child 7 verified 9037 files (396 creates).
+Sat Apr 30 21:39:40 2011 Child 8 verified 9508 files (867 creates).
+Sat Apr 30 21:39:54 2011 Child 10 verified 9037 files (396 creates).
+Sat Apr 30 21:39:54 2011 Child 13 verified 9037 files (396 creates).
+Sat Apr 30 21:39:54 2011 Child 15 verified 8720 files (79 creates).
+Sat Apr 30 21:39:55 2011 Child 6 verified 9252 files (611 creates).
+Sat Apr 30 21:40:05 2011 Child 1 verified 8926 files (285 creates).
+Sat Apr 30 21:40:05 2011 Child 3 verified 8717 files (76 creates).
+Sat Apr 30 21:40:05 2011 Child 9 verified 8872 files (231 creates).
+Sat Apr 30 21:40:05 2011 Child 5 verified 9369 files (728 creates).
+Sat Apr 30 21:40:05 2011 Child 2 verified 9508 files (867 creates).
+Sat Apr 30 21:41:01 2011 Child 14 verified 9037 files (396 creates).
+Sat Apr 30 21:41:01 2011 Child 12 verified 8872 files (231 creates).
+Sat Apr 30 21:41:01 2011 Child 0 verified 9653 files (1012 creates).
+Sat Apr 30 21:44:36 2011 Child 11 verified 9761 files (1120 creates).
+Sat Apr 30 21:44:36 2011 Child 4 verified 9818 files (1177 creates).
+Sat Apr 30 21:44:41 2011 Child 7 verified 9581 files (940 creates).
+Sat Apr 30 21:44:41 2011 Child 8 verified 10047 files (1406 creates).
+Sat Apr 30 21:44:56 2011 Child 15 verified 9565 files (924 creates).
+Sat Apr 30 21:44:56 2011 Child 10 verified 9508 files (867 creates).
+Sat Apr 30 21:44:56 2011 Child 6 verified 9751 files (1110 creates).
+Sat Apr 30 21:44:56 2011 Child 13 verified 9819 files (1178 creates).
+Sat Apr 30 21:44:57 2011 Child 8 verified 10325 files, created 1583
+Sat Apr 30 21:44:57 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 21:44:59 2011 Child 0 verified 10325 files, created 1583
+Sat Apr 30 21:44:59 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 21:44:59 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 21:45:00 2011 Child 2 verified 10325 files, created 1583
+Sat Apr 30 21:45:00 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 21:45:00 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 21:45:00 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 21:45:05 2011 Child 3 verified 9369 files (728 creates).
+Sat Apr 30 21:45:05 2011 Child 1 verified 9762 files (1121 creates).
+Sat Apr 30 21:45:06 2011 Child 9 verified 9673 files (1032 creates).
+Sat Apr 30 21:45:09 2011 Child 5 verified 10325 files, created 1583
+Sat Apr 30 21:45:09 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 21:45:15 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 21:47:22 2011 Child 14 verified 9761 files (1120 creates).
+Sat Apr 30 21:47:22 2011 Child 12 verified 9653 files (1012 creates).
+Sat Apr 30 21:47:26 2011 Child 4 verified 10325 files, created 1583
+Sat Apr 30 21:47:26 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 21:47:26 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 21:47:42 2011 Child 13 verified 10325 files, created 1583
+Sat Apr 30 21:47:42 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 21:47:42 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 21:47:42 2011 Child 11 verified 10325 files, created 1583
+Sat Apr 30 21:47:42 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 21:47:42 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 21:47:53 2011 Child 6 verified 10325 files, created 1583
+Sat Apr 30 21:47:53 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 21:47:53 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 21:48:02 2011 Child 1 verified 10325 files, created 1583
+Sat Apr 30 21:48:02 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 21:48:02 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 21:48:06 2011 Child 7 verified 10325 files, created 1583
+Sat Apr 30 21:48:06 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 21:48:06 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 21:48:08 2011 Child 14 verified 10325 files, created 1583
+Sat Apr 30 21:48:08 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 21:48:08 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 21:48:10 2011 Child 9 verified 10325 files, created 1583
+Sat Apr 30 21:48:10 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 21:48:10 2011 Child 15 verified 10325 files, created 1583
+Sat Apr 30 21:48:10 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 21:48:10 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 21:48:10 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 21:48:11 2011 Child 10 verified 10325 files, created 1583
+Sat Apr 30 21:48:11 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 21:48:11 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 21:48:11 2011 Child 12 verified 10325 files, created 1583
+Sat Apr 30 21:48:11 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 21:48:11 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 21:48:12 2011 Child 3 verified 10325 files, created 1583
+Sat Apr 30 21:48:12 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 21:48:12 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 21:48:12 2011 Completed.
+Sat Apr 30 21:48:12 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:48:12 2011 Completed.
+Sat Apr 30 21:48:12 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:48:13 2011 Received.
+Sat Apr 30 21:48:13 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 21:53:13 2011 Completed.
+Sat Apr 30 21:53:13 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:53:13 2011 Completed.
+Sat Apr 30 21:53:13 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:53:14 2011 Received.
+Sat Apr 30 21:53:14 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Sat Apr 30 21:58:24 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    25.9%    43499    43499      0      3.93   256.42      0.15  3.7%
+setattr      4.0%     4.0%     6737     6737      0     41.32    42.07      0.15  6.0%
+lookup      24.0%    24.0%    40334    40334      0      3.23   179.18      0.13  2.8%
+readlink     1.0%     1.0%     1705     1705      0      1.99     6.58      0.12  0.1%
+read        18.0%    18.1%    30426    37456      0     62.73   888.15      0.33 41.4%
+write       10.0%    10.1%    16910    20306      0     93.16  1404.78      0.56 34.1%
+create       1.0%     1.0%     1712     1712      0     78.58    63.70      0.38  2.9%
+remove       1.0%     1.0%     1656     1656      0     45.95    43.08      0.32  1.6%
+readdir      1.0%     1.0%     1613     1613      0      2.64    12.56      0.17  0.1%
+fsstat       1.0%     1.0%     1664     1664      0      2.30     8.28      0.14  0.1%
+access      11.0%    11.0%    18543    18543      0      2.36     9.94      0.05  0.9%
+commit       0.0%     0.0%        0     6596      0      0.00     0.00      0.00  5.9%
+readdirplus  2.0%     2.0%     3405     3405      0      3.54    27.72      0.18  0.3%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  692.19 Ops/Sec   AVG. RESPONSE TIME:   27.43 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 700 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  168204         TEST TIME: 243 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 185226   
+PHYSICAL NFS V3 THROUGHPUT:  762.24 Ops/Sec
+FILE SET SIZE CREATED: 85996512.0 KB
+FILE SET SIZE ACCESSED: 25802352.0 - 26091536.0 KB  (100.00% to 101.12% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 21:58:24 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 700
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 161952 Files created for I/O operations
+		   48576 Files accessed for I/O operations
+		   3248 Files for non-I/O operations
+		     32 Symlinks
+		   5392 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 21:58:24 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:58:24 2011 Completed.
+Sat Apr 30 21:58:24 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 21:58:25 2011 Received.
+Sat Apr 30 21:58:25 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 21:58:25 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 800  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 21:58:27 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 21:58:27 2011 Mounting 16 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Sat Apr 30 21:58:41 2011 Completed.
+Sat Apr 30 21:58:41 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:58:41 2011 Completed.
+Sat Apr 30 21:58:41 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 21:58:43 2011 Received.
+
+Sat Apr 30 21:58:43 2011 Initializing test directories.
+Sat Apr 30 21:58:43 2011 Child 13 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 9 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 0 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 12 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 15 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 10 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 1 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 14 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 7 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 2 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 11 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 6 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 3 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 5 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 4 will create 383 directories.
+Sat Apr 30 21:58:43 2011 Child 8 will create 383 directories.
+Sat Apr 30 21:58:44 2011 Child 14 finished creating 383 directories.
+Sat Apr 30 21:58:44 2011 Child 14 will create 11710 files.
+Sat Apr 30 21:58:45 2011 Child 7 finished creating 383 directories.
+Sat Apr 30 21:58:45 2011 Child 7 will create 11710 files.
+Sat Apr 30 21:58:46 2011 Child 12 finished creating 383 directories.
+Sat Apr 30 21:58:46 2011 Child 12 will create 11710 files.
+Sat Apr 30 21:58:53 2011 Child 15 finished creating 383 directories.
+Sat Apr 30 21:58:53 2011 Child 15 will create 11710 files.
+Sat Apr 30 21:58:55 2011 Child 13 finished creating 383 directories.
+Sat Apr 30 21:58:55 2011 Child 13 will create 11710 files.
+Sat Apr 30 21:58:56 2011 Child 3 finished creating 383 directories.
+Sat Apr 30 21:58:56 2011 Child 3 will create 11710 files.
+Sat Apr 30 21:58:56 2011 Child 1 finished creating 383 directories.
+Sat Apr 30 21:58:56 2011 Child 1 will create 11710 files.
+Sat Apr 30 21:58:56 2011 Child 9 finished creating 383 directories.
+Sat Apr 30 21:58:56 2011 Child 9 will create 11710 files.
+Sat Apr 30 21:58:58 2011 Child 6 finished creating 383 directories.
+Sat Apr 30 21:58:58 2011 Child 6 will create 11710 files.
+Sat Apr 30 21:59:04 2011 Child 10 finished creating 383 directories.
+Sat Apr 30 21:59:04 2011 Child 10 will create 11710 files.
+Sat Apr 30 21:59:06 2011 Child 0 finished creating 383 directories.
+Sat Apr 30 21:59:06 2011 Child 0 will create 11710 files.
+Sat Apr 30 21:59:06 2011 Child 8 finished creating 383 directories.
+Sat Apr 30 21:59:06 2011 Child 8 will create 11710 files.
+Sat Apr 30 21:59:07 2011 Child 2 finished creating 383 directories.
+Sat Apr 30 21:59:07 2011 Child 2 will create 11710 files.
+Sat Apr 30 21:59:11 2011 Child 5 finished creating 383 directories.
+Sat Apr 30 21:59:11 2011 Child 5 will create 11710 files.
+Sat Apr 30 21:59:12 2011 Child 11 finished creating 383 directories.
+Sat Apr 30 21:59:12 2011 Child 11 will create 11710 files.
+Sat Apr 30 21:59:15 2011 Child 4 finished creating 383 directories.
+Sat Apr 30 21:59:15 2011 Child 4 will create 11710 files.
+Sat Apr 30 22:03:49 2011 Child 7 verified 10422 files (300 creates).
+Sat Apr 30 22:03:49 2011 Child 14 verified 10485 files (363 creates).
+Sat Apr 30 22:03:49 2011 Child 12 verified 10276 files (154 creates).
+Sat Apr 30 22:04:23 2011 Child 6 verified 10277 files (155 creates).
+Sat Apr 30 22:04:48 2011 Child 1 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 2 verified 10353 files (231 creates).
+Sat Apr 30 22:04:58 2011 Child 15 verified 10353 files (231 creates).
+Sat Apr 30 22:04:58 2011 Child 5 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 8 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 13 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 0 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 11 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 4 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 9 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 10 verified 10318 files (196 creates).
+Sat Apr 30 22:04:58 2011 Child 3 verified 10318 files (196 creates).
+Sat Apr 30 22:09:09 2011 Child 14 verified 11041 files (919 creates).
+Sat Apr 30 22:09:09 2011 Child 7 verified 10781 files (659 creates).
+Sat Apr 30 22:09:22 2011 Child 12 verified 10507 files (385 creates).
+Sat Apr 30 22:09:22 2011 Child 6 verified 10508 files (386 creates).
+Sat Apr 30 22:10:03 2011 Child 4 verified 10541 files (419 creates).
+Sat Apr 30 22:10:03 2011 Child 11 verified 10801 files (679 creates).
+Sat Apr 30 22:10:03 2011 Child 5 verified 10801 files (679 creates).
+Sat Apr 30 22:10:03 2011 Child 0 verified 10533 files (411 creates).
+Sat Apr 30 22:10:19 2011 Child 8 verified 10533 files (411 creates).
+Sat Apr 30 22:10:19 2011 Child 13 verified 10533 files (411 creates).
+Sat Apr 30 22:10:19 2011 Child 1 verified 10533 files (411 creates).
+Sat Apr 30 22:10:19 2011 Child 3 verified 10533 files (411 creates).
+Sat Apr 30 22:10:19 2011 Child 9 verified 10533 files (411 creates).
+Sat Apr 30 22:10:19 2011 Child 10 verified 10533 files (411 creates).
+Sat Apr 30 22:10:19 2011 Child 2 verified 10812 files (690 creates).
+Sat Apr 30 22:10:19 2011 Child 15 verified 10812 files (690 creates).
+Sat Apr 30 22:14:00 2011 Child 14 verified 11710 files, created 1474
+Sat Apr 30 22:14:00 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 22:14:00 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 22:14:49 2011 Child 12 verified 11148 files (1026 creates).
+Sat Apr 30 22:14:49 2011 Child 6 verified 11071 files (949 creates).
+Sat Apr 30 22:14:49 2011 Child 7 verified 11391 files (1269 creates).
+Sat Apr 30 22:15:29 2011 Child 8 verified 11182 files (1060 creates).
+Sat Apr 30 22:15:30 2011 Child 1 verified 11182 files (1060 creates).
+Sat Apr 30 22:15:30 2011 Child 5 verified 11428 files (1306 creates).
+Sat Apr 30 22:15:30 2011 Child 10 verified 11182 files (1060 creates).
+Sat Apr 30 22:15:30 2011 Child 2 verified 11428 files (1306 creates).
+Sat Apr 30 22:15:48 2011 Child 4 verified 11148 files (1026 creates).
+Sat Apr 30 22:15:48 2011 Child 15 verified 11428 files (1306 creates).
+Sat Apr 30 22:15:48 2011 Child 11 verified 11391 files (1269 creates).
+Sat Apr 30 22:15:48 2011 Child 3 verified 11182 files (1060 creates).
+Sat Apr 30 22:15:48 2011 Child 0 verified 11148 files (1026 creates).
+Sat Apr 30 22:15:48 2011 Child 9 verified 11148 files (1026 creates).
+Sat Apr 30 22:15:48 2011 Child 13 verified 11148 files (1026 creates).
+Sat Apr 30 22:15:56 2011 Child 15 verified 11710 files, created 1474
+Sat Apr 30 22:15:56 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 22:15:56 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 22:16:32 2011 Child 2 verified 11710 files, created 1474
+Sat Apr 30 22:16:32 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 22:16:32 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 22:16:32 2011 Child 5 verified 11710 files, created 1474
+Sat Apr 30 22:16:32 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 22:16:32 2011 Child 11 verified 11710 files, created 1474
+Sat Apr 30 22:16:32 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 22:16:32 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 22:16:32 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 22:16:34 2011 Child 7 verified 11710 files, created 1474
+Sat Apr 30 22:16:34 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 22:16:34 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 1 verified 11710 files, created 1474
+Sat Apr 30 22:17:43 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 8 verified 11710 files, created 1474
+Sat Apr 30 22:17:43 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 10 verified 11710 files, created 1474
+Sat Apr 30 22:17:43 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 12 verified 11710 files, created 1474
+Sat Apr 30 22:17:43 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 3 verified 11710 files, created 1474
+Sat Apr 30 22:17:43 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 22:17:43 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 0 verified 11710 files, created 1474
+Sat Apr 30 22:18:23 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 9 verified 11710 files, created 1474
+Sat Apr 30 22:18:23 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 6 verified 11710 files, created 1474
+Sat Apr 30 22:18:23 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 4 verified 11710 files, created 1474
+Sat Apr 30 22:18:23 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 13 verified 11710 files, created 1474
+Sat Apr 30 22:18:23 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 22:18:23 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 22:18:23 2011 Completed.
+Sat Apr 30 22:18:23 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:18:23 2011 Completed.
+Sat Apr 30 22:18:23 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:18:24 2011 Received.
+Sat Apr 30 22:18:24 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 22:23:24 2011 Completed.
+Sat Apr 30 22:23:24 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:23:24 2011 Completed.
+Sat Apr 30 22:23:24 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:23:25 2011 Received.
+Sat Apr 30 22:23:25 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Sat Apr 30 22:28:43 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+getattr     26.0%    25.9%    54184    54184      0      3.40   207.79      0.12  2.9%
+setattr      4.0%     4.0%     8371     8371      0     38.11    38.92      0.13  4.9%
+lookup      24.0%    24.1%    50338    50338      0      3.01   193.12      0.12  2.3%
+readlink     1.0%     1.0%     2064     2064      0      2.25     8.70      0.13  0.1%
+read        18.0%    18.0%    37671    46415      0     90.96  1420.14      0.38 53.0%
+write       10.0%    10.1%    21088    25447      0     74.18  1179.83      0.46 24.2%
+create       1.0%     1.0%     2105     2105      0     73.66    56.01      0.32  2.4%
+remove       1.0%     1.0%     2050     2050      0     44.21    43.16      0.28  1.4%
+readdir      1.0%     1.0%     2038     2038      0      2.45     9.44      0.13  0.1%
+fsstat       1.0%     1.0%     2178     2178      0     17.75   731.92      1.14  0.6%
+access      11.0%    10.9%    22851    22851      0      3.90   275.05      0.21  1.4%
+commit       0.0%     0.0%        0     8662      0      0.00     0.00      0.00  6.5%
+readdirplus  2.0%     2.0%     4203     4203      0      2.73     7.17      0.08  0.2%
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:  681.24 Ops/Sec   AVG. RESPONSE TIME:   30.90 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 800 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  209141         TEST TIME: 307 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 230906   
+PHYSICAL NFS V3 THROUGHPUT:  752.13 Ops/Sec
+FILE SET SIZE CREATED: 97534080.0 KB
+FILE SET SIZE ACCESSED: 29268720.0 - 29688682.0 KB  (100.00% to 101.43% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 22:28:43 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 800
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 183680 Files created for I/O operations
+		   55104 Files accessed for I/O operations
+		   3680 Files for non-I/O operations
+		     32 Symlinks
+		   6112 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 22:28:43 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:28:43 2011 Completed.
+Sat Apr 30 22:28:43 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 22:28:43 2011 Received.
+Sat Apr 30 22:28:43 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 22:28:43 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 900  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 22:28:45 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 22:28:45 2011 Mounting 16 remote test directories.
+Child[000]: NFS negotiated block size 32768
+Child[001]: NFS negotiated block size 32768
+Child[002]: NFS negotiated block size 32768
+Child[003]: NFS negotiated block size 32768
+Child[004]: NFS negotiated block size 32768
+Child[005]: NFS negotiated block size 32768
+Child[006]: NFS negotiated block size 32768
+Child[007]: NFS negotiated block size 32768
+Child[008]: NFS negotiated block size 32768
+Child[009]: NFS negotiated block size 32768
+Child[010]: NFS negotiated block size 32768
+Child[011]: NFS negotiated block size 32768
+Child[012]: NFS negotiated block size 32768
+Child[013]: NFS negotiated block size 32768
+Child[014]: NFS negotiated block size 32768
+Child[015]: NFS negotiated block size 32768
+Sat Apr 30 22:28:59 2011 Completed.
+Sat Apr 30 22:28:59 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:28:59 2011 Completed.
+Sat Apr 30 22:28:59 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:29:01 2011 Received.
+
+Sat Apr 30 22:29:01 2011 Initializing test directories.
+Sat Apr 30 22:29:01 2011 Child 6 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 5 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 4 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 0 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 7 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 10 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 3 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 9 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 13 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 8 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 1 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 11 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 15 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 14 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 2 will create 433 directories.
+Sat Apr 30 22:29:01 2011 Child 12 will create 433 directories.
+Sat Apr 30 22:29:04 2011 Child 10 finished creating 433 directories.
+Sat Apr 30 22:29:04 2011 Child 10 will create 13221 files.
+Sat Apr 30 22:29:04 2011 Child 5 finished creating 433 directories.
+Sat Apr 30 22:29:04 2011 Child 5 will create 13221 files.
+Sat Apr 30 22:29:08 2011 Child 7 finished creating 433 directories.
+Sat Apr 30 22:29:08 2011 Child 7 will create 13221 files.
+Sat Apr 30 22:29:09 2011 Child 3 finished creating 433 directories.
+Sat Apr 30 22:29:09 2011 Child 3 will create 13221 files.
+Sat Apr 30 22:29:11 2011 Child 8 finished creating 433 directories.
+Sat Apr 30 22:29:11 2011 Child 8 will create 13221 files.
+Sat Apr 30 22:29:17 2011 Child 13 finished creating 433 directories.
+Sat Apr 30 22:29:17 2011 Child 13 will create 13221 files.
+Sat Apr 30 22:29:19 2011 Child 12 finished creating 433 directories.
+Sat Apr 30 22:29:19 2011 Child 12 will create 13221 files.
+Sat Apr 30 22:29:19 2011 Child 1 finished creating 433 directories.
+Sat Apr 30 22:29:19 2011 Child 1 will create 13221 files.
+Sat Apr 30 22:29:23 2011 Child 11 finished creating 433 directories.
+Sat Apr 30 22:29:23 2011 Child 11 will create 13221 files.
+Sat Apr 30 22:29:23 2011 Child 15 finished creating 433 directories.
+Sat Apr 30 22:29:23 2011 Child 15 will create 13221 files.
+Sat Apr 30 22:29:31 2011 Child 0 finished creating 433 directories.
+Sat Apr 30 22:29:31 2011 Child 0 will create 13221 files.
+Sat Apr 30 22:29:33 2011 Child 4 finished creating 433 directories.
+Sat Apr 30 22:29:33 2011 Child 4 will create 13221 files.
+Sat Apr 30 22:29:36 2011 Child 2 finished creating 433 directories.
+Sat Apr 30 22:29:36 2011 Child 2 will create 13221 files.
+Sat Apr 30 22:29:37 2011 Child 6 finished creating 433 directories.
+Sat Apr 30 22:29:37 2011 Child 6 will create 13221 files.
+Sat Apr 30 22:29:38 2011 Child 9 finished creating 433 directories.
+Sat Apr 30 22:29:38 2011 Child 9 will create 13221 files.
+Sat Apr 30 22:29:39 2011 Child 14 finished creating 433 directories.
+Sat Apr 30 22:29:39 2011 Child 14 will create 13221 files.
+Sat Apr 30 22:32:47 2011 Child 5 verified 13221 files, created 1612
+Sat Apr 30 22:32:47 2011 Child 5 will create 2 symlinks.
+Sat Apr 30 22:32:47 2011 Child 5 finished creating 2 symlinks.
+Sat Apr 30 22:32:56 2011 Child 10 verified 13221 files, created 1612
+Sat Apr 30 22:32:56 2011 Child 10 will create 2 symlinks.
+Sat Apr 30 22:33:00 2011 Child 10 finished creating 2 symlinks.
+Sat Apr 30 22:34:14 2011 Child 8 verified 12857 files (1377 creates).
+Sat Apr 30 22:34:16 2011 Child 3 verified 13221 files, created 1612
+Sat Apr 30 22:34:16 2011 Child 3 will create 2 symlinks.
+Sat Apr 30 22:34:16 2011 Child 3 finished creating 2 symlinks.
+Sat Apr 30 22:34:19 2011 Child 13 verified 12684 files (1204 creates).
+Sat Apr 30 22:34:20 2011 Child 12 verified 12361 files (881 creates).
+Sat Apr 30 22:34:20 2011 Child 1 verified 12621 files (1141 creates).
+Sat Apr 30 22:34:25 2011 Child 7 verified 13221 files, created 1612
+Sat Apr 30 22:34:25 2011 Child 7 will create 2 symlinks.
+Sat Apr 30 22:34:26 2011 Child 7 finished creating 2 symlinks.
+Sat Apr 30 22:34:26 2011 Child 15 verified 12540 files (1060 creates).
+Sat Apr 30 22:34:26 2011 Child 11 verified 12518 files (1038 creates).
+Sat Apr 30 22:34:32 2011 Child 0 verified 12447 files (967 creates).
+Sat Apr 30 22:34:34 2011 Child 4 verified 12438 files (958 creates).
+Sat Apr 30 22:34:38 2011 Child 2 verified 12361 files (881 creates).
+Sat Apr 30 22:34:38 2011 Child 6 verified 12288 files (808 creates).
+Sat Apr 30 22:34:42 2011 Child 14 verified 12314 files (834 creates).
+Sat Apr 30 22:34:42 2011 Child 9 verified 12372 files (892 creates).
+Sat Apr 30 22:34:54 2011 Child 8 verified 13221 files, created 1612
+Sat Apr 30 22:34:54 2011 Child 8 will create 2 symlinks.
+Sat Apr 30 22:34:56 2011 Child 8 finished creating 2 symlinks.
+Sat Apr 30 22:35:40 2011 Child 13 verified 13221 files, created 1612
+Sat Apr 30 22:35:40 2011 Child 13 will create 2 symlinks.
+Sat Apr 30 22:35:40 2011 Child 13 finished creating 2 symlinks.
+Sat Apr 30 22:35:54 2011 Child 1 verified 13221 files, created 1612
+Sat Apr 30 22:35:54 2011 Child 1 will create 2 symlinks.
+Sat Apr 30 22:36:01 2011 Child 1 finished creating 2 symlinks.
+Sat Apr 30 22:36:20 2011 Child 11 verified 13221 files, created 1612
+Sat Apr 30 22:36:20 2011 Child 11 will create 2 symlinks.
+Sat Apr 30 22:36:20 2011 Child 11 finished creating 2 symlinks.
+Sat Apr 30 22:36:26 2011 Child 15 verified 13221 files, created 1612
+Sat Apr 30 22:36:26 2011 Child 15 will create 2 symlinks.
+Sat Apr 30 22:36:27 2011 Child 15 finished creating 2 symlinks.
+Sat Apr 30 22:36:38 2011 Child 0 verified 13221 files, created 1612
+Sat Apr 30 22:36:38 2011 Child 0 will create 2 symlinks.
+Sat Apr 30 22:36:44 2011 Child 0 finished creating 2 symlinks.
+Sat Apr 30 22:36:45 2011 Child 4 verified 13221 files, created 1612
+Sat Apr 30 22:36:45 2011 Child 4 will create 2 symlinks.
+Sat Apr 30 22:36:48 2011 Child 12 verified 13221 files, created 1612
+Sat Apr 30 22:36:48 2011 Child 12 will create 2 symlinks.
+Sat Apr 30 22:36:48 2011 Child 12 finished creating 2 symlinks.
+Sat Apr 30 22:36:50 2011 Child 4 finished creating 2 symlinks.
+Sat Apr 30 22:37:00 2011 Child 2 verified 13221 files, created 1612
+Sat Apr 30 22:37:00 2011 Child 2 will create 2 symlinks.
+Sat Apr 30 22:37:00 2011 Child 2 finished creating 2 symlinks.
+Sat Apr 30 22:37:01 2011 Child 9 verified 13221 files, created 1612
+Sat Apr 30 22:37:01 2011 Child 9 will create 2 symlinks.
+Sat Apr 30 22:37:01 2011 Child 9 finished creating 2 symlinks.
+Sat Apr 30 22:37:01 2011 Child 6 verified 13221 files, created 1612
+Sat Apr 30 22:37:01 2011 Child 6 will create 2 symlinks.
+Sat Apr 30 22:37:01 2011 Child 6 finished creating 2 symlinks.
+Sat Apr 30 22:37:04 2011 Child 14 verified 13221 files, created 1612
+Sat Apr 30 22:37:04 2011 Child 14 will create 2 symlinks.
+Sat Apr 30 22:37:04 2011 Child 14 finished creating 2 symlinks.
+Sat Apr 30 22:37:05 2011 Completed.
+Sat Apr 30 22:37:05 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:37:05 2011 Completed.
+Sat Apr 30 22:37:05 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:37:06 2011 Received.
+Sat Apr 30 22:37:06 2011 Performing 300 seconds pretest warmup.
+Sat Apr 30 22:42:06 2011 Completed.
+Sat Apr 30 22:42:06 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:42:06 2011 Completed.
+Sat Apr 30 22:42:06 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:42:07 2011 Received.
+Sat Apr 30 22:42:07 2011 Starting 300 seconds test run.
+sfsnfs3: INVALID RUN No good calls
+sfsnfs3: INVALID RUN, 100% Failed RPC calls
+sfsnfs3: INVALID RUN, no good calls
+SFS Single Client (c09-44) Results, Sat Apr 30 22:48:17 2011
+--------------------------------------------------------------------------------------
+NFS V3     Target   Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op         Logical  Logical Logical Physical  Op     Response Response of Mean,  of  
+Type       Mix      Mix     Success Success   Error  Time     Time     95% Conf  Total
+           Pcnt     Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS NFS V3 THROUGHPUT:    0.00 Ops/Sec   AVG. RESPONSE TIME:    0.00 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+NFS V3 MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 900 Ops/Sec 
+TOTAL LOGICAL NFS V3 OPERATIONS:  0              TEST TIME: 327 Sec 
+TOTAL PHYSICAL NFS V3 OPERATIONS: 0        
+PHYSICAL NFS V3 THROUGHPUT:    0.00 Ops/Sec
+FILE SET SIZE CREATED: 110116656.0 KB
+FILE SET SIZE ACCESSED: 33040944.0 - 33137132.0 KB  (100.00% to 100.29% of Base)
+
+------------------------------------------------------------------------
+
+Sat Apr 30 22:48:17 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 16
+	Requested Load (NFS V3 operations/second) = 900
+	Maximum number of outstanding biod writes = 8
+	Maximum number of outstanding biod reads = 8
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 207376 Files created for I/O operations
+		   62208 Files accessed for I/O operations
+		   4160 Files for non-I/O operations
+		     32 Symlinks
+		   6912 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Sat Apr 30 22:48:17 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Sat Apr 30 22:48:17 2011 Completed.
+Sat Apr 30 22:48:17 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Sat Apr 30 22:48:18 2011 Received.
+Sat Apr 30 22:48:18 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Sat Apr 30 22:48:18 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfsnfs3 -N 1 -l 1000  -t 300 -a 30 -A 70 -R 8 -W 8 -D 30 -S 20 -Q -p 16 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export vrable2.sysnet.ucsd.edu:/export 
+NFS V3 Protocol Version
+
+************************************************************************
+../binaries/linux-x86/sfsnfs3: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfsnfs3: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS NFS V3 Benchmark Client Logfile, Sat Apr 30 22:48:20 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+NFS V3 Protocol
+Sat Apr 30 22:48:20 2011 Mounting 16 remote test directories.
+RPC: Timed out
+RPC: Timed out
+Unable to contact NFS server vrable2.sysnet.ucsd.edu.
+Unable to contact NFS server vrable2.sysnet.ucsd.edu.
+Verify NFS server daemon supporting version 3 is running and
+Verify NFS server daemon supporting version 3 is running and
+registered with the portmapper.
+registered with the portmapper.
+Mount failed. Exit(145)
+Mount failed. Exit(145)
+sfsnfs3: caught unexpected SIGCHLD.
+A child (PID: 13671) has abnormally exited with status of 145
+Tell Prime to stop the benchmark.
+Terminating all child processes.
+sfsnfs3: sending Pid 0 Signal 2

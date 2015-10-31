@@ -1,0 +1,58 @@
+#!/bin/sh
+#	@(#)sfs_ext_mon	2.1	97/10/23
+#
+# This sample shell script can be used to start and stop
+# external processes at the beginning and ending of the
+# sfs load generation period respectively. The name of
+# this program is pased in via the PRIME_MON_SCRIPT variable
+# in the sfs_rc or equivalent file. The sfs_prime program
+# executes this shell script just before it issues the START
+# message to all the clients ie. "script_name START"; and likewise
+# another call after all the clients have completed load generation ie.
+# "script_name DONE".
+#
+# All environment variables exported from sfs_mgr are available for use.
+#
+EXT_MON_ARG=""
+if [ $# -gt 1 ]
+then
+    EXT_MON_ARG="$2"
+fi
+
+#
+#----------------- START section -----------------
+# Code section that handles starting of external processes.
+# ALL PROCESSES SHOULD BE STARTED IN THE BACKGROUND OR ELSE
+# THE TEST WILL BLOCK WAITING FOR THEIR COMPLETION!!
+#
+if [ "$1" = "START" ]; then
+	#
+	# place commands to start performance monitoring utilities as
+	# background processes here.
+	#
+	echo "$0: started external monitoring utilities" >&2
+	exit 0
+fi
+
+#
+#----------------- DONE section -----------------
+# Code section that handles stopping of external processes.
+# ALL PROCESSES SHOULD BE STARTED IN THE BACKGROUND OR ELSE
+# THE TEST WILL BLOCK WAITING FOR THEIR COMPLETION!!
+#
+if [ "$1" = "DONE" ]; then
+	#
+	# place commands to stop performance monitoring utilities as
+	# background processes here.
+	#
+	echo "$0: stopped external monitoring utilities" >&2
+	exit 0
+fi
+
+#
+#----------------- ERROR section -----------------
+# ERROR: BAD PARAMETER
+#
+echo "$0: bad param. " >&2
+echo "usage: $0 START | DONE " >&2
+exit 1

@@ -1,0 +1,202 @@
+KERNEL NFS SERVER
+=================
+
+...                            total_profile   8.386673 num 228500 avg 36 
+
+...             execute_next_request_profile   2.884419 num 86999 avg 33 
+...                 valid_get_nextop_profile   0.390401 num 141500 avg 2 
+...               invalid_get_nextop_profile   0.000004 num 5 avg 0 
+...                 prepare_argument_profile   0.486262 num 141500 avg 3 
+...                   biod_clnt_call_profile   1.809301 num 141500 avg 12 
+
+...               receive_next_reply_profile   5.296965 num 86999 avg 60 
+...         valid_poll_and_get_reply_profile   4.182840 num 141500 avg 29 
+...       invalid_poll_and_get_reply_profile   0.344323 num 86999 avg 3 
+...                     decode_reply_profile   0.388721 num 141500 avg 2 
+...                      check_reply_profile   0.110068 num 141500 avg 0 
+...                            fgets_profile   0.240890 num 313851 avg 0 
+...                        read_line_profile   0.427749 num 313850 avg 1 
+...                       read_trace_profile   1.389788 num 1097 avg 1266 
+
+dep_tab_index.tail 41683 dep_tab_index.head 41683 num_out_reqs 0
+Total play time: 8 sec 386821 usec
+trace play result:
+	    percentage good_cnt bad_cnt timeout_cnt	elapsed time			average time
+       null	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    getattr	 3.4	4822	   0	   0		sec        1 usec   391496 	usec      288
+    setattr	 1.7	2464	   0	   0		sec        0 usec   623164 	usec      252
+       root	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     lookup	 6.9	9776	  63	   0		sec        2 usec   650055 	usec      271
+   readlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+       read	39.7	56118	   0	   0		sec       26 usec   943909 	usec      480
+    wrcache	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      write	44.6	63075	   1	   0		sec       29 usec   123824 	usec      461
+     create	 0.5	 698	   0	   0		sec        0 usec   200631 	usec      287
+     remove	 0.4	 580	   1	   0		sec        0 usec   163041 	usec      281
+     rename	 0.0	  15	   0	   0		sec        0 usec     3953 	usec      263
+       link	 0.0	  35	   0	   0		sec        0 usec     7887 	usec      225
+    symlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      mkdir	 0.0	   4	   0	   0		sec        0 usec     1308 	usec      327
+      rmdir	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    readdir	 0.3	 434	   0	   0		sec        0 usec   117445 	usec      270
+     fsstat	 0.0	  58	   0	   0		sec        0 usec    15541 	usec      267
+     access	 2.3	3203	   0	   0		sec        0 usec   895515 	usec      279
+     commit	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     fsinfo	 0.0	   1	   0	   0		sec        0 usec      346 	usec      346
+      mknod	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+   pathconf	 0.0	  58	   0	   0		sec        0 usec    13306 	usec      229
+readdirplus	 0.1	  94	   0	   0		sec        0 usec    23309 	usec      247
+      TOTAL	100.0	141435	  65	   0		sec        0 usec        0 	usec        0
+
+
+LOCAL BLUESKY
+=============
+
+...                            total_profile  19.564140 num 248842 avg 78 
+
+...             execute_next_request_profile   3.080490 num 107341 avg 28 
+...                 valid_get_nextop_profile   0.510480 num 141500 avg 3 
+...               invalid_get_nextop_profile   0.008494 num 226 avg 37 
+...                 prepare_argument_profile   0.499902 num 141500 avg 3 
+...                   biod_clnt_call_profile   1.858426 num 141500 avg 13 
+
+...               receive_next_reply_profile  16.236657 num 107341 avg 151 
+...         valid_poll_and_get_reply_profile  12.393775 num 141490 avg 87 
+...       invalid_poll_and_get_reply_profile   2.999894 num 107341 avg 27 
+...                     decode_reply_profile   0.428027 num 141490 avg 3 
+...                      check_reply_profile   0.119358 num 141490 avg 0 
+...                            fgets_profile   0.239208 num 313851 avg 0 
+...                        read_line_profile   0.425723 num 313850 avg 1 
+...                       read_trace_profile   1.380395 num 1310 avg 1053 
+
+dep_tab_index.tail 41683 dep_tab_index.head 41683 num_out_reqs 0
+Total play time: 19 sec 564278 usec
+trace play result:
+	    percentage good_cnt bad_cnt timeout_cnt	elapsed time			average time
+       null	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    getattr	 3.4	4822	   0	   0		sec        1 usec   736665 	usec      360
+    setattr	 1.7	2464	   0	   0		sec        1 usec   857900 	usec      754
+       root	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     lookup	 6.9	9691	 148	   0		sec        4 usec   941768 	usec      509
+   readlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+       read	39.7	56115	   0	   3		sec       98 usec   491051 	usec     1755
+    wrcache	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      write	44.6	63069	   0	   7		sec       35 usec   170793 	usec      557
+     create	 0.5	 698	   0	   0		sec        2 usec   441460 	usec     3497
+     remove	 0.4	 581	   0	   0		sec        0 usec   191870 	usec      330
+     rename	 0.0	  15	   0	   0		sec        0 usec     8169 	usec      544
+       link	 0.0	  35	   0	   0		sec        0 usec    10346 	usec      295
+    symlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      mkdir	 0.0	   4	   0	   0		sec        0 usec     2665 	usec      666
+      rmdir	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    readdir	 0.3	 434	   0	   0		sec        0 usec   138447 	usec      319
+     fsstat	 0.0	  58	   0	   0		sec        0 usec    17608 	usec      303
+     access	 2.3	3203	   0	   0		sec        1 usec   237836 	usec      386
+     commit	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     fsinfo	 0.0	   1	   0	   0		sec        0 usec     1392 	usec     1392
+      mknod	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+   pathconf	 0.0	  58	   0	   0		sec        0 usec    18148 	usec      312
+readdirplus	 0.1	  94	   0	   0		sec        0 usec    32747 	usec      348
+      TOTAL	100.0	141342	 148	  10		sec        0 usec        0 	usec        0
+
+
+LOCAL BLUESKY, COLD CACHE
+=========================
+
+...                            total_profile  19.268282 num 248062 avg 77 
+
+...             execute_next_request_profile   3.052376 num 106561 avg 28 
+...                 valid_get_nextop_profile   0.484775 num 141500 avg 3 
+...               invalid_get_nextop_profile   0.006697 num 184 avg 36 
+...                 prepare_argument_profile   0.501066 num 141500 avg 3 
+...                   biod_clnt_call_profile   1.856965 num 141500 avg 13 
+
+...               receive_next_reply_profile  15.972413 num 106561 avg 149 
+...         valid_poll_and_get_reply_profile  12.493615 num 141490 avg 88 
+...       invalid_poll_and_get_reply_profile   2.633998 num 106561 avg 24 
+...                     decode_reply_profile   0.431858 num 141490 avg 3 
+...                      check_reply_profile   0.119522 num 141490 avg 0 
+...                            fgets_profile   0.240647 num 313851 avg 0 
+...                        read_line_profile   0.426484 num 313850 avg 1 
+...                       read_trace_profile   1.381699 num 1292 avg 1069 
+
+dep_tab_index.tail 41683 dep_tab_index.head 41683 num_out_reqs 0
+Total play time: 19 sec 268415 usec
+trace play result:
+	    percentage good_cnt bad_cnt timeout_cnt	elapsed time			average time
+       null	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    getattr	 3.4	4822	   0	   0		sec        1 usec   809190 	usec      375
+    setattr	 1.7	2464	   0	   0		sec        1 usec   500421 	usec      608
+       root	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     lookup	 6.9	9689	 150	   0		sec        5 usec   991321 	usec      618
+   readlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+       read	39.7	56118	   0	   0		sec       97 usec   364949 	usec     1735
+    wrcache	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      write	44.6	63066	   0	  10		sec       34 usec   426799 	usec      545
+     create	 0.5	 698	   0	   0		sec        2 usec   383027 	usec     3414
+     remove	 0.4	 581	   0	   0		sec        0 usec   181268 	usec      311
+     rename	 0.0	  15	   0	   0		sec        0 usec     6005 	usec      400
+       link	 0.0	  35	   0	   0		sec        0 usec     9886 	usec      282
+    symlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      mkdir	 0.0	   4	   0	   0		sec        0 usec    37076 	usec     9269
+      rmdir	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    readdir	 0.3	 434	   0	   0		sec        0 usec   120927 	usec      278
+     fsstat	 0.0	  58	   0	   0		sec        0 usec    15916 	usec      274
+     access	 2.3	3203	   0	   0		sec        1 usec     7889 	usec      314
+     commit	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     fsinfo	 0.0	   1	   0	   0		sec        0 usec      650 	usec      650
+      mknod	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+   pathconf	 0.0	  58	   0	   0		sec        0 usec    16548 	usec      285
+readdirplus	 0.1	  94	   0	   0		sec        0 usec    25698 	usec      273
+      TOTAL	100.0	141340	 150	  10		sec        0 usec        0 	usec        0
+
+
+LOCAL BLUESKY, REAL-TIME REPLAY
+===============================
+
+...                            total_profile 1735.816318 num 940604 avg 1845 
+
+...             execute_next_request_profile  54.469962 num 799103 avg 68 
+...                 valid_get_nextop_profile   4.742284 num 141500 avg 33 
+...               invalid_get_nextop_profile   2.797287 num 763493 avg 3 
+...                 prepare_argument_profile   8.172634 num 141500 avg 57 
+...                   biod_clnt_call_profile  28.909863 num 141500 avg 204 
+
+...               receive_next_reply_profile 1659.385257 num 799103 avg 2076 
+...         valid_poll_and_get_reply_profile  37.610790 num 141500 avg 265 
+...       invalid_poll_and_get_reply_profile 1592.141097 num 799103 avg 1992 
+...                     decode_reply_profile  18.269778 num 141500 avg 129 
+...                      check_reply_profile   1.279547 num 141500 avg 9 
+...                            fgets_profile   6.953099 num 313851 avg 22 
+...                        read_line_profile   9.079469 num 313850 avg 28 
+...                       read_trace_profile  34.513878 num 118235 avg 291 
+
+dep_tab_index.tail 41683 dep_tab_index.head 41683 num_out_reqs 0
+Total play time: 1735 sec 841909 usec
+trace play result:
+	    percentage good_cnt bad_cnt timeout_cnt	elapsed time			average time
+       null	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    getattr	 3.4	4822	   0	   0		sec        8 usec   748584 	usec     1814
+    setattr	 1.7	2464	   0	   0		sec        3 usec   503146 	usec     1421
+       root	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     lookup	 6.8	9661	 178	   0		sec       11 usec   569239 	usec     1197
+   readlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+       read	39.7	56118	   0	   0		sec       80 usec   340699 	usec     1431
+    wrcache	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      write	44.6	63076	   0	   0		sec      110 usec   297879 	usec     1748
+     create	 0.5	 698	   0	   0		sec        1 usec    75281 	usec     1540
+     remove	 0.4	 581	   0	   0		sec        0 usec   613004 	usec     1055
+     rename	 0.0	  15	   0	   0		sec        0 usec    51116 	usec     3407
+       link	 0.0	  35	   0	   0		sec        0 usec   127940 	usec     3655
+    symlink	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+      mkdir	 0.0	   4	   0	   0		sec        0 usec     4224 	usec     1056
+      rmdir	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+    readdir	 0.3	 434	   0	   0		sec        0 usec   834599 	usec     1923
+     fsstat	 0.0	  58	   0	   0		sec        0 usec    55379 	usec      954
+     access	 2.3	3203	   0	   0		sec        7 usec   782375 	usec     2429
+     commit	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+     fsinfo	 0.0	   1	   0	   0		sec        0 usec     1186 	usec     1186
+      mknod	 0.0	   0	   0	   0		sec        0 usec        0 	usec        0
+   pathconf	 0.0	  58	   0	   0		sec        0 usec   154432 	usec     2662
+readdirplus	 0.1	  94	   0	   0		sec        0 usec   290903 	usec     3094
+      TOTAL	100.0	141322	 178	   0		sec        0 usec        0 	usec        0

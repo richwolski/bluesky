@@ -1,0 +1,1093 @@
+#! /bin/sh
+#       @(#)sfs_mgr  2.1     97/10/23
+#
+#    Copyright (c) 1992-1997,2001 by Standard Performance Evaluation Corporation
+#	All rights reserved.
+#		Standard Performance Evaluation Corporation (SPEC)
+#		6585 Merchant Palce, Suite 100
+#		Warrenton, VA 20187
+#	This product contains benchmarks acquired from several sources who
+#	understand and agree with SPEC's goal of creating fair and objective
+#	benchmarks to measure computer performance.
+#
+#	This copyright notice is placed here only to protect SPEC in the
+#	event the source is misused in any manner that is contrary to the
+#	spirit, the goals and the intent of SPEC.
+#
+#	The source code is provided to the user or company under the license
+#	agreement for the SPEC Benchmark Suite for this product.
+#
+# *****************************************************************
+# *                                                               *
+# *	Copyright 1991,1992  Legato Systems, Inc.                 *
+# *	Copyright 1991,1992  Auspex Systems, Inc.                 *
+# *	Copyright 1991,1992  Data General Corporation             *
+# *	Copyright 1991,1992  Digital Equipment Corporation        *
+# *	Copyright 1991,1992  Interphase Corporation               *
+# *	Copyright 1991,1992  Sun Microsystems, Inc.               *
+# *                                                               *
+# *****************************************************************
+#
+# Usage sfs_mgr [-r <rc file>] [-s <suffix>] [-v <level>]
+#
+# Teelucksingh - Creation (6/17/91)
+#
+# Starts SFS (sfs_mcr) on clients with parameters
+# specified in sfs_rc .
+# Starts Prime-client program (sfs_prime)
+# Can have multiple runs with incrementing load
+# Summarized result(s) placed in sfsres.<suffix>
+# Log of multi-client run placed in sfslog.<suffix>
+# Individual client result(s) placed in sfs<cnnn>.<suffix>
+#
+#
+
+# --------------- defined constants and strings --------------
+#
+
+STARline='************************************************************************'
+RHOSTSCKMSG1="Ensure permissions in .rhosts or hosts.equiv allows remote operation."
+RHOSTSCKMSG2="Or check target directory/file existence or permissions."
+USAGE="usage: $0 [-r <rc file>] [-s <suffix>] [-v <level>]"
+
+# ----------------- variable initialization ------------------
+#
+
+error=FALSE
+
+# --------------- program initialization phase ---------------
+#
+# get the command line arguments
+#
+# init with default
+#
+SUFFIX=out
+RC_FILE=./sfs_rc
+VALIDATE=0
+#
+if [ $# -gt 6 ]
+then
+    echo $USAGE
+    exit 1
+fi
+while [ $# -gt 0 ]
+do
+    if [ "$#" -lt 2 ]
+    then
+        echo $USAGE
+	exit 1
+    fi
+    case $1 in
+    -r)
+	    RC_FILE=$2
+	    ;;
+    -s)
+	    SUFFIX=$2
+	    ;;
+    -v)
+	    VALID_LEVEL=$2
+	    VALIDATE=1
+	    ;;
+    *)	    echo $USAGE
+	    exit 1
+    esac
+    shift; shift
+done
+
+#
+# pass in environment variables from sfs_rc
+#
+if [ ! -r "$RC_FILE" ]; then
+    echo "sfs_mgr: missing or protected rc file $RC_FILE"
+    exit 1
+fi
+. "$RC_FILE"
+
+#
+# Make sure WORK_DIR is defined
+#
+if [ "$WORK_DIR" = "" ]
+then
+    echo "sfs_mgr: WORK_DIR not defined, check sfs_rc file, exiting."
+    exit 1
+fi
+
+#
+# Prime client output files
+#
+P_OUTFILE=$WORK_DIR/sfsres.$SUFFIX
+P_SUMFILE=$WORK_DIR/sfssum.$SUFFIX
+P_LOGFILE=$WORK_DIR/sfslog.$SUFFIX
+P_VALFILE=$WORK_DIR/sfsval.$SUFFIX
+
+#
+# Client pid files
+#
+SFS_PNT_PID="/tmp/sfs_pnt_pid"
+SFS_PRM_PID="/tmp/sfs_prm_pid"
+SFS_SYNCD_PID="/tmp/sfs_syncd_pid"
+
+#
+# --------------------
+# Setup machine/OS dependant parameters
+#
+# decide whether to use BSD (which one) or SYSV variant of commands
+#
+# do echo test to get no end-of-line character
+#
+op=`echo "\c"`
+if [ "$op" = "\c" ]; then
+    ECHO_NONL="echo -n"
+    NONL=
+else
+    ECHO_NONL="echo"
+    NONL="\c"
+fi
+
+#
+# do test to see whether to use hostname or uname
+#
+if sh -c "hostname > /dev/null 2>&1"  > /dev/null 2>&1
+then
+    HOSTNAME_VAL=`hostname`
+elif sh -c "uname -n  > /dev/null 2>&1" > /dev/null 2>&1
+then
+    HOSTNAME_VAL=`uname -n`
+else
+    echo "sfs_mgr: can't use hostname(1) or uname(1), exiting."
+    echo "sfs_mgr: can't use hostname(1) or uname(1), exiting." \
+		 >> $P_LOGFILE
+    exit 1
+fi
+
+#
+# Make sure RSH is defined, if not set reasonable default
+# RSH_CMD overrides RSH if set
+#
+if [ "$RSH_CMD" != "" ]
+then
+    RSH=$RSH_CMD
+fi
+    
+if [ "$RSH" = "" ]
+then
+    RSH="rsh"
+fi
+
+#
+# If CPP is not already defined then
+# try to find cpp in the common places, if not there then let PATH find it
+#
+if [ "$CPP" = "" ]; then
+    if [ -f /lib/cpp ]
+    then
+        CPP=/lib/cpp
+    elif [ -f /usr/ccs/lib/cpp ]
+    then
+        CPP=/usr/ccs/lib/cpp
+    else
+        CPP=cpp
+    fi
+fi
+
+#
+# trap for signals used by sfs programs
+#
+if [ "$TRAP_NUMS" = "" ]
+then
+    echo "#include <signal.h>" > /tmp/sfs_tmp1
+    echo "myprint SIGINT SIGALRM SIGTERM SIGUSR1 SIGUSR2" >> /tmp/sfs_tmp1
+    cat /tmp/sfs_tmp1 | $CPP | grep myprint | \
+        awk '{print $2 " " $3 " " $4 " " $5 " " $6}' > /tmp/sfs_tmp2
+    TRAP_NUMS=`cat /tmp/sfs_tmp2`
+fi
+rm -f /tmp/sfs_tmp1 /tmp/sfs_tmp2
+#
+# --------------------
+
+#
+# Get NFS version number
+#
+SFS_PROG="sfs"
+if [ "$NFS_VERSION" != "" ]
+then
+    if [ "$NFS_VERSION" = "3" ]
+    then
+	SFS_PROG="sfs3"
+    elif [ "$NFS_VERSION" != "2" ]
+    then
+	echo "sfs_mgr: Illegal NFS version number: $NFS_VERSION" \
+			>> $P_LOGFILE 2>&1
+	echo "sfs_mgr: Illegal NFS version number: $NFS_VERSION"
+	exit 1
+    fi
+fi
+
+#
+# print logfile header information
+#
+echo '========================================================================'\
+	>>$P_LOGFILE
+echo " " >>$P_LOGFILE
+echo "SFS NFS Benchmark Prime Client Logfile." >>$P_LOGFILE
+echo "        Creation Date: `date`" >>$P_LOGFILE
+echo "        Prime Client hostname: $HOSTNAME_VAL" >>$P_LOGFILE
+
+#
+# check for mixfile and block-size file
+# if specified
+#
+# check for mixfile
+#
+if [ "$MIXFILE" != "" -a ! -r "$WORK_DIR/$MIXFILE" ]
+then
+    echo "sfs_mgr: error missing or protected mixfile $WORK_DIR/$MIXFILE" \
+		>> $P_LOGFILE 2>&1
+    echo "sfs_mgr: error missing or protected mixfile $WORK_DIR/$MIXFILE"
+    exit 1
+fi
+
+#
+# check for block size file
+#
+if [ "$BLOCK_FILE" != "" -a ! -r "$WORK_DIR/$BLOCK_FILE" ]
+then
+    echo "sfs_mgr: error missing or protected block size file \
+	    $WORK_DIR/$BLOCK_FILE" >> $P_LOGFILE 2>&1
+    echo "sfs_mgr: error missing or protected block size file \
+	    $WORK_DIR/$BLOCK_FILE"
+    exit 1
+fi
+
+#
+#
+NUM_CLIENTS=0
+PRIME_CLIENT_NUM=0
+for i in $CLIENTS; do
+    NUM_CLIENTS=`expr $NUM_CLIENTS + 1`
+    #
+    # hack: First try a simple remote "echo" to
+    # /dev/null. If the $RSH fails, then we don't have
+    # permission to execute the remote command sfs_mcr.
+    # The initial probe is necessary because we must
+    # background the sfs_mcr rsh because we're looping
+    # on all clients, and spawn a bunch, and the rsh won't
+    # detach from the command. So, the probe.
+    #
+    $RSH $i -l $SFS_USER "echo >/dev/null" >/dev/null 2>&1 </dev/null
+    if [ $? -ne 0 ]; then
+	echo "sfs_mgr: test rsh to $i failed"
+	echo "            $RHOSTSCKMSG1"
+	echo "sfs_mgr: test rsh to $i failed" >> $P_LOGFILE
+	echo "            $RHOSTSCKMSG1" >> $P_LOGFILE
+	exit 1
+    fi
+
+    # Get canonical hostname of client $i and see if it is the prime client.
+    client_name=`$RSH $i -l $SFS_USER 'hostname || uname -n' 2>/dev/null </dev/null`
+    if [ "$client_name" = $HOSTNAME_VAL ]
+    then
+	PRIME_CLIENT_NUM=$NUM_CLIENTS
+	continue
+    fi
+    #
+    # Also check to make sure the work directory exists
+    #
+    exists=`$RSH $i -l $SFS_USER sh -c \"if [ -d $WORK_DIR ]\; then echo 0 \; else echo 1 \; fi\" </dev/null`
+    if [ "$exists" != 0 ]; then
+	echo "sfs_mgr: $WORK_DIR on $i does not exist"
+	echo "sfs_mgr: $WORK_DIR on $i does not exist" >> $P_LOGFILE
+	exit 1
+    fi
+    #
+    # propagate the mixfile to remote clients
+    #
+    if [ "$MIXFILE" != "" ]; then
+	rcp "$WORK_DIR/$MIXFILE" \
+	   "$SFS_USER"@"$i":"$WORK_DIR/$MIXFILE" >> $P_LOGFILE 2>&1
+	if [ $? -ne 0 ]; then
+	    echo \
+	    "sfs_mgr: can't rcp mix file $WORK_DIR/$MIXFILE to client $i."
+	    echo "            $RHOSTSCKMSG1"
+	    echo "            $RHOSTSCKMSG2"
+	    echo \
+	    "sfs_mgr: can't rcp mix file $WORK_DIR/$MIXFILE to client $i." \
+			>> $P_LOGFILE
+	    echo "            $RHOSTSCKMSG1" >> $P_LOGFILE
+	    echo "            $RHOSTSCKMSG2" >> $P_LOGFILE
+	    exit 1
+	fi
+    fi
+    #
+    # propagate block size file to remote clients
+    #
+    if [ "$BLOCK_FILE" != "" ]; then
+	rcp "$WORK_DIR/$BLOCK_FILE" \
+		"$SFS_USER"@"$i":"$WORK_DIR/$BLOCK_FILE" >> $P_LOGFILE 2>&1
+	if [ $? -ne 0 ]; then
+	    echo \
+    "sfs_mgr: can't rcp block size file $WORK_DIR/$BLOCK_FILE to client $i."
+	    echo "            $RHOSTSCKMSG1"
+	    echo "            $RHOSTSCKMSG2"
+	    echo \
+    "sfs_mgr: can't rcp block size file $WORK_DIR/$BLOCK_FILE to client $i." \
+			>> $P_LOGFILE
+	    echo "            $RHOSTSCKMSG1"	>> $P_LOGFILE
+	    echo "            $RHOSTSCKMSG2"	>> $P_LOGFILE
+	    exit 1
+	fi
+    fi
+done
+
+if [ "$NUM_CLIENTS" -eq 0 ]; then
+    echo "Cannot run SFS with no clients."
+    echo "Assign value to CLIENT variable in sfs_rc."
+    echo "Cannot run SFS with no clients."	>> $P_LOGFILE
+    echo "Assign value to CLIENT variable in sfs_rc."	>> $P_LOGFILE
+    exit 1
+fi
+
+
+echo "        Number of Clients: $NUM_CLIENTS" >>$P_LOGFILE
+echo "        Client hostname(s): $CLIENTS" >>$P_LOGFILE
+echo " " >>$P_LOGFILE
+
+#
+# Loop invariant setup
+# -------------------
+#
+# check for program that starts external monitoring
+#
+if [ "$PRIME_MON_SCRIPT" != "" -a ! -x "$WORK_DIR/$PRIME_MON_SCRIPT" ]
+then
+    echo "sfs_mgr: error missing or not executeable program \
+	$WORK_DIR/$PRIME_MON_SCRIPT" >> $P_LOGFILE 2>&1
+    echo "sfs_mgr: error missing or not executeable program \
+	    $WORK_DIR/$PRIME_MON_SCRIPT"
+    exit 1
+fi
+
+#
+# Set default number of procs if missing
+#
+PRCS=$PROCS
+if [ "$PRCS" = "" ]; then
+    PRCS=4
+fi
+
+if [ "$MNT_POINTS" = "" ]; then
+    echo "sfs_mgr: MNT_POINTS not specified" >> $P_LOGFILE 2>&1
+    echo "sfs_mgr: MNT_POINTS not specified"
+    exit 1
+fi
+
+set `echo $MNT_POINTS`
+NUM_MNTS=$#
+MPC=`expr $NUM_CLIENTS \* $PRCS`
+if [ $NUM_MNTS -ne 1 -a $NUM_MNTS -ne $PRCS -a  $NUM_MNTS -ne $MPC ]; then
+    ESTR=""
+    if [ $PROCS -ne $MPC ]; then
+	ESTR="or $MPC"
+    fi
+    echo "sfs_mgr: incorrect number of MNT_POINTS ($NUM_MNTS) must be $PROCS $ESTR" >> $P_LOGFILE 2>&1
+    echo "sfs_mgr: incorrect number of MNT_POINTS ($NUM_MNTS) must be $PROCS $ESTR"
+    exit 1
+fi
+
+#
+# -----------------
+#
+trap "" $TRAP_NUMS
+
+#
+# clean up any 'old' sfs processes
+#
+if [ -f $SFS_PRM_PID ]; then
+    kill -2 `cat $SFS_PRM_PID` > /dev/null 2>&1
+    rm -f $SFS_PRM_PID
+fi
+if [ -f $SFS_PNT_PID ]; then
+    kill -2 `cat $SFS_PNT_PID` > /dev/null 2>&1
+    rm -f $SFS_PNT_PID
+fi
+if [ -f $SFS_SYNCD_PID ]; then
+    kill -2 `cat $SFS_SYNCD_PID` > /dev/null 2>&1
+    rm -f $SFS_SYNCD_PID
+fi
+
+#
+# Prime Client sfs_syncd logfile
+#
+S_LOGFILE=$WORK_DIR/syncd_$PRIME_CLIENT_NUM.log
+
+#
+# Determine the number of test runs (TOTAL_RUNS)
+# from user supplied values in sfs_rc
+#
+NUM_LOADS=0
+LOAD_ARRAY=""
+DEFAULT_LOAD=60
+#
+# get the number of LOAD elements (NUM_LOADS)
+#
+for i in $LOAD; do
+    NUM_LOADS=`expr $NUM_LOADS + 1`
+done
+#
+# if NUM_LOADS > 1 then the number of test runs (TOTAL_RUNS) = NUM_LOADS and
+# Report conflict if user specifies multiple LOAD elements as well as
+# NUM_RUNS > 1.
+#
+# if NUM_LOADS <= 1 then the number of test runs (TOTAL_RUNS) = NUM_RUNS
+#
+if [ "$NUM_LOADS" -gt 1 ]; then
+    TOTAL_RUNS=$NUM_LOADS
+    LOAD_ARRAY=$LOAD
+    if [ "$NUM_RUNS" -gt 1 ]; then
+	echo "Cannot specify an array of LOAD values as well as NUM_RUNS >1."
+	echo "Cannot specify an array of LOAD values as well as NUM_RUNS >1." \
+		>> $P_LOGFILE 2>&1
+	exit 1
+    fi
+else
+    TOTAL_RUNS=$NUM_RUNS
+    if [ "$NUM_LOADS" -eq 0 ]; then
+	LOAD=$DEFAULT_LOAD
+    fi
+    LOAD_ARRAY=$LOAD
+    i=1
+    while [ "$i" -lt "$NUM_RUNS" ]; do
+	LOAD_ARRAY="$LOAD_ARRAY `expr $LOAD + $i \* $INCR_LOAD`"
+	i=`expr $i + 1`
+    done
+fi
+
+#
+# Loop invariant parameters
+# create parameter strings here ... from sfs_rc values.
+# - SFS_PARAM : sfs parameters
+# - SFS_VPARAM : sfs validation parameters
+# - SFS_PRIME_PARAM : sfs_prime parameters
+SFS_PARAM=
+SFS_VPARAM=
+SFS_PRIME_PARAM=
+#
+# get runtime
+#
+if [ "$RUNTIME" -ne 0 ]; then
+    SFS_PARAM="$SFS_PARAM -t $RUNTIME"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -t $RUNTIME"
+fi
+
+#
+# get mixfile filename, if specified
+#
+if [ "$MIXFILE" != "" ]; then
+    SFS_PARAM="$SFS_PARAM -m $WORK_DIR/$MIXFILE"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -m $WORK_DIR/$MIXFILE"
+fi
+
+#
+# get sfs DEBUG level
+#
+if [ "$DEBUG" != "" ]; then
+    SFS_PARAM="$SFS_PARAM -d $DEBUG"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -d $DEBUG"
+fi
+
+#
+# get access percentage
+#
+if [ "$ACCESS_PCNT" -ne 0 ]; then
+    SFS_PARAM="$SFS_PARAM -a $ACCESS_PCNT"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -a $ACCESS_PCNT"
+fi
+
+#
+# get append percentage
+#
+if [ "$APPEND_PCNT" -ne 0 ]; then
+    SFS_PARAM="$SFS_PARAM -A $APPEND_PCNT"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -A $APPEND_PCNT"
+fi
+
+#
+# get block size
+#
+if [ "$BLOCK_SIZE" -ne 0 ]; then
+    SFS_PARAM="$SFS_PARAM -B $BLOCK_SIZE"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -B $BLOCK_SIZE"
+fi
+
+#
+# get block size filename, if specified
+#
+if [ "$BLOCK_FILE" != "" ]; then
+    SFS_PARAM="$SFS_PARAM -b $WORK_DIR/$BLOCK_FILE"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -b $WORK_DIR/$BLOCK_FILE"
+fi
+
+#
+# get maximum number of outstanding biod reads
+#
+if [ "$BIOD_MAX_READS" != "" ]; then
+    SFS_PARAM="$SFS_PARAM -R $BIOD_MAX_READS"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -R $BIOD_MAX_READS"
+fi
+
+#
+# get maximum number of outstanding biod writes
+#
+if [ "$BIOD_MAX_WRITES" != "" ]; then
+    SFS_PARAM="$SFS_PARAM -W $BIOD_MAX_WRITES"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -W $BIOD_MAX_WRITES"
+fi
+
+#
+# get directory count
+#
+if [ "$DIR_COUNT" -ne 0 ]; then
+    SFS_PARAM="$SFS_PARAM -D $DIR_COUNT"
+fi
+
+#
+# get file count
+#
+if [ -n "$FILE_COUNT" ]; then
+  if [ "$FILE_COUNT" -ne 0 ]; then
+    SFS_PARAM="$SFS_PARAM -F $FILE_COUNT"
+  fi
+fi
+
+#
+# get symbolic link count
+#
+if [ "$SYMLINK_COUNT" -ne 0 ]; then
+    SFS_PARAM="$SFS_PARAM -S $SYMLINK_COUNT"
+fi
+
+#
+# set flag for raw data dump if option set
+#
+if [ "$DUMP" != "" ]; then
+    SFS_PARAM="$SFS_PARAM -z"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -z"
+fi
+
+#
+# set flag for NFS/TCP if variable is "1" or "on"
+#
+if [ "$TCP" != "" ]
+then
+    if [ "$TCP" = "1" -o "$TCP" = "on" ]; then
+	SFS_PARAM="$SFS_PARAM -Q"
+	SFS_VPARAM="$SFS_VPARAM -Q"
+	SFS_PRIME_PARAM="$SFS_PRIME_PARAM -Q"
+    fi
+fi
+
+#
+# get number of processes
+#
+if [ "$PROCS" -ne 0 ]; then
+    SFS_PARAM="$SFS_PARAM -p $PROCS"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -p $PROCS"
+fi
+
+#
+# get warm-up value (allow 0 warmup)
+#
+if [ "$WARMUP_TIME" != "" ]; then
+    SFS_PARAM="$SFS_PARAM -w $WARMUP_TIME"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -w $WARMUP_TIME"
+fi
+
+#
+# get sfs_prime sleep value
+#
+if [ "${PRIME_SLEEP:-0}" -gt 0 ]; then
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -s $PRIME_SLEEP"
+fi
+
+#
+# get file set percentage delta
+#
+if [ "$FILESET_DELTA" != "" ]; then
+    SFS_PARAM="$SFS_PARAM -f $FILESET_DELTA"
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -f $FILESET_DELTA"
+fi
+
+#
+# get sfs_prime timeout value
+#
+if [ "${PRIME_TIMEOUT:-0}" -gt 0 ]; then
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -x $PRIME_TIMEOUT"
+fi
+
+#
+# get populate only flag
+# 
+if [ "$POPULATE" != "" ]; then 
+    SFS_PARAM="$SFS_PARAM -P" 
+fi
+
+#
+# check for program that starts external monitoring
+#
+if [ "$PRIME_MON_SCRIPT" != "" ]; then
+    SFS_PRIME_PARAM="$SFS_PRIME_PARAM -k $WORK_DIR/$PRIME_MON_SCRIPT"
+    # check for parameters to the monitor program; use a different method
+    # to test for nonempty because the arguments may start with a hyphen,
+    # which would confuse the "test" command.
+    if [ "x$PRIME_MON_ARGS" != "x" ]; then
+	SFS_PRIME_PARAM="$SFS_PRIME_PARAM -K '$PRIME_MON_ARGS'"
+    fi
+
+    echo "" >> $P_LOGFILE
+fi
+
+#
+# Add clients to prime
+#
+SFS_PRIME_PARAM="$SFS_PRIME_PARAM $CLIENTS"
+
+#
+# get prime client hostname
+#
+SFS_PARAM="$SFS_PARAM -M $HOSTNAME_VAL"
+
+#### End client loop invariant section
+#
+# VALIDATE stuff
+#
+if [ "$VALIDATE" -gt 0 ]; then
+    echo "Executing SFS NFS Validation ..."
+    #
+    # if validate option used then take the first client
+    # from the CLIENT array and run the SFS validation
+    # suite using the first element on the MOUNT_PNTS list.
+
+    set `echo $CLIENTS`
+    VALID_CLIENT=$1
+
+    set `echo $MNT_POINTS`
+    VALID_MOUNT_PNT=$1
+
+    if [ $NUM_MNTS -eq 1 -a -f "$WORK_DIR/$VALID_MOUNT_PNT" ]
+    then
+	#
+	# If the mount point and is actually a file
+	# name then we assume that it is a file containing a list
+	# of mount points one line per client, possibly of the format
+	# hostname:path
+	#
+	MNT_PTS=`while read CLNT_LINE MNT_LINE
+	do
+	    if [ $VALID_CLIENT = $CLNT_LINE ]
+	    then
+		echo $MNT_LINE
+		break
+	    fi
+	done < $WORK_DIR/$VALID_MOUNT_PNT`
+
+	set `echo $MNT_PTS`
+	VALID_MOUNT_PNT=$1
+    fi
+
+    echo "Starting SFS NFS validation on client ($VALID_CLIENT)"
+    echo "    $SFS_DIR/$SFS_PROG $SFS_VPARAM -V $VALID_LEVEL $VALID_MOUNT_PNT"
+    echo "Starting SFS Validation suite on client ($VALID_CLIENT)" \
+		> $P_VALFILE 2>&1
+    echo "    $SFS_DIR/$SFS_PROG $SFS_VPARAM -V $VALID_LEVEL $VALID_MOUNT_PNT" \
+		>> $P_VALFILE 2>&1
+
+    # Get canonical hostname of $VALID_CLIENT and see if it is the prime client.
+    client_name=`$RSH $VALID_CLIENT -l $SFS_USER 'hostname || uname -n' 2>/dev/null </dev/null`
+    if [ "$client_name" = $HOSTNAME_VAL ]; then
+	$SFS_DIR/$SFS_PROG $SFS_VPARAM -V $VALID_LEVEL $VALID_MOUNT_PNT \
+		>> $P_VALFILE 2>&1
+	# if error then clean-up and exit
+	if [ $? -ne 0 ]; then
+	    echo "SFS NFS validation failed."
+	    echo "See $P_VALFILE for results."
+	    exit 1
+	else
+	    echo "SFS NFS validation completed successfully."
+	    echo "See $P_VALFILE for results."
+	    exit 0
+	fi
+    else
+	$RSH $VALID_CLIENT -l $SFS_USER \
+	    "( cd $WORK_DIR; \
+	    $SFS_DIR/$SFS_PROG $SFS_VPARAM -V $VALID_LEVEL $VALID_MOUNT_PNT )" \
+	    >> $P_VALFILE 2>&1
+	if [ $? -ne 0 ]; then
+	    echo \
+	    "sfs_mgr: can't run validation pass of sfs on client $VALID_CLIENT."
+	    echo "            $RHOSTSCKMSG1"
+	    echo \
+	    "sfs_mgr: can't run validation pass of sfs on client $VALID_CLIENT." \
+				>> $P_LOGFILE
+	    echo "            $RHOSTSCKMSG1"	>> $P_LOGFILE
+	    exit 1
+	fi
+	# if error then clean-up and exit
+	tail -1 $P_VALFILE | grep -s 'validation completed successfully'
+	if [ $? -ne 0 ]; then
+	    echo "SFS NFS validation failed."
+	    echo "See $P_VALFILE for results."
+	    echo "SFS NFS validation failed." >> $P_LOGFILE
+	    echo "See $P_VALFILE for results." >> $P_LOGFILE
+	    exit 1
+	else
+	    echo "SFS NFS validation completed successfully."
+	    echo "See $P_VALFILE for results."
+	    echo "SFS NFS validation completed successfully." >> $P_LOGFILE
+	    echo "See $P_VALFILE for results." >> $P_LOGFILE
+	    exit 0
+	fi
+    fi
+fi
+
+
+#
+# Prime client /tmp logfiles - used for clean up
+#
+PRIME_LOG_FILES="/tmp/sfs_PC_sync \
+		/tmp/sfs_x$PRIME_CLIENT_NUM \
+		/tmp/sfs_CL$PRIME_CLIENT_NUM \
+		/tmp/sfs_mpr$PRIME_CLIENT_NUM \
+		/tmp/sfs_res*"
+
+#
+# start test
+# MAIN CLIENT LOOP
+#
+RUN=1
+for LOAD_INDEX in $LOAD_ARRAY; do
+    LOAD_VALUE=`expr $LOAD_INDEX / $NUM_CLIENTS`
+
+    export LOAD_VALUE LOAD_INDEX SUFFIX WORK_DIR
+
+    echo " ">>$P_LOGFILE
+    echo "$STARline" >> $P_LOGFILE
+    echo "$STARline" >> $P_OUTFILE
+
+    #
+    # clean up /tmp files
+    #
+    for i in $PRIME_LOG_FILES; do
+	if [ -f $i ]; then
+	    if [ -w $i ]; then
+		rm $i
+	    else
+		echo "sfs_mgr: error could not remove file - $i"
+		echo "sfs_mgr: error could not remove file - $i" >> $P_LOGFILE
+		exit 1
+	    fi
+	fi
+    done
+    #
+    # restart the sfs_syncd process
+    #
+    if [ -f $SFS_SYNCD_PID ]; then
+	kill -2 `cat $SFS_SYNCD_PID` > /dev/null 2>&1
+	rm -f $SFS_SYNCD_PID
+    fi
+
+    trap "" $TRAP_NUMS
+
+    echo "Test Run $RUN of $TOTAL_RUNS" >>$P_LOGFILE
+    echo " " >>$P_LOGFILE
+    echo "    `date`"
+    $ECHO_NONL "     Executing run $RUN of $TOTAL_RUNS ... $NONL"
+    sh -c "$SFS_DIR/sfs_syncd >> $S_LOGFILE 2>&1 &"
+    sleep 15
+    echo "Started: sfs_syncd on Prime-Client ($HOSTNAME_VAL)" \
+	>> $P_LOGFILE
+
+    #
+    # start sfs on all the clients
+    #
+    CLIENTS_NUM=1
+    for i in $CLIENTS; do
+	#
+	# compose client's logfile name
+	#
+	if [ "$CLIENTS_NUM" -lt 10 ]; then
+	    C_LOGFILE="$WORK_DIR"/sfsc00"$CLIENTS_NUM"."$SUFFIX"
+	elif [ "$CLIENTS_NUM" -lt 100 ]; then
+	    C_LOGFILE="$WORK_DIR"/sfsc0"$CLIENTS_NUM"."$SUFFIX"
+	else
+	    C_LOGFILE="$WORK_DIR"/sfsc"$CLIENTS_NUM"."$SUFFIX"
+	fi
+
+	#
+	# compose client's sfs_syncd logfile name
+	#
+	S_LOGFILE=$WORK_DIR/syncd_$CLIENTS_NUM.log
+
+	if [ $NUM_MNTS -eq 1 -a -f "$WORK_DIR/$MNT_POINTS" ]
+	then
+	    #
+	    # If there is only one mount point and it is actually a file
+	    # name then we assume that it is a file containing a list
+	    # of mount points one line per client, possibly of the format
+	    # hostname:path
+	    #
+	    MNT_PTS=`while read CLNT_LINE MNT_LINE
+	    do
+		if [ $i = $CLNT_LINE ]
+		then
+		    echo $MNT_LINE
+		    break
+		fi
+	    done < $WORK_DIR/$MNT_POINTS`
+	else
+	    #
+	    # construct MNT_PTS for this particular CLIENTS_NUM (client)
+	    # from MNT_POINTS, using total number of CLIENTS
+	    # and PRCS [number of processes per client]
+	    #
+	    # PRCS must be a multiple of NUM_MNTS,
+	    # no need to resequence the list of mount points
+	    #
+	    MNT_PTS="$MNT_POINTS"
+	fi
+
+	#
+	# if prime client in $CLIENT then start sfs locally
+	#
+        client_name=`$RSH $i -l $SFS_USER 'hostname || uname -n' 2>/dev/null </dev/null`
+	if [ "$client_name" = $HOSTNAME_VAL ]; then
+	    echo "`date` $i start:" >>$P_LOGFILE
+	    echo "        $SFS_PROG -N $CLIENTS_NUM -l $LOAD_VALUE $SFS_PARAM $MNT_PTS" \
+				    >> $P_LOGFILE
+
+	    trap "" $TRAP_NUMS
+	    $SFS_DIR/$SFS_PROG -N $CLIENTS_NUM -l $LOAD_VALUE $SFS_PARAM $MNT_PTS \
+			>> $C_LOGFILE 2>&1 &
+	else
+	    #
+	    # Cause remote client to cleanup
+	    #
+	    $RSH $i -l $SFS_USER "( cd $WORK_DIR; \
+		$SFS_DIR/sfs_mcr cleanup )" >>/dev/null 2>&1 </dev/null
+
+	    #
+	    # remotely start sfs_mcr script on clients
+	    #
+	    echo "`date` $i start:" >>$P_LOGFILE
+	    echo "        $SFS_PROG -N $CLIENTS_NUM -l $LOAD_VALUE $SFS_PARAM $MNT_PTS" \
+		>> $P_LOGFILE
+
+	    $RSH $i -l $SFS_USER "( cd $WORK_DIR; \
+		$SFS_DIR/sfs_mcr $SFS_PROG $SFS_DIR \
+		$S_LOGFILE $C_LOGFILE $CLIENTS_NUM \
+		-l $LOAD_VALUE $SFS_PARAM $MNT_PTS ) &"\
+		>>/dev/null 2>&1 </dev/null &
+	fi
+
+	#
+	# increment client num
+	#
+	CLIENTS_NUM=`expr $CLIENTS_NUM + 1`
+    done
+
+    #
+    # start the Prime client program, sfs_prime,
+    # and wait for completion
+    #
+    trap "" $TRAP_NUMS
+    $SFS_DIR/sfs_prime -l $LOAD_VALUE -C $P_SUMFILE $SFS_PRIME_PARAM \
+	> /tmp/sfs_mpr$PRIME_CLIENT_NUM 2>> $P_LOGFILE
+
+    #
+    # if error then clean-up set error flag, and break out
+    #
+    if [ $? -ne 0 ]; then
+	echo "sfs_mgr: sfs_prime returned an error, exiting"
+	echo "sfs_mgr: sfs_prime returned an error, exiting" \
+		>> $P_LOGFILE 2>&1
+	if [ -f $SFS_PNT_PID ]; then
+	    kill -2 `cat $SFS_PNT_PID` > /dev/null 2>&1
+	    rm -f $SFS_PNT_PID
+	fi
+	if [ -f $SFS_SYNCD_PID ]; then
+	    kill -2 `cat $SFS_SYNCD_PID` > /dev/null 2>&1
+	    rm -f $SFS_SYNCD_PID
+	fi
+	error=TRUE
+	break	# break out of for loop
+    fi
+
+    #
+    # record results
+    #
+    cat /tmp/sfs_mpr$PRIME_CLIENT_NUM >> $P_LOGFILE
+    cat /tmp/sfs_mpr$PRIME_CLIENT_NUM >> $P_OUTFILE
+    rm /tmp/sfs_mpr$PRIME_CLIENT_NUM >> $P_LOGFILE 2>&1
+
+    #
+    # increment RUN value and reset SFS_PARAM
+    #
+    RUN=`expr $RUN + 1`
+    echo " done"
+    #
+    echo "" >> $P_LOGFILE
+    echo "$STARline" >> $P_LOGFILE
+    echo "$STARline" >> $P_OUTFILE
+
+    #
+    # test run(s) completed
+    #
+done   # END OF MAIN CLIENT LOOP: 'for LOAD_INDEX in $LOAD_ARRAY'
+
+#
+# copy log files from clients
+#
+CLIENTS_NUM=1
+for i in $CLIENTS; do
+    #
+    # compose client's logfile name
+    #
+    if [ "$CLIENTS_NUM" -lt 10 ]; then
+	C_LOGFILE="$WORK_DIR"/sfsc00"$CLIENTS_NUM"."$SUFFIX"
+    elif [ "$CLIENTS_NUM" -lt 100 ]; then
+	C_LOGFILE="$WORK_DIR"/sfsc0"$CLIENTS_NUM"."$SUFFIX"
+    else
+	C_LOGFILE="$WORK_DIR"/sfsc"$CLIENTS_NUM"."$SUFFIX"
+    fi
+    #
+    # Copy over the logfiles. We copy the files to a temporary
+    # file on the chance that either the prime client is also
+    # a load generating client and we might rcp a file over
+    # itself, or the $WORK_DIR is NFS mounted by all clients,
+    # in which case we don't want to really remove the remote
+    # file since it is the same as the 'local' file on the
+    # prime. While not necessarily efficient, this is correct.
+    #
+    client_name=`$RSH $i -l $SFS_USER 'hostname || uname -n' 2>/dev/null </dev/null`
+    if [ $client_name != $HOSTNAME_VAL ]; then
+	#
+	# copy to temporary file: of different name than target
+	# in off chance /tmp is our $WORK_DIR
+	#
+	rcp "$SFS_USER"@"$i":"$C_LOGFILE" \
+		/tmp/sfs"$CLIENTS_NUM"."$SUFFIX"
+	if [ $? -ne 0 ]; then
+	    echo "sfs_mgr: can't rcp $C_LOGFILE from client $i."
+	    echo "            $RHOSTSCKMSG1"
+	    echo "            $RHOSTSCKMSG2"
+	    echo "sfs_mgr: can't rcp $C_LOGFILE from client $i." >> $P_LOGFILE
+	    echo "            $RHOSTSCKMSG1" >> $P_LOGFILE
+	    echo "            $RHOSTSCKMSG2" >> $P_LOGFILE
+	    exit 1
+	fi
+	$RSH $i -l $SFS_USER "/bin/rm $C_LOGFILE"
+	if [ $? -ne 0 ]; then
+	    echo "sfs_mgr: can't remove $C_LOGFILE on client $i."
+	    echo "            $RHOSTSCKMSG1"
+	    echo "sfs_mgr: can't remove $C_LOGFILE on client $i." >> $P_LOGFILE
+	    echo "            $RHOSTSCKMSG1" >> $P_LOGFILE
+	    exit 1
+	fi
+	mv /tmp/sfs"$CLIENTS_NUM"."$SUFFIX" "$C_LOGFILE"
+    fi
+    CLIENTS_NUM=`expr $CLIENTS_NUM + 1`
+done
+
+#
+# if we got an error, terminate sfs_mgr
+#
+if [ "$error" = TRUE ]; then
+    exit 1
+fi
+
+#
+# copy 'raw data dump' files from clients
+# only do this for one point, the final one--it dosn't make
+# sense to concatenate dumps from different loads
+#
+if [ "$DUMP" != "" ]; then
+    CLIENTS_NUM=1
+    for i in $CLIENTS; do
+	#
+	# compose client's raw dump logfile name
+	#
+	if [ "$CLIENTS_NUM" -lt 10 ]; then
+	    CLNTNUM=00"$CLIENTS_NUM"
+	elif [ "$CLIENTS_NUM" -lt 100 ]; then
+	    CLNTNUM=0"$CLIENTS_NUM"
+	else
+	    CLNTNUM="$CLIENTS_NUM"
+	fi
+	PRC=$PROCS
+	if [ "$PRC" = "" ]; then
+	    PRC=4
+	fi
+	PRCJ=0
+	while [ $PRCJ -lt $PRC ]; do
+	    if [ "$PRCJ" -lt 10 ]; then
+		PROCNUM=00"$PRCJ"
+	    elif [ "$PRCJ" -lt 100 ]; then
+		PROCNUM=0"$PRCJ"
+	    else
+		PROCNUM="$PRCJ"
+	    fi
+	    RAWFILE=c${CLNTNUM}-p${PROCNUM}
+	    #
+	    # copy over the logfiles
+	    # clean out (remove) originals
+	    #
+    	    client_name=`$RSH $i -l $SFS_USER 'hostname || uname -n' 2>/dev/null </dev/null`
+	    if [ $client_name != $HOSTNAME_VAL ]; then
+		$RSH $i -l $SFS_USER \
+		    cat /tmp/"$RAWFILE" \
+		    >> "$WORK_DIR"/"$RAWFILE"."$SUFFIX"
+		$RSH $i -l $SFS_USER \
+		    /bin/rm /tmp/"$RAWFILE"
+	    else
+		cat /tmp/"$RAWFILE" \
+		    >> "$WORK_DIR"/"$RAWFILE"."$SUFFIX"
+		/bin/rm /tmp/"$RAWFILE"
+	    fi
+	    PRCJ=`expr $PRCJ + 1`
+	done
+	CLIENTS_NUM=`expr $CLIENTS_NUM + 1`
+    done
+fi
+
+#
+# cleanup processes before ending
+#
+if [ -f $SFS_PRM_PID ]; then
+    kill -2 `cat $SFS_PRM_PID` > /dev/null 2>&1
+    rm -f $SFS_PRM_PID
+fi
+if [ -f $SFS_PNT_PID ]; then
+    kill -2 `cat $SFS_PNT_PID` > /dev/null 2>&1
+    rm -f $SFS_PNT_PID
+fi
+if [ -f $SFS_SYNCD_PID ]; then
+    kill -2 `cat $SFS_SYNCD_PID` > /dev/null 2>&1
+    rm -f $SFS_SYNCD_PID
+fi
+
+#
+# cleanup temporary files
+#
+for i in $PRIME_LOG_FILES; do
+    if [ -f $i ]; then
+	if [ -w $i ]; then
+	    rm $i
+	else
+	    echo "sfs_mgr: error could not remove file - $i"
+	    echo "sfs_mgr: error could not remove file - $i" >> $P_LOGFILE
+	    exit 1
+	fi
+    fi
+done
+
+echo '========================================================================'\        >>$P_LOGFILE
+exit 0

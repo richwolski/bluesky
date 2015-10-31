@@ -1,0 +1,2 @@
+#cmdline nfsscan.pl 
+#C time client fh euid egid TOTAL INTERESTING read write lookup getattr access create remove

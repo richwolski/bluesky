@@ -1,0 +1,14 @@
+#This is to collect info for something other than test1
+#test1 is hard-coded in frag_collect
+nfs stop
+umount $1
+mount $1
+nfs start
+echo "sed -d s/^/show_inode_info / $3"
+sed -e "s/^/show_inode_info /" $3 >$3.2
+echo "open $2" >$3.3
+cat $3.2 >> $3.3
+echo "debugfs -f $3.3"
+debugfs -f $3.3 > $3.4
+#echo "frag_count $3.4 > $3.5"
+#frag_count $3.4 > $3.5

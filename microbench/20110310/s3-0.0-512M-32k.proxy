@@ -1,0 +1,1832 @@
+EXECUTE(vrable2.sysnet.ucsd.edu): run-proxy
+BLUESKY_RUN_NAME=s3-0.0-512M-32k
+BLUESKY_CACHE_SIZE=1048576
+BLUESKY_TARGET=s3:mvrable-bluesky-west
+BENCH_DURATION=120
+BENCH_FILESIZE=1048576
+BENCH_FILECOUNT=512
+BENCH_WRITERATIO=0.0
+BENCH_THREADS=4
+BENCH_OPS=10
+BENCH_INTERVALS=10
+BENCH_DIRSIZE=128
+BENCH_BLOCKSIZE=32768
+NFS_BLOCKSIZE=32768
+Option BLUESKY_CACHE_SIZE set to 1048576
+Initializing S3 with bucket mvrable-bluesky-west, access key AKIAJ4RG3GWBMGEBRRXQ, encryption key j3FQWkiNQnDCm+JVhbQ69YfWfds7AB/sYkLy89MA
+Starting journal at sequence number 0
+Claiming cloud log directory: 0
+Last key: (null)
+Initializing new filesystem...
+Starting NFS main loop...
+
+Cloudlog cache: 0 dirty, 0 writeback, 1 journal, 0 cloud
+Creating inode map range, 1: start=0 end=18446744073709551615
+Creating inode map range, 2: start=0 end=18446744073709551615
+Creating inode map range, 3: start=0 end=4095
+Serializing 447 bytes of data to cloud
+Write of log-00000000-00000000 to cloud complete, status = 0
+All segments have been flushed, journal < 0 is clean
+
+Scanning cache: (total size = 4 kB)
+
+Ending cache size: 4 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 2 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 0 is clean
+
+Scanning cache: (total size = 4 kB)
+
+Ending cache size: 4 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 4660 journal, 2 cloud
+Serializing 4210033 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4212591 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000003 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000033 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000002 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000008 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000004 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000001 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000022 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000006 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000030 to cloud complete, status = 0
+Write of log-00000000-00000005 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000028 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000025 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000021 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000007 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000017 to cloud complete, status = 0
+Serializing 2115834 bytes of data to cloud
+Write of log-00000000-00000011 to cloud complete, status = 0
+Write of log-00000000-00000009 to cloud complete, status = 0
+Write of log-00000000-00000027 to cloud complete, status = 0
+Write of log-00000000-00000013 to cloud complete, status = 0
+Write of log-00000000-00000014 to cloud complete, status = 0
+Write of log-00000000-00000029 to cloud complete, status = 0
+Write of log-00000000-00000023 to cloud complete, status = 0
+Write of log-00000000-00000016 to cloud complete, status = 0
+Write of log-00000000-00000019 to cloud complete, status = 0
+Write of log-00000000-00000026 to cloud complete, status = 0
+Write of log-00000000-00000024 to cloud complete, status = 0
+Write of log-00000000-00000036 to cloud complete, status = 0
+Write of log-00000000-00000031 to cloud complete, status = 0
+Write of log-00000000-00000032 to cloud complete, status = 0
+Write of log-00000000-00000018 to cloud complete, status = 0
+Write of log-00000000-00000048 to cloud complete, status = 0
+Write of log-00000000-00000020 to cloud complete, status = 0
+Write of log-00000000-00000039 to cloud complete, status = 0
+Write of log-00000000-00000012 to cloud complete, status = 0
+Write of log-00000000-00000034 to cloud complete, status = 0
+Write of log-00000000-00000010 to cloud complete, status = 0
+Write of log-00000000-00000035 to cloud complete, status = 0
+Write of log-00000000-00000015 to cloud complete, status = 0
+Write of log-00000000-00000037 to cloud complete, status = 0
+Write of log-00000000-00000043 to cloud complete, status = 0
+Write of log-00000000-00000038 to cloud complete, status = 0
+Write of log-00000000-00000040 to cloud complete, status = 0
+Write of log-00000000-00000041 to cloud complete, status = 0
+Write of log-00000000-00000047 to cloud complete, status = 0
+Write of log-00000000-00000044 to cloud complete, status = 0
+Write of log-00000000-00000046 to cloud complete, status = 0
+Write of log-00000000-00000045 to cloud complete, status = 0
+Write of log-00000000-00000042 to cloud complete, status = 0
+All segments have been flushed, journal < 35 is clean
+
+Scanning cache: (total size = 245016 kB)
+
+Ending cache size: 245016 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 6305 journal, 6278 cloud
+Serializing 4209287 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4212591 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000049 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000067 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000057 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000061 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000053 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000050 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000072 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000060 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000081 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000064 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000055 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000083 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000084 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000088 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000052 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000070 to cloud complete, status = 0
+Serializing 4212591 bytes of data to cloud
+Write of log-00000000-00000059 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000091 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000074 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000094 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000058 to cloud complete, status = 0
+Write of log-00000000-00000092 to cloud complete, status = 0
+Write of log-00000000-00000075 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000089 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000051 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000073 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000069 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000096 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000071 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000065 to cloud complete, status = 0
+Serializing 2125744 bytes of data to cloud
+Write of log-00000000-00000068 to cloud complete, status = 0
+Write of log-00000000-00000076 to cloud complete, status = 0
+Write of log-00000000-00000085 to cloud complete, status = 0
+Write of log-00000000-00000054 to cloud complete, status = 0
+Write of log-00000000-00000087 to cloud complete, status = 0
+Write of log-00000000-00000079 to cloud complete, status = 0
+Write of log-00000000-00000062 to cloud complete, status = 0
+Write of log-00000000-00000097 to cloud complete, status = 0
+Write of log-00000000-00000093 to cloud complete, status = 0
+Write of log-00000000-00000095 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000098 to cloud complete, status = 0
+Write of log-00000000-00000090 to cloud complete, status = 0
+Write of log-00000000-00000110 to cloud complete, status = 0
+Write of log-00000000-00000111 to cloud complete, status = 0
+Write of log-00000000-00000099 to cloud complete, status = 0
+Write of log-00000000-00000106 to cloud complete, status = 0
+Write of log-00000000-00000104 to cloud complete, status = 0
+Write of log-00000000-00000108 to cloud complete, status = 0
+Write of log-00000000-00000109 to cloud complete, status = 0
+Write of log-00000000-00000102 to cloud complete, status = 0
+Write of log-00000000-00000103 to cloud complete, status = 0
+Write of log-00000000-00000107 to cloud complete, status = 0
+Write of log-00000000-00000101 to cloud complete, status = 0
+Write of log-00000000-00000100 to cloud complete, status = 0
+Write of log-00000000-00000063 to cloud complete, status = 0
+Write of log-00000000-00000105 to cloud complete, status = 0
+Write of log-00000000-00000078 to cloud complete, status = 0
+Unexpected error or end of file on RPC stream 14!
+Write of log-00000000-00000080 to cloud complete, status = 0
+Write of log-00000000-00000066 to cloud complete, status = 0
+Write of log-00000000-00000077 to cloud complete, status = 0
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+Write of log-00000000-00000056 to cloud complete, status = 0
+Write of log-00000000-00000086 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000082 to cloud complete, status = 0
+All segments have been flushed, journal < 95 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 2377 journal, 14528 cloud
+Serializing 4209287 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4212591 bytes of data to cloud
+Serializing 22155 bytes of data to cloud
+Write of log-00000000-00000130 to cloud complete, status = 0
+Write of log-00000000-00000129 to cloud complete, status = 0
+Write of log-00000000-00000128 to cloud complete, status = 0
+Write of log-00000000-00000119 to cloud complete, status = 0
+Write of log-00000000-00000124 to cloud complete, status = 0
+Write of log-00000000-00000118 to cloud complete, status = 0
+Write of log-00000000-00000127 to cloud complete, status = 0
+Write of log-00000000-00000121 to cloud complete, status = 0
+Write of log-00000000-00000113 to cloud complete, status = 0
+Write of log-00000000-00000122 to cloud complete, status = 0
+Write of log-00000000-00000125 to cloud complete, status = 0
+Write of log-00000000-00000120 to cloud complete, status = 0
+Write of log-00000000-00000114 to cloud complete, status = 0
+Write of log-00000000-00000115 to cloud complete, status = 0
+Write of log-00000000-00000112 to cloud complete, status = 0
+Write of log-00000000-00000116 to cloud complete, status = 0
+Write of log-00000000-00000117 to cloud complete, status = 0
+Write of log-00000000-00000126 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000123 to cloud complete, status = 0
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+Unexpected error or end of file on RPC stream 14!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527116 kB)
+
+Ending cache size: 527116 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+Unexpected error or end of file on RPC stream 14!
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527120 kB)
+
+Ending cache size: 527120 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Unexpected error or end of file on RPC stream 14!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Unexpected error or end of file on RPC stream 14!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527124 kB)
+
+Ending cache size: 527124 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+Unexpected error or end of file on RPC stream 14!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527128 kB)
+
+Ending cache size: 527128 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+Unexpected error or end of file on RPC stream 14!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527136 kB)
+
+Ending cache size: 527136 kB
+Last key: (null)
+
+** (nfsd:4076): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527140 kB)
+
+Ending cache size: 527140 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527140 kB)
+
+Ending cache size: 527140 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527140 kB)
+
+Ending cache size: 527140 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527140 kB)
+
+Ending cache size: 527140 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 16903 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 129 is clean
+
+Scanning cache: (total size = 527140 kB)
+
+Ending cache size: 527140 kB
+Unexpected error or end of file on RPC stream 14!
+SIGINT caught, shutting down...
+Proxy statistics:
+Store[s3:mvrable-bluesky-west]: GETS: count=0 sum=0
+Store[s3:mvrable-bluesky-west]: PUTS: count=131 sum=539001231
+Store[file]: GETS: count=0 sum=0
+Store[file]: PUTS: count=0 sum=0
+NFS RPC Messages In: count=556520 sum=588011460
+NFS RPC Messages Out: count=556512 sum=9115067348
+/scratch/bluesky.git/microbench/setup/run-proxy: line 30:  4073 Terminated              /usr/lib/atsar/atsadc 5 17280 /export2/$BLUESKY_RUN_NAME.sadc

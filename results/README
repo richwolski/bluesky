@@ -1,0 +1,26 @@
+All benchmark runs are using a fixed-size dataset over different op/s
+values, to avoid filling the disk at high throughput.
+
+
+knfsd-sync:
+Linux in-kernel NFS server, exported with the 'sync' option.
+
+knfsd-async:
+Same as above, but using the 'async' option so that writes need not be
+on disk before replying to a client.
+
+bluesky:
+Initial testing with the Bluesky proxy, storing data to kvstore on a
+local network (not to S3).
+
+bluesky-s3:
+Testing with the Bluesky proxy writing to Amazon S3, but only using a
+single process in the SPECsfs benchmark.
+
+samba3-{1,4}
+Standard Samba distribution set up for file sharing, tested with either
+1 or 4 parallel processes accessing the share.
+
+
+20120109: SPECsfs high parallelism, 100 Mbps network bandwidth
+20120110: SPECsfs high parallelism, 50 Mbps network bandwidth

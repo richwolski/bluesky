@@ -1,0 +1,83 @@
+Proxy run as:
+
+BLUESKY_CACHE_SIZE=$((8 * 1024 * 1024)) BLUESKY_TARGET=s3:mvrable-bluesky-west BLUESKY_STATS_OUT=/export2/20110317-cleaner.stats /scratch/bluesky.git/nfs3/nfsproxy
+
+Create 1 GB of files:
+for i in {0..1023}; do dd if=/dev/zero of=file-$i bs=1M count=1; done
+
+Thu Mar 17 21:26:36 PDT 2011
+Log files written: up to log-00000000-00000261
+
+Thu Mar 17 21:29:00 PDT 2011
+Dirty 25% of files with cleanbench.py
+Log files written up to log-00000000-00000329
+
+Thu Mar 17 21:29:45 PDT 2011
+Run cleaner, completes around Thu Mar 17 21:32:35 PDT 2011
+max log segments: log-00000000-00000329, log-00000001-00000030
+
+==============================================================================
+
+Proxy run as:
+
+BLUESKY_CACHE_SIZE=$((4 * 1024 * 1024)) BLUESKY_TARGET=s3:mvrable-bluesky-west BLUESKY_STATS_OUT=/export2/20110317-cleaner.stats /scratch/bluesky.git/nfs3/nfsproxy
+
+Create 1 GB of files:
+for i in {0..1023}; do dd if=/dev/zero of=file-$i bs=1M count=1; done
+Fri Mar 18 00:44:58 PDT 2011
+
+Log files written: up to log-00000000-00002066
+
+Fri Mar 18 00:49:14 PDT 2011
+Dirty 25% of files with cleanbench.py
+Log files written up to log-00000000-00002585
+
+Run cleaner
+max log segments: log-00000000-00002585, log-00000001-00000235
+Fri Mar 18 01:15:04 PDT 2011
+
+==============================================================================
+
+Proxy run as:
+
+BLUESKY_CACHE_SIZE=$((4 * 1024 * 1024)) BLUESKY_TARGET=s3:mvrable-bluesky-west BLUESKY_STATS_OUT=/export2/20110318-cleaner.stats /scratch/bluesky.git/nfs3/nfsproxy
+
+Create 1 GB of files:
+for i in {0..8191}; do dd if=/dev/zero of=file-$i bs=1M count=1; done
+Fri Mar 18 01:47:03 PDT 2011
+
+Log files written: up to log-00000000-00002067
+
+Dirty 25% of files with cleanbench.py
+Log files written up to log-00000000-00002586
+Fri Mar 18 01:50:25 PDT 2011
+
+Run cleaner
+Fri Mar 18 01:51:20 PDT 2011
+writeout shortly before Fri Mar 18 02:16:55 PDT 2011
+max log segments: 
+
+==============================================================================
+
+Proxy run as:
+
+BLUESKY_CACHE_SIZE=$((1024 * 1024)) BLUESKY_TARGET=s3:mvrable-bluesky-west BLUESKY_STATS_OUT=/export2/20110318-cleaner.stats /scratch/bluesky.git/nfs3/nfsproxy
+
+Create 1 GB of files:
+for i in {0..1023}; do dd if=/dev/zero of=file-$i bs=1M count=1; done
+Fri Mar 18 01:47:03 PDT 2011
+
+Log files up to: log-00000000-00000265 log-00000001-00000002
+
+Fri Mar 18 09:18:02 PDT 2011
+Dirty 25% of files with cleanbench.py
+Fri Mar 18 09:19:30 PDT 2011
+Log files up to: log-00000000-00000336 log-00000001-00000002
+
+Run cleaner
+Fri Mar 18 09:20:22 PDT 2011
+Fri Mar 18 09:24:23 PDT 2011
+max log segments: log-00000000-00000337 log-00000001-00000036
+
+Re-run cleaner (to check for deletable segments):
+Fri Mar 18 09:25:48 PDT 2011

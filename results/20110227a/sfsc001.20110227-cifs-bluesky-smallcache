@@ -1,0 +1,691 @@
+Started on client (c09-44): ../binaries/linux-x86/sfscifs -N 1 -l 50  -o password -u spec -G SPECDOMAIN -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky 
+CIFS Protocol
+
+************************************************************************
+../binaries/linux-x86/sfscifs: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfscifs: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS CIFS Benchmark Client Logfile, Mon Feb 28 05:35:12 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+CIFS Protocol
+Mon Feb 28 05:35:12 2011 Mounting 4 remote test directories.
+Failed to connect to share \bluesky on host c09-45.sysnet.ucsd.edu: Input/output error.
+Failed to connect to share \bluesky on host c09-45.sysnet.ucsd.edu: Input/output error.
+sfscifs3: sending Pid 0 Signal 2
+sfscifs1: sending Pid 0 Signal 2
+Started on client (c09-44): ../binaries/linux-x86/sfscifs -N 1 -l 50  -o password -u spec -G SPECDOMAIN -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky 
+CIFS Protocol
+
+************************************************************************
+../binaries/linux-x86/sfscifs: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfscifs: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS CIFS Benchmark Client Logfile, Mon Feb 28 05:37:23 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+CIFS Protocol
+Mon Feb 28 05:37:23 2011 Mounting 4 remote test directories.
+Child[001]: CIFS negotiated block size: 61440 bytes
+Child[002]: CIFS negotiated block size: 61440 bytes
+Child[000]: CIFS negotiated block size: 61440 bytes
+Child[003]: CIFS negotiated block size: 61440 bytes
+Mon Feb 28 05:37:34 2011 Completed.
+Mon Feb 28 05:37:34 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:37:34 2011 Completed.
+Mon Feb 28 05:37:34 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:37:39 2011 Received.
+
+Mon Feb 28 05:37:39 2011 Initializing test directories.
+Mon Feb 28 05:46:47 2011 Completed.
+Mon Feb 28 05:46:47 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:46:47 2011 Completed.
+Mon Feb 28 05:46:47 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:46:48 2011 Received.
+Mon Feb 28 05:46:48 2011 Performing 300 seconds pretest warmup.
+Mon Feb 28 05:51:48 2011 Completed.
+Mon Feb 28 05:51:48 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:51:48 2011 Completed.
+Mon Feb 28 05:51:48 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:51:49 2011 Received.
+Mon Feb 28 05:51:49 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Mon Feb 28 05:56:59 2011
+---------------------------------------------------------------------------------------------------------
+CIFS                            Target  Actual  CIFS Op CIFS Op   CIFS  Mean     Std Dev  Std Err   Pcnt 
+Op                              Logical Logical Logical Physical  Op    Response Response of Mean,  of  
+Type                            Mix     Mix     Success Success   Error Time     Time     95% Conf  Total
+                                Pcnt    Pcnt    Count   Count     Count Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%    0.5%       76       76      0     0.13     0.01      0.02  0.0%
+LOCKING_ANDX                      1.1%    0.9%      142      142      0     0.14     0.01      0.01  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%    1.5%      229      229      0     0.20     0.02      0.02  0.0%
+READ_ANDX                        20.5%   20.2%     3023     3256      0    32.38    85.76      0.33 79.3%
+TRANS2_QUERY_FS_INFORMATION       1.6%    1.7%      250      250      0     0.16     0.01      0.01  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%   11.9%     1785     1785      0     0.20     0.05      0.01  0.3%
+TRANS2_QUERY_PATH_INFORMATION    21.5%   22.4%     3358     3358      0     0.21     0.03      0.01  0.6%
+TRANS2_SET_FILE_INFORMATION       3.2%    3.2%      483      483      0     0.16     0.01      0.01  0.1%
+TRANS2_FIND_FIRST2                8.6%    9.0%     1351     1351      0     0.31     0.02      0.01  0.3%
+WRITE_ANDX                        8.6%    8.7%     1300     1410      0    17.73    62.65      0.43 18.7%
+NT_CREATE_ANDX                    9.7%    9.7%     1460     1460      0     0.21     0.02      0.01  0.2%
+CLOSE                             9.7%    9.7%     1460     1460      0     0.15     0.08      0.01  0.2%
+FLUSH                             0.5%    0.5%       74       74      0     3.04     1.94      0.32  0.2%
+---------------------------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS CIFS THROUGHPUT:   49.97 Ops/Sec   AVG. RESPONSE TIME:    8.22 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+OP_ENTROPY: 0.270147
+CIFS MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 50 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  14991          TEST TIME: 300 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 15334    
+PHYSICAL CIFS THROUGHPUT:   51.11 Ops/Sec
+FILE SET SIZE CREATED: 5244156.0 KB
+FILE SET SIZE ACCESSED: 1573884.0 - 1608958.0 KB  (100.00% to 102.23% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 05:56:59 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (CIFS operations/second) = 50
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 9876 Files created for I/O operations
+		   2960 Files accessed for I/O operations
+		    200 Files for non-I/O operations
+		     24 Symlinks
+		    328 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Mon Feb 28 05:56:59 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:56:59 2011 Completed.
+Mon Feb 28 05:56:59 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Mon Feb 28 05:57:00 2011 Received.
+Mon Feb 28 05:57:00 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Mon Feb 28 05:57:00 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfscifs -N 1 -l 100  -o password -u spec -G SPECDOMAIN -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky 
+CIFS Protocol
+
+************************************************************************
+../binaries/linux-x86/sfscifs: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfscifs: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS CIFS Benchmark Client Logfile, Mon Feb 28 05:57:02 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+CIFS Protocol
+Mon Feb 28 05:57:02 2011 Mounting 4 remote test directories.
+Child[003]: CIFS negotiated block size: 61440 bytes
+Child[000]: CIFS negotiated block size: 61440 bytes
+Child[002]: CIFS negotiated block size: 61440 bytes
+Child[001]: CIFS negotiated block size: 61440 bytes
+Mon Feb 28 05:57:18 2011 Completed.
+Mon Feb 28 05:57:18 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:57:18 2011 Completed.
+Mon Feb 28 05:57:18 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 05:57:18 2011 Received.
+
+Mon Feb 28 05:57:18 2011 Initializing test directories.
+Mon Feb 28 06:09:18 2011 Completed.
+Mon Feb 28 06:09:18 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:09:18 2011 Completed.
+Mon Feb 28 06:09:18 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:09:19 2011 Received.
+Mon Feb 28 06:09:19 2011 Performing 300 seconds pretest warmup.
+Mon Feb 28 06:14:19 2011 Completed.
+Mon Feb 28 06:14:19 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:14:19 2011 Completed.
+Mon Feb 28 06:14:19 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:14:20 2011 Received.
+Mon Feb 28 06:14:20 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Mon Feb 28 06:19:30 2011
+---------------------------------------------------------------------------------------------------------
+CIFS                            Target  Actual  CIFS Op CIFS Op   CIFS  Mean     Std Dev  Std Err   Pcnt 
+Op                              Logical Logical Logical Physical  Op    Response Response of Mean,  of  
+Type                            Mix     Mix     Success Success   Error Time     Time     95% Conf  Total
+                                Pcnt    Pcnt    Count   Count     Count Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%    0.4%      133      133      0     0.14     0.01      0.02  0.0%
+LOCKING_ANDX                      1.1%    1.0%      290      290      0     0.14     0.02      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%    1.6%      474      474      0     0.20     0.02      0.01  0.0%
+READ_ANDX                        20.5%   20.3%     6108     6587      0    40.42    88.13      0.24 84.2%
+TRANS2_QUERY_FS_INFORMATION       1.6%    1.7%      510      510      0     0.16     0.03      0.02  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%   12.6%     3777     3777      0     0.20     0.10      0.01  0.3%
+TRANS2_QUERY_PATH_INFORMATION    21.5%   22.3%     6701     6701      0     0.21     0.07      0.01  0.5%
+TRANS2_SET_FILE_INFORMATION       3.2%    3.2%      963      963      0     0.16     0.03      0.01  0.1%
+TRANS2_FIND_FIRST2                8.6%    8.6%     2573     2573      0     0.48     0.08      0.01  0.4%
+WRITE_ANDX                        8.6%    8.4%     2517     2692      0    16.25    53.45      0.29 14.0%
+NT_CREATE_ANDX                    9.7%    9.8%     2956     2956      0     0.21     0.15      0.01  0.2%
+CLOSE                             9.7%    9.8%     2956     2956      0     0.15     0.06      0.01  0.2%
+FLUSH                             0.5%    0.4%      132      132      0     3.45     3.45      0.32  0.2%
+---------------------------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS CIFS THROUGHPUT:  100.63 Ops/Sec   AVG. RESPONSE TIME:    9.74 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+OP_ENTROPY: 0.269378
+CIFS MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 100 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  30090          TEST TIME: 299 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 30744    
+PHYSICAL CIFS THROUGHPUT:  102.82 Ops/Sec
+FILE SET SIZE CREATED: 11537568.0 KB
+FILE SET SIZE ACCESSED: 3462120.0 - 3527159.0 KB  (100.00% to 101.88% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 06:19:30 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (CIFS operations/second) = 100
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 21728 Files created for I/O operations
+		   6516 Files accessed for I/O operations
+		    436 Files for non-I/O operations
+		     24 Symlinks
+		    724 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Mon Feb 28 06:19:30 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:19:30 2011 Completed.
+Mon Feb 28 06:19:30 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Mon Feb 28 06:19:31 2011 Received.
+Mon Feb 28 06:19:31 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Mon Feb 28 06:19:31 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfscifs -N 1 -l 150  -o password -u spec -G SPECDOMAIN -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky 
+CIFS Protocol
+
+************************************************************************
+../binaries/linux-x86/sfscifs: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfscifs: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS CIFS Benchmark Client Logfile, Mon Feb 28 06:19:33 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+CIFS Protocol
+Mon Feb 28 06:19:33 2011 Mounting 4 remote test directories.
+Child[003]: CIFS negotiated block size: 61440 bytes
+Child[000]: CIFS negotiated block size: 61440 bytes
+Child[002]: CIFS negotiated block size: 61440 bytes
+Child[001]: CIFS negotiated block size: 61440 bytes
+Mon Feb 28 06:19:49 2011 Completed.
+Mon Feb 28 06:19:49 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:19:49 2011 Completed.
+Mon Feb 28 06:19:49 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:19:49 2011 Received.
+
+Mon Feb 28 06:19:49 2011 Initializing test directories.
+Mon Feb 28 06:29:40 2011 Completed.
+Mon Feb 28 06:29:40 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:29:40 2011 Completed.
+Mon Feb 28 06:29:40 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:29:41 2011 Received.
+Mon Feb 28 06:29:41 2011 Performing 300 seconds pretest warmup.
+Mon Feb 28 06:34:41 2011 Completed.
+Mon Feb 28 06:34:41 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:34:41 2011 Completed.
+Mon Feb 28 06:34:41 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:34:42 2011 Received.
+Mon Feb 28 06:34:42 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Mon Feb 28 06:39:52 2011
+---------------------------------------------------------------------------------------------------------
+CIFS                            Target  Actual  CIFS Op CIFS Op   CIFS  Mean     Std Dev  Std Err   Pcnt 
+Op                              Logical Logical Logical Physical  Op    Response Response of Mean,  of  
+Type                            Mix     Mix     Success Success   Error Time     Time     95% Conf  Total
+                                Pcnt    Pcnt    Count   Count     Count Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%    0.5%      223      223      0     0.15     0.12      0.05  0.0%
+LOCKING_ANDX                      1.1%    1.3%      581      581      0     0.15     0.05      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%    1.7%      760      760      0     0.20     0.07      0.02  0.0%
+READ_ANDX                        20.5%   20.0%     9047     9783      0    41.30    90.84      0.20 82.2%
+TRANS2_QUERY_FS_INFORMATION       1.6%    1.6%      729      729      0     0.16     0.04      0.01  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%   13.6%     6139     6139      0     0.20     0.14      0.01  0.3%
+TRANS2_QUERY_PATH_INFORMATION    21.5%   21.4%     9666     9666      0     0.22     0.13      0.01  0.5%
+TRANS2_SET_FILE_INFORMATION       3.2%    3.3%     1487     1487      0     0.16     0.05      0.01  0.1%
+TRANS2_FIND_FIRST2                8.6%    8.5%     3817     3817      0     0.67     0.07      0.01  0.6%
+WRITE_ANDX                        8.6%    8.3%     3761     4015      0    19.07    60.88      0.25 15.8%
+NT_CREATE_ANDX                    9.7%    9.7%     4363     4363      0     0.22     0.12      0.01  0.2%
+CLOSE                             9.7%    9.7%     4361     4361      0     0.15     0.08      0.01  0.1%
+FLUSH                             0.5%    0.5%      208      208      0     4.50     4.26      0.28  0.2%
+---------------------------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS CIFS THROUGHPUT:  150.47 Ops/Sec   AVG. RESPONSE TIME:   10.06 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+OP_ENTROPY: 0.266847
+CIFS MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 150 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  45142          TEST TIME: 300 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 46132    
+PHYSICAL CIFS THROUGHPUT:  153.77 Ops/Sec
+FILE SET SIZE CREATED: 17828856.0 KB
+FILE SET SIZE ACCESSED: 5350356.0 - 5451957.0 KB  (100.00% to 101.90% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 06:39:52 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (CIFS operations/second) = 150
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 33576 Files created for I/O operations
+		   10072 Files accessed for I/O operations
+		    672 Files for non-I/O operations
+		     24 Symlinks
+		   1116 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Mon Feb 28 06:39:52 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:39:52 2011 Completed.
+Mon Feb 28 06:39:52 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Mon Feb 28 06:39:53 2011 Received.
+Mon Feb 28 06:39:53 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Mon Feb 28 06:39:53 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfscifs -N 1 -l 200  -o password -u spec -G SPECDOMAIN -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky 
+CIFS Protocol
+
+************************************************************************
+../binaries/linux-x86/sfscifs: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfscifs: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS CIFS Benchmark Client Logfile, Mon Feb 28 06:39:55 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+CIFS Protocol
+Mon Feb 28 06:39:55 2011 Mounting 4 remote test directories.
+Child[000]: CIFS negotiated block size: 61440 bytes
+Child[003]: CIFS negotiated block size: 61440 bytes
+Child[001]: CIFS negotiated block size: 61440 bytes
+Child[002]: CIFS negotiated block size: 61440 bytes
+Mon Feb 28 06:40:06 2011 Completed.
+Mon Feb 28 06:40:06 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:40:06 2011 Completed.
+Mon Feb 28 06:40:06 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:40:11 2011 Received.
+
+Mon Feb 28 06:40:11 2011 Initializing test directories.
+Mon Feb 28 06:51:20 2011 Completed.
+Mon Feb 28 06:51:20 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:51:20 2011 Completed.
+Mon Feb 28 06:51:20 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:51:20 2011 Received.
+Mon Feb 28 06:51:20 2011 Performing 300 seconds pretest warmup.
+Mon Feb 28 06:56:20 2011 Completed.
+Mon Feb 28 06:56:20 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:56:20 2011 Completed.
+Mon Feb 28 06:56:20 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 06:56:21 2011 Received.
+Mon Feb 28 06:56:21 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Mon Feb 28 07:01:31 2011
+---------------------------------------------------------------------------------------------------------
+CIFS                            Target  Actual  CIFS Op CIFS Op   CIFS  Mean     Std Dev  Std Err   Pcnt 
+Op                              Logical Logical Logical Physical  Op    Response Response of Mean,  of  
+Type                            Mix     Mix     Success Success   Error Time     Time     95% Conf  Total
+                                Pcnt    Pcnt    Count   Count     Count Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%    0.5%      294      294      0     0.14     0.07      0.03  0.0%
+LOCKING_ANDX                      1.1%    1.2%      716      716      0     0.14     0.04      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%    1.6%      975      975      0     0.21     0.14      0.02  0.0%
+READ_ANDX                        20.5%   20.9%    12648    13640      0    45.56   100.52      0.17 81.7%
+TRANS2_QUERY_FS_INFORMATION       1.6%    1.5%      935      935      0     0.17     0.12      0.02  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%   13.2%     7958     7958      0     0.20     0.10      0.01  0.2%
+TRANS2_QUERY_PATH_INFORMATION    21.5%   21.5%    12972    12972      0     0.22     0.10      0.01  0.4%
+TRANS2_SET_FILE_INFORMATION       3.2%    3.1%     1860     1860      0     0.16     0.07      0.01  0.0%
+TRANS2_FIND_FIRST2                8.6%    8.4%     5048     5048      0     0.91     0.14      0.01  0.6%
+WRITE_ANDX                        8.6%    8.1%     4908     5267      0    23.37    76.69      0.24 16.3%
+NT_CREATE_ANDX                    9.7%    9.8%     5898     5898      0     0.22     0.10      0.01  0.2%
+CLOSE                             9.7%    9.8%     5899     5899      0     0.15     0.09      0.01  0.1%
+FLUSH                             0.5%    0.4%      270      270      0     7.91    20.63      0.54  0.3%
+---------------------------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS CIFS THROUGHPUT:  201.94 Ops/Sec   AVG. RESPONSE TIME:   11.67 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+OP_ENTROPY: 0.266833
+CIFS MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 200 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  60381          TEST TIME: 299 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 61732    
+PHYSICAL CIFS THROUGHPUT:  206.46 Ops/Sec
+FILE SET SIZE CREATED: 24122268.0 KB
+FILE SET SIZE ACCESSED: 7238592.0 - 7351880.0 KB  (100.00% to 101.57% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 07:01:31 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (CIFS operations/second) = 200
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 45428 Files created for I/O operations
+		   13628 Files accessed for I/O operations
+		    912 Files for non-I/O operations
+		     24 Symlinks
+		   1512 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Mon Feb 28 07:01:31 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:01:31 2011 Completed.
+Mon Feb 28 07:01:31 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Mon Feb 28 07:01:32 2011 Received.
+Mon Feb 28 07:01:32 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Mon Feb 28 07:01:32 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfscifs -N 1 -l 250  -o password -u spec -G SPECDOMAIN -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky 
+CIFS Protocol
+
+************************************************************************
+../binaries/linux-x86/sfscifs: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfscifs: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS CIFS Benchmark Client Logfile, Mon Feb 28 07:01:34 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+CIFS Protocol
+Mon Feb 28 07:01:34 2011 Mounting 4 remote test directories.
+Child[001]: CIFS negotiated block size: 61440 bytes
+Child[000]: CIFS negotiated block size: 61440 bytes
+Child[003]: CIFS negotiated block size: 61440 bytes
+Child[002]: CIFS negotiated block size: 61440 bytes
+Mon Feb 28 07:01:50 2011 Completed.
+Mon Feb 28 07:01:50 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:01:50 2011 Completed.
+Mon Feb 28 07:01:50 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:01:51 2011 Received.
+
+Mon Feb 28 07:01:51 2011 Initializing test directories.
+Mon Feb 28 07:12:57 2011 Completed.
+Mon Feb 28 07:12:57 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:12:57 2011 Completed.
+Mon Feb 28 07:12:57 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:12:58 2011 Received.
+Mon Feb 28 07:12:58 2011 Performing 300 seconds pretest warmup.
+Mon Feb 28 07:17:58 2011 Completed.
+Mon Feb 28 07:17:58 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:17:58 2011 Completed.
+Mon Feb 28 07:17:58 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:17:59 2011 Received.
+Mon Feb 28 07:17:59 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Mon Feb 28 07:23:09 2011
+---------------------------------------------------------------------------------------------------------
+CIFS                            Target  Actual  CIFS Op CIFS Op   CIFS  Mean     Std Dev  Std Err   Pcnt 
+Op                              Logical Logical Logical Physical  Op    Response Response of Mean,  of  
+Type                            Mix     Mix     Success Success   Error Time     Time     95% Conf  Total
+                                Pcnt    Pcnt    Count   Count     Count Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%    0.5%      400      400      0     0.17     0.31      0.05  0.0%
+LOCKING_ANDX                      1.1%    1.1%      864      864      0     0.15     0.09      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%    1.6%     1187     1187      0     0.21     0.20      0.03  0.0%
+READ_ANDX                        20.5%   20.1%    15124    16267      0    51.87   106.44      0.16 81.0%
+TRANS2_QUERY_FS_INFORMATION       1.6%    1.7%     1246     1246      0     0.15     0.09      0.02  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%   12.8%     9666     9666      0     0.20     0.14      0.01  0.2%
+TRANS2_QUERY_PATH_INFORMATION    21.5%   21.7%    16317    16317      0     0.22     0.17      0.01  0.4%
+TRANS2_SET_FILE_INFORMATION       3.2%    3.2%     2431     2431      0     0.16     0.10      0.01  0.0%
+TRANS2_FIND_FIRST2                8.6%    8.7%     6528     6528      0     1.18     0.19      0.01  0.8%
+WRITE_ANDX                        8.6%    8.9%     6687     7132      0    24.30    76.58      0.21 16.8%
+NT_CREATE_ANDX                    9.7%    9.6%     7229     7229      0     0.22     0.14      0.01  0.2%
+CLOSE                             9.7%    9.6%     7229     7229      0     0.16     0.11      0.01  0.1%
+FLUSH                             0.5%    0.5%      383      383      0    12.96    57.31      0.76  0.5%
+---------------------------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS CIFS THROUGHPUT:  251.80 Ops/Sec   AVG. RESPONSE TIME:   12.87 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+OP_ENTROPY: 0.267535
+CIFS MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 250 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  75291          TEST TIME: 299 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 76879    
+PHYSICAL CIFS THROUGHPUT:  257.12 Ops/Sec
+FILE SET SIZE CREATED: 30413556.0 KB
+FILE SET SIZE ACCESSED: 9124704.0 - 9261178.0 KB  (100.00% to 101.50% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 07:23:09 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (CIFS operations/second) = 250
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 57276 Files created for I/O operations
+		   17180 Files accessed for I/O operations
+		   1148 Files for non-I/O operations
+		     24 Symlinks
+		   1908 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Mon Feb 28 07:23:09 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:23:09 2011 Completed.
+Mon Feb 28 07:23:09 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Mon Feb 28 07:23:10 2011 Received.
+Mon Feb 28 07:23:10 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Mon Feb 28 07:23:10 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfscifs -N 1 -l 300  -o password -u spec -G SPECDOMAIN -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky 
+CIFS Protocol
+
+************************************************************************
+../binaries/linux-x86/sfscifs: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfscifs: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS CIFS Benchmark Client Logfile, Mon Feb 28 07:23:12 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+CIFS Protocol
+Mon Feb 28 07:23:12 2011 Mounting 4 remote test directories.
+Child[001]: CIFS negotiated block size: 61440 bytes
+Child[003]: CIFS negotiated block size: 61440 bytes
+Child[002]: CIFS negotiated block size: 61440 bytes
+Child[000]: CIFS negotiated block size: 61440 bytes
+Mon Feb 28 07:23:28 2011 Completed.
+Mon Feb 28 07:23:28 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:23:28 2011 Completed.
+Mon Feb 28 07:23:28 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:23:29 2011 Received.
+
+Mon Feb 28 07:23:29 2011 Initializing test directories.
+Mon Feb 28 07:33:18 2011 Completed.
+Mon Feb 28 07:33:18 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:33:18 2011 Completed.
+Mon Feb 28 07:33:18 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:33:19 2011 Received.
+Mon Feb 28 07:33:19 2011 Performing 300 seconds pretest warmup.
+Mon Feb 28 07:38:19 2011 Completed.
+Mon Feb 28 07:38:19 2011 Sending READY message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:38:19 2011 Completed.
+Mon Feb 28 07:38:19 2011 Waiting on START message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:38:20 2011 Received.
+Mon Feb 28 07:38:20 2011 Starting 300 seconds test run.
+SFS Single Client (c09-44) Results, Mon Feb 28 07:43:31 2011
+---------------------------------------------------------------------------------------------------------
+CIFS                            Target  Actual  CIFS Op CIFS Op   CIFS  Mean     Std Dev  Std Err   Pcnt 
+Op                              Logical Logical Logical Physical  Op    Response Response of Mean,  of  
+Type                            Mix     Mix     Success Success   Error Time     Time     95% Conf  Total
+                                Pcnt    Pcnt    Count   Count     Count Msec/Op  Msec/Op  +-Msec/Op Time 
+---------------------------------------------------------------------------------------------------------
+ECHO                              0.5%    0.5%      365      365      0     0.12     0.04      0.02  0.0%
+LOCKING_ANDX                      1.1%    1.2%      993      993      0     0.14     0.10      0.02  0.0%
+NT_TRANSACT_QUERY_SECURITY_DES    1.6%    1.7%     1353     1353      0     0.20     0.16      0.02  0.0%
+READ_ANDX                        20.5%   20.8%    16674    17984      0    61.25   112.81      0.16 85.1%
+TRANS2_QUERY_FS_INFORMATION       1.6%    1.6%     1295     1295      0     0.15     0.15      0.02  0.0%
+TRANS2_QUERY_FILE_INFORMATION    12.9%   13.2%    10598    10598      0     0.20     0.19      0.01  0.2%
+TRANS2_QUERY_PATH_INFORMATION    21.5%   21.5%    17257    17257      0     0.22     0.14      0.01  0.3%
+TRANS2_SET_FILE_INFORMATION       3.2%    3.1%     2498     2498      0     0.15     0.12      0.01  0.0%
+TRANS2_FIND_FIRST2                8.6%    8.7%     6972     6972      0     1.43     0.25      0.01  0.8%
+WRITE_ANDX                        8.6%    7.8%     6305     6733      0    24.35    73.26      0.21 12.8%
+NT_CREATE_ANDX                    9.7%    9.7%     7828     7828      0     0.22     0.13      0.01  0.1%
+CLOSE                             9.7%    9.7%     7828     7828      0     0.15     0.14      0.01  0.1%
+FLUSH                             0.5%    0.5%      387      387      0    13.35    61.91      0.78  0.4%
+---------------------------------------------------------------------------------------------------------
+
+      --------------------------------------------------
+      |   SPEC SFS 2008 SINGLE CLIENT RESULTS SUMMARY  |
+      --------------------------+-----------------------
+SFS CIFS THROUGHPUT:  267.84 Ops/Sec   AVG. RESPONSE TIME:   14.93 Msec/Op
+TCP PROTOCOL
+FAST CALLS: 0
+OP_ENTROPY: 0.266743
+CIFS MIXFILE: [ SFS Default ]
+CLIENT REQUESTED LOAD: 300 Ops/Sec 
+TOTAL LOGICAL CIFS OPERATIONS:  80353          TEST TIME: 300 Sec 
+TOTAL PHYSICAL CIFS OPERATIONS: 82091    
+PHYSICAL CIFS THROUGHPUT:  273.63 Ops/Sec
+FILE SET SIZE CREATED: 36706968.0 KB
+FILE SET SIZE ACCESSED: 11012940.0 - 11138621.0 KB  (100.00% to 101.14% of Base)
+
+------------------------------------------------------------------------
+
+Mon Feb 28 07:43:31 2011 Completed.
+
+Client Test Parameters: 
+	Number of processes = 4
+	Requested Load (CIFS operations/second) = 300
+	Maximum number of outstanding biod writes = 2
+	Maximum number of outstanding biod reads = 2
+	Warm-up time (seconds) = 300
+	Run time (seconds) = 300
+	File Set = 69128 Files created for I/O operations
+		   20736 Files accessed for I/O operations
+		   1384 Files for non-I/O operations
+		     24 Symlinks
+		   2304 Directories
+			Additional non-I/O files created as necessary
+
+
+SPEC SFS 2008 Benchmark, Creation - 1 February 2008
+Mon Feb 28 07:43:31 2011 Sending DONE-TEST message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:43:31 2011 Completed.
+Mon Feb 28 07:43:31 2011 Waiting on MOVE-DATA message from Prime Client(c09-44.sysnet.ucsd.edu).
+
+************************************************************************
+Mon Feb 28 07:43:31 2011 Received.
+Mon Feb 28 07:43:31 2011 Sending results to Prime Client(c09-44.sysnet.ucsd.edu)
+Mon Feb 28 07:43:31 2011 Completed.
+Started on client (c09-44): ../binaries/linux-x86/sfscifs -N 1 -l 350  -o password -u spec -G SPECDOMAIN -t 300 -a 30 -A 70 -R 2 -W 2 -D 30 -S 20 -Q -p 4 -w 300 -U 500 -g 500 -M c09-44.sysnet.ucsd.edu  \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky \\c09-45.sysnet.ucsd.edu\bluesky 
+CIFS Protocol
+
+************************************************************************
+../binaries/linux-x86/sfscifs: NFS User ID only supported on Windows client
+../binaries/linux-x86/sfscifs: NFS Group ID only supported on Windows client
+
+c09-44: Good clock resolution [ 1.000000 ] Micro seconds.
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+
+SFS CIFS Benchmark Client Logfile, Mon Feb 28 07:43:33 2011
+	Client hostname = c09-44
+	Prime Client hostname = c09-44.sysnet.ucsd.edu
+
+SPEC SFS Benchmark Version 2008, Creation - 1 February 2008
+CIFS Protocol
+Mon Feb 28 07:43:33 2011 Mounting 4 remote test directories.
+Child[002]: CIFS negotiated block size: 61440 bytes
+Child[001]: CIFS negotiated block size: 61440 bytes
+Child[000]: CIFS negotiated block size: 61440 bytes
+Child[003]: CIFS negotiated block size: 61440 bytes
+Mon Feb 28 07:43:44 2011 Completed.
+Mon Feb 28 07:43:44 2011 Sending DONE-MOUNT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:43:44 2011 Completed.
+Mon Feb 28 07:43:44 2011 Waiting on DO-INIT message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:43:49 2011 Received.
+
+Mon Feb 28 07:43:49 2011 Initializing test directories.
+Mon Feb 28 07:54:23 2011 Completed.
+Mon Feb 28 07:54:23 2011 Sending DONE-INIT message to Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:54:23 2011 Completed.
+Mon Feb 28 07:54:23 2011 Waiting on DO-WARMUP message from Prime Client(c09-44.sysnet.ucsd.edu).
+Mon Feb 28 07:54:23 2011 Received.
+Mon Feb 28 07:54:23 2011 Performing 300 seconds pretest warmup.
+ERROR: set_file_offset - file chosen is not large enough (65536 bytes) to accomodate logical (null) transfer of size 134649848
+sfscifs: caught unexpected SIGCHLD.
+A child (PID: 16285) has abnormally exited with status of 1
+Tell Prime to stop the benchmark.
+Terminating all child processes.
+sfscifs: sending Pid 0 Signal 2

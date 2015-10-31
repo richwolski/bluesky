@@ -1,0 +1,20 @@
+Synthetic read-only workloads.
+
+A 32 GB filesystem is created in BlueSky, consisting of 2048 16-MB
+files.  Client processes sent a number of concurrent read requests to
+read random blocks from the files of sizes 32 kB, 128 kB, or 1 MB.  The
+proxy's cache is set to be 0 through 48 GB in size.  Before starting,
+the clients read data from all files to pre-populate the cache.
+
+Data files are named like "32k-c16.data"--the first value is the size of
+the read requests, and the second is the effective number of clients.
+    c1=a single client with a single request stream
+    c16=two clients, each sending up to eight requests in parallel
+    c32=4 clients, 8 requests each
+    c64=8 clients, 8 requests each
+
+Columns in order are:
+    cache size (GB) -- 0 corresponds to a very small (~64 MB) cache
+    ops/sec
+    bandwidth (MB/s)
+    latency (ms)

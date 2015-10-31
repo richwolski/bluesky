@@ -1,0 +1,168 @@
+Linux kernel compilation benchmark, measured as wall-clock time.
+
+Tests:
+ [1] time tar -jxf /scratch/linux-2.6.37.tar.bz2
+ [2] time find linux-2.6.37 -type f -print0 | sort -z | xargs -0 sha1sum >/dev/null  # checksum 35187 files, 392.9 MiB total
+ [3] time sh -c 'make defconfig && make -j4'
+
+==============================================================================
+NFS in EC2
+2011-03-08
+
+ [1] 65m39.250s
+ [2] 26m26.267s
+
+ [3] real    74m11.919s
+     user    10m59.217s
+     sys     1m26.801s
+
+
+==============================================================================
+Native NFS on c09-45
+2011-03-08
+
+ [1] 10m18.149s
+     11m2.714s          (re-run)
+     10m49.994s         (re-run)
+ [2] 0m25.813s
+ [2] 0m48.673s          (cache flushed on sever first)
+ [3] real    4m22.533s
+     user    11m2.869s
+     sys     1m33.366s
+
+==============================================================================
+Local disk on c09-45
+2011-03-08
+
+ [1] 30.465s            (including final sync; decompression: 0m15.865s)
+ [2] 0m2.453s
+ [2] 0m26.669s          (cache flushed before checksums)
+
+==============================================================================
+Local disk on c09-45, mount with -o sync
+2011-03-08
+
+ [1] 3m5.226s
+
+==============================================================================
+BlueSky, US-West, range requests
+2011-03-08
+
+ [1] 5m12.465s
+ [1] 5m4.895s           (re-run)
+ [2] 0m31.590s          (remount, then immediately run)
+ [2] 25m48.819s         (data cache flushed, inodes still cached in memory)
+ [2] 4m34.294s          (proxy entirely restarted: no data cached)
+     5m42.449s          (re-run)
+ [3] real    5m49.797s  (data in cache)
+     user    11m1.725s
+     sys     1m28.970s
+
+ [3] real    7m40.649s  (starting with no cached data)
+     user    11m1.213s
+     sys     1m29.586s
+
+
+
+==============================================================================
+BlueSky, US-West, full-segment requests
+2011-03-08
+
+ [1] 4m47.497s
+ [2] 0m31.271s          (remount, then immediately run)
+ [2] 2m6.597s           (data cache flushed, inodes still cached in memory)
+ [2] 1m54.408s          (proxy entirely restarted: no data cached)
+
+==============================================================================
+BlueSky, US-East, range requests
+2011-03-08
+
+ [1] 5m8.481s
+ [2] 0m34.726s          (remount, then immediately run)
+ [2] 57m26.399s         (data cache flushed, inodes still cached in memory)
+ [2] 13m45.051s         (proxy entirely restarted: no data cached)
+ [2] 3m50.423s          (as above but with full segment downloads)
+
+ [3] real    10m48.172s (starting with no cached data)
+     user    11m0.173s
+     sys     1m30.670s
+
+******************************************************************************
+2011-03-31
+
+S3-West:
+  unpack:
+    real    5m5.705s
+    user    0m22.405s
+    sys     0m7.236s
+
+  cold cache checksum:
+    real    26m12.208s
+    user    0m3.420s
+    sys     0m3.648s
+
+  cold cache compile:
+    real    7m10.073s
+    user    11m3.801s
+    sys     1m30.846s
+
+
+S3-East:
+  unpack:
+    real    4m58.972s
+    user    0m22.353s
+    sys     0m7.288s
+
+  cold cache compile:
+    real    8m35.277s
+    user    11m2.173s
+    sys     1m30.402s
+
+
+S3-West, full segments:
+  cold cache checksum:
+    real    1m49.105s
+    user    0m3.388s
+    sys     0m3.688s
+
+  cold cache compile:
+    real    6m45.425s
+    user    11m3.581s
+    sys     1m30.734s
+
+S3-East, full segments:
+  cold cache compile:
+    real    8m7.465s
+    user    11m3.393s
+    sys     1m30.578s
+
+==============================================================================
+NetApp
+2011-09-17
+
+ [1] real    2m19.113s
+     user    0m21.421s
+     sys     0m5.004s
+
+ [2] real    3m19.273s
+     user    0m3.288s
+     sys     0m3.488s
+
+ [3] real    4m31.247s
+     user    10m55.269s
+     sys     1m30.170s
+
+
+2011-09-18
+ [1] real    2m15.887s
+     user    0m21.949s
+     sys     0m4.864s
+
+ [2] real    3m13.297s
+     user    0m3.352s
+     sys     0m3.496s
+
+ [3] real    4m33.410s
+     user    11m3.057s
+     sys     1m30.874s
+

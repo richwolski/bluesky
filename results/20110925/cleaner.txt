@@ -1,0 +1,22 @@
+Simple cleanerbench run (no cleaner during run):
+
+    Store[s3:mvrable-bluesky-west]: GETS: count=0 sum=0
+    Store[s3:mvrable-bluesky-west]: PUTS: count=69 sum=133523453
+    NFS RPC Messages In: count=524 sum=134267716
+    NFS RPC Messages Out: count=523 sum=62124
+
+    bytes_used: 67358975
+    bytes_wasted: 66164478
+    bytes_freed: 8559426
+    s3_get: 124964027
+    s3_put: 67358983
+    running_time: 34.587624073
+
+
+Repated, with cleaner running periodically:
+
+    Store[s3:mvrable-bluesky-west]: GETS: count=26 sum=276333
+    Store[s3:mvrable-bluesky-west]: PUTS: count=74 sum=134287730
+    NFS RPC Messages In: count=521 sum=134267448
+    NFS RPC Messages Out: count=520 sum=61828
+

@@ -1,0 +1,15 @@
+Most Blue Sky source code is copyright The Regents of the University of
+California.
+
+Blue Sky as a whole may be distributed under the terms of the GNU
+General Public License as published by the Free Software Foundation;
+either version 2 of the License, or (at your option) any later version.
+See the file COPYING.GPL2 for terms.
+
+Many individual files are licensed under the terms of the BSD license;
+see the copyright notices in individual source files.
+
+Files which are not BSD-licensed include:
+  bluesky/crc32c.c - Adapted from the Linux kernel, GPL v2-or-later
+  kvstore/ - imported code for a storage backend, licensing not yet clear
+  TBBT/ - imported benchmarking code, not covered by licensing above

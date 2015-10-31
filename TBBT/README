@@ -1,0 +1,50 @@
+1. TBBT Directory Structure
+
+# README:	this file. Introduce the TBBT directory and how to use TBBT.
+# trace_init: 	source code for extract file system hierarchy from the trace
+# trace_play: 	source code for trace player
+# test: 	example of play the EECS Oct 21 1 hour trace. It contains the
+#	      	original trace file: 		anon-lair62-011021-0000.txt
+#		file system hierarchy map: 	fh-path-map-play
+#		file system hierarchy:		RFSFS
+#
+
+2. How to use TBBT?
+
+#STEP1: compile the TBBT player, change the executable "sfs3" to be owned
+#       by root 
+
+cd ~nzhu/TBBT/trace_play
+make sfs3
+su - root; chown root:root tplay; exit
+
+#STEP2: copy or link trace file in a directory for trace play
+
+cd TESTDIR
+ln -s ../test/anon-lair62-011021-0000.txt anon-lair62-011021-0000.txt
+
+#STEP3: extract the file system hierarchy from the trace file
+#       There are two outputs: fh-path-map-play and RFSFS
+#	fh-path-map-play is the file system hierarchy map
+#	RFSFS is the actually file system hierarchy, instead of writing
+#       each file to the full length, -S option creates a file system 
+#	hierarchy where all files are of 0 length. This is useful when
+#	for experimental test run or debug run because writing all files
+#	to the full length could be time consuming.
+
+~nzhu/TBBT/trace_init/extract-hierarchy anon-lair62-011021-0000.txt [-S]
+
+#STEP4: copy RFSFS to an exported directory on NFS file server 
+
+scp -r RFSFS server:/export_dir/
+
+#STEP5: pair-up the request and reply packets in the trace. 
+#       The output file name is based on input file with suffix ".pair"
+#       in this example, anon-lair62-011021-0000.txt.pair
+
+sfs3 -pair_trace anon-lair62-011021-0000.txt
+
+
+#STEP6: play the trace against initial file system hierarchy (RFSFS) on server
+
+sfs3 hostname:/export_dir/RFSFS anon-lair62-011021-0000.txt.pair fh-path-map-play 1 0

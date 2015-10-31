@@ -1,0 +1,2866 @@
+#ifndef lint
+static char sfs_c_chdSid[] = "@(#)sfs_c_chd.c	2.1	97/10/23";
+#endif
+
+/*
+ *   Copyright (c) 1992-1997,2001 by Standard Performance Evaluation Corporation
+ *	All rights reserved.
+ *		Standard Performance Evaluation Corporation (SPEC)
+ *		6585 Merchant Place, Suite 100
+ *		Warrenton, VA 20187
+ *
+ *	This product contains benchmarks acquired from several sources who
+ *	understand and agree with SPEC's goal of creating fair and objective
+ *	benchmarks to measure computer performance.
+ *
+ *	This copyright notice is placed here only to protect SPEC in the
+ *	event the source is misused in any manner that is contrary to the
+ *	spirit, the goals and the intent of SPEC.
+ *
+ *	The source code is provided to the user or company under the license
+ *	agreement for the SPEC Benchmark Suite for this product.
+ */
+
+/*****************************************************************
+ *                                                               *
+ *	Copyright 1991,1992  Legato Systems, Inc.                *
+ *	Copyright 1991,1992  Auspex Systems, Inc.                *
+ *	Copyright 1991,1992  Data General Corporation            *
+ *	Copyright 1991,1992  Digital Equipment Corporation       *
+ *	Copyright 1991,1992  Interphase Corporation              *
+ *	Copyright 1991,1992  Sun Microsystems, Inc.              *
+ *                                                               *
+ *****************************************************************/
+
+/*
+ * -------------------------- sfs_c_chd.c -------------------------
+ *
+ *      The sfs child.  Routines to initialize child parameters,
+ *	initialize test directories, and generate load.
+ *
+ *.Exported_Routines
+ *	void child(int, float, int, char *);
+ *	void init_fileinfo(void);
+ *	void init_counters(void);
+ *	sfs_fh_type * randfh(int, int, uint_t, sfs_state_type,
+ *				sfs_file_type);
+ *	int check_access(struct *stat)
+ *	int check_fh_access();
+ *
+ *.Local_Routines
+ *	void check_call_rate(void);
+ *	void init_targets(void);
+ *	void init_dirlayout(void);
+ *	void init_rpc(void);
+ *	void init_testdir(void);
+ *	int do_op(void);
+ *	int op(int);
+ *
+ *.Revision_History
+ *	21-Aug-92	Wittle 		randfh() uses working set files array.
+ *					init_fileinfo() sets up working set.
+ *      02-Jul-92	Teelucksingh    Target file size now based on peak load
+ *					instead of BTDT.
+ *	04-Jan-92	Pawlowski	Added raw data dump hooks.
+ *	16-Dec-91	Wittle 		Created.
+ */
+
+
+/*
+ * -------------------------  Include Files  -------------------------
+ */
+
+/*
+ * ANSI C headers
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <math.h>
+#include <signal.h>
+
+#include <sys/types.h>
+#include <sys/stat.h> 
+ 
+#include <unistd.h>
+
+#include "sfs_c_def.h"
+#include "sfs_m_def.h"
+
+extern struct hostent   *Server_hostent;
+
+#define PROB_SCALE 1000L
+#define _M_MODULUS 2147483647L /* (2**31)-1 */
+
+#define _GROUP_DIVISOR 500
+#define _FILES_PER_GROUP 4
+#define _MIN_GROUPS 12
+#define _WORKING_SET_AT_25_OPS_PER_SEC 975
+
+/*
+ * -----------------------  External Definitions  -----------------------
+ */
+
+/* forward definitions for local functions */
+static void check_call_rate(void);
+static void init_targets(void);
+static int init_rpc(void);
+static void init_testdir(void);
+static int do_op(void);
+static int op(int);
+static void init_dirlayout(void);
+
+
+/*
+ * -------------------  File Set Size Control -------------------------
+ */
+static uint_t Setattr_borrowed = 0;	/* setattr op used for file truncate */
+static uint_t Create_borrowed = 0;		/* create op used for file truncate */
+
+/*
+ * -------------  Per Child Load Generation Rate Variables  -----------
+ */
+static float Child_call_load;	/* per child call/sec rate */
+static float Child_req_load;	/* per child req/sec rate */
+static uint_t Calls_this_period; /* calls made during the current run period */
+static uint_t Calls_this_test;	/* calls made during the test so far */
+static uint_t Reqs_this_period;	/* reqs made during the current run period */
+static uint_t Reqs_this_test;	/* reqs made during the test so far */
+static uint_t Sleep_msec_this_test; /* msec slept during the test so far */
+static uint_t Sleep_msec_this_period;
+static uint_t Previous_chkpnt_msec; /* beginning time of current run period */
+static int Target_sleep_mspc;	/* targeted sleep time per call */
+static int Measurement_in_progress = 0;
+
+static sfs_work_set_type Dir_working_set;
+static sfs_work_set_type Io_working_set;
+static sfs_work_set_type Non_io_working_set;
+static sfs_work_set_type Symlink_working_set;
+
+static uint_t Files_created = 0;         /* unique integer part of file names */
+static char io_buf[BUFSIZ];
+int generations = 
+	(_WORKING_SET_AT_25_OPS_PER_SEC/_GROUP_DIVISOR) * _MIN_GROUPS;
+/*
+ * -------------------------  SFS Child  -------------------------
+ */
+
+
+/*
+ * Child number 'child_num'.  Initialize internal data structure and
+ * the test directory,  then notify parent (through log file) that we
+ * are ready to start generating 'load' calls per second into the current
+ * working directory, or optionally, into the directories specified by
+ * 'argc' and 'argv'.  Wait for the start signal, and then generate load
+ * until we complete all our goal for calls or until the run time expires,
+ * depending on the 'Timed_run' flag.  The run time expires when the parent
+ * sends the stop signal.
+ */
+void
+child(
+    int		child_num,
+    int		children,
+    float	load,
+    int 	argc,
+    char	*argv[])
+{
+    char	namebuf[NFS_MAXNAMLEN];	/* unique name for this program */
+    char	*nameptr;
+    int		i;			/* general use */
+    int		op_count;		/* ops completed during each request */
+    uint_t	rand_sleep_msec;	/* random sleep msec between calls */
+    uint_t	current_msec;		/* current test time in msecs */
+    double	previous_pcnt;
+    CLIENT *	mount_client_ptr;	/* Mount client handle */
+    char *	mount_point;		/* Mount point for remote FS */
+    int		Saveerrno;
+    int		mnt_argc;
+
+    struct ladtime	elapsed_time;	/* Current_time - Start_time */
+    sfs_results_report_type	report; /* final results log */
+
+    (void) setvbuf(stderr, io_buf, _IOLBF, BUFSIZ);
+
+    /* Change my name for error logging */
+    if ((nameptr = strrchr(sfs_Myname, '/')) != NULL)
+	sfs_Myname = ++nameptr;
+    (void) sprintf(namebuf, "%s%d", sfs_Myname, child_num);
+    sfs_Myname = namebuf;
+    Child_call_load = load;
+    Current_test_phase = Mount_phase;
+
+    /* Seed the random number generator based on my child number */
+
+    /*
+     * Note: If random seeds are allocated by the prime client
+     * then this code must change.
+     */
+    sfs_srandom((int)(load + Child_num + 1));
+
+    /* Setup user and group information */
+    Cur_uid = Real_uid;
+
+    /*
+     * Initialize call and request targets.
+     * Calls are the Over-The-Wire (OTW) operations that occur due to
+     * each request.  A request may cause one or more calls.
+     * Initialize the child file info and mount the remote test directory.
+     * Set up the rpc and biod structures.
+     */
+    init_targets();
+    init_fileinfo();
+    init_dirlayout();
+
+    /*
+     * Mount points list:
+     *   If the mount point list is equal to the number of procs (P), the
+     *   mount point for child M is the M'th entry in the list.
+     *   If the mount point list is greater than the number of procs (P), the
+     *   mount point for client N child M is ((N - 1) * P) + M
+     */
+    if (argc == children)
+	mnt_argc = Child_num;
+    else
+	mnt_argc = (Client_num - 1) * children + Child_num;
+
+    if (mnt_argc >= argc) {
+	(void) fprintf(stderr,
+"%s: Invalid mount point list: required %d only specified %d mount points\n",
+			sfs_Myname, mnt_argc + 1, argc);
+	(void) generic_kill(0, SIGINT);
+	exit(181);
+    }
+
+    mount_point = argv[mnt_argc];
+
+    /*
+     * May require root priv to perform bindresvport operation
+     */
+    mount_client_ptr = lad_getmnt_hand(mount_point);
+    if (mount_client_ptr == NULL) {
+	exit(145);
+    }
+
+    /*
+     * should be all done doing priv port stuff
+     */
+
+    if (init_rpc() == -1) {
+	(void) fprintf(stderr, "%s: rpc initialization failed\n", sfs_Myname);
+	(void) generic_kill(0, SIGINT);
+	exit(146);
+    }
+
+    /*
+     * finish all priv bindresvport calls
+     * reset uid
+     */
+    if (setuid(Real_uid) != (uid_t)0) {
+	(void) fprintf(stderr,"%s: %s%s", sfs_Myname,
+	    "cannot perform setuid operation.\n",
+	    "Do `make install` as root.\n");
+    }
+
+    init_mount_point(Child_num, mount_point, mount_client_ptr);
+
+    /*
+     * Cleanup client handle for mount point
+     */
+    clnt_destroy(mount_client_ptr);
+
+    /*
+     * Tell parent I'm ready to initialize my test directory,
+     * wait for the go ahead signal.
+     */
+    if (write(Log_fd, "x", 1) != 1) {
+	(void) fprintf(stderr, "%s: can't write to synchronization file %s",
+			sfs_Myname, Logname);
+	(void) generic_kill(0, SIGINT);
+	exit(147);
+    }
+    (void) pause();
+
+    if (DEBUG_CHILD_GENERAL) {
+	if (Timed_run) {
+	    if (Prime_client) {
+		(void) fprintf(stderr,
+	"Child %d loading at %3.2f calls/sec (%3.2f reqs/sec) for %d seconds\n",
+		    Child_num, Child_call_load, Child_req_load,
+		    Runtime - MULTICLIENT_OFFSET);
+	    }
+	    else {
+	    (void) fprintf(stderr,
+	"Child %d loading at %3.2f calls/sec (%3.2f reqs/sec) for %d seconds\n",
+		    Child_num, Child_call_load, Child_req_load, Runtime);
+	    }
+	} else {
+	    (void) fprintf(stderr,
+	"Child %d loading at %3.2f calls/sec (%3.2f reqs/sec) for %d calls\n",
+		    Child_num, Child_call_load, Child_req_load,
+		    Ops[TOTAL].target_calls);
+	}
+	(void) fflush(stderr);
+    }
+
+    /* Initialize the test directory */
+    Current_test_phase = Populate_phase;
+    init_testdir();
+
+    /*
+     * activate the biod behaviour if desired
+     */
+    if (Biod_max_outstanding_reads > 0 || Biod_max_outstanding_writes > 0) {
+	biod_turn_on();
+    }
+
+    /*
+     * Tell parent I'm ready to start test, wait for the go ahead signal.
+     */
+    if (write(Log_fd, "x", 1) != 1) {
+	(void) fprintf(stderr, "%s: can't write to synchronization file %s\n",
+			sfs_Myname, Logname);
+	(void) generic_kill(0, SIGINT);
+	exit(148);
+    }
+    (void) pause();
+
+    if (DEBUG_CHILD_GENERAL) {
+	if (Timed_run) {
+	    if (Prime_client) {
+		(void) fprintf(stderr,
+	"Child %d loading at %3.2f calls/sec (%3.2f reqs/sec) for %d seconds\n",
+		    Child_num, Child_call_load, Child_req_load,
+		    Runtime - MULTICLIENT_OFFSET);
+	    }
+	    else {
+	    (void) fprintf(stderr,
+	"Child %d loading at %3.2f calls/sec (%3.2f reqs/sec) for %d seconds\n",
+		    Child_num, Child_call_load, Child_req_load, Runtime);
+	    }
+	} else {
+	    (void) fprintf(stderr,
+	"Child %d loading at %3.2f calls/sec (%3.2f reqs/sec) for %d calls\n",
+		    Child_num, Child_call_load, Child_req_load,
+		    Ops[TOTAL].target_calls);
+	}
+	(void) fflush(stderr);
+    }
+
+
+    /* Start the warmup phase; initialize operation counters */
+    Current_test_phase = Warmup_phase;
+    init_counters();
+    Measurement_in_progress = 0;
+
+    /*
+     * Compute the average sleep time per call.
+     * Start off with the assumption that we can sleep half the time.
+     * Note: using msec-per-call to adjust sleeping time
+     * limits benchmark load rates to less than 1000 calls-per-sec-per-child.
+     */
+    Target_sleep_mspc = (int) (((1000.0 / Child_call_load) / 2.0) + .5);
+
+    /*
+     * Occasionally, check to see if ops are being generating at the
+     * correct rate.  During the warmup phase, checks are made every 2 seconds.
+     * Hopefully, this will allow the test to reach steady state before the
+     * warmup phase ends.  During the timed test run, checks are made every
+     * 10 seconds.  The switch is made when we receive the start signal.
+     */
+    Msec_per_period = DEFAULT_WARM_RATE_CHECK * 1000;
+
+    /* Loop generating load */
+    while ((Timed_run && Runtime) ||
+	   (!Timed_run &&
+	    (Ops[TOTAL].results.good_calls < Ops[TOTAL].target_calls))) {
+
+	if (start_run_phase) {
+	    init_counters();
+	    Measurement_in_progress = 1;
+	    /*
+	     * Progress is checked every 10 seconds during the test run.
+	     */  
+	    Msec_per_period = DEFAULT_RUN_RATE_CHECK * 1000;
+
+	    start_run_phase = 0;
+	}
+
+	/* Do an NFS operation, unless we need to sleep for the whole period. */
+	if (Target_sleep_mspc < Msec_per_period)
+	    op_count = do_op();
+	else
+	    op_count = 0;
+
+	/* if the call was successful, add op_count to the period total. */
+	if (op_count > 0) {
+	    Calls_this_period += op_count;
+	    Reqs_this_period++;
+	}
+
+	/*
+	 * If the call was successful,
+	 * or we need to sleep for the whole period,
+	 * sleep for a while before doing the next op.
+	 */
+	if ((op_count > 0) || (Target_sleep_mspc >= Msec_per_period)) {
+	    /*
+	     * Sleep for the whole period or
+	     * for a random (positive) time period in the range
+	     * (Target_sleep_mspc +- 1/2(Target_sleep_mspc)).
+	     */
+	    if (Target_sleep_mspc >= Msec_per_period)
+		rand_sleep_msec =  Msec_per_period;
+	    else if (Target_sleep_mspc >= 1)
+		rand_sleep_msec = (Target_sleep_mspc >> 1)
+				  + (sfs_random() % Target_sleep_mspc);
+	    else
+		rand_sleep_msec = 0;
+
+	    if (rand_sleep_msec != 0) {
+		if (DEBUG_CHILD_TIMING) {
+		    (void) fprintf(stderr, "Child %d sleep for %d msec\n",
+					Child_num, rand_sleep_msec);
+		    (void) fflush(stderr);
+		}
+		Sleep_msec_this_period += msec_sleep(rand_sleep_msec);
+	    }
+	}
+
+	/*
+	 * See if it's time to check our progress.
+	 * If an operation was just performed, then Cur_time was updated
+	 * in the op routine; otherwise we need to get Cur_time.
+	 */
+	if (op_count <= 0) {
+	    sfs_gettime(&Cur_time);
+	}
+
+	current_msec = (Cur_time.sec * 1000) + (Cur_time.usec / 1000);
+	if (DEBUG_CHILD_XPOINT) {
+		(void) fprintf(stderr, "cur=%d prev=%d per=%d\n",
+			current_msec, Previous_chkpnt_msec, Msec_per_period);
+	}
+
+	if ((current_msec - Previous_chkpnt_msec) > Msec_per_period) {
+	    check_call_rate();
+	}
+
+    } /* end while more calls to make */
+
+    /*
+     * We are done generating our part of the load.
+     * Store total time in last slot of counts array.
+     *
+     * The last slot has the wall clock time of all the load generation.
+     * Individual slots have the wall clock time spent just for the op
+     * gen routine.
+     */
+    sfs_gettime(&Cur_time);
+    Measurement_in_progress = 0;
+    elapsed_time.sec = Cur_time.sec;
+    elapsed_time.usec = Cur_time.usec;
+    SUBTIME(elapsed_time, Starttime);
+
+    Ops[TOTAL].results.time.sec = elapsed_time.sec;
+    Ops[TOTAL].results.time.usec = elapsed_time.usec;
+
+    if (DEBUG_CHILD_FILES) {
+	(void) fprintf(stderr,
+		    "%s: max fss %d KB  min fss %d KB\n",
+			sfs_Myname, Most_fss_bytes, Least_fss_bytes);
+	(void) fflush(stderr);
+    }
+
+    if (DEBUG_CHILD_FILES) {
+	(void) fprintf(stderr, "Child %d Files:\n", Child_num);
+	for (i = 0; i < Num_io_files; i++)
+	    (void) fprintf(stderr, "Io[%d] use %d xfer %d\n",
+				i, Io_files[i].use_cnt, Io_files[i].xfer_cnt);
+	for (i = 0; i < Num_non_io_files; i++)
+	    (void) fprintf(stderr, "Non_io[%d] use %d xfer %d\n",
+				i, Non_io_files[i].use_cnt,
+				Non_io_files[i].xfer_cnt);
+	for (i = 0; i < Num_dir_files; i++)
+	    (void) fprintf(stderr, "Dir[%d] use %d xfer %d\n",
+				i, Dirs[i].use_cnt, Dirs[i].xfer_cnt);
+	for (i = 0; i < Num_symlink_files; i++)
+	    (void) fprintf(stderr, "Sym[%d] use %d xfer %d\n",
+				i, Symlinks[i].use_cnt, Symlinks[i].xfer_cnt);
+	(void) fflush(stderr);
+    }
+
+    if (DEBUG_CHILD_SETUP) {
+	int j, group_size, offset, index, tot;
+	for (i = 0; i < Io_working_set.access_group_cnt; i++) {
+	    group_size = Io_working_set.access_group_size;
+	    if (i < (Num_working_io_files -
+		     ((Num_working_io_files / Io_working_set.access_group_cnt)
+		      * Io_working_set.access_group_cnt)))
+		group_size += 1;
+	    tot = 0;
+	    for (j = 0; j < group_size; j++) {
+		offset = i + (j * Io_working_set.access_group_cnt);
+		index = Io_working_set.entries[offset].index;
+		tot += Io_files[index].use_cnt;
+		(void) fprintf(stderr, "Working[%d] use %d xfer %d\n",
+				offset, Io_files[index].use_cnt,
+				Io_files[index].xfer_cnt);
+	    }
+	    (void) fprintf(stderr, "Group %d total use %d\n", i, tot);
+	}
+	(void) fflush(stderr);
+    }
+
+    if (DEBUG_CHILD_GENERAL) {
+	(void) fprintf(stderr, "Child %d Ops:\n", Child_num);
+
+	previous_pcnt = 0.0;
+	(void) fprintf(stderr,
+    "             calls                             reqs\n");
+	(void) fprintf(stderr,
+    "             trgt actl  trgt actl  bad  no     trgt actl   trgt   actl\n");
+	(void) fprintf(stderr,
+    "     name    mix  mix   cnt   cnt  cnt  cnt     mix  mix    cnt    cnt\n");
+
+	for (i = 0; i < NOPS + 1; i++) {
+	    (void) fprintf(stderr,
+		    "%11s %4d %4.1f %5d %5d %4d %3d    %4.1f %4.1f %6d %6d\n",
+		    Ops[i].name, Ops[i].mix_pcnt,
+		    (float) (100 * Ops[i].results.good_calls)
+			/ (float) Ops[TOTAL].results.good_calls,
+		    Ops[i].target_calls, Ops[i].results.good_calls,
+		    Ops[i].results.bad_calls, Ops[i].no_calls,
+		    Ops[i].req_pcnt - previous_pcnt,
+		    (float) (100 * Ops[i].req_cnt) / (float) Ops[TOTAL].req_cnt,
+		    Ops[i].target_reqs, Ops[i].req_cnt);
+	    previous_pcnt = Ops[i].req_pcnt;
+	}
+	(void) fflush(stderr);
+    }
+
+    if (DEBUG_CHILD_GENERAL) {
+	(void) fprintf(stderr, "Child %d made %d of %d calls in %ld sec\n",
+			Child_num, Ops[TOTAL].results.good_calls,
+			Ops[TOTAL].target_calls,
+			Ops[TOTAL].results.time.sec);
+	(void) fflush(stderr);
+    }
+
+    clnt_destroy(NFS_client);
+    biod_term();
+
+    /* write stats to log file (append mode) */
+    report.version = nfs_version;
+    for (i = 0; i < NOPS + 1; i++) {
+	report.results_buf[i] = Ops[i].results;
+    }
+    report.total_fss_bytes = Total_fss_bytes;
+    report.least_fss_bytes = Least_fss_bytes;
+    report.most_fss_bytes = Most_fss_bytes;
+    report.base_fss_bytes = Base_fss_bytes;
+
+    if (write(Log_fd, (char *) &report, sizeof(report)) == -1) {
+	Saveerrno = errno;
+	(void) fprintf(stderr, "%s: can't write to synchronization file %s ",
+			sfs_Myname, Logname);
+	errno = Saveerrno;
+	perror(Logname);
+	(void) generic_kill(0, SIGINT);
+	exit(149);
+    }
+    (void) close(Log_fd);
+
+    print_dump(Client_num, Child_num);
+
+} /* child */
+
+
+/*
+ * --------------------  Call Target Initialization  --------------------
+ */
+
+/*
+ * Initialize call and request targets.
+ */
+static void
+init_targets(void)
+{
+    int		call_target;		/* total number of calls to make */
+    int		req_target;		/* total number of reqs to make */
+    int32_t	equal_mix;		/* equal mix of operations */
+    int32_t	slack;			/* calls leftover after % mix */
+    int		randnum;		/* a random number */
+    int32_t	i;			/* general use */
+    double	total_req_pcnt;
+    double	previous_pcnt;
+    int		nops_used = 0;
+
+
+    /*
+     * Compute number of target calls for each operation.
+     * These are used to estimate the number of filehandles
+     * that will be used for each type of operation.
+     */
+    call_target = Ops[TOTAL].target_calls;
+    Ops[TOTAL].target_calls = 0;
+
+    for (i = 0; i < NOPS; i++) {
+	Ops[i].target_calls = (Ops[i].mix_pcnt * call_target) / 100;
+	Ops[TOTAL].target_calls += Ops[i].target_calls;
+	if (Ops[i].mix_pcnt != 0)
+	    nops_used++;
+    }
+
+    /* Put left over calls into the heavier mix operations. */
+    slack = call_target - Ops[TOTAL].target_calls;
+    equal_mix =  (100 / nops_used) / 2;
+    while (slack > 0) {
+	randnum = sfs_random() % NOPS;
+	if (Ops[randnum].mix_pcnt != 0 && Ops[randnum].mix_pcnt >= equal_mix) {
+	    Ops[randnum].target_calls++;
+	    Ops[TOTAL].target_calls++;
+	    slack--;
+	}
+    }
+
+    /*
+     * compute request targets (based on suggestions from M. Molloy, HP)
+     */
+
+    /* compute total of target requests, based on weighted ops */
+    total_req_pcnt = 0.0;
+    for (i = 0; i < NOPS ; i++) {
+	switch (i) {
+	case READ:
+	    total_req_pcnt += ((double) Ops[i].mix_pcnt)
+			    / Io_dist_ptr->avg_ops_per_read_req;
+	    break;
+	case WRITE:
+	    total_req_pcnt += ((double) Ops[i].mix_pcnt)
+			    / Io_dist_ptr->avg_ops_per_write_req;
+	    break;
+	case COMMIT:	/* Commits never generate requests */
+	    break;
+	default:
+	    total_req_pcnt += (double) Ops[i].mix_pcnt;
+	    break;
+	}
+    }
+
+    /*
+     * compute cumulative frequency distribution percentile for each op.
+     * This code assumes that the NULLCALL does not generate multiple
+     * OTW operations per request.
+     */
+    previous_pcnt = 0.0;
+    for (i = 0; i < NOPS; i++) {
+	switch (i) {
+	case READ:
+	    Ops[i].req_pcnt = previous_pcnt +
+			      (((100.0 * (double) Ops[i].mix_pcnt)
+			      / Io_dist_ptr->avg_ops_per_read_req)
+			      / total_req_pcnt);
+	    break;
+	case WRITE:
+	    Ops[i].req_pcnt = previous_pcnt +
+			      (((100.0 * (double) Ops[i].mix_pcnt)
+			      / Io_dist_ptr->avg_ops_per_write_req)
+			      / total_req_pcnt);
+	    break;
+	case COMMIT:	/* Commits never generate requests */
+	    Ops[i].req_pcnt = previous_pcnt;
+	    break;
+	default:
+	    Ops[i].req_pcnt = previous_pcnt +
+			      ((100.0 * (double) Ops[i].mix_pcnt)
+			      / total_req_pcnt);
+	    break;
+	}
+	previous_pcnt = Ops[i].req_pcnt;
+    }
+    /* force last bucket to 100 */
+    Ops[NOPS-1].req_pcnt = 100;
+
+    /* compute the req load rate */
+    Child_req_load = (total_req_pcnt * Child_call_load) / 100.0;
+
+    /*
+     * Compute number of target reqs for each operation.
+     * These are used for debugging purposes.
+     */
+    req_target = (total_req_pcnt * Ops[TOTAL].target_calls) / 100;
+    Ops[TOTAL].target_reqs = 0;
+
+    previous_pcnt = 0.0;
+    for (i = 0; i < NOPS; i++) {
+	Ops[i].target_reqs = 0;
+	if (Ops[i].mix_pcnt != 0) {
+	    Ops[i].target_reqs = ((Ops[i].req_pcnt - previous_pcnt) *
+							req_target) / 100;
+	}
+	Ops[TOTAL].target_reqs += Ops[i].target_reqs;
+	previous_pcnt = Ops[i].req_pcnt;
+    }
+
+    /* Put left over reqs into the heavier mix operations. */
+    slack = req_target - Ops[TOTAL].target_reqs;
+    equal_mix =  (100 / nops_used) / 2;
+    while (slack > 0) {
+	randnum = sfs_random() % NOPS;
+	if (Ops[randnum].target_reqs != 0 &&
+					Ops[randnum].req_pcnt >= equal_mix) {
+	    Ops[randnum].target_reqs++;
+	    Ops[TOTAL].target_reqs++;
+	    slack--;
+	}
+    }
+    if (DEBUG_CHILD_GENERAL) {
+	(void) fprintf(stderr,
+			"      Op\t  Op mix\tCalls\t\t Req mix\t Reqs\t\n");
+	previous_pcnt = 0.0;
+	for (i = 0; i < NOPS; i++) {
+	    (void) fprintf(stderr, "%8s\t%8d\t%5d\t\t%8.2f\t%5d\n",
+				Ops[i].name,
+				Ops[i].mix_pcnt, Ops[i].target_calls,
+				Ops[i].req_pcnt - previous_pcnt,
+				Ops[i].target_reqs);
+	    previous_pcnt = Ops[i].req_pcnt;
+	}
+    }
+} /* init_targets */
+
+
+/*
+ * -----------------------  File Set Initialization  -----------------------
+ */
+
+static file_array_initialized = 0;
+static int file_size_array[100];
+
+/*
+ * For a value between 0-99, return a size based on distribution
+ */
+static int
+get_file_size(int i)
+{
+    if (i < 0 || i > 99)
+	return (0);
+
+    if (file_array_initialized == 0) {
+	int j, k;
+
+	for (j = 0, k = 0; j < 100; j++) {
+	    if (j >= Default_file_size_dist[k].pcnt &&
+			Default_file_size_dist[k + 1].size != 0)
+		k++;
+	    file_size_array[j] = Default_file_size_dist[k].size * 1024;
+	}
+	file_array_initialized++;
+    }
+    return (file_size_array[i]);
+}
+
+/*
+ * allocate and initialize the various file information structures.
+ */
+void
+init_fileinfo(void)
+{
+    int      i, index;
+    int      j;
+    int      group_size, group_cnt;
+    int      range, previous_range;
+    int      next_value;
+    double   lambda;
+    double   e_to_the_lambda;
+    double   cumulative_ratio;
+    int	     num_non_io_to_init;
+    int	     io_file_num = 0;
+    int	     files_per_generation;
+    sfs_fh_data 	*fh_datap;
+
+
+    /*
+     * Zero number of files created used to create unique names
+     */
+    Files_created = 0;
+
+    /*
+     * Dirs - Initialize the files info structure.
+     * Directories must come first, in initializing test dirs we
+     * need to make sure that any files deleted are no full directories
+     */
+    Num_dir_files =
+	     Num_dirs +				/* exist: readdir, rmdir */
+	     Ops[MKDIR].target_calls +		/* non-exist: mkdir */
+	     Ops[RMDIR].target_calls;		/* empty dir to be removed */
+    if (DEBUG_CHILD_SETUP) {
+	(void) fprintf(stderr, "%s: allocate %d directories\n",
+			   sfs_Myname, Num_dir_files);
+	(void) fflush(stderr);
+    }
+    Dirs = (sfs_fh_type *) calloc(Num_dir_files, sizeof(sfs_fh_type));
+
+    if (Dirs == (sfs_fh_type *) 0) {
+	(void) fprintf(stderr,"%s: init_fileinfo dir calloc %d bytes failed",
+			sfs_Myname, Num_dir_files * sizeof(sfs_fh_type));
+	(void) generic_kill(0, SIGINT);
+	exit(150);
+    }
+    for (i = 0; i < Num_dir_files; i++) {
+	Dirs[i].working_set = 0;
+	Dirs[i].state = Nonexistent;
+	if (i <= (Num_dirs + Ops[RMDIR].target_calls)) {
+	    Dirs[i].initialize = 1;
+	    Dirs[i].fh_data = (sfs_fh_data *)0;
+	}
+	Dirs[i].unique_num = i;
+    }
+
+    /* Working Set Directory Files - Initialize the working files array. */
+    Num_working_dirs = Num_dir_files;
+    Dir_working_set.entries = (sfs_work_fh_type *)
+			      calloc(Num_working_dirs,
+				     sizeof(sfs_work_fh_type));
+    if (Dir_working_set.entries == (sfs_work_fh_type *) 0) {
+	(void) fprintf(stderr,"%s: init_fileinfo wdir calloc %d bytes failed",
+		sfs_Myname, Num_working_dirs * sizeof(sfs_work_fh_type));
+	(void) generic_kill(0, SIGINT);
+	exit(151);
+    }
+
+    /*
+     * Dirs are accessed uniformly.  See Non_io_files for a description.
+     */
+    if (init_rand_range(Num_dir_files)) {
+	(void) fprintf(stderr, "%s: init_fileinfo dir init_rand_range failed",
+		sfs_Myname);
+	(void) generic_kill(0, SIGINT);
+	exit(183);
+    }
+
+    for (i = 0; i < Num_working_dirs; i++) {
+	if (Num_working_dirs != Num_dir_files) {
+	    /* generate a random subset */
+	    index = rand_range(i);
+	} else {
+	    /* match the working set one-to-one with the files */
+	    index = i;
+	}
+
+	Dirs[index].working_set = 1;
+	Dir_working_set.entries[i].index = index;
+	Dir_working_set.entries[i].range = i + 1;
+    }
+    Dir_working_set.access_group_size = Num_working_dirs;
+    Dir_working_set.access_group_cnt = 1;
+
+    Dir_working_set.max_range = Num_working_dirs;
+
+    if (DEBUG_CHILD_SETUP) {
+	(void) fprintf(stderr, "\nDir size=%d cnt=%d max=%d\n",
+			    Dir_working_set.access_group_size,
+			    Dir_working_set.access_group_cnt,
+			    Dir_working_set.max_range);
+	(void) fflush(stderr);
+    }
+
+
+    /*
+     * I/o Files - Initialize the files info structure to Num_io_files.
+     */
+    if (DEBUG_CHILD_SETUP) {
+	(void) fprintf(stderr, "%s: allocate %d i/o files, %d working\n",
+			   sfs_Myname, Num_io_files, Num_working_io_files);
+	(void) fflush(stderr);
+    }
+
+    Io_files = (sfs_fh_type *) calloc(Num_io_files, sizeof(sfs_fh_type));
+    if (Io_files == (sfs_fh_type *) 0) {
+	(void) fprintf(stderr,"%s: init_fileinfo %d io files calloc %d bytes failed",
+			sfs_Myname, Num_io_files,
+			Num_io_files * sizeof(sfs_fh_type));
+	(void) generic_kill(0, SIGINT);
+	exit(152);
+    }
+    io_file_num = 0;
+    for (i = 0; i < Num_io_files; i++) {
+	Io_files[i].working_set = 0;
+	Io_files[i].state = Nonexistent;
+	Io_files[i].initialize = 1;
+	Io_files[i].size = get_file_size(io_file_num % 100);
+	Io_files[i].unique_num = Files_created++;
+	/* Memory allocation for the fh_data will be done later.  */
+	Io_files[i].fh_data = (sfs_fh_data *)0;
+	io_file_num++;
+    }
+
+    /*
+     * Working Set I/o Files - Initialize the working files array.
+     * Only Access_percent of the Io_files are put into the working set.
+     */
+    Io_working_set.entries = (sfs_work_fh_type *)
+			   calloc(Num_working_io_files,
+				  sizeof(sfs_work_fh_type));
+    if (Io_working_set.entries == (sfs_work_fh_type *) 0) {
+	(void) fprintf(stderr,"%s: init_fileinfo wio calloc %d bytes failed",
+		sfs_Myname, Num_working_io_files * sizeof(sfs_work_fh_type));
+	(void) generic_kill(0, SIGINT);
+	exit(153);
+    }
+
+
+    if (DEBUG_CHILD_FILES) {
+	(void) fprintf(stderr, "working_set: ");
+	(void) fflush(stderr);
+    }
+
+    /*
+     * For now, the access distribution is poisson.  See below.
+     */
+/* #define UNIFORM_ACCESS */
+#define POISSON_ACCESS
+
+#ifdef UNIFORM_ACCESS
+    /*
+     * With a uniform access distribution, there is no need for access
+     * groups.
+     * Hopefully SPEC-SFS will agree on a non-uniform access function.
+     * (see below for an example using a poisson distribution).
+     */
+    if (init_rand_range(Num_io_files)) {
+	(void) fprintf(stderr, "%s: init_fileinfo io init_rand_range failed",
+		sfs_Myname);
+	(void) generic_kill(0, SIGINT);
+	exit(184);
+    }
+
+    for (i = 0; i < Num_working_io_files; i++) {
+	if (Num_working_io_files != Num_io_files) {
+	    /* generate a random subset */
+	    index = rand_range(i);
+	} else {
+	    /* match the working set one-to-one with the files */
+	    index = i;
+	}
+	Io_files[index].working_set = 1;
+	Io_working_set.entries[i].index = index;
+	Io_working_set.entries[i].range = i + 1;
+
+	if (DEBUG_CHILD_FILES) {
+	    (void) fprintf(stderr, "%d,", index);
+	    (void) fflush(stderr);
+	}
+    }
+    Io_working_set.access_group_size = Num_working_io_files;
+    Io_working_set.access_group_cnt = 1;
+    Io_working_set.max_range = Num_working_io_files;
+
+    if (DEBUG_CHILD_FILES) {
+	(void) fprintf(stderr, "\nIo size=%d cnt=%d max=%d\n",
+			    Io_working_set.access_group_size,
+			    Io_working_set.access_group_cnt,
+			    Io_working_set.max_range);
+	(void) fflush(stderr);
+    }
+
+#endif /* ! UNIFORM_ACCESS */
+#ifdef POISSON_ACCESS
+
+    /*
+     * The working set is partitioned into access groups of Access_group_size
+     * files.  Each group is assigned a probability of being accessed.
+     * This is implemented as a cumulative distribution table, with
+     * variable probabilities for each group.  The distribution function
+     * is used to generate a sequence of values, one for each group.
+     * Each group is assigned a 'range' value that is the sum of all
+     * previous range values, plus the next value in the distribution
+     * sequence.  Thus, the probability of choosing any particular group
+     * is equal to the relative height of the distribution curve at the
+     * point represented by that group.
+     * The choice is made by generating a random number in the range
+     * 0 up to (the sum of all values in the distribution sequence - 1),
+     * and finding the group with the greatest range value less than
+     * the random number.
+     * Once a group is chosen, a random number in the range
+     * 1 - Access_group_size is used to pick an entry from within the group.
+     * The entry chosen points to a file in the Io_files array.
+     * If the file at Io_files[index] is eligible for the operation,
+     * then it is accessed, otherwise, the access group is searched
+     * sequentially (mod Access_group_size with wrap-around) until an
+     * eligible file is found.
+     * Access_group_size is derived so that there are enough files
+     * in each group to give a good chance of finding an eligible file
+     * for each operation, but so that there are enough groups (each
+     * representing a point on the distribution curve) to generate a
+     * fairly smooth access distribution curve.
+     */
+
+    /*
+     * group_cnt = 8 + ((Num_working_io_files/500) * 4);
+     *
+     * The function is chosen to guarentee that each group contains
+     * at least 1 file, and, beginning with a base of 8 groups, the
+     * number of groups increases by 4 for each 500 files in the working
+     * set.  It was arrived at heuristically.  The goal is to put enough
+     * files into each group to ensure that a file with the right
+     * attributes can be found once the group is selected (which can be
+     * difficult for small working sets), while at the same time creating
+     * enough groups to provide enough points on the distribution curve
+     * to yield an interesting access distribution.
+     *
+     * Since this function is being computed per child, the interesting range
+     * of working set sizes is computed based on a range of per child load
+     * values from 1 op/sec to 100 op/sec.  Note that this assumes an
+     * average server response time of at least 10 msec, which seems to be
+     * a good minimum value for a wide range of servers given the default
+     * mix of NFS operations.
+     * Based on these load values, the total file set, based on the default
+     * values of 10 MB/op and 38 files/MB, works out to 380 - 38000 files.
+     * The default working set of 10% of these files yields a working
+     * set size of 38 - 3800 files.
+     */
+
+     files_per_generation = (_GROUP_DIVISOR * generations) / _FILES_PER_GROUP;
+     Io_working_set.access_group_cnt = generations +
+	((Num_working_io_files/files_per_generation) * generations);
+    /*
+     * if the number of files in the working set is not a multiple of
+     * the group size, then some groups will contain (group_size+1) files.
+     * Thus, this is the base group size.
+     */
+    Io_working_set.access_group_size = Num_working_io_files /
+				      Io_working_set.access_group_cnt;
+
+    if (init_rand_range(Num_io_files)) {
+	(void) fprintf(stderr, "%s: init_fileinfo io init_rand_range failed",
+		sfs_Myname);
+	(void) generic_kill(0, SIGINT);
+	exit(185);
+    }
+
+    /* randomly set up working set of indices into Io_files */
+    for (i = 0; i < Num_working_io_files; i++) {
+	if (Num_working_io_files != Num_io_files) {
+	    /* generate a random subset */
+	    index = rand_range(i);
+	} else {
+	    /* match the working set one-to-one with the files */
+	    index = i;
+	}
+	Io_files[index].working_set = 1;
+	Io_working_set.entries[i].index = index;
+
+	if (DEBUG_CHILD_FILES) {
+	    (void) fprintf(stderr, "%d,", index);
+	    (void) fflush(stderr);
+	}
+    }
+
+    /* initialization for distribution function */
+    range = 0;
+    lambda = (double) (generations / 2);
+    if (lambda <= 0) lambda = 1;
+    e_to_the_lambda = exp(lambda);
+    cumulative_ratio = 1.0;
+
+    if (DEBUG_CHILD_FILES) {
+	(void) fprintf(stderr,
+			"\ngrp_cnt %d lambda %6.0f e_to_the_lambda %6.2f\n",
+			Io_working_set.access_group_cnt, lambda,
+			e_to_the_lambda);
+	(void) fflush(stderr);
+    }
+
+    /* assign a range to each group */
+    for (i = 0; i < Io_working_set.access_group_cnt; i++) {
+	/*
+	 * get next value in poisson distribution sequence, using
+	 *    lambda^x / (e^(lambda) * x!) , for x=1,2,3,...,group_cnt
+	 */
+        double probability;
+
+	if( i % generations == 0)
+	{
+    		lambda = (double) (generations / 2);
+    		if (lambda <= 0) lambda = 1;
+    			e_to_the_lambda = exp(lambda);
+    		cumulative_ratio = 1.0;
+	}
+        probability = cumulative_ratio/e_to_the_lambda;
+        if (probability <= 0.0 || probability > 1.0) {
+		(void) fprintf(stderr, "%s: access probability = %g while setting up Io_working_set, i=%d of %d\n",
+ 			sfs_Myname, probability,
+			i, Io_working_set.access_group_cnt);
+ 		(void) generic_kill(0, SIGINT);
+ 		exit(154);
+        }
+
+	/* convert probability to scaled integer */
+	next_value = (int) (PROB_SCALE * probability);
+
+	/* check for negative numbers */
+        if (next_value <= 0) {
+		(void) fprintf(stderr, "%s: next_value = %d while setting up Io_working_set, i=%d of %d\n",
+ 			sfs_Myname, next_value,
+			i, Io_working_set.access_group_cnt);
+ 		(void) generic_kill(0, SIGINT);
+ 		exit(154);
+        }
+
+	previous_range = range;
+	range = previous_range + next_value;
+        if (range <= previous_range || range < 0) {
+		(void) fprintf(stderr, "%s: range = %d previous_range = %d while setting up Io_working_set, i=%d of %d\n",
+ 			sfs_Myname, range, previous_range,
+			i, Io_working_set.access_group_cnt);
+ 		(void) generic_kill(0, SIGINT);
+ 		exit(154);
+        }
+
+	/* assign range value to each file in this group */
+	group_size = Io_working_set.access_group_size;
+	group_cnt = Io_working_set.access_group_cnt;
+	if (i < (Num_working_io_files -
+		 ((Num_working_io_files / group_cnt) * group_cnt)))
+	    group_size += 1;
+	for (j = 0; j < group_size; j++) {
+	    index = i + (j * Io_working_set.access_group_cnt);
+	    Io_working_set.entries[index].range = range;
+	}
+
+	cumulative_ratio *= lambda / (double) ((i%generations)+1);
+
+	if (DEBUG_CHILD_SETUP) {
+	    (void) fprintf(stderr, "group %d next %d range %d\n",
+				i, next_value, range);
+	    (void) fflush(stderr);
+	}
+    }
+    Io_working_set.max_range = range;
+
+    if (DEBUG_CHILD_SETUP) {
+	(void) fprintf(stderr, "\nIo size=%d cnt=%d max=%d\n",
+			   Io_working_set.access_group_size,
+			   Io_working_set.access_group_cnt,
+			   Io_working_set.max_range);
+	(void) fflush(stderr);
+    }
+#endif /* POISSON_ACCESS */
+
+
+     /* figure out how many files to allocate and initialize */
+
+    /* initialize half the non-I/O files */
+    /* NOTE: initializing half the non-i/o files works ok with the
+	     default op mix.  If the mix is changed affecting the
+	     ratio of creations to removes, there may not be enough
+	     empty slots for file creation (or there may not be
+	     enough created during initialization to handle a lot of
+	     removes that occur early in the test run), and this would
+	     cause do_op() to fail to find a file appropriate for the
+	     chosen op.  This will result in the global variable
+	     Ops[op].no_calls being incremented (turn on child level
+	     debugging to check this count), and the do_op() local
+	     variable aborted_ops to be incremented and checked during
+	     runtime for too many failures.
+     */
+    num_non_io_to_init = Num_non_io_files * RATIO_NON_IO_INIT;
+
+    if (DEBUG_CHILD_SETUP) {
+	(void) fprintf(stderr, "%s: allocate %d non-i/o files\n",
+			    sfs_Myname, Num_non_io_files);
+	(void) fflush(stderr);
+    }
+    Non_io_files = (sfs_fh_type *)
+		    calloc(Num_non_io_files, sizeof(sfs_fh_type));
+    if (Non_io_files == (sfs_fh_type *) 0) {
+	(void) fprintf(stderr,"%s: init_fileinfo nio calloc %d bytes failed",
+ 		sfs_Myname, Num_non_io_files * sizeof(sfs_fh_type));
+ 	(void) generic_kill(0, SIGINT);
+ 	exit(154);
+    }
+    for (i = 0; i < Num_non_io_files; i++) {
+	Non_io_files[i].working_set = 0;
+	Non_io_files[i].state = Nonexistent;
+        if (i <= num_non_io_to_init)
+	    Non_io_files[i].initialize = 1;
+	Non_io_files[i].size = get_file_size(io_file_num % 100);
+	Non_io_files[i].unique_num = Files_created++;
+	/* Allocation of fh_data will happen in init_testdir */
+	Non_io_files[i].fh_data = (sfs_fh_data *)0;
+	io_file_num++;
+    }
+
+    /* Working Set Non i/o Files - Initialize the working files array. */
+    Num_working_non_io_files = Num_non_io_files;
+    Non_io_working_set.entries = (sfs_work_fh_type *)
+				 calloc(Num_working_non_io_files,
+					sizeof(sfs_work_fh_type));
+    if (Non_io_working_set.entries == (sfs_work_fh_type *) 0) {
+	(void) fprintf(stderr,"%s: init_fileinfo nwio calloc %d bytes failed",
+		sfs_Myname, Num_working_io_files * sizeof(sfs_work_fh_type));
+	(void) generic_kill(0, SIGINT);
+	exit(155);
+    }
+
+    /*
+     * Non_io_files are accessed uniformly.  Each entry has a
+     * 1/Num_working_non_io_files change of being accessed.
+     * The choice is made by generating a random number in the range
+     * 0 through (Num_working_non_io_files - 1) and finding the entry
+     * with the greatest range value less than the random number.
+     * If the file at Non_io_files[index] is eligible for the operation,
+     * it is accessed, otherwise, the access group that the entry belongs
+     * to is searched sequentially until an eligible file is found.
+     * For non i/o files, all of the working set files are in the same
+     * access group (since they access is uniform, this is ok, and
+     * maximizes the chances of finding an eligible file).
+     */
+    if (init_rand_range(Num_non_io_files)) {
+	(void) fprintf(stderr, "%s: init_fileinfo non_io init_rand_range failed",
+		sfs_Myname);
+	(void) generic_kill(0, SIGINT);
+	exit(186);
+    }
+
+    for (i = 0; i < Num_working_non_io_files; i++) {
+	if (Num_working_non_io_files != Num_non_io_files) {
+	    /* generate a random subset */
+	    index = rand_range(i);
+	} else {
+	    /* match the working set one-to-one with the files */
+	    index = i;
+	}
+	Non_io_files[index].working_set = 1;
+	Non_io_working_set.entries[i].index = index;
+	Non_io_working_set.entries[i].range = i + 1;
+    }
+    Non_io_working_set.access_group_size = Num_working_non_io_files;
+    Non_io_working_set.access_group_cnt = 1;
+    Non_io_working_set.max_range = Num_working_non_io_files;
+
+    if (DEBUG_CHILD_SETUP) {
+	(void) fprintf(stderr, "\nNon_io	size=%d cnt=%d max=%d\n",
+			    Non_io_working_set.access_group_size,
+			    Non_io_working_set.access_group_cnt,
+			    Non_io_working_set.max_range);
+	(void) fflush(stderr);
+    }
+
+
+    /* Symlinks - Initialize the files info structure. */
+    Num_symlink_files =
+	     Num_symlinks +			/* exist: readlink */
+	     Ops[SYMLINK].target_calls;		/* non-exist: symlink */
+    if (DEBUG_CHILD_SETUP) {
+	(void) fprintf(stderr, "%s: allocate %d symlinks\n",
+			   sfs_Myname, Num_symlink_files);
+	(void) fflush(stderr);
+    }
+    Symlinks = (sfs_fh_type *)
+		calloc(Num_symlink_files, sizeof(sfs_fh_type));
+    if (Symlinks == (sfs_fh_type *) 0) {
+	(void) fprintf(stderr,"%s: init_fileinfo sym calloc %d bytes failed",
+			sfs_Myname, (Num_symlink_files * sizeof(sfs_fh_type)));
+	(void) generic_kill(0, SIGINT);
+	exit(156);
+    }
+    for (i = 0; i < Num_symlink_files; i++) {
+	Symlinks[i].working_set = 0;
+	Symlinks[i].state = Nonexistent;
+	if (i <= Num_symlinks)
+	    Symlinks[i].initialize = 1;
+	Symlinks[i].fh_data = (sfs_fh_data *)0;
+	Symlinks[i].unique_num = i;
+    }
+
+    /* Working Set Symlinks - Initialize the working files array. */
+    /* This appears to cause the following loop to be mostly dead */
+    /* code.  It is unclear why this line is here. One */
+    /* possibility is that Num_symlink_files should be */
+    /* Num_symlinks.  XXX */
+    Num_working_symlinks = Num_symlink_files;
+    Symlink_working_set.entries = (sfs_work_fh_type *)
+				  calloc(Num_working_symlinks,
+					 sizeof(sfs_work_fh_type));
+    if (Symlink_working_set.entries == (sfs_work_fh_type *) 0) {
+	(void) fprintf(stderr,"%s: init_fileinfo wsym calloc %d bytes failed",
+		sfs_Myname, Num_working_symlinks * sizeof(sfs_work_fh_type));
+	(void) generic_kill(0, SIGINT);
+	exit(157);
+    }
+
+    /*
+     * Symlinks are accessed uniformly.  See Non_io_files for a description.
+     */
+    if (init_rand_range(Num_symlink_files)) {
+	(void) fprintf(stderr, "%s: init_fileinfo sym init_rand_range failed",
+		sfs_Myname);
+	(void) generic_kill(0, SIGINT);
+	exit(187);
+    }
+
+    for (i = 0; i < Num_working_symlinks; i++) {
+	if (Num_working_symlinks != Num_symlink_files) {
+	    /* generate a random subset */
+	    index = rand_range(i);
+	} else {
+	    /* match the working set one-to-one with the files */
+	    index = i;
+	}
+
+	Symlinks[index].working_set = 1;
+	Symlink_working_set.entries[i].index = index;
+	Symlink_working_set.entries[i].range = i + 1;
+    }
+    Symlink_working_set.access_group_size = Num_working_symlinks;
+    Symlink_working_set.access_group_cnt = 1;
+    Symlink_working_set.max_range = Num_working_symlinks;
+
+    if (DEBUG_CHILD_SETUP) {
+	(void) fprintf(stderr, "\nSymlink size=%d cnt=%d max=%d\n",
+			    Symlink_working_set.access_group_size,
+			    Symlink_working_set.access_group_cnt,
+			    Symlink_working_set.max_range);
+	(void) fflush(stderr);
+    }
+
+    /*
+     * Free up random number range
+     */
+    (void)init_rand_range(0);
+
+
+} /* init_fileinfo */
+
+/*
+ * allocate and initialize the directory layout of the files
+ *
+ * We can only place files in directories that can't be removed
+ */
+static void
+init_dirlayout(void)
+{
+    int i,j;
+
+    /*
+     * Initially create directories only one level deep so all directories
+     * must be in the parent directory.
+     */
+    for (i = 0; i < Num_dir_files; i++) {
+	Dirs[i].dir = &Export_dir;
+    }
+
+    /*
+     * Files must only be placed in the first Num_dirs entries leaving
+     * a set for directory create and remove.
+     */
+    j = 0;
+    for (i = 0; i < Num_io_files; i++) {
+	if (i != 0 && (i % Files_per_dir) == 0)
+		j++;
+	Io_files[i].dir = &Dirs[j];
+    }
+
+    /*
+     * All non-io and symlink files are placed in the parent directory
+     */
+    for (i = 0; i < Num_non_io_files; i++) {
+	Non_io_files[i].dir = &Export_dir;
+    }
+
+    for (i = 0; i < Num_symlink_files; i++) {
+	Symlinks[i].dir = &Export_dir;
+    }
+}
+
+/*
+ * allocate and initialize client handles
+ */
+static int
+init_rpc(void)
+{
+    /*
+     * Set up the client handles.  We get them all before trying one
+     * out to insure that the client handle for LOOKUP class is allocated
+     * before calling op_getattr().
+     */
+    if (DEBUG_CHILD_GENERAL) {
+    	(void) fprintf(stderr, "%s: set up client handle\n", sfs_Myname);
+    }
+
+    NFS_client = lad_clnt_create(Tcp? 1: 0, Server_hostent,
+					(uint32_t) NFS_PROGRAM,
+					(uint32_t) nfs_version,
+					RPC_ANYSOCK, &Nfs_timers[0]);
+		
+    if (NFS_client  == ((CLIENT *) NULL)) {
+        return(-1);
+    }
+
+    /*
+     * create credentials using the REAL uid
+     */
+    NFS_client->cl_auth = authunix_create(lad_hostname, (int)Real_uid,
+				      (int)Cur_gid, 0, NULL);
+
+    /* Initialize biod simulation mechanism if desired.  */
+    if (Biod_max_outstanding_reads > 0 || Biod_max_outstanding_writes > 0) {
+	if (biod_init(Biod_max_outstanding_writes,
+		Biod_max_outstanding_reads) == -1) {
+	    return(-1);
+	}
+    }
+
+    return(0);
+} /* init_rpc */
+
+/*
+ * Initialize the test directory 'parentdir'/testdir'dirnum'.
+ *
+ * If the directory already exists, check to see that all of the
+ * files exist and can be written.  If the directory doesn't exist
+ * create it and fill it with the proper files.  The caller is
+ * left with his cwd being the test directory.
+ *
+ * Each child pseudo-mount's his own test directory to get its filehandle.
+ *
+ * Files, directories, and symlinks all have the same name structure
+ * but they are strictly ordered, files first, directories next, then symlinks.
+ * While initializing after a previous run we may have to delete existing
+ * files of the wrong type and then create them later.
+ *
+ * XXX In the future it is probably wiser to have seperate namespaces for
+ * each type of file.
+ */
+static void
+init_testdir(void)
+{
+    int			filenum;
+    int			max_filenum;
+    int			init_size;
+    int			append_size;
+    int			ret;
+    int			non = 0;
+    int 		dealloc;
+    int			alloc_count, dealloc_count;
+    /*
+     * Create directories first so operations that
+     * require them will have a file to work with.
+     */
+    alloc_count=dealloc_count=0;
+    for (filenum = 0; filenum < Num_dir_files; filenum++) {
+	sfs_gettime(&Cur_time);
+
+	Cur_file_ptr = &Dirs[filenum];
+	dealloc=0;
+	if(Cur_file_ptr->fh_data == (sfs_fh_data *)0)
+	{
+		alloc_count++;
+		Cur_file_ptr->fh_data = calloc(1,sizeof(sfs_fh_data));
+		Cur_file_ptr->attributes2.type = NFNON;
+		Cur_file_ptr->attributes3.type = NF3NON;
+		if(Cur_file_ptr->working_set == 1)
+			dealloc=0;
+		else
+			dealloc=1;
+	}
+
+	(void) sprintf(Cur_filename, Dirspec, Cur_file_ptr->unique_num);
+
+	if (DEBUG_CHILD_SETUP) {
+	    (void) fprintf(stderr, "%s: initialize %s (DIR)\n",
+				   sfs_Myname, Cur_filename);
+	    (void) fflush(stderr);
+	}
+
+	if ((ret = lad_lookup(Cur_file_ptr, Cur_filename)) == -1) {
+	    /* some error that I don't know what to do with, quit. */
+	    (void) generic_kill(0, SIGINT);
+	    exit(159);
+	}
+
+	if (ret == 0) {
+	    /* file exists */
+	    if (fh_isdir(Cur_file_ptr) && Cur_file_ptr->initialize)
+	    {
+		if(dealloc == 1)
+		{
+			dealloc_count++;
+			free(Cur_file_ptr->fh_data);
+			Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+		}
+		continue;
+	    }
+
+	    if (lad_remove(Cur_file_ptr, Cur_filename) != 0) {
+	        /* some error that I don't know what to do with, quit. */
+	        (void) generic_kill(0, SIGINT);
+	        exit(160);
+	    }
+        }
+
+	if (!Cur_file_ptr->initialize) {
+		/* dir shouldn't exist */
+	    if(dealloc == 1)
+            {	
+		dealloc_count++;
+		free(Cur_file_ptr->fh_data);
+		Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+            }
+	    continue;
+	}
+
+	/* make the directory */
+	if (lad_mkdir(Cur_file_ptr, Cur_filename) == -1) {
+	    /* some error that I don't know what to do with, quit. */
+	    (void) generic_kill(0, SIGINT);
+	    exit(161);
+	}
+	if(dealloc == 1)
+	{
+		dealloc_count++;
+		free(Cur_file_ptr->fh_data);
+		Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+	}
+    } /* end for each directory */
+
+    /*
+     * Setup for file i/o operations.
+     * Verify that we can read and write all the files.
+     * Make sure we have the attributes && fh for all regular files.
+     * Create any missing files.
+     */
+    max_filenum = Num_io_files + Num_non_io_files;
+    alloc_count=dealloc_count=0;
+    for (filenum = 0; filenum < max_filenum; filenum++) {
+	sfs_gettime(&Cur_time);
+
+	if (filenum < Num_io_files) {
+	    Cur_file_ptr = &Io_files[filenum];
+	} else {
+	    Cur_file_ptr = &Non_io_files[filenum - Num_io_files];
+	    non = 1;
+	}
+	(void) sprintf(Cur_filename, Filespec, Cur_file_ptr->unique_num);
+	dealloc=0;
+	if(Cur_file_ptr->fh_data == (sfs_fh_data *)0)
+	{
+		alloc_count++;
+		Cur_file_ptr->fh_data = calloc(1,sizeof(sfs_fh_data));
+		Cur_file_ptr->attributes2.type = NFNON;
+		Cur_file_ptr->attributes3.type = NF3NON;
+		if(Cur_file_ptr->working_set == 1)
+			dealloc=0;
+		else
+			dealloc=1;
+	}
+
+	/*
+	 * Get the size this file should be initialized to, then reset
+	 * so we don't get confused.
+	 */
+	init_size = Cur_file_ptr->size;
+	Cur_file_ptr->size = 0;
+
+	if (DEBUG_CHILD_SETUP) {
+	    (void) fprintf(stderr, "%s: initialize %s (REG for %sIO)\n",
+				   sfs_Myname, Cur_filename,
+				   (non ? "non-": ""));
+	    (void) fflush(stderr);
+	}
+
+	if ((ret = lad_lookup(Cur_file_ptr, Cur_filename)) == -1) {
+	    /* some error that I don't know what to do with, quit. */
+	    (void) generic_kill(0, SIGINT);
+	    exit(162);
+	}
+
+	if (ret == 0) {
+	    /*
+	     * If file exists and it shouldn't, remove it
+	     */
+	    if (!Cur_file_ptr->initialize) {
+	        if (lad_remove(Cur_file_ptr, Cur_filename) != 0) {
+	            /* some error that I don't know what to do with, quit. */
+	            (void) generic_kill(0, SIGINT);
+	            exit(163);
+	        }
+		if(dealloc == 1)
+		{
+			dealloc_count++;
+			free(Cur_file_ptr->fh_data);
+			Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+		}
+		continue;
+	    }
+
+	    /*
+	     * file exists: make sure it is
+	     *	- a regular file
+	     *	- accessible (permissions ok)
+	     * if not, remove it (if necessary) and recreate it
+	     * or extend or truncate it to the standard length.
+	     */
+	    if (fh_isfile(Cur_file_ptr) &&
+				check_fh_access(Cur_file_ptr) == 0) {
+		goto adjust_size;
+	    }
+	    if (lad_remove(Cur_file_ptr, Cur_filename) != 0) {
+	        /* some error that I don't know what to do with, quit. */
+	        (void) generic_kill(0, SIGINT);
+	        exit(164);
+	    }
+
+	} /* end if the file exists */
+
+	/* the file doesn't exist */
+	if (!Cur_file_ptr->initialize) {
+	    /* file doesn't exist and it shouldn't */
+	    if(dealloc == 1)
+	    {
+		dealloc_count++;
+		free(Cur_file_ptr->fh_data);
+		Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+	    }
+	    continue;
+	}
+
+	/* if the file doesn't exist (or was removed), create it */
+	if (lad_create(Cur_file_ptr, Cur_filename) == -1) {
+	    /* some error that I don't know what to do with, quit. */
+	    (void) generic_kill(0, SIGINT);
+	    exit(165);
+	}
+
+adjust_size:
+	/* the non-i/o regular files can be left empty */
+	if (filenum >= Num_io_files) {
+	    /* Truncate if it has grown */
+	    if (fh_size(Cur_file_ptr) != 0) {
+		if (lad_truncate(Cur_file_ptr, 0)) {
+            	    /* some error that I don't know what to do with, quit. */
+            	    (void) generic_kill(0, SIGINT);
+            	    exit(166);    
+		}
+	    }
+ 	    if(dealloc == 1)
+	    {
+		dealloc_count++;
+		free(Cur_file_ptr->fh_data);
+		Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+	    }
+	    continue;
+        }     
+
+	/* the i/o file must be prefilled, check if file too big */
+	if (fh_size(Cur_file_ptr) > init_size) {
+	    /* Truncate if it has grown */
+	    if (fh_size(Cur_file_ptr) != 0) {
+		if (lad_truncate(Cur_file_ptr, init_size)) {
+            	    /* some error that I don't know what to do with, quit. */
+            	    (void) generic_kill(0, SIGINT);
+            	    exit(167);    
+		}
+	    }
+	    if(dealloc == 1)
+	    {
+		dealloc_count++;
+		free(Cur_file_ptr->fh_data);
+		Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+	    }
+	    continue;
+	}
+
+	/* the i/o file must be prefilled, set up the write arguments. */
+	if (fh_size(Cur_file_ptr) < init_size) {
+	    append_size = init_size - fh_size(Cur_file_ptr);
+
+	    if (lad_write(Cur_file_ptr, fh_size(Cur_file_ptr), append_size)) {
+	        /* some error that I don't know what to do with, quit. */
+	        (void) generic_kill(0, SIGINT);
+	        exit(168);
+	    }
+	}
+	if(dealloc == 1)
+	{
+		dealloc_count++;
+		free(Cur_file_ptr->fh_data);
+		Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+	}
+    } /* end for each regular file */
+
+    /*
+     * Create symlinks so operations that
+     * require them will have a file to work with.
+     */
+    alloc_count=dealloc_count=0;
+    for (filenum = 0; filenum < Num_symlink_files; filenum++) {
+	char	symlink_target[SFS_MAXNAMLEN];
+
+	sfs_gettime(&Cur_time);
+
+	Cur_file_ptr = &Symlinks[filenum];
+	(void) sprintf(Cur_filename, Symspec, Cur_file_ptr->unique_num);
+
+	dealloc=0;
+	if(Cur_file_ptr->fh_data == (sfs_fh_data *)0)
+	{
+		alloc_count++;
+		Cur_file_ptr->fh_data = calloc(1,sizeof(sfs_fh_data));
+		Cur_file_ptr->attributes2.type = NFNON;
+		Cur_file_ptr->attributes3.type = NF3NON;
+		if(Cur_file_ptr->working_set == 1)
+			dealloc=0;
+		else
+			dealloc=1;
+	}
+	if (DEBUG_CHILD_SETUP) {
+	    (void) fprintf(stderr, "%s: initialize %s (SYMLINK)\n",
+				   sfs_Myname, Cur_filename);
+	    (void) fflush(stderr);
+	}
+
+	if ((ret = lad_lookup(Cur_file_ptr, Cur_filename)) == -1) {
+	    /* some error that I don't know what to do with, quit. */
+	    (void) generic_kill(0, SIGINT);
+	    exit(169);
+	}
+
+	if (ret == 0) {
+	    /* file exists */
+	    if (lad_remove(Cur_file_ptr, Cur_filename) != 0) {
+	        /* some error that I don't know what to do with, quit. */
+	        (void) generic_kill(0, SIGINT);
+	        exit(170);
+	    }
+        }
+	
+	/* File doesn't exist */
+	if (Cur_file_ptr->initialize) {
+		/* make	the symlink */
+	    (void) sprintf(symlink_target, Filespec, filenum);
+	    if (lad_symlink(Cur_file_ptr, symlink_target, Cur_filename) != 0) {
+	        /* some error that I don't know what to do with, quit. */
+	        (void) generic_kill(0, SIGINT);
+	        exit(171);
+	    }
+	}
+	if(dealloc == 1)
+	{
+		dealloc_count++;
+		free(Cur_file_ptr->fh_data);
+		Cur_file_ptr->fh_data=(sfs_fh_data *)0;
+	}
+    } /* end for each symlink */
+} /* init_testdir */
+
+/*
+ * Initialize the test results counters.
+ */
+void
+init_counters(void)
+{
+    uint_t i;
+    uint_t start_msec;
+
+    /* Ready to go - initialize operation counters */
+    for (i = 0; i < NOPS + 1; i++) {
+	Ops[i].req_cnt = 0;
+	Ops[i].results.good_calls = 0;
+	Ops[i].results.bad_calls = 0;
+	Ops[i].results.fast_calls = 0;
+	Ops[i].results.time.sec = 0;
+	Ops[i].results.time.usec = 0;
+	Ops[i].results.msec2 = 0;
+    }
+
+    /* initialize use count for each file */
+    for (i = 0; i < Num_io_files; i++) {
+	Io_files[i].use_cnt = 0;
+	Io_files[i].xfer_cnt = 0;
+    }
+    for (i = 0; i < Num_non_io_files; i++)
+	Non_io_files[i].use_cnt = 0;
+    for (i = 0; i < Num_dir_files; i++)
+	Dirs[i].use_cnt = 0;
+    for (i = 0; i < Num_symlink_files; i++)
+	Symlinks[i].use_cnt = 0;
+
+    /* initialize timers and period variables */
+    sfs_gettime(&Starttime);
+    Cur_time = Starttime;
+    start_msec = (Starttime.sec * 1000) + (Starttime.usec / 1000);
+    Previous_chkpnt_msec = start_msec;
+    Calls_this_period = 0;
+    Reqs_this_period = 0;
+    Sleep_msec_this_period = 0;
+    Calls_this_test = 0;
+    Reqs_this_test = 0;
+    Sleep_msec_this_test = 0;
+}
+
+
+
+/*
+ * -------------------------  Load Generation  -------------------------
+ */
+
+/*
+ * The routines below attempt to do over-the-wire operations.
+ * Each op tries to cause one or more of a particular
+ * NFS operation to go over the wire.  Each individual op routine
+ * returns how many OTW calls were made.
+ *
+ * An array of file information is kept for files existing in
+ * the test directory.  File handles, attributes, names, etc
+ * are stored in this array.
+ *
+ */
+
+
+#define	OP_ABORTED	(-1)
+#define	OP_BORROWED	(-2)
+#define	OP_SKIPPED	(-3)
+/*
+ * Randomly perform an operation according to the req mix weightings.
+ */
+static int
+do_op(void)
+{
+    double 	ratio;
+    int		op_count;
+    int		opnum;
+    int		start_opnum;
+    static int	failed_ops = 0;
+    static int	aborted_ops = 0;
+    static int	borrowed_ops = 0;
+
+    if (Testop != -1) {
+	if (DEBUG_CHILD_OPS) {
+	    (void) fprintf(stderr, "testop start op=%s\n", Ops[Testop].name);
+	}
+	op_count = op(Testop);
+	if (DEBUG_CHILD_OPS) {
+	    (void) fprintf(stderr, "end op=%s\n", Ops[Testop].name);
+	}
+	return(op_count);
+    }
+
+    /* get a random number and search the Ops tables for the proper entry */
+    ratio = sfs_random() % 10000;
+    for (opnum = 0; Ops[opnum].req_pcnt <= ratio / 100.0 ; opnum++) {
+	    ;
+    }
+
+    /*
+     * If test targeted a a specific number of ops,
+     * and the call would put us over the call target for this op,
+     * search Ops table sequentially for an op that hasn't
+     * reached its target yet
+     */
+    if (!Timed_run) {
+	start_opnum = opnum;
+	for (; Ops[opnum].results.good_calls >= Ops[opnum].target_calls;) {
+	    opnum = (opnum + 1) % NOPS;
+	    if (opnum == start_opnum)
+		break;
+	}
+    }
+
+    if (DEBUG_CHILD_RPC) {
+	(void) fprintf(stderr, "(%d,%d,%d) ",
+			   Child_num, Ops[TOTAL].results.good_calls, opnum);
+	(void) fflush(stderr);
+    }
+
+    /* attempt the op */
+    op_count = op(opnum);
+
+    /* count the operations as completed or check for too many errors */
+    if (op_count > 0) {
+	Ops[opnum].req_cnt++;
+	Ops[TOTAL].req_cnt++;
+    } else if (op_count == 0) {
+	failed_ops++;
+	if (DEBUG_CHILD_OPS) {
+	    (void) fprintf(stderr, "Child %d - %d failed %d op\n",
+			   Child_num, failed_ops, opnum);
+	    (void) fflush(stderr);
+	}
+	if ((failed_ops % 50) == 0) {
+	    (void) fprintf(stderr, "Child %d - %d failed ops\n",
+			   Child_num, failed_ops);
+	    (void) fflush(stderr);
+	}
+    } else if (op_count == OP_ABORTED) {
+	aborted_ops++;
+	if (DEBUG_CHILD_OPS) {
+	    (void) fprintf(stderr, "Child %d - %d aborted %d op\n",
+			   Child_num, aborted_ops, opnum);
+	    (void) fflush(stderr);
+	}
+	if ((aborted_ops % 50) == 0) {
+	    (void) fprintf(stderr, "Child %d - %d aborted ops\n",
+			   Child_num, aborted_ops);
+	    (void) fflush(stderr);
+	}
+    } else if (op_count == OP_BORROWED) {
+	borrowed_ops++;
+	if (DEBUG_CHILD_OPS) {
+	    (void) fprintf(stderr, "Child %d - %d borrowed %d op\n",
+			   Child_num, borrowed_ops, opnum);
+	    (void) fflush(stderr);
+	}
+    } else if (op_count == OP_SKIPPED) {
+	if (DEBUG_CHILD_OPS) {
+	    (void) fprintf(stderr, "Child %d - skipped %d op\n",
+			   Child_num, opnum);
+	    (void) fflush(stderr);
+	}
+    }
+
+    return(op_count);
+
+} /* do_op */
+
+
+/*
+ * Because file sizes are variable in length, it is possible that
+ * a group chosen for a large transfer size may not contain a file
+ * that large.  Loop calling randfh to try and find another group
+ * with a large enough file, but only up to IO_LOOP_MAX times.
+ */
+#define IO_LOOP_MAX 5
+
+/*
+ * Call the RPC operation generator for op 'opnum'.
+ * The return values of the op generator routines is the count
+ * of operations performed.  This routine also returns that count.
+ * A return of 0 means no operation was attempted,
+ * OP_ABORTED (-1) means that the operation failed.
+ * OP_BORROWED (-2) means that the operation was borrowed.
+ * OP_SKIPPED (-3) means that the operation was not done on purpose.
+ */
+static int
+op(
+    int				opnum)
+{
+    int				op_count;
+    int				trunc_count;
+    sfs_io_op_dist_type		*dist;		/* io size distribution */
+    int				i;
+    int				ratio;
+    int				buf_size;
+    int				frag_size;
+    int				xfer_size;
+    int				file_size;
+    int				trunc_op;
+    uint_t			append_flag = 0;
+    uint_t			randfh_flags = 0;
+    char			*spec;
+    int				io_loop = 0;
+
+    spec = Filespec;
+
+    /* pick a file that make sense for the operation */
+    switch (opnum) {
+
+	case NULLCALL:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_io_file);
+	    break;
+
+	case GETATTR:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_io_file);
+	    break;
+
+	case SETATTR:
+	    if (Setattr_borrowed != 0) {
+		Setattr_borrowed--;
+		return(OP_BORROWED);
+	    }
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_io_file);
+	    break;
+
+	case ROOT:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Nonexistent, Sfs_non_io_file);
+	    break;
+
+	case LOOKUP:
+	    ratio = (int) (sfs_random() % 100);
+	    if (ratio < Num_failed_lookup)
+		Cur_file_ptr = randfh(opnum, 0, 0, Nonexistent, Sfs_non_io_file);
+	    else
+		Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_io_file);
+	    break;
+
+	case READLINK:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_symlink);
+	    spec = Symspec;
+	    break;
+
+	case READ:
+	    /* special handling for i/o operations */
+	    dist = Io_dist_ptr->read;
+
+	    /* determine number of full buffers and their total size */
+	    ratio = (sfs_random() % 100);
+	    for (i = 0; dist[i].pcnt <= ratio; i++)
+		;
+	    buf_size = dist[i].bufs * Bytes_per_block;
+
+	    /* determine size of fragment */
+	    /* 1KB - (Kb_per_block - 1) KB fragment */
+	    ratio = sfs_random();
+	    if (Kb_per_block > 1)
+		ratio = ratio % (Kb_per_block-1);
+	    else
+		ratio = 0;
+	    ratio = (ratio + 1) * 1024;
+	    frag_size = dist[i].frags * ratio;
+
+	    xfer_size = buf_size + frag_size;
+
+	    do {
+		Cur_file_ptr = randfh(opnum, xfer_size, 0, Exists,
+				  Sfs_io_file);
+	    } while (Cur_file_ptr == (sfs_fh_type *) -1 &&
+						io_loop++ < IO_LOOP_MAX);
+	    break;
+
+	case WRCACHE:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Nonexistent, Sfs_non_io_file);
+	    break;
+
+	case WRITE:
+	    /* special handling for i/o operations */
+	    dist = Io_dist_ptr->write;
+
+	    /* determine number of full buffers and their total size */
+	    ratio = (sfs_random() % 100);
+	    for (i = 0; dist[i].pcnt <= ratio; i++)
+		;
+	    buf_size = dist[i].bufs * Bytes_per_block;
+
+	    /* determine size of fragment */
+	    /* 1KB - (Kb_per_block - 1) KB fragment */
+	    ratio = sfs_random();
+	    if (Kb_per_block > 1)
+		ratio = ratio % (Kb_per_block-1);
+	    else
+		ratio = 0;
+	    ratio = (ratio + 1) * 1024;
+	    frag_size = dist[i].frags * ratio;
+
+	    xfer_size = buf_size + frag_size;
+
+	    /* decide if it should append or overwrite. */
+	    ratio = (sfs_random() % 100);
+	    if (ratio < Append_percent) {
+		append_flag = 1;
+		randfh_flags &= RANDFH_APPEND;
+	    }
+
+	    /* decide if a truncation will be needed */
+	    if (append_flag &&
+		    ((Cur_fss_bytes + (xfer_size / 1024)) > Limit_fss_bytes)) {
+		randfh_flags &= RANDFH_TRUNC;
+	    }
+
+	    do {
+		Cur_file_ptr = randfh(opnum, xfer_size,
+				  randfh_flags,
+				  Exists, Sfs_io_file);
+	    } while (Cur_file_ptr == (sfs_fh_type *) -1 &&
+						io_loop++ < IO_LOOP_MAX);
+	    break;
+
+	case CREATE:
+	    if (Create_borrowed != 0) {
+		Create_borrowed--;
+		return(OP_BORROWED);
+	    }
+	    if ((Cur_file_ptr = randfh(opnum, 0, 0, Nonexistent,
+			      Sfs_non_io_file)) != (sfs_fh_type *) NULL)
+		break;
+
+	    /* if there are no Nonexistent files, use one that exists */
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists,
+					  Sfs_non_io_file);
+	    /* flag create of existing file for data dump interface */
+	    dump_create_existing_file = TRUE;
+	    break;
+
+	case REMOVE:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_non_io_file);
+	    break;
+
+	case RENAME:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_non_io_file);
+	    break;
+
+	case LINK:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Nonexistent,
+				  Sfs_non_io_file);
+	    break;
+
+	case SYMLINK:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Nonexistent, Sfs_symlink);
+	    spec = Symspec;
+	    break;
+
+	case MKDIR:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Nonexistent, Sfs_dir);
+	    spec = Dirspec;
+	    break;
+
+	case RMDIR:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Empty_dir, Sfs_dir);
+	    spec = Dirspec;
+	    break;
+
+	case READDIR:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_dir);
+	    spec = Dirspec;
+	    break;
+
+	case FSSTAT:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_io_file);
+	    break;
+
+	case ACCESS:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_io_file);
+	    break;
+
+	case COMMIT:
+	    return(OP_SKIPPED);
+
+	case FSINFO:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_non_io_file);
+	    break;
+
+	case MKNOD:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Nonexistent, Sfs_non_io_file);
+	    break;
+
+	case PATHCONF:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_non_io_file);
+	    break;
+
+	case READDIRPLUS:
+	    Cur_file_ptr = randfh(opnum, 0, 0, Exists, Sfs_dir);
+	    spec = Dirspec;
+	    break;
+
+	default:
+	    (void) fprintf(stderr, "%s: invalid operation %d\n", sfs_Myname, opnum);
+	    (void) generic_kill(0, SIGINT);
+	    exit(172);
+    } /* switch on opnum */
+
+    if (Cur_file_ptr == (sfs_fh_type *) NULL ||
+				Cur_file_ptr == (sfs_fh_type *) -1) {
+	Ops[opnum].no_calls++;
+	return(OP_ABORTED);
+    }
+
+    (void) sprintf(Cur_filename, spec, Cur_file_ptr->unique_num);
+
+    /* Call the op routine.  For io operations, maintain file set size info. */
+    switch (opnum) {
+
+	case SETATTR:
+	    op_count = (*Ops[opnum].funct)(-1);
+	    break;
+
+	case READ:
+	    op_count = (*Ops[opnum].funct)(xfer_size);
+	    if (op_count > 0)
+		Cur_file_ptr->xfer_cnt += (xfer_size + 1023)  / 1024;
+	    else if (DEBUG_CHILD_ERROR) {
+		(void) fprintf(stderr, "%s: READ failed\n", sfs_Myname);
+		(void) fflush(stderr);
+	    }
+	    break;
+
+	case WRITE:
+	    trunc_count = 0;
+
+	    /* if appending, we may need to truncate the file first */
+	    if (append_flag &&
+		    ((Cur_fss_bytes + (xfer_size / 1024)) > Limit_fss_bytes)) {
+
+		/* use either SETATTR or CREATE for truncation */
+		file_size = fh_size(Cur_file_ptr);
+		trunc_op = -1; /* assume there are no ops to borrow */
+
+		if (Ops[SETATTR].mix_pcnt == 0 && Ops[CREATE].mix_pcnt == 0)
+		    trunc_op = -1;		/* no ops to borrow */
+
+		else if (Ops[SETATTR].mix_pcnt > 0 && Ops[CREATE].mix_pcnt > 0){
+		    /* only borrow if the target hasn't been met yet */
+		    if (Ops[SETATTR].results.good_calls
+			>= Ops[SETATTR].target_calls) {
+			if (Ops[CREATE].results.good_calls
+			    < Ops[CREATE].target_calls) {
+			    trunc_op = CREATE;		/* borrow a CREATE */
+			}
+		    } else if (Ops[CREATE].results.good_calls
+			       >= Ops[CREATE].target_calls) {
+			trunc_op = SETATTR;		/* borrow a SETATTR */
+		    } else {
+			/* borrow weighted by mix percentage */
+			if ((Ops[SETATTR].mix_pcnt * Create_borrowed) >
+			    (Ops[CREATE].mix_pcnt * Setattr_borrowed))
+			    trunc_op =  SETATTR;
+			else
+			    trunc_op =  CREATE;
+		    }
+
+		} else if (Ops[SETATTR].results.good_calls <
+			   Ops[SETATTR].target_calls) {
+		    /* only borrow if the target hasn't been met yet */
+		    trunc_op = SETATTR;		/* borrow a SETATTR */
+
+		} else if (Ops[CREATE].results.good_calls <
+			   Ops[CREATE].target_calls) {
+		    /* only borrow if the target hasn't been met yet */
+		    trunc_op = CREATE;		/* borrow a CREATE */
+		}
+
+		/* perform the truncation and update the file set size */
+		if (trunc_op != -1) {
+		    dump_truncate_op = TRUE;
+		    if (trunc_op == SETATTR) {
+			trunc_count = (*Ops[SETATTR].funct)(0);
+			if (trunc_count > 0) {
+			    Setattr_borrowed++;
+			    if (DEBUG_CHILD_FILES) {
+				(void) fprintf(stderr, "%s: SETATTR TRUNCATE\n",
+						sfs_Myname);
+				(void) fflush(stderr);
+			    }
+			}
+		    } else if (trunc_op == CREATE) {
+			trunc_count = (*Ops[CREATE].funct)();
+			if (trunc_count > 0) {
+			    Create_borrowed++;
+			    if (DEBUG_CHILD_FILES) {
+				(void) fprintf(stderr, "%s: CREATE TRUNCATE\n",
+					    sfs_Myname);
+				(void) fflush(stderr);
+			    }
+			}
+		    }
+
+		    Cur_fss_bytes -= (file_size / 1024);
+		    if (Cur_fss_bytes < Least_fss_bytes)
+			Least_fss_bytes = Cur_fss_bytes;
+		}
+	    } /* end of if an append is needed */
+
+	    /*
+	     * do the write request
+	     * specify the stable flag to always be off, it is not used
+	     * with V2 servers.
+	     */
+	    op_count = (*Ops[opnum].funct)(xfer_size, append_flag, 0);
+	    if (op_count > 0)
+		Cur_file_ptr->xfer_cnt += (xfer_size + 1023)  / 1024;
+	    else if (DEBUG_CHILD_ERROR) {
+		(void) fprintf(stderr, "%s: WRITE failed\n", sfs_Myname);
+		(void) fflush(stderr);
+	    }
+	    if (append_flag) {
+		Cur_fss_bytes += (xfer_size / 1024);
+		if (Cur_fss_bytes > Most_fss_bytes)
+		    Most_fss_bytes = Cur_fss_bytes;
+	    }
+	    op_count += trunc_count;
+	    break;
+
+	default:
+	    op_count = (*Ops[opnum].funct)();
+	    break;
+
+    } /* send switch on opnum */
+
+    if ((DEBUG_CHILD_ERROR) && (op_count <= 0)) {
+	(void) fprintf(stderr, "%s: OP %d failed\n", sfs_Myname, opnum);
+	(void) fflush(stderr);
+    }
+
+    return(op_count);
+
+} /* op */
+
+
+/*
+ * Return an entry into the fh array for a file of type 'file_type'
+ * with existence state 'file_state'.  When 'opnum' specifies an I/O
+ * operation, the file must be atleast 'xfer_size' bytes long
+ * (except when 'append_flag' is true).  If 'trunc_flag', spare the
+ * first file found that is longer than the base file size (to support
+ * the READ operation).  If only one file is longer than the base file
+ * size, return the the next longest file.
+ */
+sfs_fh_type *
+randfh(
+    int				opnum,
+    int				xfer_size,
+    uint_t			flags,
+    sfs_state_type		file_state,
+    sfs_file_type		file_type)
+{
+    sfs_fh_type *	files;		/* file array */
+    int			fh;		/* index into file array */
+    int			found_fh = -1;	/* index into file array */
+    uint_t		append_flag = flags & RANDFH_APPEND;
+    uint_t		trunc_flag = flags & RANDFH_TRUNC;
+
+    sfs_work_set_type * work_set;	/* work_set array */
+    int			start_file;	/* index into work_set array */
+    int			file;		/* index into work_set array */
+
+    int			nworkfiles;	/* # files in work_set */
+    int			group_cnt;	/* # file groups in work_set */
+    int			group_size;	/* size of each group in work_set */
+    int			group;		/* group index with work_set */
+    int			offset;		/* file index within group */
+
+    int			value;		/* distribution function value */
+    int			previous;	/* binary search for value */
+    int			low;		/* binary search for value */
+    int			high;		/* binary search for value */
+
+    int			found_file = 0; /* count */
+    int			best_delta = 0;
+    static int		op_num = 0;
+    long		rand_int;
+    int			max_range;
+
+    op_num++;
+
+    /*
+     * if the more than one type of file will do, choose one.
+     * Note: this code assumes specific values and order for
+     * the entries in sfs_file_enum_type.
+     */
+    switch (file_type) {
+
+	case Sfs_regular:
+	    file_type = (int) (sfs_random() % 2);
+	    break;
+
+	case Sfs_non_dir:
+	    file_type = (int) (sfs_random() % 3);
+	    break;
+
+	case Sfs_any_file:
+	    file_type = (int) (sfs_random() % 4);
+	    break;
+
+	default:
+	    break;
+
+    } /* end switch on file type */
+
+    /* get the file type arrays */
+    switch (file_type) {
+
+	case Sfs_io_file:
+	    files = Io_files;
+	    work_set = &Io_working_set;
+	    nworkfiles = Num_working_io_files;
+	    break;
+
+	case Sfs_non_io_file:
+	    files = Non_io_files;
+	    work_set = &Non_io_working_set;
+	    nworkfiles = Num_working_non_io_files;
+	    break;
+
+	case Sfs_symlink:
+	    files = Symlinks;
+	    work_set = &Symlink_working_set;
+	    nworkfiles = Num_working_symlinks;
+	    break;
+
+	case Sfs_dir:
+	    files = Dirs;
+	    work_set = &Dir_working_set;
+	    nworkfiles = Num_working_dirs;
+	    break;
+
+	default:
+	    (void) fprintf(stderr, "%s: invalid file type\n", sfs_Myname);
+	    (void) kill(0, SIGINT);
+	    exit(174);
+    } /* end switch on file type */
+
+    /*
+     * Pick the access group.
+     *
+     * Each access group consists of those files in the working set
+     * (numbered according to the file's index in the array) that
+     * have the same value modulo the number of groups.  For example,
+     * a working set of 13 files with 3 groups is organized as
+     *		group   files
+     *		-----	-----------------
+     *		  0  	0,  3,  6,  9, 12	ie, == 0 mod 3
+     *		  1  	1,  4,  7, 10		ie, == 1 mod 3
+     *		  2  	2,  5,  8, 11		ie, == 2 mod 3
+     *
+     * Generate a random number mod the maximum range value of the working set.
+     * and then binary search the first group_cnt entries in the working set
+     * to find the group whose range contains the random number.
+     * (this implements the file access distribution function)
+     */
+    max_range = work_set->max_range;
+    rand_int = (long) sfs_random();
+
+    while ((rand_int / max_range) >= (_M_MODULUS / max_range)) {
+      /*
+       * for large values of max_range, modulo doesn't provide a uniform
+       * distribution unless we exclude these values ...
+       */
+      rand_int = (long) sfs_random();
+    }      
+    value = rand_int % max_range;
+
+    if (DEBUG_CHILD_OPS) {
+	(void) fprintf(stderr, "randfh: size=%d cnt=%d max=%d val=%3d\n",
+			    work_set->access_group_size,
+			    work_set->access_group_cnt,
+			    work_set->max_range, value);
+	(void) fflush(stderr);
+    }
+
+    previous = -1;
+    for (low = 0, high = work_set->access_group_cnt-1, group = (low + high)/2;;
+	 previous = group, group = (low + high)/2) {
+
+	if (DEBUG_CHILD_OPS) {
+	    (void) fprintf(stderr,
+			    "PICK GROUP low=%d hi=%d grp=%d range=%d val=%d\n",
+			    low, high, group, work_set->entries[group].range,
+			    value);
+	    (void) fflush(stderr);
+	}
+
+	if (previous == group)
+	    break;
+	if (work_set->entries[group].range == value)
+	    break;
+	if (work_set->entries[group].range > value) {
+	    if (group == 0)
+		break;
+	    if (work_set->entries[group-1].range < value)
+		break;
+	    else
+		high = group - 1;
+	} else if (work_set->entries[group].range < value) {
+	    if (work_set->entries[group+1].range > value) {
+		group++;
+		break;
+	    } else
+		low = group + 1;
+	}
+    }
+
+    /*
+     * Pick a file within the group to operate on.
+     * Since (working_set_size / group_size) may have a remainder,
+     * groups may have either group_size or (group_size+1) files.
+     */
+    group_cnt = work_set->access_group_cnt;
+    group_size = work_set->access_group_size;
+    if (group < (nworkfiles - ((nworkfiles / group_cnt) * group_cnt)))
+	group_size += 1;
+
+    if (DEBUG_CHILD_OPS) {
+	(void) fprintf(stderr, "Selected group = %d\n", group);
+	(void) fflush(stderr);
+    }
+    /*
+     * Beginning with a random starting point in the group,
+     * search for a file that is eligible for this operation.
+     * 	  index is an index into the files in the group.
+     * 	  file and start_file are indices into the working set array.
+     */
+    if (DEBUG_CHILD_OPS) {
+	(void) fprintf(stderr, "group_size = %d\n", group_size);
+	(void) fflush(stderr);
+    }
+
+    offset = (int) (sfs_random() % group_size);
+    start_file = group + (offset * group_cnt);
+    file = start_file;
+    do {
+	int f_size;
+	int delta;
+
+	fh = work_set->entries[file].index;
+
+	if (DEBUG_CHILD_OPS) {
+	    (void) fprintf(stderr, "PICK FILE op= %d file=%d fh=%d\n",
+				opnum, file, fh);
+	    (void) fprintf(stderr, "fh_state = %d file_state= %d\n",
+				files[fh].state, file_state);
+	    (void) fflush(stderr);
+	}
+
+	/* look for a file that has the right state attribute */
+	if (files[fh].state == file_state) {
+	    f_size = fh_size(&files[fh]);
+
+	    /*
+	     * for read and write ops and setattr truncates,
+	     * the file must be large enough to do the xfer or truncate.
+	     */
+	    if ((opnum == READ) || (opnum == WRITE && !append_flag) ||
+								trunc_flag) {
+
+		/*
+		 * If the request is a read and the transfer size is
+		 * less than or equal to be block size, grab the first
+		 * file that is less than or equal in size.  Should never
+		 * see a transfer size less than block size as it will
+		 * be rounded up for the request.  This allows small files
+		 * to be read.
+		 */
+		if (opnum == READ && xfer_size <= Bytes_per_block) {
+		    if (f_size <= Bytes_per_block) {
+		        found_fh = fh;
+		        break;
+		    }
+		}
+/* #define FIRST_FIT */
+#define BEST_FIT
+#ifdef FIRST_FIT
+		if (f_size >= xfer_size) {
+		    found_fh = fh;
+		    break;
+		}
+#endif
+#ifdef BEST_FIT
+	        if (DEBUG_CHILD_FIT) {
+		    (void) fprintf(stderr,
+"%s: %8d: xfer_size %d f_size %d best_delta %d found %d\n",
+sfs_Myname, op_num, xfer_size, f_size, best_delta, found_file);
+	            (void) fflush(stderr);
+	        }
+
+		/*
+		 * If we find an good enough match we should use it.
+		 * Define good enough to be xfer_size <= X < xfer_size + 8K
+		 * If not we continue to search for the best fit within
+		 * a fixed distance 8.
+		 */
+		if (f_size >= xfer_size) {
+		    if (f_size < (xfer_size + 8 * 1024)) {
+			found_fh = fh;
+			break;
+		    }
+
+		    found_file++;
+		    delta = f_size - xfer_size;
+
+		    if (found_fh == -1) {
+			best_delta = delta;
+			found_fh = fh;
+			/* break; Removed as per Robinson */
+		    }
+
+		    if (delta < best_delta) {
+			found_fh = fh;
+			best_delta = delta;
+		    }
+
+		    if (found_file >= 8) {
+			break;
+		    }
+		}
+#endif
+	    } else {
+		/* for non-i/o ops, only requirement is proper file state */
+		found_fh = fh;
+		break;
+	    }
+	}
+	offset = (offset + 1) % group_size;
+	file = group + (offset * group_cnt);
+    } while (file != start_file);
+
+    if (found_fh == -1) {
+	/* didn't find a file for this operation */
+	if (DEBUG_CHILD_FIT) {
+	    if (opnum == READ || (opnum == WRITE && !append_flag) ||
+		opnum == SETATTR) {
+		(void) fprintf(stderr, "%s: no file for %d byte %d op\n",
+			       sfs_Myname, xfer_size, opnum);
+	    } else {
+		(void) fprintf(stderr, "%s: no file for %d op\n",
+			       sfs_Myname, opnum);
+	    }
+	    (void) fflush(stderr);
+	    return((sfs_fh_type *) -1);
+	}
+	return((sfs_fh_type *) NULL);
+    }
+    /* found it */
+    files[found_fh].use_cnt++;
+    return(&files[found_fh]);
+} /* randfh */
+
+/*
+ * ------------------------ Miscellaneous Subroutines  -----------------------
+ */
+
+/*
+ * check to make sure that we have both read and write permissions
+ * for this file or directory given in 'statb'.
+ * return: 0 == ok, -1 == bad
+ */
+int
+check_access(
+    struct stat		*statb)
+{
+    /* check user */
+    if (statb->st_uid == Real_uid) {
+	if ((statb->st_mode & 0400) && (statb->st_mode & 0200)) {
+	    return(0);
+	} else {
+	    return(-1);
+	}
+    }
+
+    /* check group */
+    if (statb->st_gid == Cur_gid) {
+	if ((statb->st_mode & 040) && (statb->st_mode & 020)) {
+		return(0);
+	    } else {
+		return(-1);
+	    }
+    }
+
+    /* check other */
+    if ((statb->st_mode & 04) && (statb->st_mode & 02)) {
+	return(0);
+    } else {
+	return(-1);
+    }
+
+} /* check_access */
+
+/*
+ * check to make sure that we have both read and write permissions
+ * for this file or directory given in the file attributes.
+ * return: 0 == ok, -1 == bad
+ */
+int
+check_fh_access(sfs_fh_type *file_ptr)
+{
+    /* check user */
+    if (fh_uid(file_ptr) == Real_uid) {
+	if ((fh_mode(file_ptr) & 0400) && (fh_mode(file_ptr) & 0200)) {
+	    return(0);
+	} else {
+	    return(-1);
+	}
+    }
+
+    /* check group */
+    if (fh_gid(file_ptr) == Cur_gid) {
+	if ((fh_mode(file_ptr) & 040) && (fh_mode(file_ptr) & 020)) {
+		return(0);
+	    } else {
+		return(-1);
+	    }
+    }
+
+    /* check other */
+    if ((fh_mode(file_ptr) & 04) && (fh_mode(file_ptr) & 02)) {
+	return(0);
+    } else {
+	return(-1);
+    }
+}
+
+static int last_bad_calls = 0;
+
+/*
+ * Adjust the sleep time per call based on a number of global variables,
+ */
+static void
+check_call_rate()
+{
+    int         call_target_per_period; /* target calls for each period */
+    int         req_target_per_period;  /* target reqs for each period */
+    int         call_target_this_test;  /* target calls for test so far */
+    int         req_target_this_test;   /* target reqs for test so far */
+    int         msec_this_period;       /* actual length of this period */
+    int         msec_this_test;         /* actual length of test so far */
+    uint_t	current_msec;           /* current time in msecs */
+    int         old_target_sleep_mspc;
+    struct ladtime elapsed_time;	/* Current_time - Start_time */
+
+    int         reqs_needed_next_period;/* req target for the next period */
+    float       mspc;                   /* target msec per call, with/sleep */
+    float       work_mspc;              /* actual msec worked / call */
+
+
+    if (Child_num == -1)
+	/* I'm the parent, ignore the signal */
+	return;
+
+    /* update the test so far totals */
+    Calls_this_test += Calls_this_period;
+    Reqs_this_test += Reqs_this_period;
+    Sleep_msec_this_test += Sleep_msec_this_period;
+
+    /* compute per period targets */
+    call_target_per_period = (int) (Child_call_load *
+			     ((float) Msec_per_period / (float) 1000));
+    req_target_per_period = (int) (Child_req_load *
+			    ((float) Msec_per_period / (float) 1000));
+
+    /*
+     * The child() routine retrieved the Cur_time when deciding to call us.
+     * Use Cur_time to compute the elapsed time since the last checkpoint
+     * and the current checkpoint time (ie, elapsed time since test began)
+     */
+    /* sfs_gettime(&Cur_time); */
+    elapsed_time.sec = Cur_time.sec;
+    elapsed_time.usec = Cur_time.usec;
+    SUBTIME(elapsed_time, Starttime);
+
+    msec_this_test = (elapsed_time.sec * 1000) + (elapsed_time.usec / 1000);
+    current_msec = (Cur_time.sec * 1000) + (Cur_time.usec / 1000);
+    msec_this_period = current_msec - Previous_chkpnt_msec;
+
+    if (msec_this_test < Sleep_msec_this_test) {
+	if (DEBUG_CHILD_XPOINT) {
+	    (void) fprintf(stderr,
+                        "Accum. sleep time %d is msecs ahead of wall clock\n",
+                                Sleep_msec_this_test - msec_this_test);
+	    (void) fflush(stderr);
+	}
+	Sleep_msec_this_test = msec_this_test;
+    }
+
+    /* compute targets for test so far */
+    call_target_this_test = (int) ((Child_call_load * (float) msec_this_test)
+				   / (float) 1000);
+    req_target_this_test = (int) ((Child_req_load * (float) msec_this_test)
+				   / (float) 1000);
+
+    /* save the old sleep rate */
+    old_target_sleep_mspc = Target_sleep_mspc;
+
+    /* Compute how long each request has taken on average. */
+    if (Reqs_this_test != 0)
+	work_mspc = ((float) (msec_this_test - Sleep_msec_this_test))
+		     / (float) Reqs_this_test;
+    else
+	work_mspc = (1000.0 / (float) Child_req_load) / 2.0;
+
+    /*
+     * Compute the number of reqs needed in the next period
+     * in order to just meet the reqstarget for the test when that period ends.
+     * (Try to make up the entire shortage or overage in the next period.)
+     * Beware that we might not need to make any reqs next period.
+     */
+    reqs_needed_next_period = (req_target_this_test - Reqs_this_test)
+			      + req_target_per_period;
+
+    if (reqs_needed_next_period <= 0) {
+	/* if no reqs are needed, set the sleep time to the whole period */
+	mspc = 0.0;
+	Target_sleep_mspc = Msec_per_period;
+    } else {
+	/* decide how much time is available for each request */
+	mspc = (float) (Msec_per_period) / (float) (reqs_needed_next_period);
+	Target_sleep_mspc = (int) (mspc - work_mspc);
+    }
+
+    /* Don't increase the target_sleep_mspc by much more than a factor of two,
+        because doing so can lead to violent oscillations. */
+    if (Target_sleep_mspc > 2*(old_target_sleep_mspc + 5)) {
+       Target_sleep_mspc = 2*(old_target_sleep_mspc + 5);
+    }    
+
+    if (Target_sleep_mspc >= Msec_per_period) {
+        Target_sleep_mspc = Msec_per_period;
+	if (DEBUG_CHILD_XPOINT) {
+	    (void) fprintf(stderr,
+    "Child %d: 0 call, rqnd %d mspc %3.2f wmspc %3.2f time %d slp %d reqs %d\n",
+		    Child_num, reqs_needed_next_period, mspc, work_mspc,
+		    msec_this_test, Sleep_msec_this_test, Reqs_this_test);
+	    (void) fflush(stderr);
+	}
+        if (Measurement_in_progress) {
+   	    (void) fprintf(stderr,
+            	"Child %d:  0 calls during measurement interval\n",Child_num);
+   	    (void) fprintf(stderr,
+                    "Child %d:  probably unstable, try more processes.\n",Child_num);
+   	    (void) generic_kill(0, SIGINT);
+   	    (void) fflush(stderr);
+   	    exit(188);
+         }
+    }
+    if (Target_sleep_mspc <= 0) {
+	 Target_sleep_mspc = 0;
+	 if (DEBUG_CHILD_XPOINT) {
+		(void) fprintf(stderr,
+    "Child %d: 0 slp, rqnd %d mspc %3.2f wmspc %3.2f time %d slp %d reqs %d\n",
+			Child_num, reqs_needed_next_period, mspc, work_mspc,
+			msec_this_test, Sleep_msec_this_test, Reqs_this_test);
+		(void) fflush(stderr);
+	 }
+    }
+
+    if (DEBUG_CHILD_XPOINT) {
+	(void) fprintf(stderr, "Child %d\n%s", Child_num,
+	"        msec_prd  calls_prd reqs_prd calls_tot req_tot    mspc_req\n");
+	(void) fprintf(stderr, "target: %8d %9d %8d %9d %8d    %6.2f\n",
+			Msec_per_period,
+			call_target_per_period, req_target_per_period,
+			call_target_this_test, req_target_this_test,
+			1000.0 / (float) req_target_per_period);
+	(void) fprintf(stderr, "actual: %8d %9d %8d %9d %8d  ->%6.2f\n",
+			msec_this_period,
+			Calls_this_period, Reqs_this_period,
+			Calls_this_test, Reqs_this_test,
+			mspc);
+	(void) fprintf(stderr,
+			"        old_sleep_mspc  %5d   new_sleep_mspc  %5d\n\n",
+			old_target_sleep_mspc, Target_sleep_mspc);
+    }
+
+    /*
+     * check for too many failed RPC calls
+     * and print a warning if there are too many.
+     */
+    if (((Ops[TOTAL].results.bad_calls - last_bad_calls) > 100) ||
+	((Ops[TOTAL].results.good_calls > 300) &&
+	 ((Ops[TOTAL].results.bad_calls - last_bad_calls) >
+					Ops[TOTAL].results.good_calls/50))) {
+	(void) fprintf(stderr,
+			"%s: too many failed RPC calls - %d good %d bad\n",
+			sfs_Myname, Ops[TOTAL].results.good_calls,
+			Ops[TOTAL].results.bad_calls);
+	last_bad_calls = Ops[TOTAL].results.bad_calls;
+    }
+
+    /* reset the period counters */
+    Calls_this_period = 0;
+    Reqs_this_period = 0;
+    Sleep_msec_this_period = 0;
+    Previous_chkpnt_msec = current_msec;
+
+} /* check_call_rate */
+
+/* sfs_c_chd.c */

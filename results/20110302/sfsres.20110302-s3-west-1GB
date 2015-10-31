@@ -1,0 +1,1161 @@
+Thu Mar 03 08:58:10 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 40 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 40
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =   7904 Files created for I/O operations
+                 2368 Files accessed for I/O operations
+                  160 Files for non-I/O operations
+                   24 Symlinks
+                  260 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 09:11:08 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.2%     3143     3143      0     0.18     0.06      0.01   1.1%
+setattr       4.0%   3.9%      463      463      0     0.90     0.63      0.07   0.8%
+lookup       24.0%  23.2%     2786     2786      0     0.18     0.01      0.00   1.0%
+readlink      1.0%   0.9%      110      110      0     0.17     0.01      0.02   0.0%
+read         18.0%  18.2%     2181     2688      0    12.88    37.31      0.26  53.4%
+write        10.0%  10.0%     1195     1453      0    17.24    36.90      0.34  39.2%
+create        1.0%   1.3%      152      152      0     2.11     0.88      0.15   0.6%
+remove        1.0%   1.1%      137      137      0     1.47     0.89      0.16   0.4%
+readdir       1.0%   0.9%      111      111      0     0.36     0.02      0.03   0.1%
+fsstat        1.0%   1.0%      122      122      0     0.17     0.01      0.02   0.0%
+access       11.0%  11.4%     1364     1364      0     0.18     0.02      0.01   0.5%
+commit        0.0%   0.0%        0      531      0     0.00     0.00      0.00   2.7%
+readdirplus   2.0%   2.0%      241      241      0     0.59     0.02      0.02   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:      40 Ops/Sec   AVG. RESPONSE TIME:     4.4 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 40 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  12005          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 13301    
+PHYSICAL NFS IO THROUGHPUT: 44 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 4098.7 MB
+TOTAL FILE SET SIZE ACCESSED: 1230.0 - 1255.3 MB  (100.00% to 102.06% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 09:11:09 PST 2011 ************************************************************************
+Thu Mar 03 09:11:09 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 80 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 80
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  17776 Files created for I/O operations
+                 5332 Files accessed for I/O operations
+                  356 Files for non-I/O operations
+                   24 Symlinks
+                  592 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 09:25:33 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.9%     6228     6228      0     0.18     0.04      0.00   0.9%
+setattr       4.0%   4.1%      990      990      0     0.96     0.78      0.06   0.8%
+lookup       24.0%  24.4%     5854     5854      0     0.18     0.03      0.00   0.9%
+readlink      1.0%   1.0%      244      244      0     0.18     0.03      0.02   0.0%
+read         18.0%  18.0%     4318     5381      0    16.29    42.08      0.19  57.6%
+write        10.0%   9.7%     2323     2736      0    18.67    34.55      0.24  35.6%
+create        1.0%   0.9%      226      226      0     3.19     3.22      0.23   0.6%
+remove        1.0%   0.9%      222      222      0     2.29     0.89      0.12   0.4%
+readdir       1.0%   0.9%      225      225      0     0.37     0.02      0.02   0.1%
+fsstat        1.0%   1.0%      234      234      0     0.18     0.01      0.01   0.0%
+access       11.0%  11.1%     2655     2655      0     0.18     0.05      0.01   0.4%
+commit        0.0%   0.0%        0     1026      0     0.00     0.00      0.00   2.4%
+readdirplus   2.0%   2.1%      498      498      0     0.67     0.03      0.02   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:      80 Ops/Sec   AVG. RESPONSE TIME:     5.1 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 80 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  24017          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 26519    
+PHYSICAL NFS IO THROUGHPUT: 88 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 9217.8 MB
+TOTAL FILE SET SIZE ACCESSED: 2767.0 - 2817.2 MB  (100.00% to 101.81% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 09:25:34 PST 2011 ************************************************************************
+Thu Mar 03 09:25:34 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 120 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 120
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  27652 Files created for I/O operations
+                 8292 Files accessed for I/O operations
+                  556 Files for non-I/O operations
+                   24 Symlinks
+                  920 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 09:39:21 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.9%     9338     9338      0     0.18     0.05      0.00   0.9%
+setattr       4.0%   4.0%     1442     1442      0     1.27     7.53      0.14   1.0%
+lookup       24.0%  24.2%     8730     8730      0     0.18     0.03      0.00   0.9%
+readlink      1.0%   0.9%      333      333      0     0.18     0.07      0.03   0.0%
+read         18.0%  18.0%     6481     7981      0    14.87    39.98      0.15  51.4%
+write        10.0%   9.8%     3533     4222      0    21.53    35.78      0.20  40.6%
+create        1.0%   1.0%      355      355      0     3.58     5.68      0.25   0.7%
+remove        1.0%   0.9%      342      342      0     3.09    13.23      0.39   0.6%
+readdir       1.0%   1.0%      351      351      0     0.37     0.04      0.02   0.1%
+fsstat        1.0%   1.1%      382      382      0     0.18     0.03      0.02   0.0%
+access       11.0%  11.3%     4085     4085      0     0.18     0.03      0.01   0.4%
+commit        0.0%   0.0%        0     1559      0     0.00     0.00      0.00   3.3%
+readdirplus   2.0%   2.0%      708      708      0     0.68     0.04      0.02   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     120 Ops/Sec   AVG. RESPONSE TIME:     5.2 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 120 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  36080          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 39828    
+PHYSICAL NFS IO THROUGHPUT: 132 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 14339.1 MB
+TOTAL FILE SET SIZE ACCESSED: 4301.9 - 4387.0 MB  (100.00% to 101.98% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 09:39:22 PST 2011 ************************************************************************
+Thu Mar 03 09:39:22 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 160 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 160
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  35552 Files created for I/O operations
+                10664 Files accessed for I/O operations
+                  712 Files for non-I/O operations
+                   24 Symlinks
+                 1184 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 09:52:42 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.3%    12593    12593      0     0.18     0.04      0.00   0.8%
+setattr       4.0%   3.9%     1877     1877      0     1.60    13.13      0.16   1.1%
+lookup       24.0%  24.1%    11564    11564      0     0.19     0.05      0.00   0.8%
+readlink      1.0%   1.0%      474      474      0     0.18     0.04      0.02   0.0%
+read         18.0%  18.0%     8637    10655      0    16.87    45.08      0.14  52.1%
+write        10.0%  10.0%     4807     5907      0    23.08    38.31      0.17  39.7%
+create        1.0%   0.9%      438      438      0     4.72    17.26      0.39   0.7%
+remove        1.0%   1.0%      499      499      0     3.35    14.78      0.34   0.6%
+readdir       1.0%   1.0%      477      477      0     0.38     0.05      0.02   0.1%
+fsstat        1.0%   1.0%      478      478      0     0.18     0.04      0.02   0.0%
+access       11.0%  10.9%     5246     5246      0     0.18     0.07      0.01   0.3%
+commit        0.0%   0.0%        0     2117      0     0.00     0.00      0.00   3.5%
+readdirplus   2.0%   1.8%      879      879      0     0.69     0.10      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     160 Ops/Sec   AVG. RESPONSE TIME:     5.8 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 160 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  47969          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 53204    
+PHYSICAL NFS IO THROUGHPUT: 177 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 18435.7 MB
+TOTAL FILE SET SIZE ACCESSED: 5531.9 - 5648.2 MB  (100.00% to 102.10% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 09:52:43 PST 2011 ************************************************************************
+Thu Mar 03 09:52:43 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 200 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 200
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  45428 Files created for I/O operations
+                13628 Files accessed for I/O operations
+                  912 Files for non-I/O operations
+                   24 Symlinks
+                 1512 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 10:06:24 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.1%    15681    15681      0     0.18     0.04      0.00   0.8%
+setattr       4.0%   4.1%     2439     2439      0     2.71    26.81      0.21   2.0%
+lookup       24.0%  23.8%    14347    14347      0     0.19     0.06      0.00   0.8%
+readlink      1.0%   1.0%      616      616      0     0.18     0.02      0.01   0.0%
+read         18.0%  18.0%    10824    13287      0    15.28    41.93      0.12  49.6%
+write        10.0%  10.0%     6001     7209      0    21.86    35.87      0.15  39.4%
+create        1.0%   1.1%      646      646      0     4.86    24.17      0.38   0.9%
+remove        1.0%   1.0%      615      615      0     5.12    27.60      0.42   0.9%
+readdir       1.0%   1.0%      603      603      0     0.38     0.06      0.02   0.1%
+fsstat        1.0%   1.0%      582      582      0     0.18     0.06      0.02   0.0%
+access       11.0%  11.0%     6617     6617      0     0.18     0.05      0.01   0.4%
+commit        0.0%   0.0%        0     2633      0     0.00     0.00      0.00   4.7%
+readdirplus   2.0%   2.0%     1195     1195      0     0.70     0.07      0.02   0.3%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     201 Ops/Sec   AVG. RESPONSE TIME:     5.5 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 200 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  60166          TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 66470    
+PHYSICAL NFS IO THROUGHPUT: 221 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 23556.9 MB
+TOTAL FILE SET SIZE ACCESSED: 7068.9 - 7203.9 MB  (100.00% to 101.91% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 10:06:25 PST 2011 ************************************************************************
+Thu Mar 03 10:06:25 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 240 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 240
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  55304 Files created for I/O operations
+                16588 Files accessed for I/O operations
+                 1108 Files for non-I/O operations
+                   24 Symlinks
+                 1840 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 10:20:37 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.2%    18968    18968      0     0.18     0.06      0.00   0.7%
+setattr       4.0%   4.0%     2921     2921      0     2.27    26.90      0.19   1.4%
+lookup       24.0%  24.2%    17492    17492      0     0.19     0.05      0.00   0.7%
+readlink      1.0%   0.9%      687      687      0     0.18     0.08      0.02   0.0%
+read         18.0%  17.8%    12893    15823      0    19.17    49.17      0.12  52.9%
+write        10.0%   9.8%     7108     8625      0    23.95    41.00      0.15  36.5%
+create        1.0%   1.0%      736      736      0     8.26    50.12      0.51   1.3%
+remove        1.0%   1.1%      778      778      0     5.82    40.19      0.45   1.0%
+readdir       1.0%   0.9%      676      676      0     0.38     0.07      0.02   0.1%
+fsstat        1.0%   1.0%      729      729      0     0.18     0.04      0.01   0.0%
+access       11.0%  11.1%     8019     8019      0     0.18     0.05      0.00   0.3%
+commit        0.0%   0.0%        0     3102      0     0.00     0.00      0.00   4.8%
+readdirplus   2.0%   1.9%     1406     1406      0     0.70     0.09      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     242 Ops/Sec   AVG. RESPONSE TIME:     6.4 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 240 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  72413          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 79962    
+PHYSICAL NFS IO THROUGHPUT: 267 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 28678.1 MB
+TOTAL FILE SET SIZE ACCESSED: 8603.9 - 8763.5 MB  (100.00% to 101.85% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 10:20:38 PST 2011 ************************************************************************
+Thu Mar 03 10:20:38 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 280 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 280
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  63204 Files created for I/O operations
+                18960 Files accessed for I/O operations
+                 1268 Files for non-I/O operations
+                   24 Symlinks
+                 2104 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 10:34:00 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    21848    21848      0     0.18     0.07      0.00   0.7%
+setattr       4.0%   3.9%     3313     3313      0     3.99    46.26      0.23   2.4%
+lookup       24.0%  24.2%    20312    20312      0     0.19     0.07      0.00   0.7%
+readlink      1.0%   1.0%      865      865      0     0.18     0.09      0.02   0.0%
+read         18.0%  17.9%    15054    18482      0    18.10    46.86      0.11  49.8%
+write        10.0%  10.0%     8412    10229      0    24.96    51.60      0.15  38.4%
+create        1.0%   1.0%      826      826      0     8.06    50.12      0.48   1.2%
+remove        1.0%   1.0%      845      845      0     7.74    53.33      0.49   1.2%
+readdir       1.0%   0.9%      795      795      0     0.39     0.07      0.02   0.1%
+fsstat        1.0%   1.0%      825      825      0     0.18     0.05      0.02   0.0%
+access       11.0%  11.0%     9261     9261      0     0.18     0.07      0.01   0.3%
+commit        0.0%   0.0%        0     3708      0     0.00     0.00      0.00   4.9%
+readdirplus   2.0%   2.0%     1692     1692      0     0.71     0.08      0.01   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     281 Ops/Sec   AVG. RESPONSE TIME:     6.5 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 280 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  84048          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 93001    
+PHYSICAL NFS IO THROUGHPUT: 311 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 32774.7 MB
+TOTAL FILE SET SIZE ACCESSED: 9833.9 - 10028.5 MB  (100.00% to 101.98% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 10:34:01 PST 2011 ************************************************************************
+Thu Mar 03 10:34:01 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 320 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 320
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  73076 Files created for I/O operations
+                21920 Files accessed for I/O operations
+                 1464 Files for non-I/O operations
+                   24 Symlinks
+                 2432 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 10:49:09 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.9%    24914    24914      0     0.18     0.07      0.00   0.7%
+setattr       4.0%   4.0%     3883     3883      0     3.26    43.09      0.21   2.0%
+lookup       24.0%  24.1%    23208    23208      0     0.19     0.06      0.00   0.7%
+readlink      1.0%   1.0%      950      950      0     0.18     0.06      0.02   0.0%
+read         18.0%  18.1%    17411    21364      0    18.56    52.70      0.11  50.7%
+write        10.0%   9.9%     9506    11393      0    24.36    44.10      0.13  36.3%
+create        1.0%   1.0%      962      962      0     9.90    67.76      0.52   1.5%
+remove        1.0%   1.0%      965      965      0    10.83    88.44      0.59   1.6%
+readdir       1.0%   1.0%      932      932      0     0.39     0.07      0.02   0.1%
+fsstat        1.0%   1.0%      959      959      0     0.18     0.05      0.01   0.0%
+access       11.0%  11.1%    10676    10676      0     0.18     0.06      0.00   0.3%
+commit        0.0%   0.0%        0     4184      0     0.00     0.00      0.00   5.8%
+readdirplus   2.0%   2.0%     1903     1903      0     0.71     0.10      0.01   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     322 Ops/Sec   AVG. RESPONSE TIME:     6.6 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 320 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  96269          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 106293   
+PHYSICAL NFS IO THROUGHPUT: 355 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 37893.9 MB
+TOTAL FILE SET SIZE ACCESSED: 11368.8 - 11585.4 MB  (100.00% to 101.91% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 10:49:10 PST 2011 ************************************************************************
+Thu Mar 03 10:49:10 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 360 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 360
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  82952 Files created for I/O operations
+                24884 Files accessed for I/O operations
+                 1660 Files for non-I/O operations
+                   24 Symlinks
+                 2764 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 11:04:19 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    28065    28065      0     0.19     0.11      0.00   0.7%
+setattr       4.0%   4.1%     4405     4405      0     6.43    78.46      0.26   3.6%
+lookup       24.0%  23.9%    25740    25740      0     0.19     0.10      0.00   0.6%
+readlink      1.0%   1.0%     1028     1028      0     0.19     0.08      0.02   0.0%
+read         18.0%  18.1%    19486    23718      0    20.26    47.85      0.10  49.8%
+write        10.0%  10.1%    10841    13143      0    26.29    39.76      0.12  35.9%
+create        1.0%   1.0%     1059     1059      0    12.47    82.66      0.55   1.7%
+remove        1.0%   1.0%     1055     1055      0    10.97    83.81      0.55   1.5%
+readdir       1.0%   1.0%     1119     1119      0     0.39     0.11      0.02   0.1%
+fsstat        1.0%   1.1%     1143     1143      0     0.19     0.08      0.02   0.0%
+access       11.0%  10.9%    11730    11730      0     0.18     0.08      0.01   0.3%
+commit        0.0%   0.0%        0     4724      0     0.00     0.00      0.00   5.7%
+readdirplus   2.0%   2.0%     2118     2118      0     0.72     0.13      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     359 Ops/Sec   AVG. RESPONSE TIME:     7.3 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 360 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  107789         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 119047   
+PHYSICAL NFS IO THROUGHPUT: 396 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 43015.1 MB
+TOTAL FILE SET SIZE ACCESSED: 12905.8 - 13149.4 MB  (100.00% to 101.89% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 11:04:20 PST 2011 ************************************************************************
+Thu Mar 03 11:04:20 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 400 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 400
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set =  90852 Files created for I/O operations
+                27252 Files accessed for I/O operations
+                 1820 Files for non-I/O operations
+                   24 Symlinks
+                 3028 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 11:18:51 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.9%    31091    31091      0     0.19     0.96      0.01   0.6%
+setattr       4.0%   4.0%     4831     4831      0     7.27    86.22      0.26   3.7%
+lookup       24.0%  24.1%    28941    28941      0     0.19     0.10      0.00   0.6%
+readlink      1.0%   1.0%     1192     1192      0     0.19     0.12      0.02   0.0%
+read         18.0%  18.0%    21672    26396      0    21.71    47.88      0.09  50.2%
+write        10.0%   9.9%    11832    14289      0    28.01    43.52      0.12  35.4%
+create        1.0%   1.0%     1222     1222      0    12.73   109.03      0.59   1.7%
+remove        1.0%   1.0%     1147     1147      0    11.69    94.15      0.56   1.4%
+readdir       1.0%   0.9%     1139     1139      0     0.39     0.06      0.01   0.0%
+fsstat        1.0%   1.0%     1197     1197      0     0.18     0.07      0.01   0.0%
+access       11.0%  11.2%    13409    13409      0     0.18     0.08      0.00   0.3%
+commit        0.0%   0.0%        0     5111      0     0.00     0.00      0.00   5.8%
+readdirplus   2.0%   2.0%     2438     2438      0     0.73     0.13      0.01   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     402 Ops/Sec   AVG. RESPONSE TIME:     7.8 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 400 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  120111         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 132403   
+PHYSICAL NFS IO THROUGHPUT: 442 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 47111.7 MB
+TOTAL FILE SET SIZE ACCESSED: 14133.7 - 14380.3 MB  (100.00% to 101.74% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 11:18:52 PST 2011 ************************************************************************
+Thu Mar 03 11:18:52 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 440 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 440
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 100728 Files created for I/O operations
+                30216 Files accessed for I/O operations
+                 2016 Files for non-I/O operations
+                   24 Symlinks
+                 3356 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 11:35:20 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.1%    34833    34833      0     0.18     0.12      0.00   0.5%
+setattr       4.0%   4.0%     5282     5282      0     5.59    72.62      0.23   2.4%
+lookup       24.0%  23.9%    31874    31874      0     0.19     0.13      0.00   0.5%
+readlink      1.0%   1.0%     1324     1324      0     0.19     0.24      0.03   0.0%
+read         18.0%  18.2%    24207    29693      0    25.01   145.36      0.15  49.8%
+write        10.0%  10.0%    13336    16268      0    32.52    80.47      0.15  35.7%
+create        1.0%   1.0%     1331     1331      0    10.96    38.81      0.33   1.2%
+remove        1.0%   1.0%     1320     1320      0    17.28   151.90      0.66   1.9%
+readdir       1.0%   1.0%     1311     1311      0     0.39     0.12      0.02   0.0%
+fsstat        1.0%   1.0%     1343     1343      0     0.18     0.06      0.01   0.0%
+access       11.0%  10.8%    14438    14438      0     0.19     0.17      0.01   0.2%
+commit        0.0%   0.0%        0     5574      0     0.00     0.00      0.00   7.5%
+readdirplus   2.0%   2.0%     2703     2703      0     0.73     0.20      0.02   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     446 Ops/Sec   AVG. RESPONSE TIME:     9.1 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 440 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  133302         TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 147294   
+PHYSICAL NFS IO THROUGHPUT: 492 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 52233.0 MB
+TOTAL FILE SET SIZE ACCESSED: 15670.7 - 15928.6 MB  (100.00% to 101.65% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 11:35:21 PST 2011 ************************************************************************
+Thu Mar 03 11:35:21 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 480 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 480
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 110604 Files created for I/O operations
+                33180 Files accessed for I/O operations
+                 2216 Files for non-I/O operations
+                   24 Symlinks
+                 3684 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 11:52:03 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%    34610    34610      0     0.22     2.82      0.02   0.5%
+setattr       4.0%   4.0%     5283     5283      0     6.75    90.64      0.26   2.3%
+lookup       24.0%  24.0%    31998    31998      0     0.23     3.01      0.02   0.5%
+readlink      1.0%   1.0%     1332     1332      0     0.18     0.09      0.02   0.0%
+read         18.0%  18.1%    24102    29920      0    33.99    61.48      0.10  53.8%
+write        10.0%  10.0%    13256    16052      0    38.99    56.72      0.13  33.9%
+create        1.0%   1.0%     1318     1318      0    21.40   147.90      0.66   1.9%
+remove        1.0%   1.0%     1315     1315      0    15.28   105.15      0.55   1.3%
+readdir       1.0%   1.0%     1268     1268      0     0.58     6.75      0.14   0.0%
+fsstat        1.0%   1.0%     1347     1347      0     0.25     2.52      0.08   0.0%
+access       11.0%  11.0%    14636    14636      0     0.22     2.67      0.03   0.2%
+commit        0.0%   0.0%        0     5343      0     0.00     0.00      0.00   5.4%
+readdirplus   2.0%   2.0%     2718     2718      0     0.81     3.45      0.07   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     444 Ops/Sec   AVG. RESPONSE TIME:    11.4 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 480 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  133183         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 147140   
+PHYSICAL NFS IO THROUGHPUT: 490 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 57354.2 MB
+TOTAL FILE SET SIZE ACCESSED: 17207.7 - 17453.8 MB  (100.00% to 101.43% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 11:52:04 PST 2011 ************************************************************************
+Thu Mar 03 11:52:04 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 520 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 520
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 118504 Files created for I/O operations
+                35548 Files accessed for I/O operations
+                 2372 Files for non-I/O operations
+                   24 Symlinks
+                 3948 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 12:10:17 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.8%    31403    31403      0     0.18     0.09      0.00   0.4%
+setattr       4.0%   4.0%     4927     4927      0     7.03    85.95      0.26   2.3%
+lookup       24.0%  24.1%    29373    29373      0     0.19     0.12      0.00   0.4%
+readlink      1.0%   1.0%     1216     1216      0     0.18     0.07      0.01   0.0%
+read         18.0%  18.0%    21893    26933      0    40.47   213.97      0.19  57.5%
+write        10.0%  10.0%    12106    14654      0    41.07    50.56      0.13  32.3%
+create        1.0%   1.0%     1243     1243      0    17.03   113.35      0.59   1.4%
+remove        1.0%   1.0%     1257     1257      0    12.16    65.35      0.45   1.0%
+readdir       1.0%   1.0%     1196     1196      0     0.39     0.08      0.02   0.0%
+fsstat        1.0%   1.0%     1260     1260      0     0.18     0.09      0.02   0.0%
+access       11.0%  11.0%    13373    13373      0     0.18     0.10      0.01   0.2%
+commit        0.0%   0.0%        0     4745      0     0.00     0.00      0.00   4.5%
+readdirplus   2.0%   2.0%     2412     2412      0     0.73     0.15      0.02   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     406 Ops/Sec   AVG. RESPONSE TIME:    12.6 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 520 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  121659         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 133992   
+PHYSICAL NFS IO THROUGHPUT: 446 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 61450.8 MB
+TOTAL FILE SET SIZE ACCESSED: 18435.7 - 18647.9 MB  (100.00% to 101.15% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 12:10:18 PST 2011 ************************************************************************
+Thu Mar 03 12:10:18 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 560 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 560
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 128376 Files created for I/O operations
+                38512 Files accessed for I/O operations
+                 2568 Files for non-I/O operations
+                   24 Symlinks
+                 4276 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 12:27:34 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.8%    31297    31297      0     0.18     0.19      0.00   0.4%
+setattr       4.0%   4.0%     4872     4872      0     9.39    99.16      0.28   3.0%
+lookup       24.0%  23.8%    28912    28912      0     0.19     0.24      0.01   0.4%
+readlink      1.0%   1.0%     1216     1216      0     0.18     0.05      0.01   0.0%
+read         18.0%  18.1%    21986    27430      0    37.80    69.95      0.11  55.2%
+write        10.0%  10.1%    12284    14773      0    39.21    58.01      0.13  32.0%
+create        1.0%   1.0%     1256     1256      0    24.97   147.61      0.67   2.1%
+remove        1.0%   1.0%     1183     1183      0    20.04   108.54      0.59   1.6%
+readdir       1.0%   1.0%     1174     1174      0     0.40     0.11      0.02   0.0%
+fsstat        1.0%   1.1%     1291     1291      0     0.18     0.05      0.01   0.0%
+access       11.0%  11.1%    13468    13468      0     0.18     0.10      0.01   0.2%
+commit        0.0%   0.0%        0     4854      0     0.00     0.00      0.00   5.0%
+readdirplus   2.0%   2.0%     2477     2477      0     0.75     0.34      0.02   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     405 Ops/Sec   AVG. RESPONSE TIME:    12.4 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 560 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  121416         TEST TIME: 300 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 134203   
+PHYSICAL NFS IO THROUGHPUT: 447 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 66570.0 MB
+TOTAL FILE SET SIZE ACCESSED: 19972.7 - 20199.0 MB  (100.00% to 101.13% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 12:27:35 PST 2011 ************************************************************************
+Thu Mar 03 12:27:35 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 600 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 600
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 138252 Files created for I/O operations
+                41472 Files accessed for I/O operations
+                 2768 Files for non-I/O operations
+                   24 Symlinks
+                 4608 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 12:45:20 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.8%    23661    23661      0     0.19     0.28      0.01   0.3%
+setattr       4.0%   4.2%     3812     3812      0    12.05   102.04      0.32   3.1%
+lookup       24.0%  24.1%    22109    22109      0     0.22     2.04      0.02   0.3%
+readlink      1.0%   1.0%      889      889      0     0.18     0.04      0.01   0.0%
+read         18.0%  18.1%    16591    20496      0    48.03    82.13      0.14  54.4%
+write        10.0%   9.8%     8952    10882      0    49.80    60.16      0.16  30.4%
+create        1.0%   1.1%      976      976      0    48.49   233.06      0.96   3.2%
+remove        1.0%   1.0%      923      923      0    22.56    82.59      0.59   1.4%
+readdir       1.0%   0.9%      864      864      0     0.41     0.30      0.04   0.0%
+fsstat        1.0%   1.0%      894      894      0     0.19     0.28      0.03   0.0%
+access       11.0%  11.0%    10083    10083      0     0.22     2.62      0.03   0.2%
+commit        0.0%   0.0%        0     3387      0     0.00     0.00      0.00   6.5%
+readdirplus   2.0%   2.1%     1897     1897      0     0.78     0.94      0.04   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     307 Ops/Sec   AVG. RESPONSE TIME:    16.0 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 600 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  91651          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 100873   
+PHYSICAL NFS IO THROUGHPUT: 337 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 71691.2 MB
+TOTAL FILE SET SIZE ACCESSED: 21507.6 - 21698.4 MB  (100.00% to 100.89% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 12:45:21 PST 2011 ************************************************************************
+Thu Mar 03 12:45:21 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 640 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 640
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 148128 Files created for I/O operations
+                44436 Files accessed for I/O operations
+                 2964 Files for non-I/O operations
+                   24 Symlinks
+                 4936 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 13:03:53 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.3%    23942    23942      0     0.29     4.23      0.03   0.5%
+setattr       4.0%   4.0%     3606     3606      0    16.77   130.22      0.37   4.2%
+lookup       24.0%  24.1%    21869    21869      0     0.39     5.60      0.03   0.6%
+readlink      1.0%   1.0%      867      867      0     0.38     5.26      0.15   0.0%
+read         18.0%  18.1%    16406    20054      0    47.00    90.27      0.15  53.2%
+write        10.0%   9.9%     8968    10701      0    50.98   234.24      0.32  31.5%
+create        1.0%   1.0%      913      913      0    31.66   161.24      0.82   2.0%
+remove        1.0%   1.0%      896      896      0    26.06   128.76      0.74   1.6%
+readdir       1.0%   1.0%      911      911      0     0.62     6.45      0.16   0.0%
+fsstat        1.0%   0.9%      861      861      0     0.48     8.77      0.20   0.0%
+access       11.0%  10.8%     9823     9823      0     0.26     3.79      0.04   0.2%
+commit        0.0%   0.0%        0     3331      0     0.00     0.00      0.00   6.1%
+readdirplus   2.0%   2.0%     1818     1818      0     0.94     5.61      0.11   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     304 Ops/Sec   AVG. RESPONSE TIME:    15.9 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 640 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  90880          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 99592    
+PHYSICAL NFS IO THROUGHPUT: 333 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 76812.5 MB
+TOTAL FILE SET SIZE ACCESSED: 23044.6 - 23218.0 MB  (100.00% to 100.75% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 13:03:54 PST 2011 ************************************************************************
+Thu Mar 03 13:03:54 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 680 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 680
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 156028 Files created for I/O operations
+                46808 Files accessed for I/O operations
+                 3124 Files for non-I/O operations
+                   24 Symlinks
+                 5200 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 13:22:35 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.1%    20771    20771      0     0.20     1.50      0.02   0.3%
+setattr       4.0%   3.9%     3108     3108      0    14.53   123.99      0.39   3.0%
+lookup       24.0%  24.0%    19098    19098      0     0.23     1.65      0.02   0.3%
+readlink      1.0%   1.0%      798      798      0     0.19     0.23      0.03   0.0%
+read         18.0%  18.2%    14474    17707      0    55.72   105.49      0.17  54.2%
+write        10.0%   9.9%     7907     9519      0    62.96   345.41      0.41  33.4%
+create        1.0%   1.0%      759      759      0    29.60    88.15      0.67   1.5%
+remove        1.0%   1.0%      768      768      0    25.28   135.99      0.82   1.3%
+readdir       1.0%   1.0%      803      803      0     0.40     0.12      0.02   0.0%
+fsstat        1.0%   1.0%      803      803      0     0.18     0.19      0.03   0.0%
+access       11.0%  11.0%     8740     8740      0     0.19     0.48      0.01   0.1%
+commit        0.0%   0.0%        0     2883      0     0.00     0.00      0.00   5.8%
+readdirplus   2.0%   2.0%     1569     1569      0     0.75     0.36      0.03   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     264 Ops/Sec   AVG. RESPONSE TIME:    18.7 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 680 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  79598          TEST TIME: 301 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 87326    
+PHYSICAL NFS IO THROUGHPUT: 290 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 80909.0 MB
+TOTAL FILE SET SIZE ACCESSED: 24274.6 - 24436.1 MB  (100.00% to 100.67% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 13:22:36 PST 2011 ************************************************************************
+Thu Mar 03 13:22:36 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 720 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 720
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 165904 Files created for I/O operations
+                49768 Files accessed for I/O operations
+                 3320 Files for non-I/O operations
+                   24 Symlinks
+                 5528 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 13:44:07 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.6%    18211    18211      0     0.36    14.61      0.06   0.5%
+setattr       4.0%   4.1%     2882     2882      0    16.51   111.11      0.38   3.3%
+lookup       24.0%  24.1%    17118    17118      0     0.44    15.25      0.06   0.5%
+readlink      1.0%   1.0%      706      706      0     0.24     1.41      0.09   0.0%
+read         18.0%  18.2%    12909    15801      0    60.65    98.49      0.17  54.1%
+write        10.0%  10.1%     7159     8772      0    62.32    78.48      0.21  30.8%
+create        1.0%   1.1%      748      748      0    41.86   202.14      1.02   2.2%
+remove        1.0%   1.1%      750      750      0    35.86   156.48      0.90   1.9%
+readdir       1.0%   1.0%      730      730      0     0.42     0.24      0.04   0.0%
+fsstat        1.0%   1.0%      683      683      0     0.22     0.51      0.05   0.0%
+access       11.0%  10.8%     7673     7673      0     0.23     2.46      0.04   0.1%
+commit        0.0%   0.0%        0     2570      0     0.00     0.00      0.00   6.5%
+readdirplus   2.0%   2.1%     1511     1511      0     0.79     0.59      0.04   0.1%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     238 Ops/Sec   AVG. RESPONSE TIME:    20.4 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 720 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  71080          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 78155    
+PHYSICAL NFS IO THROUGHPUT: 261 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 86030.3 MB
+TOTAL FILE SET SIZE ACCESSED: 25809.5 - 25956.3 MB  (100.00% to 100.57% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 13:44:08 PST 2011 ************************************************************************
+Thu Mar 03 13:44:08 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 760 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 760
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 175776 Files created for I/O operations
+                52732 Files accessed for I/O operations
+                 3516 Files for non-I/O operations
+                   24 Symlinks
+                 5856 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 14:18:44 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  25.9%     8455     8455      0     4.70    21.89      0.10   2.9%
+setattr       4.0%   4.0%     1318     1318      0    52.13   155.16      0.67   4.9%
+lookup       24.0%  23.8%     7763     7763      0     6.75    27.25      0.12   3.8%
+readlink      1.0%   1.1%      366      366      0     1.29     9.36      0.31   0.0%
+read         18.0%  18.1%     5924     7359      0   111.85   163.74      0.33  47.6%
+write        10.0%  10.1%     3314     3997      0   135.16   184.74      0.46  32.2%
+create        1.0%   0.9%      306      306      0    71.74   183.02      1.52   1.6%
+remove        1.0%   1.0%      331      331      0    86.28   245.50      1.69   2.1%
+readdir       1.0%   0.9%      310      310      0     1.71     9.28      0.34   0.0%
+fsstat        1.0%   1.0%      341      341      0     2.35    12.59      0.38   0.1%
+access       11.0%  11.1%     3612     3612      0     2.80    17.02      0.13   0.7%
+commit        0.0%   0.0%        0     1137      0     0.00     0.00      0.00   3.9%
+readdirplus   2.0%   2.0%      644      644      0     5.39    25.41      0.39   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     109 Ops/Sec   AVG. RESPONSE TIME:    42.6 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 760 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  32684          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 35939    
+PHYSICAL NFS IO THROUGHPUT: 120 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 91149.5 MB
+TOTAL FILE SET SIZE ACCESSED: 27346.5 - 27396.7 MB  (100.00% to 100.18% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 14:18:45 PST 2011 ************************************************************************
+Thu Mar 03 14:18:45 PST 2011 ************************************************************************
+Started on client (c09-44): ../binaries/linux-x86/sfs_prime -l 800 -C ../result/sfssum.20110302-s3-west-1GB -t 300 -a 30 -A 70 -R 2 -W 2 -Q -p 4 -w 300 -X 8000 c09-44.sysnet.ucsd.edu 
+
+Aggregate Test Parameters: 
+    Number of processes = 4
+    Requested Load (NFS operations/second) = 800
+    Maximum number of outstanding biod writes = 2
+    Maximum number of outstanding biod reads = 2
+    Warm-up time (seconds) = 300
+    Run time (seconds) = 300
+    File Set = 183676 Files created for I/O operations
+                55100 Files accessed for I/O operations
+                 3676 Files for non-I/O operations
+                   24 Symlinks
+                 6120 Directories
+                      Additional non-I/O files created as necessary
+
+SFS Aggregate Results for 1 Client(s), Thu Mar  3 14:41:03 2011
+NFS Protocol Version 3
+
+-------------------------------------------------------------------------------------
+NFS         Target Actual  NFS Op  NFS Op    NFS    Mean     Std Dev  Std Error Pcnt 
+Op          NFS    NFS     Logical Physical  Op     Response Response of Mean,  of   
+Type        Mix    Mix     Success Success   Error  Time     Time     95% Conf  Total
+            Pcnt   Pcnt    Count   Count     Count  Msec/Op  Msec/Op  +-Msec/Op Time 
+-------------------------------------------------------------------------------------
+getattr      26.0%  26.0%     9310     9310      0     3.72    18.24      0.09   2.5%
+setattr       4.0%   4.0%     1418     1418      0    38.60   122.16      0.58   3.9%
+lookup       24.0%  24.2%     8655     8655      0     5.35    22.89      0.10   3.3%
+readlink      1.0%   1.1%      389      389      0     1.66    11.81      0.34   0.0%
+read         18.0%  17.9%     6403     7907      0   113.06   214.46      0.36  51.8%
+write        10.0%   9.9%     3538     4243      0   122.77   105.18      0.34  31.1%
+create        1.0%   1.0%      374      374      0    54.83   141.46      1.21   1.5%
+remove        1.0%   1.0%      355      355      0    49.47   120.78      1.14   1.3%
+readdir       1.0%   1.0%      375      375      0     1.48     9.61      0.31   0.0%
+fsstat        1.0%   1.0%      365      365      0     1.83    17.25      0.43   0.0%
+access       11.0%  10.8%     3865     3865      0     1.76    11.16      0.11   0.5%
+commit        0.0%   0.0%        0     1212      0     0.00     0.00      0.00   3.9%
+readdirplus   2.0%   2.1%      753      753      0     2.82    13.65      0.26   0.2%
+-------------------------------------------------------------------------------------
+
+        ---------------------------------------------
+        |  SPEC SFS 2008 AGGREGATE RESULTS SUMMARY  |
+        ---------------------------------------------
+SFS NFS THROUGHPUT:     120 Ops/Sec   AVG. RESPONSE TIME:    39.0 Msec/Op
+TCP PROTOCOL (IPv4)
+NFS MIXFILE: [ SFS default ]
+AGGREGATE REQUESTED LOAD: 800 Ops/Sec 
+TOTAL LOGICAL NFS OPERATIONS:  35800          TEST TIME: 299 Sec 
+TOTAL PHYSICAL NFS OPERATIONS: 39221    
+PHYSICAL NFS IO THROUGHPUT: 131 Ops/sec
+NUMBER OF SFS CLIENTS: 1
+TOTAL FILE SET SIZE CREATED: 95246.0 MB
+TOTAL FILE SET SIZE ACCESSED: 28574.4 - 28627.9 MB  (100.00% to 100.19% of Base)
+
+------------------------------------------------------------------------
+
+Thu Mar 03 14:41:04 PST 2011 ************************************************************************
+Thu Mar 03 14:41:04 PST 2011 ************************************************************************

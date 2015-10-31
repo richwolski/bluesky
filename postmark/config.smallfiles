@@ -1,0 +1,6 @@
+set number 1000
+set subdirectories 10
+set transactions 5000
+show
+run
+quit

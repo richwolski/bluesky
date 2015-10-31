@@ -1,0 +1,140 @@
+A few notes about the redesign of the file selection algorithm for
+SFS 3.0, which may be incorporated into the inline comments in the
+next maintenance release.
+
+
+Q1.  How is the Poisson Distribution used in SFS?
+
+A1. The probabilities from a Poisson-derived distribution are used
+to select files from the I/O working-set in a non-uniform fashion.
+
+The load-generators are not Poisson Processes.  In particular, their
+inter-request times are not exponentially-distributed; they are programmed
+to have uniformly distributed think-times, which are only approximately
+achieved, due to limitations of the load-generating client and its
+operating system.
+
+Q2.  Why is a Poisson Distribution used in SFS, rather than, say a
+Zipf distribution?
+
+A2.  The reasoning behind the use of Poisson probabilities in SFS 2.0
+may be lost in the mists of time.  Because SFS 2.0 was withdrawn by SPEC
+before SFS 3.0 development had proceeded very far, there was considerable
+time-pressure to release SFS 3.0 quickly.  So we chose to patch the
+existing Poisson probability calculations instead of implementing a new
+distribution for file accesses.
+
+There is experimental data showing that a Zipf Distribution is a good
+model for file access probabilities.  The question of what distribution
+to use in SFS 4.0 is open, so various distributions can be considered.
+
+Q3.  Is it true that SFS 3.0 combines multiple Poisson cycles into a
+single cycle that is also a Poisson Distribution?
+
+A3.  The combination of the distributions follows the curve of a Poisson
+Distribution only if you treat each of the twelve generations of
+access-groups as a single outcome.
+
+Q4.  Why did the calculation of "Io_working_set.access_group_cnt" change 
+between SFS 2.0 and SFS 3.0?
+
+A4.  This calculation determines the number of access-groups in the I/O
+working-set.  The number of access-groups grows *roughly* in linear
+proportion to the number of files, so that no access-group contains more
+than 125 files.
+
+In SFS 2.0, 4 groups are added for every 500 files, but in SFS 3.0
+12 groups are added for every 1500 files, so the number of files per
+access-group remains roughly the same.
+
+The main effect of the change is how the number of groups is rounded.
+In SFS 2.0, the number of groups was rounded to a multiple of 4,
+with a minimum of 8 groups.  In SFS 3.0, the number of groups is
+rounded to a multiple of 12 (the value of "generations") so that the
+cycle of Poisson probabilities (for all 12 generations of access-groups)
+will be completely repeated group_cnt/12 times with no groups left over.
+
+Q5.  Why was the minimum number of access-groups changed from 8 to 12?
+Why not, say, 24?
+
+A5.  The choice was somewhat arbitrary.  Here is some of the rationale:
+
+In order to get a complete set of Poisson probabilities, there must be
+at least as many access-groups as generations.  If we had generations=24
+instead of 12, then some of the group-probabilities would be zero due to
+defect #2.  (Recall that with 24 groups in SFS 2.0, 13% were inaccessible
+due to rounding of the scaled probabilities.)  In SFS 2.0, 12 was the
+largest number of groups which did not trigger defect #2.  Of course,
+since we now know how to fix that defect, that wasn't the complete reason.
+
+Another consideration was that the number of access groups must be rounded
+to a multiple of the number of generations.  If we had used generations=24
+then the rounding would introduce a more radical change in the number
+of groups, especially for large numbers of procs.
+
+On the other hand, if we had used generations=8 instead of 12, we would
+have gotten very little variation in access probabilities, which seemed
+against the intent of the benchmark design.
+
+Q6.  Why is lambda being calculated differently in SFS 3.0?
+
+A6.  Lambda is the parameter of the Poisson Distribution which determines
+the shape of its probability density function, its mean, and other
+characteristics.
+
+SFS 2.0 set lambda to half the number of groups, which in turn was a
+function of the requested ops/sec/proc.  That was defect #4, which caused
+the shape of the access-distribution to change depending on how many
+processes a vendor chose to use -- it would get narrower as the number
+of processes was reduced.  SFS 3.0 sets lambda based on "generations",
+which is a constant.  Thus the new distribution has the same shape no
+matter how many load-generating processes are used.
+
+The key to defect #4 was that we *don't* want lambda to vary
+with the number of access-groups.  We want it to be a constant so that
+for a given size fileset the number of files that fit into cache 
+depends very little on the number of load-generation processes used.
+
+Q7.  Why was lambda set to half the number of groups in SFS 2.0
+instead of something else? 
+
+A7.  The SFS 2.0 rationale is not documented, as far as we know.  The nice
+thing about group_count/2 is that it puts the characteristic "hump" of the
+probability density function (the mode) near group_count/2, in the middle
+of the array of groups.  Probably that was the reason.
+
+In SFS 3.0, each cycle of probabilities has 12 groups, so lambda=6
+to preserve this feature of the distribution.
+
+Q8.  How is the SFS 3.0 approach differ from always using 12 access-groups
+and allowing the number of files per access-group to be more than 125?
+
+A8.  The end-result would have been roughly the same.  The reason this
+was not done was that SFS sometimes searches within an access-group, for
+instance to find the best fit for an operation.  The search is a linear
+search.  We were concerned that if the number of files in a group got
+too large, the client could get bogged down searching for the best fit.
+The search for the appropriate access-group is a binary search, which
+scales better.
+
+Q9.  Why not just limit the benchmark to 25 requested ops/second/process,
+so that the number of groups would always be 12 or less?
+ 
+A9.  Historically SPEC has given server vendors lots of leeway to
+have as few processes as they wish, modulo the Uniform Access Rule and
+the run-rule requirement for at least 8 processes per network.  In the
+interest of avoiding a long, drawn-out debate about adding a new run-rule
+to arbitrarily limit ops/process, we decided to simply fix the code so
+that it would work reasonably well for larger numbers of ops/process.
+
+Q10.  Where did the new variable "cumulative_ratio" come from?
+
+A10.  This variable is used in the loop that calculates Poisson distribution
+for I/O working-set accesses.  In 2.0, lambda^x and x! were calculated
+separately.  Both variables got very large and would overflow when 'x' got
+into the hundreds.  This was defect #3.  The Poisson distribution really
+only needs the ratio (lambda^x/x!), which is numerically more stable.
+So that is what the SFS 3.0 code calculates.
+
+Since SFS 3.0 never uses values of lambda other than 6.0, the change
+has proven to be moot.

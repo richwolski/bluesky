@@ -1,0 +1,3940 @@
+EXECUTE(vrable2.sysnet.ucsd.edu): run-proxy
+BLUESKY_RUN_NAME=s3-0.0-1024M-32k
+BLUESKY_CACHE_SIZE=1048576
+BLUESKY_TARGET=s3:mvrable-bluesky-west
+BENCH_DURATION=120
+BENCH_FILESIZE=1048576
+BENCH_FILECOUNT=1024
+BENCH_WRITERATIO=0.0
+BENCH_THREADS=4
+BENCH_OPS=10
+BENCH_INTERVALS=10
+BENCH_DIRSIZE=128
+BENCH_BLOCKSIZE=32768
+NFS_BLOCKSIZE=32768
+Option BLUESKY_CACHE_SIZE set to 1048576
+Initializing S3 with bucket mvrable-bluesky-west, access key AKIAJ4RG3GWBMGEBRRXQ, encryption key j3FQWkiNQnDCm+JVhbQ69YfWfds7AB/sYkLy89MA
+Starting journal at sequence number 0
+Claiming cloud log directory: 0
+Last key: (null)
+Initializing new filesystem...
+Starting NFS main loop...
+
+Cloudlog cache: 0 dirty, 0 writeback, 1 journal, 0 cloud
+Creating inode map range, 1: start=0 end=18446744073709551615
+Creating inode map range, 2: start=0 end=18446744073709551615
+Creating inode map range, 3: start=0 end=4095
+Serializing 447 bytes of data to cloud
+Write of log-00000000-00000000 to cloud complete, status = 0
+All segments have been flushed, journal < 0 is clean
+
+Scanning cache: (total size = 4 kB)
+
+Ending cache size: 4 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 2 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 0 is clean
+
+Scanning cache: (total size = 4 kB)
+
+Ending cache size: 4 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 14!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 3739 journal, 2 cloud
+Serializing 4210934 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 2113744 bytes of data to cloud
+Write of log-00000000-00000001 to cloud complete, status = 0
+Write of log-00000000-00000030 to cloud complete, status = 0
+Write of log-00000000-00000002 to cloud complete, status = 0
+Write of log-00000000-00000020 to cloud complete, status = 0
+Write of log-00000000-00000017 to cloud complete, status = 0
+Write of log-00000000-00000013 to cloud complete, status = 0
+Write of log-00000000-00000012 to cloud complete, status = 0
+Write of log-00000000-00000014 to cloud complete, status = 0
+Write of log-00000000-00000019 to cloud complete, status = 0
+Write of log-00000000-00000028 to cloud complete, status = 0
+Write of log-00000000-00000018 to cloud complete, status = 0
+Write of log-00000000-00000027 to cloud complete, status = 0
+Write of log-00000000-00000025 to cloud complete, status = 0
+Write of log-00000000-00000026 to cloud complete, status = 0
+Write of log-00000000-00000024 to cloud complete, status = 0
+Write of log-00000000-00000015 to cloud complete, status = 0
+Write of log-00000000-00000029 to cloud complete, status = 0
+Write of log-00000000-00000011 to cloud complete, status = 0
+Write of log-00000000-00000016 to cloud complete, status = 0
+Write of log-00000000-00000006 to cloud complete, status = 0
+Write of log-00000000-00000010 to cloud complete, status = 0
+Write of log-00000000-00000008 to cloud complete, status = 0
+Write of log-00000000-00000005 to cloud complete, status = 0
+Write of log-00000000-00000007 to cloud complete, status = 0
+Write of log-00000000-00000004 to cloud complete, status = 0
+Write of log-00000000-00000023 to cloud complete, status = 0
+Write of log-00000000-00000003 to cloud complete, status = 0
+Write of log-00000000-00000021 to cloud complete, status = 0
+Write of log-00000000-00000009 to cloud complete, status = 0
+Write of log-00000000-00000022 to cloud complete, status = 0
+All segments have been flushed, journal < 28 is clean
+
+Scanning cache: (total size = 185292 kB)
+
+Ending cache size: 185292 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 3204 journal, 3905 cloud
+Serializing 4209287 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4212591 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 12512 bytes of data to cloud
+Write of log-00000000-00000057 to cloud complete, status = 0
+Write of log-00000000-00000031 to cloud complete, status = 0
+Write of log-00000000-00000042 to cloud complete, status = 0
+Write of log-00000000-00000034 to cloud complete, status = 0
+Write of log-00000000-00000043 to cloud complete, status = 0
+Write of log-00000000-00000038 to cloud complete, status = 0
+Write of log-00000000-00000039 to cloud complete, status = 0
+Write of log-00000000-00000036 to cloud complete, status = 0
+Write of log-00000000-00000049 to cloud complete, status = 0
+Write of log-00000000-00000040 to cloud complete, status = 0
+Write of log-00000000-00000047 to cloud complete, status = 0
+Write of log-00000000-00000054 to cloud complete, status = 0
+Write of log-00000000-00000055 to cloud complete, status = 0
+Write of log-00000000-00000052 to cloud complete, status = 0
+Write of log-00000000-00000044 to cloud complete, status = 0
+Write of log-00000000-00000033 to cloud complete, status = 0
+Write of log-00000000-00000035 to cloud complete, status = 0
+Write of log-00000000-00000045 to cloud complete, status = 0
+Write of log-00000000-00000037 to cloud complete, status = 0
+Write of log-00000000-00000041 to cloud complete, status = 0
+Write of log-00000000-00000032 to cloud complete, status = 0
+Write of log-00000000-00000046 to cloud complete, status = 0
+Write of log-00000000-00000048 to cloud complete, status = 0
+Write of log-00000000-00000056 to cloud complete, status = 0
+Write of log-00000000-00000053 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Write of log-00000000-00000051 to cloud complete, status = 0
+Write of log-00000000-00000050 to cloud complete, status = 0
+All segments have been flushed, journal < 54 is clean
+
+Scanning cache: (total size = 548728 kB)
+
+Ending cache size: 548728 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 12875 journal, 7338 cloud
+Serializing 4209287 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4212591 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000059 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000069 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000062 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000058 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000091 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000086 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000065 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000072 to cloud complete, status = 0
+Serializing 4212591 bytes of data to cloud
+Write of log-00000000-00000061 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000088 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000076 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000060 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000067 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000064 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000087 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000066 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000083 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000093 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000092 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000078 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000081 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000085 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000077 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000084 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000089 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000090 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000068 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000063 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000075 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000095 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000098 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000094 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000099 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000097 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000070 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000102 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000104 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000107 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000100 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000101 to cloud complete, status = 0
+Serializing 4212591 bytes of data to cloud
+Write of log-00000000-00000096 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000106 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000105 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000103 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000110 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000108 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000116 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000109 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000118 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000111 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000124 to cloud complete, status = 0
+Write of log-00000000-00000112 to cloud complete, status = 0
+Write of log-00000000-00000120 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000122 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000114 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000117 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000115 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000121 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000113 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000126 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000123 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000125 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000119 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000128 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000127 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000129 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000130 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000133 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000131 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000132 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000136 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000134 to cloud complete, status = 0
+Serializing 4212591 bytes of data to cloud
+Write of log-00000000-00000138 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000140 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000135 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000143 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000141 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000145 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000146 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000147 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000139 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000153 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000149 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000150 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000144 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000080 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000151 to cloud complete, status = 0
+Write of log-00000000-00000142 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000137 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000148 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000156 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000155 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000152 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000157 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000154 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000160 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000158 to cloud complete, status = 0
+Serializing 1085888 bytes of data to cloud
+Write of log-00000000-00000159 to cloud complete, status = 0
+Write of log-00000000-00000162 to cloud complete, status = 0
+Write of log-00000000-00000161 to cloud complete, status = 0
+Write of log-00000000-00000165 to cloud complete, status = 0
+Write of log-00000000-00000163 to cloud complete, status = 0
+Write of log-00000000-00000187 to cloud complete, status = 0
+Write of log-00000000-00000164 to cloud complete, status = 0
+Write of log-00000000-00000166 to cloud complete, status = 0
+Write of log-00000000-00000173 to cloud complete, status = 0
+Write of log-00000000-00000167 to cloud complete, status = 0
+Write of log-00000000-00000074 to cloud complete, status = 0
+Write of log-00000000-00000168 to cloud complete, status = 0
+Write of log-00000000-00000171 to cloud complete, status = 0
+Write of log-00000000-00000176 to cloud complete, status = 0
+Write of log-00000000-00000180 to cloud complete, status = 0
+Write of log-00000000-00000170 to cloud complete, status = 0
+Write of log-00000000-00000178 to cloud complete, status = 0
+Write of log-00000000-00000177 to cloud complete, status = 0
+Write of log-00000000-00000184 to cloud complete, status = 0
+Write of log-00000000-00000181 to cloud complete, status = 0
+Write of log-00000000-00000182 to cloud complete, status = 0
+Write of log-00000000-00000179 to cloud complete, status = 0
+Write of log-00000000-00000169 to cloud complete, status = 0
+Write of log-00000000-00000172 to cloud complete, status = 0
+Write of log-00000000-00000185 to cloud complete, status = 0
+Write of log-00000000-00000174 to cloud complete, status = 0
+Write of log-00000000-00000186 to cloud complete, status = 0
+Write of log-00000000-00000175 to cloud complete, status = 0
+Write of log-00000000-00000079 to cloud complete, status = 0
+Write of log-00000000-00000183 to cloud complete, status = 0
+Write of log-00000000-00000073 to cloud complete, status = -1
+Write should be resubmitted...
+
+** (nfsd:5301): WARNING **: Error completing S3 put operation; client must retry!
+Write of log-00000000-00000071 to cloud complete, status = -1
+Write should be resubmitted...
+
+** (nfsd:5301): WARNING **: Error completing S3 put operation; client must retry!
+Write of log-00000000-00000073 to cloud complete, status = 0
+Write of log-00000000-00000071 to cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Unexpected error or end of file on RPC stream 14!
+Write of log-00000000-00000082 to cloud complete, status = 0
+All segments have been flushed, journal < 154 is clean
+
+Scanning cache: (total size = 1054240 kB)
+
+Ending cache size: 1046072 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 9408 journal, 24399 cloud
+Serializing 4209287 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4212591 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000189 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000190 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000188 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000196 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000208 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000195 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000204 to cloud complete, status = 0
+Serializing 4212591 bytes of data to cloud
+Write of log-00000000-00000224 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000193 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000194 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000200 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000205 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000217 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000218 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000192 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000210 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000213 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000215 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000206 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000228 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000207 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000225 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000212 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000199 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000214 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000197 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000211 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000226 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000227 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000209 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000234 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000223 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000229 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000202 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000231 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000230 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000236 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000222 to cloud complete, status = 0
+Serializing 4210484 bytes of data to cloud
+Write of log-00000000-00000232 to cloud complete, status = 0
+Serializing 1097523 bytes of data to cloud
+Write of log-00000000-00000235 to cloud complete, status = 0
+Write of log-00000000-00000198 to cloud complete, status = 0
+Write of log-00000000-00000233 to cloud complete, status = 0
+Write of log-00000000-00000201 to cloud complete, status = 0
+Write of log-00000000-00000191 to cloud complete, status = 0
+Write of log-00000000-00000237 to cloud complete, status = 0
+Write of log-00000000-00000220 to cloud complete, status = 0
+Write of log-00000000-00000216 to cloud complete, status = 0
+Write of log-00000000-00000259 to cloud complete, status = 0
+Write of log-00000000-00000241 to cloud complete, status = 0
+Write of log-00000000-00000244 to cloud complete, status = 0
+Write of log-00000000-00000249 to cloud complete, status = 0
+Write of log-00000000-00000238 to cloud complete, status = 0
+Write of log-00000000-00000219 to cloud complete, status = 0
+Write of log-00000000-00000242 to cloud complete, status = 0
+Write of log-00000000-00000246 to cloud complete, status = 0
+Write of log-00000000-00000247 to cloud complete, status = 0
+Write of log-00000000-00000245 to cloud complete, status = 0
+Write of log-00000000-00000252 to cloud complete, status = 0
+Write of log-00000000-00000240 to cloud complete, status = 0
+Write of log-00000000-00000239 to cloud complete, status = 0
+Write of log-00000000-00000243 to cloud complete, status = 0
+Write of log-00000000-00000253 to cloud complete, status = 0
+Write of log-00000000-00000248 to cloud complete, status = 0
+Write of log-00000000-00000256 to cloud complete, status = 0
+Write of log-00000000-00000255 to cloud complete, status = 0
+Write of log-00000000-00000254 to cloud complete, status = 0
+Write of log-00000000-00000250 to cloud complete, status = 0
+Write of log-00000000-00000258 to cloud complete, status = 0
+Write of log-00000000-00000251 to cloud complete, status = 0
+Write of log-00000000-00000257 to cloud complete, status = 0
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 28!
+Received new connection on fd 12!
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Write of log-00000000-00000203 to cloud complete, status = -1
+Write should be resubmitted...
+
+** (nfsd:5301): WARNING **: Error completing S3 put operation; client must retry!
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Write of log-00000000-00000203 to cloud complete, status = 0
+Write of log-00000000-00000221 to cloud complete, status = 0
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048416 kB)
+
+Ending cache size: 1048416 kB
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048584 kB)
+
+Ending cache size: 1048584 kB
+Still short on disk space, trying again to free space...
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+
+Scanning cache: (total size = 1048828 kB)
+
+Ending cache size: 1044744 kB
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045588 kB)
+
+Ending cache size: 1045588 kB
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046676 kB)
+
+Ending cache size: 1046676 kB
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047828 kB)
+
+Ending cache size: 1047828 kB
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048560 kB)
+
+Ending cache size: 1048560 kB
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1049248 kB)
+
+Ending cache size: 1049248 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1049248 kB)
+
+Ending cache size: 1045164 kB
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046088 kB)
+
+Ending cache size: 1046088 kB
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33801 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046780 kB)
+
+Ending cache size: 1046780 kB
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047656 kB)
+
+Ending cache size: 1047656 kB
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048276 kB)
+
+Ending cache size: 1048276 kB
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1049072 kB)
+
+Ending cache size: 1049072 kB
+Still short on disk space, trying again to free space...
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+
+Scanning cache: (total size = 1049104 kB)
+
+Ending cache size: 1044772 kB
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045500 kB)
+
+Ending cache size: 1045500 kB
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046828 kB)
+
+Ending cache size: 1046828 kB
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047532 kB)
+
+Ending cache size: 1047532 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048032 kB)
+
+Ending cache size: 1048032 kB
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048868 kB)
+
+Ending cache size: 1048868 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048868 kB)
+
+Ending cache size: 1048444 kB
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048920 kB)
+
+Ending cache size: 1048920 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048920 kB)
+
+Ending cache size: 1044836 kB
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045912 kB)
+
+Ending cache size: 1045912 kB
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046928 kB)
+
+Ending cache size: 1046928 kB
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048108 kB)
+
+Ending cache size: 1048108 kB
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1049940 kB)
+
+Ending cache size: 1049940 kB
+Still short on disk space, trying again to free space...
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Scanning cache: (total size = 1049968 kB)
+
+Ending cache size: 1045328 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Unexpected error or end of file on RPC stream 28!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045972 kB)
+
+Ending cache size: 1045972 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045972 kB)
+
+Ending cache size: 1045972 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 28!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045976 kB)
+
+Ending cache size: 1045976 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046668 kB)
+
+Ending cache size: 1046668 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047348 kB)
+
+Ending cache size: 1047348 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047804 kB)
+
+Ending cache size: 1047804 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048300 kB)
+
+Ending cache size: 1048300 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048924 kB)
+
+Ending cache size: 1048924 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048924 kB)
+
+Ending cache size: 1048340 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1049472 kB)
+
+Ending cache size: 1048800 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048800 kB)
+
+Ending cache size: 1046504 kB
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047508 kB)
+
+Ending cache size: 1047508 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048148 kB)
+
+Ending cache size: 1048148 kB
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048540 kB)
+
+Ending cache size: 1048540 kB
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1049176 kB)
+
+Ending cache size: 1049176 kB
+Still short on disk space, trying again to free space...
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Scanning cache: (total size = 1049304 kB)
+
+Ending cache size: 1044860 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045516 kB)
+
+Ending cache size: 1045516 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046124 kB)
+
+Ending cache size: 1046124 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046612 kB)
+
+Ending cache size: 1046612 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047472 kB)
+
+Ending cache size: 1047472 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048380 kB)
+
+Ending cache size: 1048380 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048592 kB)
+
+Ending cache size: 1048592 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048592 kB)
+
+Ending cache size: 1047460 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000001 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048380 kB)
+
+Ending cache size: 1048380 kB
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048724 kB)
+
+Ending cache size: 1048724 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048724 kB)
+
+Ending cache size: 1044636 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045436 kB)
+
+Ending cache size: 1045436 kB
+Fetch of log-00000000-00000014 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046176 kB)
+
+Ending cache size: 1046176 kB
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046960 kB)
+
+Ending cache size: 1046960 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047824 kB)
+
+Ending cache size: 1047824 kB
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048644 kB)
+
+Ending cache size: 1048644 kB
+Still short on disk space, trying again to free space...
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Scanning cache: (total size = 1048676 kB)
+
+Ending cache size: 1048280 kB
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048760 kB)
+
+Ending cache size: 1047692 kB
+Unexpected error or end of file on RPC stream 28!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047692 kB)
+
+Ending cache size: 1047692 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047692 kB)
+
+Ending cache size: 1047692 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 28!
+Received new connection on fd 12!
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047948 kB)
+
+Ending cache size: 1047948 kB
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048252 kB)
+
+Ending cache size: 1048252 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048420 kB)
+
+Ending cache size: 1048420 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048800 kB)
+
+Ending cache size: 1048800 kB
+Still short on disk space, trying again to free space...
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Scanning cache: (total size = 1048828 kB)
+
+Ending cache size: 1048408 kB
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048544 kB)
+
+Ending cache size: 1048544 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048636 kB)
+
+Ending cache size: 1048320 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048780 kB)
+
+Ending cache size: 1048780 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048780 kB)
+
+Ending cache size: 1048160 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048372 kB)
+
+Ending cache size: 1048372 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048784 kB)
+
+Ending cache size: 1048116 kB
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048628 kB)
+
+Ending cache size: 1048628 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048628 kB)
+
+Ending cache size: 1044544 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000002 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1044816 kB)
+
+Ending cache size: 1044816 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045156 kB)
+
+Ending cache size: 1045156 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045444 kB)
+
+Ending cache size: 1045444 kB
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046064 kB)
+
+Ending cache size: 1046064 kB
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046468 kB)
+
+Ending cache size: 1046468 kB
+Fetch of log-00000000-00000020 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046792 kB)
+
+Ending cache size: 1046792 kB
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047140 kB)
+
+Ending cache size: 1047140 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047524 kB)
+
+Ending cache size: 1047524 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047800 kB)
+
+Ending cache size: 1047800 kB
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+
+Scanning cache: (total size = 1048000 kB)
+
+Ending cache size: 1048000 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048272 kB)
+
+Ending cache size: 1048272 kB
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048508 kB)
+
+Ending cache size: 1048508 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1049044 kB)
+
+Ending cache size: 1049044 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1049044 kB)
+
+Ending cache size: 1047556 kB
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33801 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048032 kB)
+
+Ending cache size: 1048032 kB
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Unexpected error or end of file on RPC stream 28!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048148 kB)
+
+Ending cache size: 1048148 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048148 kB)
+
+Ending cache size: 1048148 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 28!
+Received new connection on fd 12!
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048184 kB)
+
+Ending cache size: 1048184 kB
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048348 kB)
+
+Ending cache size: 1048348 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000047 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048536 kB)
+
+Ending cache size: 1048536 kB
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048700 kB)
+
+Ending cache size: 1048700 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048700 kB)
+
+Ending cache size: 1048264 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048484 kB)
+
+Ending cache size: 1048484 kB
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048608 kB)
+
+Ending cache size: 1048184 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048224 kB)
+
+Ending cache size: 1048224 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048288 kB)
+
+Ending cache size: 1048288 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048356 kB)
+
+Ending cache size: 1048356 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000044 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048452 kB)
+
+Ending cache size: 1048452 kB
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048560 kB)
+
+Ending cache size: 1048560 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048632 kB)
+
+Ending cache size: 1048252 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000113 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048512 kB)
+
+Ending cache size: 1048512 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048616 kB)
+
+Ending cache size: 1048616 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048616 kB)
+
+Ending cache size: 1046808 kB
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046992 kB)
+
+Ending cache size: 1046992 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047156 kB)
+
+Ending cache size: 1047156 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047296 kB)
+
+Ending cache size: 1047296 kB
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047436 kB)
+
+Ending cache size: 1047436 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047672 kB)
+
+Ending cache size: 1047672 kB
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047808 kB)
+
+Ending cache size: 1047808 kB
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1047980 kB)
+
+Ending cache size: 1047980 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048072 kB)
+
+Ending cache size: 1048072 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048204 kB)
+
+Ending cache size: 1048204 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048340 kB)
+
+Ending cache size: 1048340 kB
+Unexpected error or end of file on RPC stream 28!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048340 kB)
+
+Ending cache size: 1048340 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048340 kB)
+
+Ending cache size: 1048340 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 28!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048340 kB)
+
+Ending cache size: 1048340 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048340 kB)
+
+Ending cache size: 1048340 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048376 kB)
+
+Ending cache size: 1048376 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048412 kB)
+
+Ending cache size: 1048412 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048548 kB)
+
+Ending cache size: 1048548 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048580 kB)
+
+Ending cache size: 1048580 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048580 kB)
+
+Ending cache size: 1048432 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048432 kB)
+
+Ending cache size: 1048432 kB
+Fetch of log-00000000-00000173 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048528 kB)
+
+Ending cache size: 1048528 kB
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048556 kB)
+
+Ending cache size: 1048556 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048556 kB)
+
+Ending cache size: 1048556 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048648 kB)
+
+Ending cache size: 1048324 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048324 kB)
+
+Ending cache size: 1048324 kB
+Fetch of log-00000000-00000135 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048528 kB)
+
+Ending cache size: 1048528 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1048748 kB)
+
+Ending cache size: 1048748 kB
+Still short on disk space, trying again to free space...
+
+Scanning cache: (total size = 1048748 kB)
+
+Ending cache size: 1044664 kB
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000037 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1044880 kB)
+
+Ending cache size: 1044880 kB
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000019 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045124 kB)
+
+Ending cache size: 1045124 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045216 kB)
+
+Ending cache size: 1045216 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045288 kB)
+
+Ending cache size: 1045288 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045324 kB)
+
+Ending cache size: 1045324 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045324 kB)
+
+Ending cache size: 1045324 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045412 kB)
+
+Ending cache size: 1045412 kB
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045512 kB)
+
+Ending cache size: 1045512 kB
+Fetch of log-00000000-00000048 from cloud complete, status = 0
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045572 kB)
+
+Ending cache size: 1045572 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045672 kB)
+
+Ending cache size: 1045672 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Unexpected error or end of file on RPC stream 28!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045932 kB)
+
+Ending cache size: 1045932 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045932 kB)
+
+Ending cache size: 1045932 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045932 kB)
+
+Ending cache size: 1045932 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 28!
+Received new connection on fd 12!
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1045968 kB)
+
+Ending cache size: 1045968 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046068 kB)
+
+Ending cache size: 1046068 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046072 kB)
+
+Ending cache size: 1046072 kB
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046100 kB)
+
+Ending cache size: 1046100 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046128 kB)
+
+Ending cache size: 1046128 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046160 kB)
+
+Ending cache size: 1046160 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046160 kB)
+
+Ending cache size: 1046160 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33802 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046160 kB)
+
+Ending cache size: 1046160 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046224 kB)
+
+Ending cache size: 1046224 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046224 kB)
+
+Ending cache size: 1046224 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046224 kB)
+
+Ending cache size: 1046224 kB
+Fetch of log-00000000-00000224 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046260 kB)
+
+Ending cache size: 1046260 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046260 kB)
+
+Ending cache size: 1046260 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046260 kB)
+
+Ending cache size: 1046260 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046292 kB)
+
+Ending cache size: 1046292 kB
+Fetch of log-00000000-00000013 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046328 kB)
+
+Ending cache size: 1046328 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000037 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046392 kB)
+
+Ending cache size: 1046392 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046392 kB)
+
+Ending cache size: 1046392 kB
+Fetch of log-00000000-00000223 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046424 kB)
+
+Ending cache size: 1046424 kB
+Fetch of log-00000000-00000037 from cloud complete, status = 0
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046524 kB)
+
+Ending cache size: 1046524 kB
+Fetch of log-00000000-00000037 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046560 kB)
+
+Ending cache size: 1046560 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046560 kB)
+
+Ending cache size: 1046560 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046560 kB)
+
+Ending cache size: 1046560 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046596 kB)
+
+Ending cache size: 1046596 kB
+Unexpected error or end of file on RPC stream 28!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046596 kB)
+
+Ending cache size: 1046596 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046596 kB)
+
+Ending cache size: 1046596 kB
+Received new connection on fd 12!
+Unexpected error or end of file on RPC stream 28!
+Received new connection on fd 12!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046596 kB)
+
+Ending cache size: 1046596 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046596 kB)
+
+Ending cache size: 1046596 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046596 kB)
+
+Ending cache size: 1046596 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046632 kB)
+
+Ending cache size: 1046632 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046632 kB)
+
+Ending cache size: 1046632 kB
+Fetch of log-00000000-00000037 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046668 kB)
+
+Ending cache size: 1046668 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046668 kB)
+
+Ending cache size: 1046668 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046668 kB)
+
+Ending cache size: 1046668 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046708 kB)
+
+Ending cache size: 1046708 kB
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+Fetch of log-00000000-00000045 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046772 kB)
+
+Ending cache size: 1046772 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046772 kB)
+
+Ending cache size: 1046772 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046772 kB)
+
+Ending cache size: 1046772 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046776 kB)
+
+Ending cache size: 1046776 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046776 kB)
+
+Ending cache size: 1046776 kB
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046812 kB)
+
+Ending cache size: 1046812 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046812 kB)
+
+Ending cache size: 1046812 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046812 kB)
+
+Ending cache size: 1046812 kB
+Fetch of log-00000000-00000136 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046840 kB)
+
+Ending cache size: 1046840 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046868 kB)
+
+Ending cache size: 1046868 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046868 kB)
+
+Ending cache size: 1046868 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+Last key: (null)
+
+** (nfsd:5301): WARNING **: Unable to load cleaner checkpoint record!
+Fetch of log-00000000-00000172 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046936 kB)
+
+Ending cache size: 1046936 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046936 kB)
+
+Ending cache size: 1046936 kB
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046936 kB)
+
+Ending cache size: 1046936 kB
+Fetch of log-00000000-00000036 from cloud complete, status = 0
+
+Cloudlog cache: 0 dirty, 0 writeback, 0 journal, 33803 cloud
+No need for a checkpoint record...
+All segments have been flushed, journal < 258 is clean
+
+Scanning cache: (total size = 1046972 kB)
+
+Ending cache size: 1046972 kB
+Fetch of log-00000000-00000112 from cloud complete, status = 0
+Unexpected error or end of file on RPC stream 28!
+SIGINT caught, shutting down...
+Proxy statistics:
+Store[s3:mvrable-bluesky-west]: GETS: count=1672 sum=56548094
+Store[s3:mvrable-bluesky-west]: PUTS: count=263 sum=1090626594
+Store[file]: GETS: count=0 sum=0
+Store[file]: PUTS: count=0 sum=0
+NFS RPC Messages In: count=555843 sum=1124804488
+NFS RPC Messages Out: count=555835 sum=8017638468
+/scratch/bluesky.git/microbench/setup/run-proxy: line 30:  5298 Terminated              /usr/lib/atsar/atsadc 5 17280 /export2/$BLUESKY_RUN_NAME.sadc

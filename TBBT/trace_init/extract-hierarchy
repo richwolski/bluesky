@@ -1,0 +1,4 @@
+#Usage extract-hierarchy trace_file [-S]
+#nfsscan $1
+echo nfsscan $1
+rfs.pl $2

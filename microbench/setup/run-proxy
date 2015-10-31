@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# Start up the NFS server.
+
+# Defaults
+. /scratch/aws-keys
+export BLUESKY_RUN_NAME=$(date +%Y%m%d)-$$
+export BLUESKY_CACHE_SIZE=$((8 * 1024 * 1024))
+export BLUESKY_TARGET=s3
+#export BLUESKY_PROFILE_OUT=/export2/profile.txt
+
+# Export any environment variables specified on the command line
+for e in "$@"; do
+    echo "$e" 1>&2
+    if echo "$e" | grep = >/dev/null; then
+        eval "$e"
+        export ${e%=*}
+    fi
+done
+
+# Track system performance counter data
+export BLUESKY_STATS_OUT=/export2/$BLUESKY_RUN_NAME.stats
+/usr/lib/atsar/atsadc 5 17280 /export2/$BLUESKY_RUN_NAME.sadc &
+
+if [ "$BLUESKY_TARGET" = "native" ]; then
+    /etc/init.d/nfs-kernel-server start
+else
+    mkdir /export/journal 2>/dev/null
+    (cd /export; /scratch/bluesky.git/nfs3/nfsproxy)
+fi

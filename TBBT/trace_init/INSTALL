@@ -1,0 +1,61 @@
+# $Id: INSTALL,v 1.4 2003/07/28 14:27:16 ellard Exp $
+
+NFSSCAN INSTALLATION INSTRUCTIONS
+
+This is version 0.10a of nfsscan, dated 7/25/2003.
+
+THIS IS A PRELIMINARY RELEASE OF NEW SOFTWARE:
+
+- THE COMMANDLINE FORMATS MAY EVOLVE RAPIDLY OVER THE NEXT SEVERAL
+	RELEASES.
+
+- DEBUGGING MESSAGES AND WARNINGS MAY APPEAR ON STDERR.  MOST OF THESE
+	ARE MEANINGLESS, BUT IF YOU ENCOUNTER A PROBLEM WITH THE
+	PROGRAM PLEASE INCLUDE THEM IN YOUR BUG REPORT.
+ 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+System Requirements:
+
+	- You must have PERL 5 (5.005 or later) installed in order to
+		use any of these tools.  (None of these tools have
+		been tested with PERL 6 or later.)
+
+	- If you plan to use ns_quickview, make sure that gnuplot is
+		installed on your system.
+		
+		ns_quickview has been tested with gnuplot 3.7 and
+		should work with later versions.  If you have problems
+		with ns_quickview, please include any diagnostics
+		messages from gnuplot and the version of gnuplot with
+		your bug report.
+
+		If gnuplot is not in your path, you must edit
+		ns_quickview to set GNUPLOT_PATH to the appropriate
+		path after step 2 in the installation instructions.
+
+Installation:
+
+1.  Un-tar the distribution into an empty directory.
+
+2.  Edit the first line of nfsscan and ns_* to point to wherever your
+	favorite version of PERL 5 is installed.  If you don't like
+	looking at debugging messages, remove the -w from the
+	invocation of PERL.
+
+3.  Make sure that nfsscan and ns_* are executable and that
+	all the files are publically readable:
+
+		chmod 444 *
+		chmod 555 nfsscan ns_*
+
+4.  Read NOTES.TXT for last-minute info or errata for this release,
+	and changes from previous releases.
+
+5.  Read nfsscan.txt and EXAMPLES for more information about how to
+	use the tools.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+PLEASE report bugs, problems or suggestions for improvements to
+ellard@eecs.harvard.edu.

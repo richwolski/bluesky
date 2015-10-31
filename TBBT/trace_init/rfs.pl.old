@@ -1,0 +1,138 @@
+#!/usr/bin/perl -w
+
+$Usage =<< ".";
+
+This is the rfs program
+
+After run nfsscan, you will get a file-list file in the output
+
+This perl program do post processing based on this file
+
+
+.
+
+$writebuf = "R" x 8193;
+$writeBlockSize = 8192;
+
+
+main ();
+
+sub  rfsCreateFile()
+{
+        my ($path, $pathcnt, $sizeHexStr) = @_;
+        $sizeHexStr = "0x".$sizeHexStr;
+
+        my $dir = $path;
+        my $name = '';
+        my $cmdbuf;
+
+        $dir =~ /(^.*)\/(.*)/;
+        $dir = $1;
+        $name = $2;
+        if (!$dir) {$dir = ".";}
+        die "name is empty\n" if (!$name);
+        #print "path($path) dir($dir) name($name)\n";
+
+        if (! -e $dir) {
+                $cmdbuf = "mkdir -p $dir";
+                system $cmdbuf;
+                print "RFS: Warning: the directory should be created already: $path\n";
+        } else {
+                die "warning: directory name exist but not a directory: $path\n" if (!(-d $dir));
+        }
+
+        my $size = hex($sizeHexStr);
+        my $remSize = $size % $writeBlockSize;
+        my $lp = ($size - $remSize) / $writeBlockSize;
+        #print "size($sizeHexStr) lp($lp) rem($remSize)\n";
+
+        open RFSTMPWRITE, ">$path" || die "RFS: can not open file for write";
+
+        my $i = 0;
+        for ($i = 0; $i < $lp; $i++) {
+                syswrite(RFSTMPWRITE, $writebuf, $writeBlockSize);
+        }
+        if ($remSize) {
+                syswrite(RFSTMPWRITE, $writebuf, $remSize);
+                #print "write ($remSize) byte\n";
+        }
+        close RFSTMPWRITE;
+}
+
+# Useful commands:
+# sort -n -k a,b -c -u 
+# 
+#
+
+sub main {
+
+	my $cmdbuf;
+	
+	# skip comment lines
+	# if (path_count ($6) == 0 or original_op($9) == "create" or "mkdir") skip the file 
+
+	$cmdbuf = 'gawk \' !/^[#]/ { if ($6 != "0" && $9 != "create" && $9 != "mkdir") print $0 }\'  test.fil > active.fil';
+	print "$cmdbuf\n";
+	system $cmdbuf;
+	
+	# sort the active.fil according to path_count
+	$cmdbuf = 'sort -k 5,5 active.fil > active.fil.order';
+	print "$cmdbuf\n";
+	system $cmdbuf;
+	$cmdbuf = 'sort -n -k 6,6 active.fil > active.fil.order-pathcnt';
+	print "$cmdbuf\n";
+	system $cmdbuf;
+
+	# keep the interested field only
+	# 2(D/F) 4(FH) 5(path) 6(count) 7(size) 8(mode)
+	$cmdbuf = 'gawk \' { print $2, $4, $5, $6, $7, $8 }\'  active.fil.order > active';
+	print "$cmdbuf\n";
+	system $cmdbuf;
+	$cmdbuf = 'gawk \' { print $4, $5 }\'  active.fil.order > fh-path-map';
+	print "$cmdbuf\n";
+	system $cmdbuf;
+	$cmdbuf = 'gawk \' { print $2, $4, $5, $6, $7, $8 }\'  active.fil.order-pathcnt > active-pathcnt';
+	print "$cmdbuf\n";
+	system $cmdbuf;
+	$cmdbuf = 'gawk \' { print $4, $5 }\'  active.fil.order-pathcnt > fh-path-map-pathcnt';
+	print "$cmdbuf\n";
+	system $cmdbuf;
+
+	#exit(0);
+	
+	# so far, you got the following information
+	# in active: all files/dirs active 
+	# in noattrdir-root: a set of fhs pointing to RFSNN0
+	# in rfsinfo: a set of dir fhs refer to RFSNNxxx(>0)
+	#                a set of file fhs should be discard due to short of information
+
+	# create the active fs
+	# 1. BASEDIR/RFSNN0
+	# 2. BASEDIR/active
+	$cmdbuf = "mkdir -p RFSFS/RFSNN0";
+	system $cmdbuf;
+	open RFS_ACTIVE, "active";
+	while (<RFS_ACTIVE>) {
+		chop;
+		my ($type, $fh, $path, $pathcnt, $sizeHexStr, $mode) = split (' ', $_, 7);
+		if ($type eq "D") {
+			$cmdbuf = "mkdir -p RFSFS$path";
+			system $cmdbuf;
+		}
+		else {
+			&rfsCreateFile("RFSFS$path", $pathcnt, $sizeHexStr);
+		}
+		
+	}
+
+	# create map table: key (fh), value (path/fn)
+
+	# check whether there is fh that is not mapped to any path/fn in the trace
+
+	# simulate a replay of trace
+
+	return;
+	
+}
+
+1;

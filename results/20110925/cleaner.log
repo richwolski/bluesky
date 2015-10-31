@@ -1,0 +1,172 @@
+*** START CLEANER RUN ***
+bytes_used: 67358975
+bytes_wasted: 1069199
+bytes_freed: 9410
+s3_get: 26353439
+s3_put: 157
+running_time: 4.74999809265
+
+*** START CLEANER RUN ***
+bytes_used: 67358975
+bytes_wasted: 9057959
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 12789943
+bytes_freed: 0
+s3_get: 12143384
+s3_put: 16840128
+running_time: 6.54327201843
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 36592832
+bytes_freed: 18993913
+s3_get: 30128745
+s3_put: 25259885
+running_time: 11.4323270321
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 48176903
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 51925625
+bytes_freed: 31680172
+s3_get: 24777202
+s3_put: 33688007
+running_time: 11.3818879128
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 59276654
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 63050471
+bytes_freed: 42848645
+s3_get: 20596601
+s3_put: 16840449
+running_time: 8.70604705811
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 41316709
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 45057387
+bytes_freed: 26381295
+s3_get: 38455006
+s3_put: 33679642
+running_time: 11.7080230713
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 57715658
+bytes_freed: 41202181
+s3_get: 30594100
+s3_put: 25260206
+running_time: 11.7434489727
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 47116877
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 50348573
+bytes_freed: 34878155
+s3_get: 18985720
+s3_put: 16840128
+running_time: 9.43346095085
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 37637010
+bytes_freed: 1602837
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 37645375
+bytes_freed: 22200052
+s3_get: 21088853
+s3_put: 16848814
+running_time: 7.93763995171
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 32294137
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 32320159
+bytes_freed: 21131934
+s3_get: 34740350
+s3_put: 33679642
+running_time: 12.6115119457
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 44867867
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 44901933
+bytes_freed: 39023442
+s3_get: 8445458
+s3_put: 8428736
+running_time: 5.66940903664
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 14307227
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 14324563
+bytes_freed: 12711535
+s3_get: 8428728
+s3_put: 8420371
+running_time: 5.03071594238
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 10033399
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 10042370
+bytes_freed: 10023208
+s3_get: 8971
+s3_put: 8979
+running_time: 0.643241882324
+
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 28141
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 28141
+bytes_freed: 0
+waiting for proxy...
+*** START CLEANER RUN ***
+bytes_used: 67358983
+bytes_wasted: 37112
+bytes_freed: 26315
+s3_get: 8971
+s3_put: 165
+running_time: 0.594120025635
+

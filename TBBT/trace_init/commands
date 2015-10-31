@@ -1,0 +1,20 @@
+#!/bin/bash -x
+
+# to locate a program
+GUNZIP=`whereis gunzip | gawk '{print $2}'`
+echo $GUNZIP
+
+# to run nfsscan
+gunzip -c traces/* | ./nfsscan -f -t0 -o result-total/test > result-total/output 2>&1
+gunzip -c ~traces/anon-lair62-011130-1100.txt.gz | ../nfsscan.pl > output 2>&1
+
+
+
+# post processing of nfsscan
+gawk '{if ($1=="F") print $2, $3, $5, $6 }' output  > output-filename
+gawk '{if ($3!=".") print $0 }' output-filename  > output-filename-known
+
+echo file#; gawk '{if ($1=="F") print $0}' output-filename-known | wc
+echo dir#; gawk '{if ($1=="D") print $0}' output-filename-known | wc
+echo active#; gawk '{if ($2=="A") print $0}' output-filename-known | wc
+echo dead#; gawk '{if ($2=="D") print $0}' output-filename-known | wc

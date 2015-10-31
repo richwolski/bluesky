@@ -1,0 +1,19 @@
+# Limiting outgoing traffic rate to 100 Mbps to Amazon US-West data center
+# (204.246.0.0/16)
+tc qdisc add dev eth0 root handle 1: cbq avpkt 1000 bandwidth 1000mbit
+tc class add dev eth0 parent 1: classid 1:1 cbq rate 100mbit allot 1500 prio 5 bounded isolated
+tc filter add dev eth0 parent 1: protocol ip prio 16 u32 match ip dst 204.246.0.0/16 flowid 1:1
+
+# Limit both incoming traffic as well
+tc qdisc add dev eth0 handle ffff: ingress
+tc filter add dev eth0 parent ffff: protocol ip prio 16 u32 match ip src 204.246.0.0/16 police rate 100mbit burst 10k drop flowid :1
+
+# List traffic classifier state
+tc qdisc show dev eth0
+tc class show dev eth0
+tc filter show dev eth0
+tc filter show dev eth0 parent ffff:
+
+# To clear
+tc qdisc del dev eth0 root
+tc qdisc del dev eth0 ingress

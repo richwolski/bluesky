@@ -1,0 +1,122 @@
+==============================================================================
+NFS Server Running in EC2 (US-West region):
+
+smallfiles:
+    Time:
+            131 seconds total
+            43 seconds of transactions (11 per second)
+
+    Files:
+            1249 created (9 per second)
+                    Creation alone: 1000 files (17 per second)
+                    Mixed with transactions: 249 files (5 per second)
+            254 read (5 per second)
+            246 appended (5 per second)
+            1249 deleted (9 per second)
+                    Deletion alone: 998 files (33 per second)
+                    Mixed with transactions: 251 files (5 per second)
+
+    Data:
+            1.36 megabytes read (10.65 kilobytes per second)
+            6.81 megabytes written (53.21 kilobytes per second)
+
+bigfiles:
+    Time:
+            209 seconds total
+            155 seconds of transactions (3 per second)
+
+    Files:
+            349 created (1 per second)
+                    Creation alone: 100 files (1 per second)
+                    Mixed with transactions: 249 files (1 per second)
+            238 read (1 per second)
+            262 appended (1 per second)
+            349 deleted (1 per second)
+                    Deletion alone: 98 files (32 per second)
+                    Mixed with transactions: 251 files (1 per second)
+
+    Data:
+            392.88 megabytes read (1.88 megabytes per second)
+            570.35 megabytes written (2.73 megabytes per second)
+
+==============================================================================
+NFS Server Running Locaaly:
+
+smallfiles:
+    Time:
+            37 seconds total
+            32 seconds of transactions (156 per second)
+
+    Files:
+            3484 created (94 per second)
+                    Creation alone: 1000 files (250 per second)
+                    Mixed with transactions: 2484 files (77 per second)
+            2502 read (78 per second)
+            2488 appended (77 per second)
+            3484 deleted (94 per second)
+                    Deletion alone: 968 files (968 per second)
+                    Mixed with transactions: 2516 files (78 per second)
+
+    Data:
+            15.32 megabytes read (423.86 kilobytes per second)
+            21.70 megabytes written (600.68 kilobytes per second)
+
+bigfiles:
+    Time:
+            18 seconds total
+            14 seconds of transactions (35 per second)
+
+    Files:
+            349 created (19 per second)
+                    Creation alone: 100 files (25 per second)
+                    Mixed with transactions: 249 files (17 per second)
+            238 read (17 per second)
+            262 appended (18 per second)
+            349 deleted (19 per second)
+                    Deletion alone: 98 files (98 per second)
+                    Mixed with transactions: 251 files (17 per second)
+
+    Data:
+            392.88 megabytes read (21.83 megabytes per second)
+            570.35 megabytes written (31.69 megabytes per second)
+
+==============================================================================
+BlueSky to S3 (US-West region), data fitting in local cache:
+
+smallfiles:
+    Time:
+            28 seconds total
+            23 seconds of transactions (217 per second)
+
+    Files:
+            3484 created (124 per second)
+                    Creation alone: 1000 files (250 per second)
+                    Mixed with transactions: 2484 files (108 per second)
+            2502 read (108 per second)
+            2488 appended (108 per second)
+            3484 deleted (124 per second)
+                    Deletion alone: 968 files (968 per second)
+                    Mixed with transactions: 2516 files (109 per second)
+
+    Data:
+            15.32 megabytes read (560.10 kilobytes per second)
+            21.70 megabytes written (793.76 kilobytes per second)
+
+bigfiles:
+    Time:
+            34 seconds total
+            26 seconds of transactions (19 per second)
+
+    Files:
+            349 created (10 per second)
+                    Creation alone: 100 files (12 per second)
+                    Mixed with transactions: 249 files (9 per second)
+            238 read (9 per second)
+            262 appended (10 per second)
+            349 deleted (10 per second)
+                    Deletion alone: 98 files (98 per second)
+                    Mixed with transactions: 251 files (9 per second)
+
+    Data:
+            392.88 megabytes read (11.56 megabytes per second)
+            570.35 megabytes written (16.78 megabytes per second)

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+export BLUESKY_TARGET=s3
+# Export any environment variables specified on the command line
+for e in "$@"; do
+    echo "$e" 1>&2
+    if echo "$e" | grep = >/dev/null; then
+        eval "$e"
+        export ${e%=*}
+    fi
+done
+
+if [ "$BLUESKY_TARGET" = "native" ]; then
+    /etc/init.d/nfs-kernel-server stop
+else
+    pkill -INT nfsproxy
+    pkill -TERM atsadc
+fi

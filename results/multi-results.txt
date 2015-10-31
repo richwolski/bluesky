@@ -1,0 +1,53 @@
+multi:s3
+    real    1m26.480s
+    user    0m1.500s
+    sys     0m0.810s
+
+    real    1m12.870s
+    user    0m1.500s
+    sys     0m0.750s
+
+    real    1m9.250s
+    user    0m1.510s
+    sys     0m0.830s
+
+    real    1m18.831s
+    user    0m1.250s
+    sys     0m0.800s
+
+    real    1m8.940s
+    user    0m1.640s
+    sys     0m0.760s
+
+    Store[s3]: GETS: count=6448 sum=118654326
+    Store[s3]: PUTS: count=0 sum=0
+    Store[multi:s3]: GETS: count=3224 sum=59327163
+    Store[multi:s3]: PUTS: count=0 sum=0
+    NFS RPC Messages In: count=2822 sum=342892
+    NFS RPC Messages Out: count=2821 sum=59469472
+
+s3
+    real    1m26.808s
+    user    0m1.000s
+    sys     0m0.570s
+
+    real    1m19.660s
+    user    0m1.430s
+    sys     0m0.760s
+
+    real    1m9.448s
+    user    0m1.430s
+    sys     0m0.820s
+
+    real    1m21.730s
+    user    0m1.940s
+    sys     0m0.850s
+
+    real    1m16.682s
+    user    0m2.050s
+    sys     0m0.960s
+
+    Store[s3]: GETS: count=3224 sum=59327163
+    Store[s3]: PUTS: count=0 sum=0
+    NFS RPC Messages In: count=2814 sum=341960
+    NFS RPC Messages Out: count=2813 sum=59468760

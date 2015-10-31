@@ -1,0 +1,43 @@
+# Usage: fragment_collect dev mount_dir test_path output_file
+#
+# On linux system, this script collects the fragmentation status of a 
+# particular directory. The objects under this directory SHOULD NOT be 
+# used as mount point. If they do, please umount them first, but there
+# is no danger even if you forget. The "output_file" is the one that I
+# need, please gzip it and send it back to nzhu@cs.sunysb.edu
+#
+# The program needs to be run as ROOT, but it is SAFE and KEEPS PRIVACY.
+# The pathname information on your system is completely filtered out 
+# from the final output. This program ONLY READ and DOES NOT WRITE any
+# files EXCEPT "output_file*" 
+#
+# Parameters:
+#		 dev 			:the device of the directory to be measured
+#		 mount_dir	 	:the the mount point of the device
+#		 test_path 		:the relative path of the directory under mount_dir
+#		 output_file	:where the result is stored.
+#
+# Example: fragment_collect /dev/hda7 /home ningning /tmp/home-ningning.frag
+#
+#	This gives the fragmentation information (saved in "/tmp/home-ningning.frag")
+#   of the file system objects under the directory of "/home/ningning" on the 
+#   disk partition of "/dev/hda7" mounted to "/home".
+#
+#nfs stop
+#umount $2
+#mount $2
+#nfs start
+cd $2
+echo "find $3 -print >$4.1"
+find $3 -print > $4.1
+echo "sed -d s/^/show_inode_info / $4.1"
+sed -e "s/^/show_inode_info /" $4.1 >$4.2
+echo "open $1" >$4.3
+cat $4.2 >> $4.3
+echo "debugfs -f $4.3"
+debugfs -f $4.3 > $4.4
+grep -v debugfs $4.4 > $4
+#rm $4.1
+#rm $4.2 
+#rm $4.3
+#rm $4.4

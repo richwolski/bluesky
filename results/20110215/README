@@ -1,0 +1,6 @@
+These runs are similar to the later 20110226/ runs, but using the older
+disk (80 GB and slower) in the proxy.
+
+One major difference is that all OPS targets use the same working set
+size for the files, rather than having it scale up with the load.  Total
+there is ~10 GB of data, but the working set is around 3.0-3.5 GB.

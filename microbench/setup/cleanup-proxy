@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# Start up the NFS server.
+
+export BLUESKY_TARGET=s3
+# Export any environment variables specified on the command line
+for e in "$@"; do
+    echo "$e" 1>&2
+    if echo "$e" | grep = >/dev/null; then
+        eval "$e"
+        export ${e%=*}
+    fi
+done
+
+if [ "$BLUESKY_TARGET" = "native" ]; then
+    /etc/init.d/nfs-kernel-server stop
+    umount /export
+    mkfs.ext3 -F /dev/sdb
+    mount /export
+else
+    rm -rf /export/journal
+fi

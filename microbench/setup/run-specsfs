@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Launch SPECsfs; should be run on the load-generator node.
+
+# Export any environment variables specified on the command line
+for e in "$@"; do
+    echo "$e" 1>&2
+    if echo "$e" | grep = >/dev/null; then
+        eval "$e"
+        export ${e%=*}
+    fi
+done
+
+cd /scratch/spec-sfs/manager
+java SfsManager -r $SPEC_CONF -s $BLUESKY_RUN_NAME

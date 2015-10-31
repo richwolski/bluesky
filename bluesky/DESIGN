@@ -1,0 +1,124 @@
+                         BlueSky Storage Design
+
+At a basic level we use a fairly standard filesystem design: the
+filesystem consists of a collection of inodes which in turn point to
+data blocks.
+
+There are three different levels at which data can be stored/committed:
+  1. In memory within the BlueSky proxy
+  2. Written to local disk at the proxy
+  3. Committed to cloud storage
+
+Updates can be made at level 1 with very low overhead, and the hope is
+that consecutive updates are batched together at this point.  Data is
+flushed from 1 to 2 by writing out updated data blocks and serializing
+new versions of inodes.  In a log-structured design, data is commited
+from level 2 to 3 by grouping together dependent items into log segments
+and flushing those log segments to the cloud.  Some data might be
+garbage-collected if it becomes dead before it is flushed to level 3.
+Encryption is likely only implemented at level 3 (or possibly at level
+2).
+
+Level 1 is primarily an implementation detail of the BlueSky library and
+need not preseve any inter-version compatibility.
+
+For level 2 we have a collection of objects with edges between them
+representing two types of dependencies: data dependencies (as between an
+inode and the data blocks it references), and ordering dependencies (for
+example, a directory should not be committed until any new inodes it
+references are also committed, though there is not a data dependency
+since the directory only references the inode number not the inode
+itself).  Data blocks are unversioned (if we change the data in a file,
+we write a new data block and point the inode at the new block name).
+Inodes are versioned (since we can update an inode, but references to it
+in directory entries are not updated) and we need a mechanism to keep
+track of the most recent version of an inode--an inode map.  Another way
+of looking at this is that data block pointers can be dereferenced
+directly, but dereferencing an inode number requires a layer of
+indirection (the inode map).
+
+Should objects have back references to track where pointers to them
+exist?  One simple implementation would be to track which inode each
+data block belongs to, though this doesn't work well with snapshots or
+deduplication.
+
+Level 3 consists of objects from level 2, aggregated together into log
+segments.  There are a few complications:
+  - At level 3 we add in encryption, but:
+  - We want to be able to fetch individual objects using range requests,
+    so the encryption needs to be either per-object or allow decryption
+    to start from mid-file.
+  - Log cleaning ought to be able to run in the cloud, without the
+    encryption key, so some data such as inter-object references must be
+    outside the encryption wrapper.
+
+A possible level-3 object format:
+  UNPROTECTED
+    List of referenced objects and locations
+  AUTHENTICATED
+    Object identifier (does not change even if segment is repacked)
+    Object identifiers for referenced objects?
+  ENCRYPTED
+    Data payload
+      (references are given as an index into the list in the unprotected
+      section, so a cleaner can rearrange objects without decrypting)
+
+
+Object Types/Formats
+  SUPERBLOCK
+    Either stored separately from log segments at a well-known location,
+    or have log-segments named in a well-known fashion and place
+    superblock at a known location in the log segments.
+
+    Contains pointers to inode maps, and perhaps to old superblocks too
+    if we don't want to rewrite all this information each time.
+
+  INODE MAP BLOCK
+    Lists the current location of each inode in the logs, for some range
+    of the inode number space.
+
+  INODE
+    Contains file metadata and pointers to data blocks.  The metadata
+    can be encrypted, but cleaner process needs read/write access to the
+    data pointers.
+
+    In addition to the plaintext pointers there should be a way to
+    validate that the pointed-to data is correct.  This could either be
+    a hash of the data block pointed to, or an ID stored with the data
+    block (where the ID does not change even if the data block is
+    relocated to another log segment).
+
+  DATA BLOCK
+    Encrypted file data, but includes a back reference the inode using
+    this block as plaintext.  (The back reference is simply the inode
+    number, and possibly, though it is not needed, the offset within the
+    file.)
+
+Determining live data:
+    Checking whether an inode is live can be done by comparing against
+    the current inode map.
+
+    To check whether data is live, each data block lists the inode it
+    belongs to.  The data is live if the most current version of the
+    inode still points to this block.  These back references are also
+    used when data is relocated during cleaning.  This does mean,
+    however, that each block can only be used in one location (no
+    de-duplication support), unless we add some other mechanism for
+    tracking back-references (there is one bit of related work that
+    might apply, but it's not worth implementing now).
+
+On-line Cleaning
+    Online cleaning is a specialized case of handling concurrent writers
+    to the same filesystem, with a few twists.
+
+    The cleaning process should be able to run in EC2 without the
+    filesystem encryption key, so pointers between objects must not be
+    encrypted.
+
+    The proxy editing the filesystem and the cleaner may run in
+    parallel, each writing to a separate log head.  One process or the
+    other must then merge any divergent changes together.  This should
+    be easy to do in this one specific case, though, since on the proxy
+    is actually changing data and the cleaner is only rearranging
+    objects in the logs (and updating pointers)--thus there shouldn't be
+    conflicts that can't be automatically handled.

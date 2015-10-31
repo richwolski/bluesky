@@ -1,0 +1,842 @@
+.\" @(#)sfs.1  2.1     97/10/23
+.\" See DESCR.SFS file for restrictions
+.\"
+.\" create man page by running 'tbl sfs.1 | nroff -man > sfs.cat'
+.\"
+.TH SFS 1 "5 October 1994"
+.SH NAME
+SFS \- Network File System server benchmark program
+.SH SYNOPSIS
+.B sfs
+[
+.B \-a access_pcnt
+] [
+.B \-A append_pcnt
+]
+.br
+[
+.B \-b blocksz_file
+] [
+.B \-B block_size
+] [
+.B \-d debug_level
+]
+.br
+[
+.B \-D dir_cnt
+] [
+.B \-f file_set_delta
+] [
+.B \-F file_cnt
+] [
+.B \-i
+] [
+.B \-l load
+]
+.br
+[
+.B \-m mix_file
+] [
+.B \-M prime_client_hostname
+]
+.br
+[
+.B \-N client_num
+] [
+.B \-p processes
+] [
+.B \-P
+] [
+.B \-Q
+]
+.br
+[
+.B \-R biod_reads
+] [
+[
+.B \-S symlink_cnt
+] [
+.B \-t time
+] [
+.B \-T
+]
+.br
+[
+.B \-V
+] [
+.B \-W biod_writes
+] [
+.B \-w warmup_time
+] [
+.B \-z
+]
+.br
+[
+.B server:/directory ...
+]
+.LP
+.B sfs3
+[
+.B \-a access_pcnt
+] [
+.B \-A append_pcnt
+]
+.br
+[
+.B \-b blocksz_file
+] [
+.B \-B block_size
+] [
+.B \-d debug_level
+]
+.br
+[
+.B \-D dir_cnt
+] [
+.B \-f file_set_delta
+] [
+.B \-F file_cnt
+] [
+.B \-i
+] [
+.B \-l load
+]
+.br
+[
+.B \-m mix_file
+] [
+.B \-M prime_client_hostname
+]
+.br
+[
+.B \-N client_num
+] [
+.B \-p processes
+] [
+.B \-P
+] [
+.B \-Q
+]
+.br
+[
+.B \-R biod_reads
+] [
+[
+.B \-S symlink_cnt
+] [
+.B \-t time
+] [
+.B \-T
+]
+.br
+[
+.B \-V
+] [
+.B \-W biod_writes
+] [
+.B \-w warmup_time
+] [
+.B \-z
+]
+.br
+[
+.B server:/directory ...
+]
+.SH DESCRIPTION
+Normally,
+.B SFS
+is executed via the
+.B sfs_mgr
+script which controls
+.B SFS
+execution on one or more
+.SM NFS
+client systems using a single user interface.
+.P
+.B SFS
+is a Network File System server benchmark.
+It runs on one or more 
+.SM NFS
+client machines to generate an artificial load
+consisting of a particular mix of
+.SM NFS
+operations on a particular set of files
+residing on the server being tested.
+The benchmark reports the average response time of the
+.SM NFS
+requests in milliseconds for the requested target load.
+The response time is the dependent variable.
+Load can be generated for a specific amount of time,
+or for a specific number of
+.SM NFS
+calls.
+.P
+.B SFS
+can also be used to characterize server performance.
+Nearly all of the major factors that influence NFS performance
+can be controlled using
+.B SFS
+command line arguments. Normally however, only the
+.B \-l load
+option used.
+Other commonly used options include the
+.B \-t time
+,
+.B \-p processes
+,
+.B \-m mix_file
+options.
+The remaining options are used to adjust specific parameters that affect
+.SM NFS
+performance.
+If these options are used, the results produced will be non\-standard,
+and thus, will not be comparable to tests run with other option settings.
+.P
+Normally,
+.B SFS
+is used as a benchmark program to measure the
+.SM NFS
+performance
+of a particular server machine at different load levels.
+In this case,
+the preferred measurement is to make a series of benchmark runs, 
+varying the load factor for each run
+in order to produce a performance/load curve.
+Each point in the curve
+represents the server's response time at a specific load.
+.P
+.B SFS
+generates and transmits
+.SM NFS
+packets over the network to the server directly from the benchmark program,
+without using the client's local NFS service.
+This reduces the effect of the client NFS implementation on results,
+and makes comparison of different servers more client-independent.
+However, not all client implementation effects have been eliminated.
+Since the benchmark does by-pass much of the client NFS implementation
+(including operating system level data caching and write behind),
+.B SFS
+can only be used to measure server performance.
+.P
+Although
+.B SFS
+can be run between a single client and single server pair of machines,
+a more accurate measure of server performance is obtained
+by executing the benchmark on a number of clients simultaneously.
+Not only does this present a more realistic model of
+.SM NFS
+usage, but also improves the chances that maximum performance
+is limited by a lack of resources on the server machine,
+rather than on a single client machine.
+.P
+In order to facilitate running
+.B SFS
+on a number of clients simultaneously,
+an accompanying program called
+.B sfs_mgr
+provides a mechanism to run and synchronize the execution of multiple
+instances of
+.B SFS
+spread across multiple clients and multiple networks
+all generating load to the same
+.SM NFS
+server.
+In general,
+.B sfs_mgr
+should be used to run both single- and multiple-client tests.
+.P
+.B SFS
+employs a number of sub\-processes, each with its own test directory named
+.B ./testdir<n>
+(where <n> is a number from 0 to
+.B processes
+\- 1.)
+A standard set of files is created in the test directory.
+.P
+If multiple
+.B directories
+are specified on the command line, the
+.B SFS
+processes will be evenly distributed among the directories.
+This will produce a balanced load across each of the directories.
+.P
+The mix of
+.SM NFS
+operations generated can be set from a user defined mix file.
+The format of the file consists of a simple format, the first
+line contains the string "SFS MIXFILE VERSION 2" followed by
+each line containing the operation name and the percentage (eg.
+"write 12"). The total percentages must equal 100.
+Operations with not specified will never be called by
+.B SFS.
+.SH SFS OPTIONS
+.TP
+.B \-a access_pcnt
+The percentage of I/O files to access.
+The access percent can be set from 0 to 100 percent.
+The default is 10% access.
+.TP
+.B \-A append_pcnt
+The percentage of write operations that append data to files
+rather than overwriting existing data.
+The append percent can be set from 0 to 100 percent.
+The default is 70% append.
+.TP
+.B \-b blocksz_file
+The name of a file containing a block transfer size distribution specification.
+The format of the file and the default values are discussed below
+under "Block Size Distribution".
+.TP
+.B \-B block_size
+The maximum number of Kilo-bytes (KB) contained in any one data transfer block.
+The valid range of values is from 1 to 8 KB.
+The default maximum is 8 KB per transfer.
+.TP
+.B \-d debug_level
+The debugging level, with higher values producing more debugging output.
+When the benchmark is executed with debugging enabled,
+the results are invalid.
+The debug level must be greater than zero.
+.TP
+.B \-D dir_cnt
+The number of files in each directory, the number of directories varies with
+load load.
+The default is 30 files per directory.
+.TP
+.B \-f file_set_delta
+The percentage change in file set size.
+The change percent can be set from 0 to 100 percent.
+The default is 10% append.
+.TP
+.B \-F file_cnt
+The number of files to be used for read and write operations.
+The file count must be greater than 0.
+The default is 100 files.
+.TP
+.B \-i
+Run the test in interactive mode,
+pausing for user input before starting the test.
+The default setting is to run the test automatically.
+.TP
+.B \-l load
+The number of NFS calls per second to generate from each client machine.
+The load must be greater than the number of processes
+(see the "\-p processes" option).
+The default is to generate 60 calls/sec on each/client.
+.TP
+.B \-m mix_file
+The name of a file containing the operation mix specification.
+The format of the file and the default values are discussed below
+under "Operation Mix".
+.TP
+.B \-p processes
+The number of processes used to generate load on each client machine.
+The number of processes must be greater than 0.
+The default is 4 processes per client.
+.TP
+.B \-P
+Populate the test directories and then exit; don't run the test.
+This option can be used to examine the file set that the benchmark creates.
+The default is to populate the test directories and then
+execute the test automatically.
+.TP
+.B \-Q
+Run NFS over TCP.
+The default is UDP.
+.TP
+.B \-R biod_reads
+The maximum number of asynchronus reads issued to simulate biod behavior.
+The default is 2.
+.TP
+.B \-S symlink_cnt
+The number of symbolic links to be used for symlink operations.
+The symbolic link count must be greater than 0.
+The default is 20 symlinks.
+.TP
+.B \-t time
+The number of seconds to run the benchmark.
+The number of seconds must be greater than 0.
+The default is 300 seconds.
+(Run times less than 300 seconds may produce invalid results.)
+.TP
+.B \-T op_num
+Test a particular
+.SM NFS
+operation by executing it once.
+The valid range of operations is from 1 to 23.
+These values correspond to the procedure number
+for each operation type as defined in the
+.SM NFS
+protocol specification.
+The default is to run the benchmark, with no preliminary operation testing.
+.TP
+.B \-V
+Validate the correctness of the server's
+.SM NFS
+implementation.
+The option verifies the correctness of
+.SM NFS
+operations and data copies.
+The verification takes place immediately before executing the test,
+and does not affect the results reported by the test. 
+The default is not to verify server
+.SM NFS
+operation before beginning the test.
+.TP
+.B \-z
+Generate raw data dump of the individual data points
+for the test run.
+.TP
+.B \-w warmup
+The number of seconds to generate load before starting the timed test run.
+The goal is to reach a steady state and eliminate any variable startup costs,
+before beginning the test.
+The warm up time must be greater than or equal to 0 seconds.
+The default is a 60 second warmup period.
+.TP
+.B \-W biod_writes
+The maximum number of asynchronus writes issued to simulate biod behavior.
+The default is 2.
+.SH MULTI-CLIENT OPTIONS
+.B SFS
+also recognizes options that are only used when executing a multi-client test.
+These options are generated by
+.B sfs_mgr
+and should not be specified by an end-user.
+.TP
+.B \-M prime_client_hostname
+The hostname of the client machine where a multi-client test
+is being controlled from.
+This machine is designated as the "prime client".
+The prime client machine may also be executing the
+.B SFS
+load-generating code. There is no default value.
+.TP
+.B \-N client_num
+The client machine's unique identifier within a multi-client test,
+assigned by the
+.B sfs_mgr
+script.
+There is no default value.
+.\".TP
+.\".B \-R random_number_seed
+.\"The value used by the client to index into a table of random number seeds.
+.\"There is no default value.
+.SH OPERATION MIX
+The
+.B SFS
+default mix of operations for version 2 is:
+.sp
+.TS
+center;
+l l l l l l
+n n n n n n
+l l l l l l
+n n n n n n
+l l l l l l
+n n n n n n.
+null	getattr	setattr	root	lookup	readlink
+0%	26%	1%	0%	36%	7%
+read	wrcache	write	create	remove	rename
+14%	7%	1%	1%	0%	0%
+link	symlink	mkdir	rmdir	readdir	fsstat
+0%	0%	0%	0%	6%	1%
+.TE
+.LP
+The
+.B SFS
+default mix of operations for version 3 is:
+.sp
+.TS
+center;
+l l l l l l
+n n n n n n
+l l l l l l
+n n n n n n
+l l l l l l
+n n n n n n
+l l l l l l
+n n n n n n.
+null	getattr	setattr	lookup	access	readlink
+0%	11%	1%	27%	7%	7%
+read	write	create	mkdir	symlink	mknod
+18%	9%	1%	0%	0%	0%
+remove	rmdir	rename	link	readdir	readdirplus
+1%	0%	0%	0%	2%	9%
+fsstat	fsinfo	pathconf	commit
+1%	0%	0%	5%
+.TE
+.P
+The format of the file consists of a simple format, the first
+line contains the string "SFS MIXFILE VERSION 2" followed by
+each line containing the operation name and the percentage (eg.
+"write 12"). The total percentages must equal 100.
+.SH FILE SET
+The default basic file set used by
+.B SFS
+consists of regular files varying in size from 1KB to 1MB used for read and
+write operations,
+and 20 symbolic links used for symbolic link operations.
+In addition to these, a small number of regular files are created
+and used for non-I/O operations (eg, getattr),
+and a small number of regular, directory, and symlink files may
+be added to this total due to creation operations (eg, mkdir).
+.P
+While these values can be controlled with command line options,
+some file set configurations may produce invalid results.
+If there are not enough files of a particular type,
+the specified mix of operations will not be achieved.
+Too many files of a particular type may produce
+thrashing effects on the server.
+.SH BLOCK SIZE DISTRIBUTION
+The block transfer size distribution is specified by a table of values.
+The first column gives the percent of operations that will be included in a
+any particular specific block transfer.
+The second column gives the number of blocks units that will be transferred.
+Normally the block unit size is 8KB.
+The third column is a boolean specifying
+whether a trailing fragment block should be transferred.
+The fragment size for each transfer is a random multiple of 1 KB,
+up to the block size - 1 KB.
+Two tables are used, one for read operation and one for write operations.
+The following tables give the default distributions
+for the read and write operations.
+.sp
+.TS
+center;
+c s s s
+c s s s
+r r r r
+r r r r
+c s s s
+n n n r.
+Read  - Default Block Transfer Size Distribution Table
+ 
+ 	 	 	resulting transfer
+percent	block count	fragment	(8KB block size)
+ 
+0	0	0	 0%    0 -   7 KB
+85	1	0	85%    8 -  15 KB
+8	2	1	 8%   16 -  23 KB
+4	4	1	 4%   32 -  39 KB
+2	8	1	 2%   64 -  71 KB
+1	16	1	 1%  128 - 135 KB
+.TE
+.sp 2
+.TS
+center;
+c s s s
+c s s s
+r r r r
+r r r r
+c s s s
+n n n r.
+Write  - Default Block Transfer Size Distribution Table
+ 
+ 	 	 	resulting transfer
+percent	block count	fragment	(8KB block size)
+ 
+49	0	1	49%    0 -   7 KB
+36	1	1	36%    8 -  15 KB
+8	2	1	 8%   16 -  23 KB
+4	4	1	 4%   32 -  39 KB
+2	8	1	 2%   64 -  71 KB
+1	16	1	 1%  128 - 135 KB
+.TE
+.P
+A different distribution can be substituted by using the '-b' option.
+The format for the block size distribution file consists of the first
+three columns given above: percent, block count, and fragment.  Read
+and write distribution tables are identified by the keywords "Read" and
+"Write".  An example input file, using the default values, is given below:
+.sp
+.TS
+l s s
+n n n.
+Read
+0	0	0
+85	1	0
+8	2	1
+4	4	1
+2	8	1
+1	16	1
+.TE
+.TS
+l s s
+n n n.
+Write
+49	0	1
+36	1	1
+8	2	1
+4	4	1
+2	8	1
+1	16	1
+.TE
+.P
+A second aspect of the benchmark controlled
+by the block transfer size distribution table is the network data packet size.
+The distribution tables define the relative proportion
+of full block packets to fragment packets.
+For instance, the default tables have been constructed
+to produce a specific distribution of ethernet packet sizes
+for i/o operations by controlling the amount of data in each packet.
+The write packets produced consist of 50% 8-KB packets, and 50% 1-7 KB packets.
+The read packets consist of 90% 8-KB packets, and 10% 1-7 KB packets.
+These figures are determined by multiplying the percentage
+of type of transfer times the number of blocks and fragments generated,
+and adding the totals.
+These computations are performed below
+for the default block size distribution tables:
+.sp
+.TS
+c c c c c
+c c c c c
+n n n n n
+n n n n n
+n n n n n
+n n n n n
+n n n n n
+n n n n n
+r r r l l
+r r r n n
+r r r l l.
+Read	 	 	total	total
+percent	blocks	fragments	blocks	fragments
+0	0	0	0	0
+85	1	0	85	0
+8	2	1	16	8
+4	4	1	16	4
+2	8	1	16	2
+1	16	1	16	1
+ 	 	 	----	-----
+ 	 	 	149	15
+ 	 	 	 90%	  10%
+.TE
+.sp 3
+.TS
+r r r r r
+r r r r r
+n n n n n
+n n n n n
+n n n n n
+n n n n n
+n n n n n
+n n n n n
+r r r l l
+r r r n n
+r r r l l.
+Write	 	 	total	total
+percent	blocks	fragments	blocks	fragments
+49	0	1	0	49
+36	1	1	36	36
+8	2	1	16	8
+4	4	1	16	4
+2	8	1	16	2
+1	16	1	16	1
+ 	 	 	----	------
+ 	 	 	100	100
+ 	 	 	 50%	   50%
+.TE
+.SH USING SFS
+As with all benchmarks,
+.B SFS
+can only provide numbers that are useful
+if the test runs are set up carefully.
+Since it measures server performance,
+the client (or clients) should not limit throughput.
+The goal is to determine how well the server performs.
+Most tests involving a single client will be limited by the client's
+ability to generate load, not by the server's ability to handle more load.
+Whether this is the case can be determined by running the benchmark
+at successively greater load levels and finding the "knee of the curve"
+at which load level the response time begins to increase rapidly.
+Having found the knee of the curve, measurements of CPU utilization,
+disk i/o rates, and network utilization levels should be made in order
+to determine whether the performance bottleneck is due to the client
+or server.
+.P
+For the results reported by
+.B SFS
+to be meaningful, the tests should be run on an isolated network,
+and both the client and server should be as quiescent as possible during tests.
+.P
+High error rates on either the client or server
+can also cause delays due to retransmissions
+of lost or damaged packets.
+.B netstat(8)
+can be used to measure the network error
+and collision rates on the client and server.
+Also
+.B SFS
+reports the number of timed-out
+.SM RPC
+calls that occur during the test as bad calls.
+If the number of bad calls is too great,
+or the specified mix of operations is not achieved,
+.B SFS
+reports that the test run is "Invalid".
+In this case, the reported results should be examined 
+to determine the cause of the errors.
+.P
+To best simulate the effects of
+.SM NFS
+clients on the server, the test
+directories should be set up so that they are on at least two
+disk partitions exported by the server.
+.SM NFS
+operations tend to randomize disk access,
+so putting all of the
+.B SFS
+test directories on a single partition will not show realistic results.
+.P
+On all tests it is a good idea to run the tests repeatedly and compare results.
+If the difference between runs is large,
+the run time of the test should be increased
+until the variance in milliseconds per call is acceptably small.
+If increasing the length of time does not help,
+there may be something wrong with the experimental setup.
+.P
+The numbers generated by
+.B SFS
+are only useful for comparison if the test setup on the client machine
+is the same across different server configurations. 
+Changing the
+.B processes
+or
+.B mix
+parameters will produce numbers that can not be meaningfully compared.
+Changing the number of generator processes may affect the measured response
+time due to context switching or other delays on the client machine,
+while changing the mix of
+.SM NFS
+operations will change the whole nature of the experiment.
+Other changes to the client configuration may also effect the comparability
+of results.
+.P
+To do a comparison of different server configurations, first set up the
+client test directory and do
+.B SFS
+runs at different loads to be sure that the variability is
+reasonably low. Second, run
+.B SFS
+at different loads of interest and
+save the results. Third, change the server configuration (for example,
+add more memory, replace a disk controller, etc.). Finally, run the same
+.B SFS
+loads again and compare the results.
+.SH SEE ALSO
+.P
+The benchmark 
+.B README  
+file contains many pointers to other
+files which provide information concerning SFS.
+.SH ERROR MESSAGES
+.TP 10
+.B "illegal load value"
+The
+.B load
+argument following the
+.B \-l
+flag on the command line is not a positive number.
+.TP
+.B "illegal procs value"
+The
+.B processes
+argument following the
+.B \-p
+flag on the command line is not a positive number.
+.TP
+.B "illegal time value"
+The
+.B time
+argument following the
+.B \-t
+flag on the command line is not a positive number.
+.TP
+.B "bad mix file"
+The
+.B mix
+file argument following the
+.B \-m
+flag on the command line could not be accessed.
+.TP
+.B "can't fork"
+The parent couldn't fork the child processes. This usually results from
+lack of resources, such as memory or swap space.
+.TP
+.PD 0
+.B "can't open log file"
+.TP
+.B "can't stat log"
+.TP
+.B "can't truncate log"
+.TP
+.B "can't write sync file"
+.TP
+.B "can't write log"
+.TP
+.B "can't read log"
+.PD
+A problem occurred during the creation, truncation, reading or writing of the
+synchronization log file. The parent process creates the
+log file in /tmp and uses it to synchronize and communicate with its children.
+.TP
+.PD 0
+.B "can't open test directory"
+.TP
+.B "can't create test directory"
+.TP
+.B "can't cd to test directory"
+.TP
+.B "wrong permissions on test dir"
+.TP
+.B "can't stat testfile"
+.TP
+.B "wrong permissions on testfile"
+.TP
+.B "can't create rename file"
+.TP
+.B "can't create subdir"
+.PD
+A child process had problems creating or checking the contents of its
+test directory. This is usually due to a permission problem (for example
+the test directory was created by a different user) or a full file system.
+.TP
+.PD 0
+.B "op failed: "
+One of the internal pseudo\-NFS operations failed. The name of the operation,
+e.g. read, write, lookup, will be printed along with an indication of the
+nature of the failure.
+.TP
+.B "select failed"
+The select system call returned an unexpected error.
+.SH BUGS
+.P
+.B SFS
+can not be run on non\-NFS file systems.
+.P
+.P
+Shell scripts that execute
+.B SFS
+must catch and ignore SIGUSR1, SIGUSR2, and SIGALRM, (see signal(3)).
+These signals are used to synchronize the test processes.
+If one of these signals is not caught,
+the shell that is running the script will be killed.
+.SH FILES
+.PD 0
+.TP
+.B ./testdir*
+per process test directory
+.TP
+.B /tmp/sfs_log%d
+child process synchronization file
+.TP
+.B /tmp/sfs_CL%d
+client log file
+.TP
+.B /tmp/sfs_PC_sync
+prime client log file
+.TP
+.B /tmp/sfs_res
+prime results log file
+.PD

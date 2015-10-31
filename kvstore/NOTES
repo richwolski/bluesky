@@ -1,0 +1,13 @@
+apt-get install mercurial build-essential libdb4.6-dev libasio-dev libboost1.35-dev libprotobuf-dev libgtest-dev protobuf-compiler scons
+
+rm -f /tmp/__db* /tmp/test.db;./kvstore -d /tmp & KVPID=$! ;sleep 1 ;time
+./kvbench --high 20 --servers 127.0.0.1:9090 ;kill $KVPID
+
+(0x42, 0x5A, 0x68) 
+
+ grep '1f 8b 08 00'
+
+x=/boot/vmlinuz-2.6.26-2-amd64 p=`echo -e '\x8b\x08\x00'` o=`grep -a -b
+-o -m 1 -e $p $x | cut -d: -f 1` dd if=$x skip=$o bs=1 | zcat > /tmp/vmlinux
+
+x=/boot/vmlinuz-2.6.26-2-amd64 dd if=$x skip=`grep -a -b -o -m 1 -e $'\xf1\x8b\x08\x00 $x | cut -d: -f 1` bs=1 | zcat > /tmp/vmlinux

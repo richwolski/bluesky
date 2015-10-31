@@ -1,0 +1,584 @@
+Started on client (c09-44): ../binaries/linux-x86/sfs_syncd
+--------------------
+Start of sfs run.
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got CLIENT_STOP - 1_2
+sfs_syncd: sending Pid 4989 Signal 2
+Started on client (c09-44): ../binaries/linux-x86/sfs_syncd
+--------------------
+Start of sfs run.
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got CLIENT_STOP - 1_1
+sfs_syncd: sending Pid 5308 Signal 2
+Started on client (c09-44): ../binaries/linux-x86/sfs_syncd
+--------------------
+Start of sfs run.
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got CLIENT_STOP - 1_1
+sfs_syncd: sending Pid 5419 Signal 2
+Started on client (c09-44): ../binaries/linux-x86/sfs_syncd
+--------------------
+Start of sfs run.
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+Started on client (c09-44): ../binaries/linux-x86/sfs_syncd
+--------------------
+Start of sfs run.
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got CLIENT_STOP - 1_1
+sfs_syncd: sending Pid 6434 Signal 2
+Started on client (c09-44): ../binaries/linux-x86/sfs_syncd
+--------------------
+Start of sfs run.
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5
+sfs_syncd: Got Client_SIGNAL - 1_1
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_1
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_2
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_2
+   Sent SIGUSR1
+sfs_syncd: Got Client_SIGNAL - 1_3
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_3
+   Sent SIGUSR1
+sfs_syncd: Got PRIME_ALARM(SIGALRM) - Prime_4
+   Sent SIGALRM
+sfs_syncd: Got Client_SIGNAL - 1_4
+sfs_syncd: Got PRIME_SIGNAL(SIGUSR1) - Prime_5
+   Sent SIGUSR1
+sfs_syncd: Got Client_DATA - 1_5

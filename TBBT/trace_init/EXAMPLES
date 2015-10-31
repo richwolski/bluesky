@@ -1,0 +1,170 @@
+# Copyright (c) 2002-2003
+#      The President and Fellows of Harvard College.
+#
+# $Id: EXAMPLES,v 1.3 2003/07/28 14:27:16 ellard Exp $
+#
+# For nfsscan version 0.10a (dated 7/25/2003).
+
+INTRODUCTION
+
+The usual procedure for analyzing a trace is the following:
+
+	1.  Use nfsscan to produce a tabularized summary of each
+		300-second segment of the trace.  For these examples,
+		we'll call this DEFAULT_TABLE.
+
+		Depending on what you're looking for, the default
+		settings of nfsscan might not provide all the info
+		you're going to want in the next step.  The default is
+		to omit per-client, per-user, per-group, and per-file
+		stats and only tally total operation counts.  [THE
+		DEFAULTS MAY CHANGE IN A FUTURE RELEASE.]
+
+	2.  Use ns_timeagg to create a summary of activity in the
+		entire trace named SUMMARY_TABLE from DEFAULT_TABLE.
+
+		Note that almost anything ns_timeagg and ns_split can
+		do can also be done directly with nfsscan.  However,
+		the implicit goal of ns_timeagg and ns_split is to
+		AVOID re-running nfsscan.  It is much faster to
+		re-process a table created by nfsscan than it is to
+		re-create the table -- the input to nfsscan is
+		typically several million (or billion) lines of trace
+		data, while the output is usually only a few thousand
+		table rows.
+
+	3.  Use ns_quickview to plot interesting aspects of the
+		DEFAULT_TABLE and/or SUMMARY_TABLE.
+
+	4.  [optional] Use ns_split and/or ns_tsplit to isolate
+		interesting parts of DEFAULT_TABLE (such as per-client
+		or per-user counts).  Repeat steps 2 and 3 with the
+		results.
+
+	5.  [optional] If steps 2-4 found anything interesting, re-run
+		nfsscan with new parameters to take a closer look at
+		the trace.
+
+Examples and discussion of these steps and related topics is given
+below.
+
+For these examples, TRACE is a trace file gathered by nfsdump (or
+another tool that creates traces files in the same format), and TABLE.ns
+is a file created by nfsscan from TRACE.  The suffix ".ns" is also
+used to denote files that contain tables created by nfsscan,
+ns_timeagg, ns_split, and ns_tsplit.  Example commandlines always
+begin with "%".
+
+1.  RUNNING NFSSCAN
+
+2.  CREATING A SUMMARY TABLE
+
+	To compute a table contsisting of a single row with counts for
+	each operation tallied by the nfsscan run, aggregate over time
+	with a time length of zero.  (Zero is treated as a special
+	time length that includes the entire input table.)
+
+	% ns_timeagg -t0 TABLE.ns > SUMMARY.ns
+
+	Note that timeagg will always aggregate over every (except
+	time) attribute, so it does not matter whether or not the
+	TABLE.ns contains per-client, per-user, per-group, or per-file
+	data.  The sum will always be the same.
+
+	On the other hand, if you want to prevent ns_timeagg from
+	aggregating over a particular attribute, specify that
+	attribute in the same manner as with nfsscan.  For example, to
+	create a table with a single row containing the operation
+	count per user:
+
+	% ns_timeagg -t0 -BU TABLE.ns > SUMMARY.ns
+
+	Of course, ns_timeagg cannot create data out of thin air.  If
+	TABLE.ns does not contain per-user information then -BU will
+	have no effect.
+
+3.  PLOTTING THE DATA
+
+	To simply plot the total operation count:
+
+	% ns_quickview TABLE.ns
+	% gv qv.ps
+
+WHICH CLIENT REQUESTS THE MOST OPERATIONS?
+
+Method:  use nfsscan to tally the per-client operation counts for the
+	entire trace file (by using -t0), and then sort by the TOTAL
+	op count fields:
+
+	If TABLE contains per-client information, then this is easy:
+
+	% ns_timeagg -t0 -BC TABLE | grep -v '^#' \
+			| awk '{print $7, $3}' | sort -nr
+
+	If TABLE does not contain per-client info, then it's necessary
+	to re-run nfsscan:
+
+	% nfsscan -t0 -BC TRACE | grep -v '^#' \
+			| awk '{print $7, $3}' | sort -nr
+
+	The output from either command is a two-column table.  The
+	first column is the total operation count of each client, and
+	the second column is the ID of each client.
+
+WHICH CLIENT DOES THE MOST READING?
+
+	If we've already got TABLE, and it contains per-client info,
+	then the easiest way is to simply use extract the read count
+	column (instead of the TOTAL column) from TABLE:
+
+	% ns_timeagg -t0 -BC TABLE | grep -v '^#' \
+			| awk '{print $9, $3}' | sort -nr
+
+	Or, we can nfsscan.  Because we're not interested in anything
+	except the read count, we can change the list of operations
+	that nfsscan tabulates so that it only counts reads.  (Of course,
+	the resulting table is useless for anything except answering
+	this particular question, and since nfsscan is expensive to run
+	this is probably wasteful.)
+
+	% nfsscan -t0 -BC -Oread -i TRACE | grep -v '^#' \
+			| awk '{print $7, $3}' | sort -nr
+
+WHICH CLIENT DOES THE MOST FSSTATS?
+
+	fsstat is not ordinarily tabulated by nfsscan.  To tell nfsscan
+	to keep track of it, we can change the list of operations to consist
+	only of fsstat:
+
+	% nfsscan -t0 -BC -Ofsstat -i TRACE | ...
+
+	As mentioned in the previous example, it is often wasteful to
+	run nfsscan just to get one number.  Another approach is to
+	add fsstat to the default list of "interesting" operations, by
+	using "+" at the start of the operation list.  This tells nfsscan
+	to append the given list of operations to the default list:
+
+	% nfsscan -t0 -BC -O+fsstat -i TRACE | ...
+
+	An implication of this is that it's impossible to know what
+	each column in the table represents unless you know what
+	operations were considered "interesting" for each run of
+	nfsscan.  To help with this, nfsscan includes the commandline
+	and column titles at the start of each file it creates.
+
+WHICH USER DOES THE MOST READING?
+
+	This is exactly like the previous example, except that we use
+	-BU instead -BC, to do everything per-user instead of
+	per-client.
+
+WHAT DIRECTORIES ARE HOTTEST?
+
+	Use the -d option to find the cummulative number of operations
+	per directory, then sort the results by operation count.  In
+	order to avoid drowning in data you might choose to print
+	print only the top 100:
+
+	% nfsscan -i TRACE -t0 -d | grep '^D' \
+			| awk '{print $7, $5}' | sort -nr | head -100
+

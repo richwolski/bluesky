@@ -1,0 +1,3 @@
+*.o
+trace_play/rpc/librpclib.a
+trace_play/sfs3

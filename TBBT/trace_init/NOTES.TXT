@@ -1,0 +1,17 @@
+# $Id: NOTES.TXT,v 1.2 2003/07/28 14:27:16 ellard Exp $
+
+NFSSCAN BUGS
+
+Known bugs for version 0.10a:
+
+- Debugging messages and warnings may appear on stderr.  Most of these
+	are meaningless, but if you encounter a problem with any of
+	the programs program please include them in your bug report.
+
+	Remove the -w from the invocation of PERL (on the first line
+	of each script) if you want to get rid of the PERL warnings.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+PLEASE report bugs, problems or suggestions for improvements to
+ellard@eecs.harvard.edu.

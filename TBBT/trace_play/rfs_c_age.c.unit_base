@@ -1,0 +1,915 @@
+/* rfs_age_unit_base.c */
+#include <sys/vfs.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdio.h>
+#include "rfs_assert.h"
+#include "profile.h"
+#define MKDIR 1
+#define RMDIR 2
+#define CREATE 3
+#define REMOVE 4
+#define WRITE 5
+#define TRUNCATE 6
+
+#define MAX_FILES 100000
+#define MAX_DIRS  100000
+#define FILE_FH_HTABLE_SIZE MAX_FILES
+#define MAX_NAMELEN 512
+#define MAX_PLAY_PATH_SIZE 1024
+#define MAX_COMMAND_LEN (MAX_PLAY_PATH_SIZE+16)
+#define NFS_MAXDATA 4096
+//#define NFS_MAXDATA 32768
+#define TRACE_FH_SIZE 64
+
+#define FH_T_FLAG_FREE 0
+#define FH_T_FLAG_IN_USE 1
+#define IS_FILE 0
+#define IS_DIR 1
+#define EXIST 0
+#define NON_EXIST 1
+#define COMPLETE 3
+#define ACTIVE 0
+#define INACTIVE 1
+#define DONT_CARE 2
+#define FILE_RATIO 50
+#define DISK_FRAGMENT_SIZE 4096
+//#define FRAGMENT_NUM 5
+//#define MIN_WRITE_SIZE 512
+//#define MIN_WRITE_SIZE 2000000000
+
+static char ftypename[3][32] = {"FILE", "DIR", "FTYPE_DONT_CARE"};
+static char activename[3][32] = {"ACTIVE", "INACTIVE", "ACTIVE_DONT_CARE"};
+static char existname[4][32] = {"EXIST", "NON_EXIST", "EXIST_DONT_CARE", "COMPLETE"};
+
+typedef struct {
+    char flag;
+	char ftype;
+	char exist_flag;
+	int psfh;
+	int size;
+	int cur_size;
+    //char trace_fh [TRACE_FH_SIZE+1];
+    char path[MAX_PLAY_PATH_SIZE];
+} fh_t;
+
+typedef struct {
+	char name[32];
+	fh_t * fh;
+	//struct generic_entry * htable;
+	int fh_size;
+	int fh_max;
+	int active_fh_max;
+	//int index;
+	//int htable_size;
+} fh_info_t;
+
+fh_info_t obj_fh;
+profile_t read_line_profile, fgets_profile;
+char trace_file[MAX_NAMELEN];
+FILE * profile_fp = NULL;
+char testdir[MAX_NAMELEN];
+
+int active_obj_num = 0;
+int exist_active_obj_num = 0;
+static int active_file_num = 0, active_dir_num =0, age_file_num = 0, age_dir_num = 0;
+
+int age_create_num = 0;
+int age_mkdir_num = 0;
+int assure_create_num = 0;
+int assure_mkdir_num = 0;
+int age_write_num = 0;
+int nonage_write_num = 0;
+int overlap_write_num = 0;
+
+int rfs_debug = 0;
+
+
+int ACTIVE_RATIO;
+int FRAGMENT_NUM;
+int MIN_WRITE_SIZE = 512;
+
+int aging_dirs ()
+{
+
+}
+
+
+int init_profile_variables()
+{
+	init_profile ("read_line profile", &read_line_profile);
+	init_profile ("fgets profile", &fgets_profile);
+}
+
+int init_fh_info (char * name, fh_info_t * fh_infop, int fh_size, int htable_size)
+{
+	int i;
+
+	RFS_ASSERT (strlen(name) < sizeof(fh_infop->name));
+	strcpy (fh_infop->name, name);
+	fh_infop->fh_max = 0;
+	//fh_infop->index = 0;
+	fh_infop->fh_size = fh_size;
+	//fh_infop->htable_size = htable_size;
+	fh_infop->fh = (fh_t *)malloc (sizeof(fh_t)*fh_size);
+	RFS_ASSERT (fh_infop->fh);
+	//fh_infop->htable = malloc (sizeof(struct*generic_entry)*htable_size);
+	//RFS_ASSERT (fh_infop->htable);
+	printf("initialize %s size %d bytes\n", 
+		//name, sizeof(fh_t)*fh_size + sizeof(struct*generic_entry)*htable_size);
+		name, sizeof(fh_t)*fh_size);
+
+	for (i=0; i<fh_size; i++)
+		fh_infop->fh[i].flag = FH_T_FLAG_FREE;
+}
+
+int init()
+{
+//	init_fh_info ("file_fh", &file_fh, MAX_FILES, MAX_FILES);
+//	init_fh_info ("dir_fh", &dir_fh, MAX_DIRS, MAX_DIRS);
+	init_fh_info ("obj_fh", &obj_fh, MAX_FILES+MAX_DIRS, MAX_FILES+MAX_DIRS);
+}
+
+int add_fh_t (fh_info_t * fh_table, char * path, int sfh, int psfh, int size, int ftype, int exist_flag, int active_flag)
+{
+	int i;
+
+	RFS_ASSERT (sfh >0);
+
+	if (active_flag == ACTIVE)
+		active_obj_num ++;
+	else
+		RFS_ASSERT (sfh >= fh_table->active_fh_max);
+
+	if (rfs_debug)
+		printf ("add to %s path %s sfh %d size %d %s %s %s\n", fh_table->name, path, sfh, size, 
+		ftypename[ftype], existname[exist_flag], activename[active_flag]);
+
+	RFS_ASSERT ( (sfh>=0) && (sfh<fh_table->fh_size) );
+	RFS_ASSERT (fh_table->fh[sfh].flag==FH_T_FLAG_FREE);
+	fh_table->fh[sfh].flag = FH_T_FLAG_IN_USE;
+	if (sfh >= fh_table->fh_max)
+		fh_table->fh_max = sfh+1;
+	strcpy (fh_table->fh[sfh].path, path);
+	fh_table->fh[sfh].psfh = psfh;
+	fh_table->fh[sfh].size = size;
+	fh_table->fh[sfh].cur_size = 0;
+	fh_table->fh[sfh].ftype = ftype;
+	fh_table->fh[sfh].exist_flag = exist_flag;
+	if (active_flag == ACTIVE) {
+		if (ftype == IS_FILE)
+			active_file_num ++;
+		else {
+			RFS_ASSERT (ftype== IS_DIR);
+			active_dir_num ++;
+		}
+	} else {
+		if (ftype == IS_FILE)
+			age_file_num ++;
+		else {
+			RFS_ASSERT (ftype== IS_DIR);
+			age_dir_num ++;
+		}
+	}
+	//print_fh_map(fh_table);
+}
+
+
+int loop_write (int fd, char * buf, int buflen)
+{
+    int ret;
+    int pos = 0;
+
+    while (1) {
+        ret = write (fd, buf+pos, buflen-pos);
+
+        if (ret == -1) {
+			printf ("fd %d\n", fd);
+            perror ("loop write");
+            exit (-1);
+        }
+        if (ret == buflen-pos)
+            break;
+        pos += ret;
+    }
+    return 0;
+}
+
+int assure_exist(int sfh, char * path, int ftype_flag)
+{
+	char name[MAX_NAMELEN];
+	int ret;
+	char *p, *q;
+	int non_exist_flag = 0;
+	int count=0;
+	struct stat st;
+
+	if (rfs_debug)
+		printf("assure_exist %s\n", path);
+
+	ret = stat (path, &st);
+	if (ret == 0)
+		return 0;
+	RFS_ASSERT (errno == ENOENT);
+	
+	p = path;
+	q = name;
+	if (*p=='/') {
+		*q='/';
+		p++;
+		q++;
+	}
+	while (count++<100) {
+		/* copy the next component from path to name */
+		for (; *p!=0 && *p!='/'; p++, q++ ) 
+			*q = *p;
+		*q = 0;
+		ret = stat (name, &st);
+		if (ret == -1) {
+			RFS_ASSERT (errno == ENOENT)
+			if ((*p)==0 && (ftype_flag==IS_FILE)) {
+				ret = creat (name, S_IRWXU);
+				if (ret == -1)
+					perror (name);
+				RFS_ASSERT (ret >=0);
+				assure_create_num ++;
+				if (rfs_debug)
+					printf("sfh %d create %s\n", sfh, name);
+				close(ret);
+			} else {
+				ret = mkdir (name, S_IRWXU);
+				assure_mkdir_num ++;
+				if (rfs_debug) {
+					if (*p==0) 
+						printf("sfh %d mkdir %s\n", sfh, name);
+					else
+						printf("sfh %d middle mkdir %s\n", sfh, name);
+				}
+				RFS_ASSERT (ret >=0);
+			}
+		}
+		if ((*p)=='/') {
+			*q = '/';
+			p++; q++;
+		} else {
+			RFS_ASSERT ((*p)==0)
+			return 0;
+		}
+	}
+	RFS_ASSERT (0);
+}
+
+
+int print_fh_map(fh_info_t * fhp)
+{
+	int i;
+	int num = 0;
+	int active_obj_num = 0;
+
+
+	for (i=0; i<fhp->fh_max; i++) {
+		if (fhp->fh[i].flag == FH_T_FLAG_IN_USE) {
+			num ++;
+			if (i < fhp->active_fh_max)
+				active_obj_num++;
+
+			if (rfs_debug)
+				printf("%s[%d] %s %s %s\n", fhp->name, i, fhp->fh[i].path, ftypename[fhp->fh[i].ftype], existname[fhp->fh[i].exist_flag]);
+		}
+	}
+	fprintf(stderr, "fh_max %d active_fh_max %d, in_use_num %d entries active_obj_num %d \n", fhp->fh_max, fhp->active_fh_max, num, active_obj_num);
+}
+
+void read_fh_map(char * fh_map_file)
+{
+	FILE * fp;
+	int i = 0;
+	char buf[1024];
+	char trace_fh[TRACE_FH_SIZE];
+	char intbuf[9];
+	char * trace_path;
+	char * p;
+	int map_flag;
+	int lineno = 0;
+	int fh_map_debug =0;
+	char name[MAX_NAMELEN];
+	int sfh;
+
+	fp = fopen(fh_map_file, "r");
+	if (!fp) {
+		printf ("can not opern %s\n", fh_map_file);
+		perror("open");
+		exit (0);
+	}
+	RFS_ASSERT (fp!=NULL);
+	
+	intbuf[8]=0;
+
+	memset(buf, 0, sizeof(buf));
+	while (fgets(buf, 1024, fp)) {
+		RFS_ASSERT (fh_map_debug==0);
+		lineno ++;
+		if (rfs_debug)
+			printf ("line %d %s", lineno, buf);
+		if (lineno % 10000==0)
+			printf("%d fh_map entry read\n", lineno);
+
+		sfh = 0;
+		if (!strncmp(buf, "::DIR ", strlen("::DIR "))) {
+			strcpy (name, testdir);
+			if (buf[6]=='/') {
+				sscanf(buf, "::DIR %s %d\n", name+strlen(name), &sfh);
+				add_fh_t (&obj_fh, name, sfh, -1, -1, IS_DIR, NON_EXIST, ACTIVE);
+			} else { 
+				RFS_ASSERT (!strncmp(buf,"::DIR Fake 1\n", strlen("::DIR Fake 1\n")));
+				sfh = 1;
+				add_fh_t (&obj_fh, name, sfh, -1, -1, IS_DIR, EXIST, ACTIVE);
+				exist_active_obj_num ++;
+			}
+		} else {
+			char * p;
+			int psfh, sfh, size;
+			char filename[MAX_NAMELEN];
+
+			if (!strncmp(buf, "::TBDIR", strlen("::TBDIR"))) 
+				continue; 
+
+			p = strstr(buf, "parent");
+			RFS_ASSERT (p);
+			sscanf(p, "parent %d\n", &psfh);
+			RFS_ASSERT (obj_fh.fh[psfh].flag == FH_T_FLAG_IN_USE);
+			p = strstr(p, "name");
+			RFS_ASSERT (p);
+			if (!strncmp(p, "name xx", strlen("name xx"))) {
+				sscanf(p, "name xx-%s sfh %d size %x", filename, &sfh, &size);
+				//printf ("name xx-%s sfh %d\n", filename, sfh);
+			} else {
+				sscanf(p, "name \"%s sfh %d size %x", filename, &sfh, &size);
+				//printf ("name %s sfh %d\n", filename, sfh);
+				filename[strlen(filename)-1]=0;
+			}
+			strcpy (name, obj_fh.fh[psfh].path);	
+			strcat (name, "/");
+			strcat (name, filename);
+			add_fh_t (&obj_fh, name, sfh, psfh, size, IS_FILE, NON_EXIST, ACTIVE);
+		}
+	}
+			
+	fclose(fp);
+	obj_fh.active_fh_max  = obj_fh.fh_max;
+	if (fh_map_debug) {
+		print_fh_map (&obj_fh);
+	}
+}
+
+int print_usage()
+{
+	printf("agefs ACTIVE_RATIO FRAGMENT_NUM fh_path_map testdir\n");
+	printf("Note: if populate_scale is 4, the total active file size is 1GB\n");
+	printf("      then the total initial file system size is about 4GB\n");
+}
+
+inline char * read_line (int disk_index)
+{
+	static FILE * fp=NULL;
+	static int start=0;
+	static int start_disk_index=0;
+	int i;
+	static int finish_flag = 0;
+
+#define READ_LINE_BUF_SIZE 1000
+#define READ_LINE_LENGTH 32
+
+	static char line_buf[READ_LINE_BUF_SIZE][READ_LINE_LENGTH];
+	start_profile (&read_line_profile);
+
+	if (fp==NULL) {
+		if (strcmp(trace_file, "stdin")) {
+			fp = fopen(trace_file, "r");
+			if (!fp) {
+				printf("can not open files %s\n", fp);
+				perror("open");
+			}
+		} else {
+			fp = stdin;
+		}
+		RFS_ASSERT (fp!=NULL);
+		for (i=0; i<READ_LINE_BUF_SIZE; i++) {
+			start_profile(&fgets_profile);
+			if (!fgets(line_buf[i], READ_LINE_LENGTH, fp)) {
+				RFS_ASSERT (0);
+			}
+			end_profile(&fgets_profile);
+			//printf ("read_line, line_buf[%d]:%s", i, line_buf[i]);
+		}
+	}
+	
+	RFS_ASSERT (disk_index <= start_disk_index+READ_LINE_BUF_SIZE)
+	if (disk_index==(start_disk_index+READ_LINE_BUF_SIZE)) {
+		if (finish_flag) {
+			return NULL;
+		}
+		start_profile(&fgets_profile);
+		if (!fgets(line_buf[start], READ_LINE_LENGTH, fp)) {
+			end_profile(&fgets_profile);
+			fclose(fp);
+			finish_flag = 1;
+			return NULL;
+		}
+		end_profile(&fgets_profile);
+		//printf ("read_line, line_buf[%d]:%s", start, line_buf[start]);
+		start = (start+1) % READ_LINE_BUF_SIZE;
+		start_disk_index ++;
+	}
+	RFS_ASSERT (disk_index < start_disk_index+READ_LINE_BUF_SIZE)
+	i = (start+disk_index-start_disk_index)%READ_LINE_BUF_SIZE;
+
+	end_profile (&read_line_profile);
+	return (line_buf[i]);
+}
+
+int f()
+{};
+
+int print_result()
+{
+	struct statfs stfs;
+	int ret;
+	static struct statfs first_stfs;
+	static int first_entry = 1;
+
+	ret = statfs (testdir, &stfs);
+	RFS_ASSERT (ret == 0);
+	if (first_entry) {
+		first_entry = 0;
+		first_stfs = stfs;
+	}
+
+	fprintf(stderr, "active_file_num %d active_dir_num %d age_file_num %d age_dir_num %d\n",
+		active_file_num, active_dir_num, age_file_num, age_dir_num);
+	fprintf(stderr, "number of used file nodes %d, used (4K) blocks in fs %d (%d MB)\n", first_stfs.f_ffree-stfs.f_ffree, first_stfs.f_bfree - stfs.f_bfree, (first_stfs.f_bfree-stfs.f_bfree)/(1000000/4096));
+	fprintf(stderr, "assure_create_num %d assure_mkdir_num %d\n", assure_create_num, assure_mkdir_num);
+}
+
+typedef struct {
+    int     pcnt;       /* percentile */
+    int     size;       /* file size in KB */
+} sfs_io_file_size_dist;
+
+sfs_io_file_size_dist Default_file_size_dist[] = {
+    /* percentage   KB size */
+    {    94,     64},           /*  4% */
+    {    97,    128},           /*  3% */
+#ifdef notdef
+    {    33,      1},           /* 33% */
+    {    54,      2},           /* 21% */
+    {    67,      4},           /* 13% */
+    {    77,      8},           /* 10% */
+    {    85,     16},           /*  8% */
+    {    90,     32},           /*  5% */
+    {    94,     64},           /*  4% */
+    {    97,    128},           /*  3% */
+#endif
+    {    99,    256},           /*  2% */
+    {   100,   1024},           /*  1% */
+    {     0,      0}
+};
+
+/*
+ * For a value between 0-99, return a size based on distribution
+ */
+static int
+get_file_size()
+{
+	static file_array_initialized = 0;
+	static int file_size_array[100];
+	int i;
+
+	i = random() % 100;
+
+    if (i < 0 || i > 99)
+    return (0);
+
+    if (file_array_initialized == 0) {
+	    int j, k;
+    	for (j = 0, k = 0; j < 100; j++) {
+        	if (j >= Default_file_size_dist[k].pcnt &&
+            	Default_file_size_dist[k + 1].size != 0)
+    	    k++;
+        	file_size_array[j] = Default_file_size_dist[k].size * 1024;
+    	}
+    	file_array_initialized++;
+    }
+    return (file_size_array[i]);
+}
+
+int range_random(int min, int max)
+{
+	int i;
+	i = random()%(max-min) + min;
+	return i;
+}
+
+/* answer 1 with a probability of percent/100 */
+int decide(int percent)
+{
+	int i = random()%100;
+	if (i<percent)
+		return 1;
+	else
+		return 0;
+}
+
+int select_obj (fh_info_t * fhp, int ftype, int exist_flag, int active_flag)
+{
+	int i;
+	int min, max;
+	int sfh, count = 0;
+
+	//printf ("select_obj %s %s %s\n", ftypename[ftype], existname[exist_flag], activename[active_flag]);
+	if (active_flag == ACTIVE) {
+		sfh = range_random (0, fhp->active_fh_max);
+		for (i=0; i<fhp->active_fh_max; i++) {
+			if ((fhp->fh[sfh].flag == FH_T_FLAG_IN_USE) &&
+				((ftype==DONT_CARE) || (ftype ==fhp->fh[sfh].ftype)) &&
+				((exist_flag==DONT_CARE) || (fhp->fh[sfh].exist_flag == exist_flag))) 
+				return sfh;
+			sfh = (sfh+1) % fhp->active_fh_max;
+		}
+	} else {
+		RFS_ASSERT (active_flag == DONT_CARE);
+		RFS_ASSERT (exist_flag == EXIST);
+		sfh = range_random (0, fhp->fh_max);
+		for (i=0; i<fhp->fh_max; i++) {
+			if ((fhp->fh[sfh].flag == FH_T_FLAG_IN_USE) &&
+			    ((ftype==DONT_CARE) || (fhp->fh[sfh].ftype == ftype)) &&
+				(fhp->fh[sfh].exist_flag == EXIST)) {
+				return sfh;
+			}
+			sfh = (sfh+1) % fhp->fh_max;
+		}
+	}
+	return -1;
+
+	print_fh_map(&obj_fh);
+	printf ("active_obj_num %d exist_active_obj_num %d \n", active_obj_num, exist_active_obj_num);
+	printf ("failed select_obj %s %s\n", ftypename[ftype], activename[active_flag]);
+	RFS_ASSERT (0);
+}
+
+/* append "size" to file "path" */
+int append_file (int sfh, char * path, int size)
+{
+	int fd;
+	int written_bytes = 0;
+	static char buf[NFS_MAXDATA];
+
+	if (rfs_debug)
+		printf ("sfh %d append_file %s size %d\n", sfh, path, size);
+
+	fd = open (path, O_WRONLY|O_APPEND);
+	if (fd==-1)
+		perror(path);
+	RFS_ASSERT (fd > 0);
+	
+	while (written_bytes+NFS_MAXDATA < size) {
+		loop_write (fd, buf, NFS_MAXDATA);
+		written_bytes += NFS_MAXDATA;
+	}
+	loop_write (fd, buf, size-written_bytes);
+	close(fd);
+}
+
+int get_write_size (int target_size, int cur_size)
+{
+	int i;
+	if (target_size - cur_size < MIN_WRITE_SIZE)
+		return (target_size - cur_size);
+
+	/* target_size/FRAGMENT_NUM would be the average value of i */
+	if (target_size < FRAGMENT_NUM) {
+		i = MIN_WRITE_SIZE;
+	} else {
+		i = random() % (2*(target_size/FRAGMENT_NUM));
+		if (i < MIN_WRITE_SIZE)
+			i = MIN_WRITE_SIZE;
+	}
+	if (i > (target_size - cur_size))
+		i = target_size - cur_size;
+
+	return i;
+}
+
+int main(int argc, char ** argv)
+{
+	char * buf;
+	static int disk_index=0;
+	int j, nfs3proc, size, off, count;
+	char procname[16];
+	struct stat st;
+	int ret;
+	int i;
+	int ftype_flag = 0, active_flag = 0;
+	char name[MAX_PLAY_PATH_SIZE];	
+	int sfh, psfh;
+
+	if (argc!=5) {
+		print_usage();
+		exit(0);
+	}
+
+	init();
+	ACTIVE_RATIO = atoi(argv[1]);
+	FRAGMENT_NUM = atoi(argv[2]);
+	if (FRAGMENT_NUM==0)
+		MIN_WRITE_SIZE = 2000000000;
+	else
+		MIN_WRITE_SIZE = DISK_FRAGMENT_SIZE;
+
+	strcpy (testdir, argv[4]);
+	ret = stat (testdir, &st);
+	if ((ret == -1) && (errno==ENOENT)) {
+		ret = mkdir (testdir, S_IRWXU);
+	}
+	RFS_ASSERT (ret >= 0);
+	read_fh_map(argv[3]);
+	print_fh_map(&obj_fh);
+	init_profile_variables();
+
+/* NOTE: should have put file and directories in one table */
+
+	for (i=0; exist_active_obj_num < active_obj_num; i++) {
+
+		if ((i!=0) && ((i%1000)==0)) {
+			fprintf (stderr, "\n%d object created \n", i);
+			print_result();
+		}
+
+		/* decide on the exact active obj or populated obj */
+		if (decide(ACTIVE_RATIO)) {
+			sfh = select_obj (&obj_fh, DONT_CARE, NON_EXIST, ACTIVE);
+			if (sfh == -1)
+				break;
+
+			obj_fh.fh[sfh].exist_flag = EXIST;
+			exist_active_obj_num ++;
+			ftype_flag = obj_fh.fh[sfh].ftype;
+			size = obj_fh.fh[sfh].size;
+
+/*
+			{
+				int tmpfh = sfh;
+			  	while (obj_fh.fh[--tmpfh].exist_flag == NON_EXIST) {
+					if (strstr(obj_fh.fh[sfh].path, obj_fh.fh[tmpfh].path)) {
+						obj_fh.fh[tmpfh].exist_flag = EXIST;
+						//printf ("set %s to exist due to %s\n", obj_fh.fh[tmpfh].path, obj_fh.fh[sfh].path);
+						exist_active_obj_num ++;
+					}
+				}	
+			}
+*/
+		} else {
+			psfh = select_obj (&obj_fh, IS_DIR, EXIST, DONT_CARE);
+			strcpy (name, obj_fh.fh[psfh].path);
+			sfh = obj_fh.fh_max;
+			sprintf(name+strlen(name), "/AGE%d", obj_fh.fh_max); 
+
+			/* decide next obj is file or directory */
+			if (decide(FILE_RATIO)) {
+				ftype_flag = IS_FILE;
+				size = get_file_size();
+			} else {
+				ftype_flag = IS_DIR;
+				size = -1;
+			}
+			add_fh_t (&obj_fh, name, sfh, psfh, size, ftype_flag, EXIST, INACTIVE);
+
+		}
+
+		/* make sure/create the  obj pathname on disk */
+		assure_exist (sfh, obj_fh.fh[sfh].path, ftype_flag);
+		/* write file to sizes according certain distribution 
+		if (ftype_flag == IS_FILE) 
+			append_file (obj_fh.fh[sfh].path, obj_fh.fh[sfh].size);
+		*/
+
+	}
+
+	i = 0;
+	printf ("start writing files\n");
+	while (1) {
+		int write_size;
+		sfh = select_obj (&obj_fh, IS_FILE, EXIST, DONT_CARE);
+		if (sfh == -1)
+			break;
+		write_size = get_write_size (obj_fh.fh[sfh].size, obj_fh.fh[sfh].cur_size);
+		append_file (sfh, obj_fh.fh[sfh].path, write_size);
+		obj_fh.fh[sfh].cur_size += write_size;
+		if (obj_fh.fh[sfh].cur_size == obj_fh.fh[sfh].size) {
+			obj_fh.fh[sfh].exist_flag = COMPLETE;
+		}
+		if ((i%100)==0)
+			printf ("%d append_file operation performed\n", i);
+		i++;
+	}
+
+	printf ("end of file system object creation\n");
+	print_fh_map(&obj_fh);
+	print_result();
+}
+
+#ifdef notdef
+int create_mkdir_op (int flag)
+{
+	static int fhno = 0;
+	char name[MAX_NAMELEN];
+	char command[MAX_COMMAND_LEN];
+	int i;
+	int fd;
+	int count = 0;
+	fh_info_t * fh_infop;
+
+	while (count++ < 100) {
+		i = random()%dir_fh.fh_max;
+		if (dir_fh.fh[i].flag==FH_T_FLAG_IN_USE) {
+			assure_exist(dir_fh.fh[i].path);
+			strcpy (name, dir_fh.fh[i].path);
+			if (flag == IS_FILE) {
+				sprintf (name+strlen(name), "AGEfile%d", fhno++);
+				fd = creat (name, S_IRWXU);
+				age_create_num++;
+				//printf ("create fd %d\n", fd);
+				close(fd);
+				fh_infop = &file_fh;
+			} else {
+				sprintf (name+strlen(name), "AGEdir%d", fhno++);
+				fd = mkdir (name, S_IRWXU);
+				age_mkdir_num++;
+				fh_infop = &dir_fh;
+			}
+			if (fd == -1) {
+				perror("");
+				if (errno == ENOENT) {
+					dir_fh.fh[i].flag = FH_T_FLAG_FREE;
+					continue;
+				} else
+					RFS_ASSERT (0);
+			}
+			add_fh_t (fh_infop, name, EXIST);
+			RFS_ASSERT (fd >=0);
+			return 0;
+		}
+	};
+	return -1;
+}
+
+int remove_op ()
+{
+	int i;
+	int count = 0;
+	int ret;
+
+	while (count++<100) {
+		i = random()%file_fh.fh_max;
+		if (file_fh.fh[i].flag == FH_T_FLAG_IN_USE) {
+/*
+			if (!strstr(file_fh.fh[i].path, "AGE"))
+				continue;
+*/
+			assure_exist(file_fh.fh[i].path);
+			ret = remove (file_fh.fh[i].path);
+			RFS_ASSERT (ret ==0);
+			file_fh.fh[i].flag = FH_T_FLAG_FREE;
+			return 0;
+		}
+	}
+	return -1;
+}
+
+int rmdir_op()
+{
+	int i;
+	int count=0;
+	char command[MAX_COMMAND_LEN];
+	int ret;
+
+	while (count++<100) {
+		i = random()%dir_fh.fh_max;
+		if ( (dir_fh.fh[i].flag == FH_T_FLAG_IN_USE) ) {
+/*
+			if (!strstr(file_fh.fh[i].path, "AGE"))
+				continue;
+*/
+			assure_exist(file_fh.fh[i].path);
+			ret = rmdir (dir_fh.fh[i].path);
+			if (ret == 0) {
+				dir_fh.fh[i].flag = FH_T_FLAG_FREE;
+				return 0;
+			}
+			RFS_ASSERT ((ret == -1) && (errno == ENOTEMPTY));
+			//strcpy (command, "rm -r %s", dir_fh.fh[i].path);
+			//system (command);
+		}
+	}
+	return -1;
+}
+
+int write_op (int off, int size)
+{
+	static char buf[NFS_MAXDATA];
+	int i;
+	int count=0;
+	int fd;
+	int ret;
+	struct stat st;
+
+	RFS_ASSERT (size <= NFS_MAXDATA);
+	while (count++<100) {
+		i = random()%file_fh.fh_max;
+		if ( (file_fh.fh[i].flag == FH_T_FLAG_IN_USE) ) {
+			assure_exist(file_fh.fh[i].path);
+			fd = open(file_fh.fh[i].path, O_WRONLY);
+			if (fd == -1)
+				perror("");
+			//else 
+				//printf ("write fd %d\n", fd);
+			RFS_ASSERT (fd!=-1);
+			fstat (fd, &st);
+			if (st.st_size < (off+size)) {
+				int written_bytes = 0;
+				while (written_bytes+NFS_MAXDATA < off+size-st.st_size) {
+					loop_write (fd, buf, NFS_MAXDATA);
+					written_bytes += NFS_MAXDATA;
+				}
+				loop_write (fd, buf, off+size-st.st_size-written_bytes);
+				if (strstr(file_fh.fh[i].path, "AGE")) {
+					age_write_num+=(written_bytes+NFS_MAXDATA-1)/NFS_MAXDATA;
+				} else 
+					nonage_write_num+=(written_bytes+NFS_MAXDATA-1)/NFS_MAXDATA;
+			} else
+				overlap_write_num++;
+/*
+			if (strstr(file_fh.fh[i].path, "AGE")) {
+				age_write_num++;
+			} else 
+				nonage_write_num++;
+			loop_write (fd, buf, size);
+*/
+			close(fd);
+			return 0;
+		};
+	}
+	return -1;
+}
+
+int truncate_op(int size)
+{
+	int i;
+	int count=0;
+	int ret;
+
+	while (count++<100) {
+		i = random()%file_fh.fh_max;
+		if ( (file_fh.fh[i].flag == FH_T_FLAG_IN_USE) ) {
+/*
+			if (!strstr(file_fh.fh[i].path, "AGE"))
+				continue;
+*/
+			assure_exist (file_fh.fh[i].path);
+			ret = truncate(file_fh.fh[i].path, size);
+			if (ret ==0) 
+				return 0;
+			RFS_ASSERT (errno == ENOENT);
+			file_fh.fh[i].flag = FH_T_FLAG_FREE;
+			continue;	
+		}
+	};
+	return -1;
+}
+
+int aging_files ()
+{
+	char name[MAX_NAMELEN];
+	int sfh;	/* file to be aged */
+	int psfh;
+	int ret;
+	struct stat st;
+	int agefd;
+
+	/* get the sfh and size of the selected file to be aged */
+	sfh = select_obj (&obj_fh, IS_FILE, EXIST, ACTIVE);
+	ret = stat (obj_fh.fh[sfh].path, &st);
+	RFS_ASSERT (ret == 0);
+	ret = truncate(obj_fh.fh[i].path, st.st_size/2);
+	RFS_ASSERT (ret==0);
+
+	psfh = obj_fh.fh[sfh].psfh;
+	strcpy (name, obj_fh.fh[psfh].path);
+	sprintf(name+strlen(name), "/AGE%d", obj_fh.fh_max); 
+	agefd = creat (name, S_IRWXU);
+	//write (agefs, buf, 0);
+
+	add_fh_t (&obj_fh, name, sfh, psfh, size, ftype_flag, EXIST, INACTIVE);
+}
+#endif
