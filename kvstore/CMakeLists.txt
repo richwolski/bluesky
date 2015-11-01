@@ -10,12 +10,12 @@ add_library(kvclient SHARED
             kvclient.cc kvservice.cc backend.cc kvstore.pb.cc
             protobufrpc.cc socket_pool.cc workqueue.cc)
 target_link_libraries(kvclient
-                      boost_thread boost_regex boost_system
+                      boost_thread-mt boost_regex boost_system
                       boost_program_options db protobuf pthread)
 
 target_link_libraries(kvstore
                       kvservice
-                      boost_thread boost_regex boost_system
+                      boost_thread-mt boost_regex boost_system
                       boost_program_options db protobuf protobufrpc pthread)
 
 add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/kvstore.pb.cc
