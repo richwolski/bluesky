@@ -13,7 +13,7 @@ set(CMAKE_C_FLAGS "-Wall -std=gnu99 ${CMAKE_C_FLAGS}")
 set(INSTALL_RPATH_USE_LINK_PATH 1)
 
 include_directories(${GLIB_INCLUDE_DIRS})
-target_link_libraries(bluesky ${GLIB_LIBRARIES} db gcrypt s3 kvclient)
-target_link_libraries(bluesky-test bluesky ${GLIB_LIBRARIES})
+target_link_libraries(bluesky ${GLIB_LIBRARIES} db gcrypt s3 kvclient curl xml2)
+target_link_libraries(bluesky-test bluesky ${GLIB_LIBRARIES} curl xml2)
 
 #set_target_properties(bluesky PROPERTIES LINK_INTERFACE_LIBRARIES "")
