@@ -209,14 +209,27 @@ static gpointer s3store_new(const gchar *path)
     S3Store *store = g_new(S3Store, 1);
     store->thread_pool = g_thread_pool_new(s3store_task, store, -1, FALSE,
                                            NULL);
+    /*
+     * TODO -- make default bucket name AWS user account specific
+     */
     if (path == NULL || strlen(path) == 0)
-        store->bucket.bucketName = "mvrable-bluesky";
+        store->bucket.bucketName = "UCSBluesky";
     else
         store->bucket.bucketName = g_strdup(path);
     store->bucket.protocol = S3ProtocolHTTP;
     store->bucket.uriStyle = S3UriStyleVirtualHost;
+    /*
+     * Eucalyptus uses old style environment variable names (sometimes)
+     * if ID" fails, look for old style name
+     */
     store->bucket.accessKeyId = getenv("AWS_ACCESS_KEY_ID");
+    if(store->bucket.accessKeyId == NULL) {
+	store->bucket.accessKeyId = getenv("AWS_ACCESS_KEY");
+    }
     store->bucket.secretAccessKey = getenv("AWS_SECRET_ACCESS_KEY");
+    if(store->bucket.secretAccessKey == NULL) {
+	store->bucket.secretAccessKey = getenv("AWS_SECRET_KEY");
+    }
 
     const char *key = getenv("BLUESKY_KEY");
     if (key == NULL) {
