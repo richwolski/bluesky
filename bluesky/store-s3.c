@@ -206,7 +206,11 @@ static char *s3store_lookup_last(gpointer s, const char *prefix)
 
 static gpointer s3store_new(const gchar *path)
 {
-    S3Store *store = g_new(S3Store, 1);
+    S3Store *store = g_new0(S3Store, 1);
+    /*
+     * clear security token field
+    store->bucket.securityToken = NULL;
+     */
     store->thread_pool = g_thread_pool_new(s3store_task, store, -1, FALSE,
                                            NULL);
     /*
@@ -217,7 +221,13 @@ static gpointer s3store_new(const gchar *path)
     else
         store->bucket.bucketName = g_strdup(path);
     store->bucket.protocol = S3ProtocolHTTP;
-    store->bucket.uriStyle = S3UriStyleVirtualHost;
+//    store->bucket.uriStyle = S3UriStyleVirtualHost;
+    store->bucket.uriStyle = S3UriStylePath;
+
+    /*
+     * Eucalyptus hostname for Walrus might be the target
+     */
+    store->bucket.hostName = getenv("S3_HOSTNAME");
     /*
      * Eucalyptus uses old style environment variable names (sometimes)
      * if ID" fails, look for old style name
@@ -291,6 +301,12 @@ static BlueSkyStoreImplementation store_impl = {
 
 void bluesky_store_init_s3(void)
 {
-    S3_initialize(NULL, S3_INIT_ALL, NULL);
+    char *s3Host;
+    /*
+     * pick up S3_HOSTNAME in case there is another S3 host to use
+     */
+    
+    s3Host = getenv("S3_HOSTNAME");
+    S3_initialize(NULL, S3_INIT_ALL, s3Host);
     bluesky_store_register(&store_impl, "s3");
 }
