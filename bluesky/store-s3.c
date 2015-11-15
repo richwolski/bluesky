@@ -207,22 +207,21 @@ static char *s3store_lookup_last(gpointer s, const char *prefix)
 static gpointer s3store_new(const gchar *path)
 {
     S3Store *store = g_new0(S3Store, 1);
-    /*
-     * clear security token field
-    store->bucket.securityToken = NULL;
-     */
     store->thread_pool = g_thread_pool_new(s3store_task, store, -1, FALSE,
                                            NULL);
     /*
-     * TODO -- make default bucket name AWS user account specific
+     * TODO -- add environment variable to set bucket name
      */
     if (path == NULL || strlen(path) == 0)
         store->bucket.bucketName = "UCSBluesky";
     else
         store->bucket.bucketName = g_strdup(path);
     store->bucket.protocol = S3ProtocolHTTP;
-//    store->bucket.uriStyle = S3UriStyleVirtualHost;
-    store->bucket.uriStyle = S3UriStylePath;
+    /*
+     * either uri styl works as long as Eucalyptus has DNS enabled
+     */
+    store->bucket.uriStyle = S3UriStyleVirtualHost;
+//    store->bucket.uriStyle = S3UriStylePath;
 
     /*
      * Eucalyptus hostname for Walrus might be the target
