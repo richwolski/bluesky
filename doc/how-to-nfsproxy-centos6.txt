@@ -1,0 +1,109 @@
+How to start the Bluesky nfsproxy under Centos 6
+-----------------------------------------------
+
+Rich Wolski, November 2015
+
+Bluesky builds an nsfd that is intended to impersonate the "real" nfsd
+so that it can intercept NFS-internal file system operations.  That is,
+the interface to Bluesky is the same as the interface exported by nfsd
+(i.e. the NFS server).  As a result, a Bluesky file system is mounted and
+accessed using the standard NFS client that comes with Centos 6 (and Ubuntu
+and Debian although the configuration may be different).
+
+To activate Bluesky, then, the server that will be running the proxy must
+launch the nfsproxy binary that Bluesky builds instead of the standard nfs
+daemon.
+
+One wrinkle, however, is that the credentials (the ACCESS_KEY and SECRET_KEY)
+must be set in the shell that launches the binary.
+
+Unfortunately, because NFS uses rpc.bind (i.e. the portmapper) getting
+the nsfproxy started outside of the usual Centos 6 system management mechanisms
+is troublesome.
+
+The easiest way to start Bluesky is to hack the Centos 6 nfs startup script.
+First, make sure NFS is installed
+
+yum -y install nfs-utils nfs-utils-lib
+
+Next, turn off NFS start-on-boot (or the real NFS will start if the machine
+reboots)
+
+chkconfig nfs off
+
+Bluesky speaks NFSv3 and the default for Centos 6 is NFSv4.  To switch to
+NFSv3 edit the file
+
+/etc/nfsmount.conf
+
+and add the lines
+
+Defaultvers=3
+Nfsvers=3
+
+There should be commented lines indicating the default is v4.
+
+Next, make a copy of the NFS startup script.  In /etc/init.d
+
+cp nsf bluesky
+
+If you plan to run nfsproxy stand alone (say because you are running it under
+the debugger) then comment out the line that starts up rpc.nfsd
+
+#       daemon rpc.nfsd $RPCNFSDARGS $RPCNFSDCOUNT
+
+Then, you need to start and restart the daemons in the following order
+(for some reason).  First, run nfsproxy (with credentials sourced)
+
+source ~/euca-cred/eucarc
+gdb nfsproxy
+
+Note that the nfsproxy looks for a directory called "journal" in the
+current working directory where it is started.  It will store a copy of its
+logs and its journals locally in this directory so make sure there is 
+enough file space.
+
+then start the "fake" nfs (as root)
+
+/etc/init.d/bluesky start
+
+It appears that all is well when you run 
+
+rpcinfo -p
+
+nfs will appear to be running.  However, it is necessary to first restart the
+portmapper (as root)
+
+/etc/init.d/rpcbind restart 
+
+and then to restart the nfsproxy
+
+At this point (as root) it should allow a mount using the following command
+
+mount -t nfs -o vers=3 <server DNS name>:/ <mount point on client>
+
+Using the -vv option it is unclear why the "vers=3" option is needed but
+seems to be.
+
+At this point, the Bluesky file system should be mounted and running.  You
+should be able to see the logs accumulating the file system bucket (using
+a command like s3cmd).
+
+It is also possible (but untested at the time of this writing) to
+hack the daemon call that starts rpc.nfsd in /etc/init.d/bluesky to
+
+-- source the credentials
+-- create the daemon with a -i option so that the environment variables
+   are preserved.
+
+The line would look like
+
+source <path to credentials>
+daemon -i <path-to-bluesky-nfsproxy>/nfsproxy $RPCNFSDARGS $RPCNFSDCOUNT
+
+In theory, this will start the proxy in order that makes the portmapper and
+other daemons happy in place of the standard NFS daemon.
+
+
+
+
