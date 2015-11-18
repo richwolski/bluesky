@@ -1,0 +1,41 @@
+How to get Bluesky to work with Eucalyptus
+------------------------------------------
+
+Rich Wolski, November 2015
+
+Eucalyptus is API compatible with AWS.  To get Bluesky to work with
+Eucalyptus is a matter of setting the environment variables necessary to
+get it to contact the Eucalyptus object store (called Walrus).
+
+First, the version of Eucalyptus must be >= 4.0.  Bluesky uses libs3 which, in 
+turn, uses easy_curl and easy_curl implements "Expect: 100-continue" two-part
+messaging protocol on some PUT operations.  Prior versions of Eucalyptus send
+back a "200 OK" message on these PUTs which easy_curl rejects.
+
+Also, the Eucalyptus cloud must be configured to use DNS support since libs3
+can't deal with dotted IP addresses as host identifiers.
+
+To get Bluesky to contact the Walrus endpoint, add 
+
+export S3_HOSTNAME='walrus.<cloud domain>:8773'
+
+where <cloud domain> is the DNS domain that has been allocated for the
+Eucalyptus cloud.  For example, if "cloud.cs.ucsb.edu" were set up to refer
+to a specific Eucalyptus cloud, then the bash format assignment would be
+
+export S3_HOSTNAME='walrus.cloud.cs.ucsb.edu:8773'
+
+Bluesky also assumes that it will be storing its log entries in an S3
+bucket that has already been created.  The bucket name that is hard coded
+into the code is "mvrable-bucket."  This bucket will need to exist before
+Bluesky will function (it doesn't test for it and then create it if it isn't
+there).
+
+The easiest method for creating this base bucket is to use s3cmd.  There is
+a version of it that HP maintains available at
+
+https://github.com/eucalyptus/eucalyptus/wiki/HowTo-use-s3cmd-with-Eucalyptus
+
+The Eucalyptus credentials must be available as environment variables 
+(e.g. the eucarc file must be sourced in the shell) when nfsproxy starts.  
+
