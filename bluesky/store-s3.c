@@ -213,7 +213,7 @@ static gpointer s3store_new(const gchar *path)
      * TODO -- add environment variable to set bucket name
      */
     if (path == NULL || strlen(path) == 0)
-        store->bucket.bucketName = "UCSBluesky";
+        store->bucket.bucketName = "Bluesky";
     else
         store->bucket.bucketName = g_strdup(path);
     store->bucket.protocol = S3ProtocolHTTP;
