@@ -26,15 +26,33 @@ to a specific Eucalyptus cloud, then the bash format assignment would be
 export S3_HOSTNAME='walrus.cloud.cs.ucsb.edu:8773'
 
 Bluesky also assumes that it will be storing its log entries in an S3
-bucket that has already been created.  The bucket name that is hard coded
-into the code is "mvrable-bucket."  This bucket will need to exist before
-Bluesky will function (it doesn't test for it and then create it if it isn't
-there).
+bucket that has already been created.  The default bucket name
+is "Bluesky".  To set a different bucket name, set the environment variable
+
+export BLUESKY_TARGET="s3:<bucketname>"
+
+This bucket will need to exist before Bluesky will function 
+(it doesn't test for it and then create it if it isn't there).
 
 The easiest method for creating this base bucket is to use s3cmd.  There is
 a version of it that HP maintains available at
 
 https://github.com/eucalyptus/eucalyptus/wiki/HowTo-use-s3cmd-with-Eucalyptus
+
+After modifying s3cfg with the Eucalyptus parameters, run
+
+s3cmd -c s3cfg mb s3://<bucketname>
+
+For example,
+
+s3cmd -c s3cfg mb s3://UCSBluesky
+
+and then set the BLUESKY_TARGET to
+
+export BLUESKY_TARGET="s3:UCSBluesky"
+
+will create the bucket and then set the environment variable that configures
+the proxy to use this bucket.
 
 The Eucalyptus credentials must be available as environment variables 
 (e.g. the eucarc file must be sourced in the shell) when nfsproxy starts.  
