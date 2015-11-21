@@ -206,17 +206,39 @@ static char *s3store_lookup_last(gpointer s, const char *prefix)
 
 static gpointer s3store_new(const gchar *path)
 {
-    S3Store *store = g_new(S3Store, 1);
+    S3Store *store = g_new0(S3Store, 1);
     store->thread_pool = g_thread_pool_new(s3store_task, store, -1, FALSE,
                                            NULL);
+    /*
+     * TODO -- add environment variable to set bucket name
+     */
     if (path == NULL || strlen(path) == 0)
-        store->bucket.bucketName = "mvrable-bluesky";
+        store->bucket.bucketName = "Bluesky";
     else
         store->bucket.bucketName = g_strdup(path);
     store->bucket.protocol = S3ProtocolHTTP;
+    /*
+     * either uri styl works as long as Eucalyptus has DNS enabled
+     */
     store->bucket.uriStyle = S3UriStyleVirtualHost;
+//    store->bucket.uriStyle = S3UriStylePath;
+
+    /*
+     * Eucalyptus hostname for Walrus might be the target
+     */
+    store->bucket.hostName = getenv("S3_HOSTNAME");
+    /*
+     * Eucalyptus uses old style environment variable names (sometimes)
+     * if ID" fails, look for old style name
+     */
     store->bucket.accessKeyId = getenv("AWS_ACCESS_KEY_ID");
+    if(store->bucket.accessKeyId == NULL) {
+	store->bucket.accessKeyId = getenv("AWS_ACCESS_KEY");
+    }
     store->bucket.secretAccessKey = getenv("AWS_SECRET_ACCESS_KEY");
+    if(store->bucket.secretAccessKey == NULL) {
+	store->bucket.secretAccessKey = getenv("AWS_SECRET_KEY");
+    }
 
     const char *key = getenv("BLUESKY_KEY");
     if (key == NULL) {
@@ -278,6 +300,12 @@ static BlueSkyStoreImplementation store_impl = {
 
 void bluesky_store_init_s3(void)
 {
-    S3_initialize(NULL, S3_INIT_ALL, NULL);
+    char *s3Host;
+    /*
+     * pick up S3_HOSTNAME in case there is another S3 host to use
+     */
+    
+    s3Host = getenv("S3_HOSTNAME");
+    S3_initialize(NULL, S3_INIT_ALL, s3Host);
     bluesky_store_register(&store_impl, "s3");
 }

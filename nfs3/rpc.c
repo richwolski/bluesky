@@ -53,7 +53,8 @@ static int outstanding_rpcs = 0;
 static struct bluesky_stats *rpc_recv_stats, *rpc_send_stats;
 
 /* TCP port number to use for NFS protocol.  (Should be 2049.) */
-#define NFS_SERVICE_PORT 2051
+/* #define NFS_SERVICE_PORT 2051 */
+#define NFS_SERVICE_PORT 2049
 
 /* Maximum size of a single RPC message that we will accept (8 MB). */
 #define MAX_RPC_MSGSIZE (8 << 20)

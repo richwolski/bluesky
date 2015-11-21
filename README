@@ -1,3 +1,5 @@
+This is the original README file for BlueSky which was developed for Debian.
+
 Required dependencies (from base Debian install):
     autoconf
     automake
